@@ -15,3 +15,6 @@ Our project is to create a Flappy Bird type game which can be played using a PS/
 &ensp;- Gifts can give power ups to bird
 - Difficulty increases with certain number of obstacles passed
 - Horizontal screen speed increases with increasing difficulty
+
+## Flappy bird:
+![](https://techcrunch.com/wp-content/uploads/2014/02/flappy.gif?w=1390&crop=1)
