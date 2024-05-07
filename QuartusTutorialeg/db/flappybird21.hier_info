@@ -1,15 +1,15 @@
 |flappybird21block
-VGA_HS <= VGA_SYNC:inst2.horiz_sync_out
+VGA_HS <= VGA_SYNC:inst5.horiz_sync_out
 CLOCK_50 => pll:inst6.refclk
-KEY[0] => bouncy_ball:inst9.pb1
-KEY[1] => bouncy_ball:inst9.pb2
-VGA_VS <= VGA_SYNC:inst2.vert_sync_out
-VGA_B[3] <= VGA_SYNC:inst2.blue_out
-VGA_G[3] <= VGA_SYNC:inst2.green_out
-VGA_R[3] <= VGA_SYNC:inst2.red_out
+KEY[0] => bouncy_ball:inst4.pb1
+KEY[1] => bouncy_ball:inst4.pb2
+VGA_VS <= VGA_SYNC:inst5.vert_sync_out
+VGA_B[3] <= VGA_SYNC:inst5.blue_out
+VGA_G[3] <= VGA_SYNC:inst5.green_out
+VGA_R[3] <= VGA_SYNC:inst5.red_out
 
 
-|flappybird21block|VGA_SYNC:inst2
+|flappybird21block|VGA_SYNC:inst5
 clock_25Mhz => vert_sync_out~reg0.CLK
 clock_25Mhz => horiz_sync_out~reg0.CLK
 clock_25Mhz => blue_out~reg0.CLK
@@ -274,7 +274,7 @@ cascade_out[0] <= <GND>
 zdbfbclk <> <GND>
 
 
-|flappybird21block|bouncy_ball:inst9
+|flappybird21block|bouncy_ball:inst4
 pb1 => red.DATAIN
 pb2 => green.IN1
 clk => ~NO_FANOUT~

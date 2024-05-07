@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Tue May 07 13:18:15 2024
+Tue May 07 13:30:54 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -47,7 +47,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 07 13:18:15 2024           ;
+; Analysis & Synthesis Status     ; Successful - Tue May 07 13:30:54 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
@@ -171,18 +171,18 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                              ; Library ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
-; bouncy_ball.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd       ;         ;
-; vga_sync.vhd                     ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd          ;         ;
-; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/flappybird21block.bdf ;         ;
-; pll.vhd                          ; yes             ; User Wizard-Generated File         ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.vhd               ; pll     ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll/pll_0002.v        ; pll     ;
-; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                            ;         ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
+; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd                            ;         ;
+; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd                         ;         ;
+; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/flappybird21block.bdf ;         ;
+; pll.vhd                          ; yes             ; User Wizard-Generated File         ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd               ; pll     ;
+; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v        ; pll     ;
+; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                                              ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -221,8 +221,8 @@ refer to the applicable agreement for further details.
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name       ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
 ; |flappybird21block                 ; 87 (0)              ; 58 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
-;    |VGA_SYNC:inst2|                ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst2                                      ; VGA_SYNC          ; work         ;
-;    |bouncy_ball:inst9|             ; 46 (46)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst9                                   ; bouncy_ball       ; work         ;
+;    |VGA_SYNC:inst5|                ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
+;    |bouncy_ball:inst4|             ; 46 (46)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4                                   ; bouncy_ball       ; work         ;
 ;    |pll:inst6|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                           ; pll               ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                         ; pll_0002          ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll        ; work         ;
@@ -244,11 +244,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+------------------------------------------------+
 ; Register name                          ; Reason for Removal                             ;
 +----------------------------------------+------------------------------------------------+
-; bouncy_ball:inst9|ball_y_motion[3..9]  ; Merged with bouncy_ball:inst9|ball_y_motion[2] ;
-; bouncy_ball:inst9|ball_y_motion[0]     ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst9|ball_y_pos[0]        ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst9|ball_y_motion[1]     ; Stuck at VCC due to stuck port data_in         ;
-; VGA_SYNC:inst2|pixel_row[9]            ; Stuck at GND due to stuck port data_in         ;
+; bouncy_ball:inst4|ball_y_motion[3..9]  ; Merged with bouncy_ball:inst4|ball_y_motion[2] ;
+; bouncy_ball:inst4|ball_y_motion[0]     ; Stuck at GND due to stuck port data_in         ;
+; bouncy_ball:inst4|ball_y_pos[0]        ; Stuck at GND due to stuck port data_in         ;
+; bouncy_ball:inst4|ball_y_motion[1]     ; Stuck at VCC due to stuck port data_in         ;
+; VGA_SYNC:inst5|pixel_row[9]            ; Stuck at GND due to stuck port data_in         ;
 ; Total Number of Removed Registers = 11 ;                                                ;
 +----------------------------------------+------------------------------------------------+
 
@@ -258,7 +258,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+---------------------------+----------------------------------------+
 ; Register name                   ; Reason for Removal        ; Registers Removed due to This Register ;
 +---------------------------------+---------------------------+----------------------------------------+
-; bouncy_ball:inst9|ball_y_pos[0] ; Stuck at GND              ; bouncy_ball:inst9|ball_y_motion[1]     ;
+; bouncy_ball:inst4|ball_y_pos[0] ; Stuck at GND              ; bouncy_ball:inst4|ball_y_motion[1]     ;
 ;                                 ; due to stuck port data_in ;                                        ;
 +---------------------------------+---------------------------+----------------------------------------+
 
@@ -283,8 +283,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst2|v_count[9]          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst9|ball_y_motion[1] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst5|v_count[9]          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst4|ball_y_motion[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
@@ -581,31 +581,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Tue May 07 13:18:09 2024
+    Info: Processing started: Tue May 07 13:30:48 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file vga_sync.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/onedrive - the university of auckland/documents/github/305-team-21/vga_sync.vhd
     Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd Line: 13
     Info (12023): Found entity 1: VGA_SYNC File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/onedrive - the university of auckland/documents/github/305-team-21/bouncy_ball.vhd
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file flappybird21block.bdf
     Info (12023): Found entity 1: flappybird21block
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-rtl File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.vhd Line: 19
-    Info (12023): Found entity 1: pll File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.vhd Line: 11
+    Info (12022): Found design unit 1: pll-rtl File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 19
+    Info (12023): Found entity 1: pll File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
-    Info (12023): Found entity 1: pll_0002 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll/pll_0002.v Line: 2
+    Info (12023): Found entity 1: pll_0002 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "flappybird21block" for the top level hierarchy
-Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst2"
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst5"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst6"
-Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.vhd Line: 31
-Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll/pll_0002.v Line: 85
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 31
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll/pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll/pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -666,7 +666,7 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst9"
+Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst4"
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
@@ -909,9 +909,9 @@ Info (21057): Implemented 119 device resources after synthesis - the final resou
     Info (21061): Implemented 110 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 233 warnings
-    Info: Peak virtual memory: 4890 megabytes
-    Info: Processing ended: Tue May 07 13:18:15 2024
+    Info: Peak virtual memory: 4893 megabytes
+    Info: Processing ended: Tue May 07 13:30:54 2024
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
