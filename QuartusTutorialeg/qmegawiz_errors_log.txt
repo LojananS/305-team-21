@@ -1,0 +1,11 @@
+
+
+C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.v
+
+May 07 01PM:12:22>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/pll.v
+
+May 07 01PM:12:23>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
