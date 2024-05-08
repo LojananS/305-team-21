@@ -1,5 +1,5 @@
 Fitter report for flappybird21
-Wed May 08 22:11:05 2024
+Thu May 09 02:17:02 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -65,15 +65,15 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                    ;
 +---------------------------------+-------------------------------------------------+
-; Fitter Status                   ; Successful - Wed May 08 22:11:05 2024           ;
+; Fitter Status                   ; Successful - Thu May 09 02:17:01 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CEBA4F23C7                                     ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 112 / 18,480 ( < 1 % )                          ;
-; Total registers                 ; 195                                             ;
+; Logic utilization (in ALMs)     ; 118 / 18,480 ( < 1 % )                          ;
+; Total registers                 ; 203                                             ;
 ; Total pins                      ; 31 / 224 ( 14 % )                               ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                           ;
@@ -174,28 +174,36 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                                                                                                    ;
-+----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+----------------------------------------------+------------------+-----------------------+
-; Node                                                                       ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                             ; Destination Port ; Destination Port Name ;
-+----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+----------------------------------------------+------------------+-----------------------+
-; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                              ;                  ;                       ;
-; MOUSE:inst1|filter[3]                                                      ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:inst1|filter[3]~DUPLICATE              ;                  ;                       ;
-; MOUSE:inst1|inhibit_wait_count[10]                                         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:inst1|inhibit_wait_count[10]~DUPLICATE ;                  ;                       ;
-; MOUSE:inst1|inhibit_wait_count[11]                                         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:inst1|inhibit_wait_count[11]~DUPLICATE ;                  ;                       ;
-; VGA_SYNC:inst5|h_count[4]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[4]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|h_count[6]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[6]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|h_count[7]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[7]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|pixel_column[6]                                             ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_column[6]~DUPLICATE     ;                  ;                       ;
-; VGA_SYNC:inst5|pixel_row[2]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[2]~DUPLICATE        ;                  ;                       ;
-; VGA_SYNC:inst5|pixel_row[7]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[7]~DUPLICATE        ;                  ;                       ;
-; VGA_SYNC:inst5|v_count[1]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[1]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|v_count[3]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[3]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|v_count[5]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[5]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|v_count[7]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[7]~DUPLICATE          ;                  ;                       ;
-; VGA_SYNC:inst5|v_count[8]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[8]~DUPLICATE          ;                  ;                       ;
-; bouncy_ball:inst3|ball_y_pos[8]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[8]~DUPLICATE    ;                  ;                       ;
-+----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+----------------------------------------------+------------------+-----------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                                                                                                      ;
++----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
+; Node                                                                       ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                               ; Destination Port ; Destination Port Name ;
++----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
+; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0]~CLKENA0 ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                ;                  ;                       ;
+; MOUSE:inst1|inhibit_wait_count[11]                                         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:inst1|inhibit_wait_count[11]~DUPLICATE   ;                  ;                       ;
+; MOUSE:inst1|mouse_state.LOAD_COMMAND                                       ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; MOUSE:inst1|mouse_state.LOAD_COMMAND~DUPLICATE ;                  ;                       ;
+; VGA_SYNC:inst5|h_count[3]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[3]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|h_count[4]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[4]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|h_count[5]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[5]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|h_count[6]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[6]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|h_count[8]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|h_count[8]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[3]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[3]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[4]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[4]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[5]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[5]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[6]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[6]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[7]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[7]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|pixel_row[8]                                                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|pixel_row[8]~DUPLICATE          ;                  ;                       ;
+; VGA_SYNC:inst5|v_count[1]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[1]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|v_count[2]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[2]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|v_count[3]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[3]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|v_count[5]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[5]~DUPLICATE            ;                  ;                       ;
+; VGA_SYNC:inst5|v_count[7]                                                  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; VGA_SYNC:inst5|v_count[7]~DUPLICATE            ;                  ;                       ;
+; bouncy_ball:inst3|ball_y_pos[3]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[3]~DUPLICATE      ;                  ;                       ;
+; bouncy_ball:inst3|ball_y_pos[4]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[4]~DUPLICATE      ;                  ;                       ;
+; bouncy_ball:inst3|ball_y_pos[5]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[5]~DUPLICATE      ;                  ;                       ;
+; bouncy_ball:inst3|ball_y_pos[7]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[7]~DUPLICATE      ;                  ;                       ;
+; bouncy_ball:inst3|ball_y_pos[8]                                            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; bouncy_ball:inst3|ball_y_pos[8]~DUPLICATE      ;                  ;                       ;
++----------------------------------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+------------------------------------------------+------------------+-----------------------+
 
 
 +-------------------------------------------------------------------------------------------+
@@ -407,8 +415,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 448 ) ; 0.00 % ( 0 / 448 )         ; 0.00 % ( 0 / 448 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 448 ) ; 0.00 % ( 0 / 448 )         ; 0.00 % ( 0 / 448 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 457 ) ; 0.00 % ( 0 / 457 )         ; 0.00 % ( 0 / 457 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 457 ) ; 0.00 % ( 0 / 457 )         ; 0.00 % ( 0 / 457 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -431,7 +439,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 441 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 450 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 7 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -447,14 +455,14 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 112 / 18,480       ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 112                ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 137 / 18,480       ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 60                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 47                 ;       ;
-;         [c] ALMs used for registers                         ; 30                 ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 118 / 18,480       ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 118                ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 140 / 18,480       ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 62                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 50                 ;       ;
+;         [c] ALMs used for registers                         ; 28                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 25 / 18,480        ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 22 / 18,480        ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 18,480         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -463,25 +471,25 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 17 / 1,848         ; < 1 % ;
-;     -- Logic LABs                                           ; 17                 ;       ;
+; Total LABs:  partially or completely used                   ; 20 / 1,848         ; 1 %   ;
+;     -- Logic LABs                                           ; 20                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 200                ;       ;
+; Combinational ALUT usage for logic                          ; 209                ;       ;
 ;     -- 7 input functions                                    ; 2                  ;       ;
-;     -- 6 input functions                                    ; 29                 ;       ;
-;     -- 5 input functions                                    ; 31                 ;       ;
-;     -- 4 input functions                                    ; 25                 ;       ;
-;     -- <=3 input functions                                  ; 113                ;       ;
-; Combinational ALUT usage for route-throughs                 ; 24                 ;       ;
+;     -- 6 input functions                                    ; 35                 ;       ;
+;     -- 5 input functions                                    ; 26                 ;       ;
+;     -- 4 input functions                                    ; 26                 ;       ;
+;     -- <=3 input functions                                  ; 120                ;       ;
+; Combinational ALUT usage for route-throughs                 ; 28                 ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 195                ;       ;
+; Dedicated logic registers                                   ; 203                ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 179 / 36,960       ; < 1 % ;
-;         -- Secondary logic registers                        ; 16 / 36,960        ; < 1 % ;
+;         -- Primary logic registers                          ; 180 / 36,960       ; < 1 % ;
+;         -- Secondary logic registers                        ; 23 / 36,960        ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
 ;         -- Design implementation registers                  ; 180                ;       ;
-;         -- Routing optimization registers                   ; 15                 ;       ;
+;         -- Routing optimization registers                   ; 23                 ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 31 / 224           ; 14 %  ;
@@ -507,12 +515,12 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; Remote update blocks                                        ; 0 / 1              ; 0 %   ;
 ; Oscillator blocks                                           ; 0 / 1              ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 3              ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 0.5% / 0.5% / 0.5% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 5.1% / 5.3% / 4.3% ;       ;
-; Maximum fan-out                                             ; 93                 ;       ;
+; Average interconnect usage (total/H/V)                      ; 0.6% / 0.5% / 0.7% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 5.2% / 4.8% / 6.4% ;       ;
+; Maximum fan-out                                             ; 94                 ;       ;
 ; Highest non-global fan-out                                  ; 93                 ;       ;
-; Total fan-out                                               ; 1423               ;       ;
-; Average fan-out                                             ; 2.92               ;       ;
+; Total fan-out                                               ; 1474               ;       ;
+; Average fan-out                                             ; 2.90               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
@@ -521,14 +529,14 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 112 / 18480 ( < 1 % ) ; 0 / 18480 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 112                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 137 / 18480 ( < 1 % ) ; 0 / 18480 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 60                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 47                    ; 0                              ;
-;         [c] ALMs used for registers                         ; 30                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 118 / 18480 ( < 1 % ) ; 0 / 18480 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 118                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 140 / 18480 ( < 1 % ) ; 0 / 18480 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 62                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 50                    ; 0                              ;
+;         [c] ALMs used for registers                         ; 28                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 25 / 18480 ( < 1 % )  ; 0 / 18480 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 22 / 18480 ( < 1 % )  ; 0 / 18480 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 18480 ( 0 % )     ; 0 / 18480 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
@@ -537,28 +545,28 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 17 / 1848 ( < 1 % )   ; 0 / 1848 ( 0 % )               ;
-;     -- Logic LABs                                           ; 17                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 20 / 1848 ( 1 % )     ; 0 / 1848 ( 0 % )               ;
+;     -- Logic LABs                                           ; 20                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 200                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 209                   ; 0                              ;
 ;     -- 7 input functions                                    ; 2                     ; 0                              ;
-;     -- 6 input functions                                    ; 29                    ; 0                              ;
-;     -- 5 input functions                                    ; 31                    ; 0                              ;
-;     -- 4 input functions                                    ; 25                    ; 0                              ;
-;     -- <=3 input functions                                  ; 113                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 24                    ; 0                              ;
+;     -- 6 input functions                                    ; 35                    ; 0                              ;
+;     -- 5 input functions                                    ; 26                    ; 0                              ;
+;     -- 4 input functions                                    ; 26                    ; 0                              ;
+;     -- <=3 input functions                                  ; 120                   ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 28                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 179 / 36960 ( < 1 % ) ; 0 / 36960 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 16 / 36960 ( < 1 % )  ; 0 / 36960 ( 0 % )              ;
+;         -- Primary logic registers                          ; 180 / 36960 ( < 1 % ) ; 0 / 36960 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 23 / 36960 ( < 1 % )  ; 0 / 36960 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
 ;         -- Design implementation registers                  ; 180                   ; 0                              ;
-;         -- Routing optimization registers                   ; 15                    ; 0                              ;
+;         -- Routing optimization registers                   ; 23                    ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
@@ -573,18 +581,18 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; PLL Reference Clock Select Block                            ; 0 / 4 ( 0 % )         ; 1 / 4 ( 25 % )                 ;
 ;                                                             ;                       ;                                ;
 ; Connections                                                 ;                       ;                                ;
-;     -- Input Connections                                    ; 92                    ; 0                              ;
-;     -- Registered Input Connections                         ; 90                    ; 0                              ;
-;     -- Output Connections                                   ; 2                     ; 90                             ;
+;     -- Input Connections                                    ; 96                    ; 0                              ;
+;     -- Registered Input Connections                         ; 94                    ; 0                              ;
+;     -- Output Connections                                   ; 2                     ; 94                             ;
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 1423                  ; 122                            ;
-;     -- Registered Connections                               ; 842                   ; 0                              ;
+;     -- Total Connections                                    ; 1474                  ; 126                            ;
+;     -- Registered Connections                               ; 865                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
-;     -- Top                                                  ; 4                     ; 90                             ;
-;     -- hard_block:auto_generated_inst                       ; 90                    ; 0                              ;
+;     -- Top                                                  ; 4                     ; 94                             ;
+;     -- hard_block:auto_generated_inst                       ; 94                    ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Partition Interface                                         ;                       ;                                ;
 ;     -- Input Ports                                          ; 3                     ; 1                              ;
@@ -613,8 +621,8 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; CLOCK_50 ; M9    ; 3B       ; 22           ; 0            ; 0            ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; KEY[0]   ; U7    ; 3A       ; 10           ; 0            ; 91           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; KEY[1]   ; W9    ; 3A       ; 11           ; 0            ; 34           ; 1                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[0]   ; U7    ; 3A       ; 10           ; 0            ; 91           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[1]   ; W9    ; 3A       ; 11           ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -629,26 +637,26 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; VGA_HS                 ; H8    ; 8A       ; 20           ; 45           ; 34           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_R[3]               ; A5    ; 8A       ; 16           ; 45           ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
 ; VGA_VS                 ; G8    ; 8A       ; 20           ; 45           ; 51           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; User                 ; -                    ; -                   ;
-; mouse_cursor_column[0] ; F7    ; 8A       ; 8            ; 45           ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[1] ; G1    ; 2A       ; 0            ; 21           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[2] ; W2    ; 2A       ; 0            ; 18           ; 60           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[3] ; E7    ; 8A       ; 8            ; 45           ; 91           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[4] ; A8    ; 8A       ; 12           ; 45           ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[5] ; E2    ; 2A       ; 0            ; 20           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[6] ; AA2   ; 2A       ; 0            ; 18           ; 77           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[7] ; L1    ; 2A       ; 0            ; 20           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[8] ; H6    ; 8A       ; 8            ; 45           ; 57           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_column[9] ; C1    ; 2A       ; 0            ; 21           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[0]    ; R5    ; 3A       ; 10           ; 0            ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[1]    ; L2    ; 2A       ; 0            ; 20           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[2]    ; U2    ; 2A       ; 0            ; 19           ; 3            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[3]    ; N1    ; 2A       ; 0            ; 19           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[4]    ; C2    ; 2A       ; 0            ; 21           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[5]    ; U1    ; 2A       ; 0            ; 19           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[6]    ; G6    ; 8A       ; 8            ; 45           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[7]    ; N2    ; 2A       ; 0            ; 19           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[8]    ; U8    ; 3A       ; 10           ; 0            ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
-; mouse_cursor_row[9]    ; V20   ; 4A       ; 44           ; 0            ; 17           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[0] ; R5    ; 3A       ; 10           ; 0            ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[1] ; U1    ; 2A       ; 0            ; 19           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[2] ; N1    ; 2A       ; 0            ; 19           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[3] ; C1    ; 2A       ; 0            ; 21           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[4] ; L2    ; 2A       ; 0            ; 20           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[5] ; U8    ; 3A       ; 10           ; 0            ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[6] ; G1    ; 2A       ; 0            ; 21           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[7] ; K21   ; 5B       ; 54           ; 21           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[8] ; G6    ; 8A       ; 8            ; 45           ; 40           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_column[9] ; C2    ; 2A       ; 0            ; 21           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[0]    ; E2    ; 2A       ; 0            ; 20           ; 20           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[1]    ; F7    ; 8A       ; 8            ; 45           ; 74           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[2]    ; AA2   ; 2A       ; 0            ; 18           ; 77           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[3]    ; U2    ; 2A       ; 0            ; 19           ; 3            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[4]    ; L1    ; 2A       ; 0            ; 20           ; 54           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[5]    ; N2    ; 2A       ; 0            ; 19           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[6]    ; W2    ; 2A       ; 0            ; 18           ; 60           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[7]    ; Y3    ; 2A       ; 0            ; 18           ; 43           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[8]    ; T8    ; 3A       ; 12           ; 0            ; 0            ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
+; mouse_cursor_row[9]    ; M20   ; 5B       ; 54           ; 20           ; 37           ; no              ; no                     ; 1         ; no              ; no         ; no            ; no       ; Off          ; 2.5 V        ; Default          ; Series 50 Ohm without Calibration ; --                        ; no                         ; no                          ; 0                   ; Off                         ; Fitter               ; -                    ; -                   ;
 +------------------------+-------+----------+--------------+--------------+--------------+-----------------+------------------------+-----------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-----------------------------------+---------------------------+----------------------------+-----------------------------+---------------------+-----------------------------+----------------------+----------------------+---------------------+
 
 
@@ -662,20 +670,20 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 +---------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+-----------+-----------------+------------+----------+--------------+--------------+------------------+-------------------+-----------------------------------+---------------------------+----------------------------+---------------------+-----------------------------+----------------------+----------------------+------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------+
-; I/O Bank Usage                                                             ;
-+----------+------------------+---------------+--------------+---------------+
-; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ; VCCPD Voltage ;
-+----------+------------------+---------------+--------------+---------------+
-; 2A       ; 15 / 16 ( 94 % ) ; 2.5V          ; --           ; 2.5V          ;
-; 3A       ; 4 / 16 ( 25 % )  ; 2.5V          ; --           ; 2.5V          ;
-; 3B       ; 1 / 32 ( 3 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 4A       ; 1 / 48 ( 2 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 5A       ; 0 / 16 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 5B       ; 0 / 16 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 7A       ; 0 / 48 ( 0 % )   ; 2.5V          ; --           ; 2.5V          ;
-; 8A       ; 10 / 32 ( 31 % ) ; 2.5V          ; --           ; 2.5V          ;
-+----------+------------------+---------------+--------------+---------------+
++-----------------------------------------------------------------------------+
+; I/O Bank Usage                                                              ;
++----------+-------------------+---------------+--------------+---------------+
+; I/O Bank ; Usage             ; VCCIO Voltage ; VREF Voltage ; VCCPD Voltage ;
++----------+-------------------+---------------+--------------+---------------+
+; 2A       ; 16 / 16 ( 100 % ) ; 2.5V          ; --           ; 2.5V          ;
+; 3A       ; 5 / 16 ( 31 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 3B       ; 1 / 32 ( 3 % )    ; 2.5V          ; --           ; 2.5V          ;
+; 4A       ; 0 / 48 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
+; 5A       ; 0 / 16 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
+; 5B       ; 2 / 16 ( 13 % )   ; 2.5V          ; --           ; 2.5V          ;
+; 7A       ; 0 / 48 ( 0 % )    ; 2.5V          ; --           ; 2.5V          ;
+; 8A       ; 7 / 32 ( 22 % )   ; 2.5V          ; --           ; 2.5V          ;
++----------+-------------------+---------------+--------------+---------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -690,7 +698,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; A5       ; 264        ; 8A       ; VGA_R[3]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; A6       ;            ; 8A       ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; A7       ; 273        ; 8A       ; VGA_B[3]                        ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
-; A8       ; 271        ; 8A       ; mouse_cursor_column[4]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; A8       ; 271        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A9       ; 262        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A10      ; 260        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; A11      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -706,7 +714,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; A21      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; A22      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA1      ; 29         ; 2A       ; LEDR[1]                         ; output ; 2.5 V        ;                     ; Row I/O      ; Y               ; no       ; Off          ;
-; AA2      ; 31         ; 2A       ; mouse_cursor_column[6]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; AA2      ; 31         ; 2A       ; mouse_cursor_row[2]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; AA3      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA4      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; AA5      ; 53         ; 3A       ; ^AS_DATA2, DATA2                ;        ;              ;                     ; Weak Pull Up ;                 ; --       ; On           ;
@@ -771,8 +779,8 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; B20      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; B21      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; B22      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
-; C1       ; 16         ; 2A       ; mouse_cursor_column[9]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
-; C2       ; 18         ; 2A       ; mouse_cursor_row[4]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; C1       ; 16         ; 2A       ; mouse_cursor_column[3]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; C2       ; 18         ; 2A       ; mouse_cursor_column[9]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; C3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; C4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; C5       ; 292        ; 9A       ; ^GND                            ;        ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -816,12 +824,12 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; D21      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; D22      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; E1       ;            ; 1A, 2A   ; VCCPD1A2A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; E2       ; 20         ; 2A       ; mouse_cursor_column[5]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; E2       ; 20         ; 2A       ; mouse_cursor_row[0]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; E3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; E4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; E5       ; 289        ; 9A       ; ^MSEL3                          ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; E6       ;            ; --       ; VCC_AUX                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; E7       ; 282        ; 8A       ; mouse_cursor_column[3]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; E7       ; 282        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E8       ;            ; 8A       ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; E9       ; 275        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; E10      ; 267        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -843,7 +851,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; F4       ;            ; --       ; VCCA_FPLL                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; F5       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; F6       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
-; F7       ; 280        ; 8A       ; mouse_cursor_column[0]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; F7       ; 280        ; 8A       ; mouse_cursor_row[1]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; F8       ;            ; --       ; VCCPGM                          ; power  ;              ; 1.8V/2.5V/3.0V/3.3V ; --           ;                 ; --       ; --           ;
 ; F9       ; 269        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; F10      ; 253        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -859,12 +867,12 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; F20      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
 ; F21      ;            ; 7A       ; VCCIO7A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; F22      ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
-; G1       ; 17         ; 2A       ; mouse_cursor_column[1]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; G1       ; 17         ; 2A       ; mouse_cursor_column[6]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; G2       ; 19         ; 2A       ; PS2_DAT                         ; bidir  ; 2.5 V        ;                     ; Row I/O      ; Y               ; no       ; Off          ;
 ; G3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; G4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; G5       ; 287        ; 9A       ; ^nCE                            ;        ;              ;                     ; --           ;                 ; --       ; --           ;
-; G6       ; 279        ; 8A       ; mouse_cursor_row[6]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; G6       ; 279        ; 8A       ; mouse_cursor_column[8]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; G7       ;            ; 8A       ; VCCIO8A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; G8       ; 258        ; 8A       ; VGA_VS                          ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; G9       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -886,7 +894,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; H3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; H4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; H5       ; 286        ; 9A       ; ^nSTATUS                        ;        ;              ;                     ; --           ;                 ; --       ; --           ;
-; H6       ; 281        ; 8A       ; mouse_cursor_column[8]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; H6       ; 281        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; H7       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; H8       ; 256        ; 8A       ; VGA_HS                          ; output ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
 ; H9       ; 261        ; 8A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -945,10 +953,10 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; K18      ;            ; 5B       ; VCCIO5B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; K19      ; 205        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; K20      ; 203        ; 7A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; K21      ; 183        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
+; K21      ; 183        ; 5B       ; mouse_cursor_column[7]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; K22      ; 185        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
-; L1       ; 21         ; 2A       ; mouse_cursor_column[7]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
-; L2       ; 23         ; 2A       ; mouse_cursor_row[1]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; L1       ; 21         ; 2A       ; mouse_cursor_row[4]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; L2       ; 23         ; 2A       ; mouse_cursor_column[4]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; L3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; L4       ;            ; --       ; VCC                             ; power  ;              ; 1.1V                ; --           ;                 ; --       ; --           ;
 ; L5       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -988,11 +996,11 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; M17      ;            ; 5B       ; VCCPD5B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; M18      ; 176        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; M19      ;            ; 5B       ; VCCIO5B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
-; M20      ; 179        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
+; M20      ; 179        ; 5B       ; mouse_cursor_row[9]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; M21      ; 181        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; M22      ; 175        ; 5B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
-; N1       ; 24         ; 2A       ; mouse_cursor_row[3]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
-; N2       ; 26         ; 2A       ; mouse_cursor_row[7]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; N1       ; 24         ; 2A       ; mouse_cursor_column[2]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; N2       ; 26         ; 2A       ; mouse_cursor_row[5]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; N3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; N4       ;            ; --       ; VCC                             ; power  ;              ; 1.1V                ; --           ;                 ; --       ; --           ;
 ; N5       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1039,7 +1047,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; R2       ;            ; 1A, 2A   ; VCCPD1A2A                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; R3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; R4       ; 49         ; 3A       ; ^nCSO, DATA4                    ;        ;              ;                     ; Weak Pull Up ;                 ; --       ; On           ;
-; R5       ; 60         ; 3A       ; mouse_cursor_row[0]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; R5       ; 60         ; 3A       ; mouse_cursor_column[0]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; R6       ; 58         ; 3A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; R7       ; 71         ; 3A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; R8       ;            ; 3B       ; VCCIO3B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1064,7 +1072,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; T5       ;            ; --       ; VCCA_FPLL                       ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; T6       ;            ; 3A       ; VCCIO3A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; T7       ; 66         ; 3A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; T8       ; 68         ; 3A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
+; T8       ; 68         ; 3A       ; mouse_cursor_row[8]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; T9       ; 83         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; T10      ; 91         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; T11      ;            ; 3B       ; VCCIO3B                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
@@ -1079,14 +1087,14 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; T20      ; 156        ; 5A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
 ; T21      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; T22      ; 158        ; 5A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
-; U1       ; 25         ; 2A       ; mouse_cursor_row[5]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
-; U2       ; 27         ; 2A       ; mouse_cursor_row[2]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; U1       ; 25         ; 2A       ; mouse_cursor_column[1]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; U2       ; 27         ; 2A       ; mouse_cursor_row[3]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; U3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; U4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; U5       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; U6       ; 67         ; 3A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; U7       ; 59         ; 3A       ; KEY[0]                          ; input  ; 2.5 V        ;                     ; Column I/O   ; Y               ; no       ; Off          ;
-; U8       ; 61         ; 3A       ; mouse_cursor_row[8]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; U8       ; 61         ; 3A       ; mouse_cursor_column[5]          ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
 ; U9       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; U10      ; 85         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; U11      ; 94         ; 3B       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
@@ -1120,11 +1128,11 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; V17      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; V18      ; 149        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; V19      ; 147        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
-; V20      ; 131        ; 4A       ; mouse_cursor_row[9]             ; output ; 2.5 V        ;                     ; Column I/O   ; N               ; no       ; Off          ;
+; V20      ; 131        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; V21      ; 148        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; V22      ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W1       ;            ; 2A       ; VREFB2AN0                       ; power  ;              ;                     ; --           ;                 ; --       ; --           ;
-; W2       ; 28         ; 2A       ; mouse_cursor_column[2]          ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
+; W2       ; 28         ; 2A       ; mouse_cursor_row[6]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; W3       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W4       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; W5       ; 54         ; 3A       ; #TDI                            ; input  ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1147,7 +1155,7 @@ The pin-out file can be found in C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS30
 ; W22      ; 140        ; 4A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Column I/O   ;                 ; no       ; On           ;
 ; Y1       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; Y2       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
-; Y3       ; 30         ; 2A       ; RESERVED_INPUT_WITH_WEAK_PULLUP ;        ;              ;                     ; Row I/O      ;                 ; no       ; On           ;
+; Y3       ; 30         ; 2A       ; mouse_cursor_row[7]             ; output ; 2.5 V        ;                     ; Row I/O      ; N               ; no       ; Off          ;
 ; Y4       ;            ; 2A       ; VCCIO2A                         ; power  ;              ; 2.5V                ; --           ;                 ; --       ; --           ;
 ; Y5       ;            ;          ; GND                             ; gnd    ;              ;                     ; --           ;                 ; --       ; --           ;
 ; Y6       ;            ;          ; NC                              ;        ;              ;                     ; --           ;                 ; --       ; --           ;
@@ -1177,6 +1185,8 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; Pin Name               ; Reason                        ;
 +------------------------+-------------------------------+
 ; VGA_HS                 ; Incomplete set of assignments ;
+; KEY[1]                 ; Incomplete set of assignments ;
+; KEY[0]                 ; Incomplete set of assignments ;
 ; VGA_VS                 ; Incomplete set of assignments ;
 ; LEDR[1]                ; Incomplete set of assignments ;
 ; mouse_cursor_column[9] ; Incomplete set of assignments ;
@@ -1204,8 +1214,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; VGA_R[3]               ; Incomplete set of assignments ;
 ; PS2_DAT                ; Incomplete set of assignments ;
 ; PS2_CLK                ; Incomplete set of assignments ;
-; KEY[1]                 ; Incomplete set of assignments ;
-; KEY[0]                 ; Incomplete set of assignments ;
 ; CLOCK_50               ; Incomplete set of assignments ;
 ; mouse_cursor_column[9] ; Missing location assignment   ;
 ; mouse_cursor_column[8] ; Missing location assignment   ;
@@ -1283,10 +1291,10 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node         ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name       ; Library Name ;
 +------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
-; |flappybird21block                 ; 111.5 (0.5)          ; 136.5 (0.5)                      ; 25.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 200 (1)             ; 195 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 31   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
-;    |MOUSE:inst1|                   ; 57.5 (57.5)          ; 77.5 (77.5)                      ; 20.0 (20.0)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 108 (108)           ; 123 (123)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                         ; MOUSE             ; work         ;
-;    |VGA_SYNC:inst5|                ; 26.3 (26.3)          ; 31.3 (31.3)                      ; 5.0 (5.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 41 (41)             ; 59 (59)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
-;    |bouncy_ball:inst3|             ; 27.2 (27.2)          ; 27.2 (27.2)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 50 (50)             ; 13 (13)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst3                                   ; bouncy_ball       ; work         ;
+; |flappybird21block                 ; 117.5 (0.5)          ; 139.5 (0.5)                      ; 22.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 209 (1)             ; 203 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 31   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
+;    |MOUSE:inst1|                   ; 57.0 (57.0)          ; 76.0 (76.0)                      ; 19.0 (19.0)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 106 (106)           ; 122 (122)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                         ; MOUSE             ; work         ;
+;    |VGA_SYNC:inst5|                ; 32.5 (32.5)          ; 34.3 (34.3)                      ; 1.8 (1.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 46 (46)             ; 64 (64)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
+;    |bouncy_ball:inst3|             ; 27.5 (27.5)          ; 28.7 (28.7)                      ; 1.2 (1.2)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 56 (56)             ; 17 (17)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst3                                   ; bouncy_ball       ; work         ;
 ;    |pll:inst6|                     ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                           ; pll               ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                         ; pll_0002          ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll        ; work         ;
@@ -1300,6 +1308,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                   ; Pin Type ; D1 ; D3_0 ; D3_1 ; D4 ; D5   ; D5 OE ; D5 OCT ; T11 (Postamble Gating) ; T11 (Postamble Ungating) ;
 +------------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 ; VGA_HS                 ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; KEY[1]                 ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; KEY[0]                 ; Input    ; -- ; --   ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; VGA_VS                 ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LEDR[1]                ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; mouse_cursor_column[9] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
@@ -1325,10 +1335,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_B[3]               ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; VGA_G[3]               ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; VGA_R[3]               ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; PS2_DAT                ; Bidir    ; -- ; (0)  ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
+; PS2_DAT                ; Bidir    ; -- ; --   ; (0)  ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; PS2_CLK                ; Bidir    ; -- ; (0)  ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; KEY[1]                 ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; KEY[0]                 ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; CLOCK_50               ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +------------------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
@@ -1338,16 +1346,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------+-------------------+---------+
 ; Source Pin / Fanout                  ; Pad To Core Index ; Setting ;
 +--------------------------------------+-------------------+---------+
+; KEY[1]                               ;                   ;         ;
+; KEY[0]                               ;                   ;         ;
 ; PS2_DAT                              ;                   ;         ;
-;      - MOUSE:inst1|READ_CHAR~0       ; 0                 ; 0       ;
-;      - MOUSE:inst1|iready_set~0      ; 0                 ; 0       ;
-;      - MOUSE:inst1|SHIFTIN[8]~feeder ; 0                 ; 0       ;
+;      - MOUSE:inst1|READ_CHAR~0       ; 1                 ; 0       ;
+;      - MOUSE:inst1|iready_set~0      ; 1                 ; 0       ;
+;      - MOUSE:inst1|SHIFTIN[8]~feeder ; 1                 ; 0       ;
 ; PS2_CLK                              ;                   ;         ;
 ;      - MOUSE:inst1|filter[0]         ; 0                 ; 0       ;
-; KEY[1]                               ;                   ;         ;
-;      - VGA_SYNC:inst5|green_out~1    ; 0                 ; 0       ;
-; KEY[0]                               ;                   ;         ;
-;      - VGA_SYNC:inst5|red_out~1      ; 1                 ; 0       ;
 ; CLOCK_50                             ;                   ;         ;
 +--------------------------------------+-------------------+---------+
 
@@ -1357,31 +1363,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------+---------------------------+---------+-----------------------------+--------+----------------------+------------------+---------------------------+
 ; Name                                                               ; Location                  ; Fan-Out ; Usage                       ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------------------------------------------------------------------+---------------------------+---------+-----------------------------+--------+----------------------+------------------+---------------------------+
-; MOUSE:inst1|Equal4~0                                               ; LABCELL_X6_Y24_N30        ; 21      ; Sync. load                  ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|INCNT[3]~1                                             ; LABCELL_X6_Y24_N39        ; 4       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|MOUSE_CLK_FILTER                                       ; FF_X5_Y24_N41             ; 93      ; Clock                       ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|MOUSE_DATA_BUF~0                                       ; MLABCELL_X4_Y24_N57       ; 10      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|PACKET_CHAR1[1]~1                                      ; LABCELL_X7_Y23_N24        ; 2       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|PACKET_CHAR2[7]~0                                      ; LABCELL_X6_Y24_N54        ; 2       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|PACKET_CHAR2[7]~1                                      ; LABCELL_X6_Y23_N36        ; 8       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|SHIFTIN[1]~0                                           ; LABCELL_X7_Y23_N9         ; 9       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|WideOr4                                                ; MLABCELL_X4_Y22_N36       ; 1       ; Output enable               ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|cursor_column[7]~0                                     ; LABCELL_X7_Y24_N39        ; 8       ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|cursor_column[9]~1                                     ; LABCELL_X6_Y24_N33        ; 19      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|mouse_state.INHIBIT_TRANS                              ; FF_X4_Y22_N56             ; 19      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY                          ; FF_X6_Y24_N11             ; 16      ; Clock enable, Output enable ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|new_cursor_column[9]~0                                 ; LABCELL_X6_Y24_N24        ; 20      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|output_ready~0                                         ; MLABCELL_X4_Y24_N33       ; 5       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|right_button~0                                         ; LABCELL_X6_Y24_N3         ; 10      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; MOUSE:inst1|send_data                                              ; FF_X5_Y24_N43             ; 17      ; Async. clear                ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|Equal0~1                                            ; LABCELL_X16_Y25_N27       ; 13      ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|LessThan6~0                                         ; LABCELL_X12_Y26_N12       ; 12      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|LessThan7~1                                         ; LABCELL_X14_Y26_N9        ; 12      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|process_0~7                                         ; LABCELL_X14_Y26_N12       ; 15      ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|v_count[1]~0                                        ; LABCELL_X14_Y26_N21       ; 15      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; VGA_SYNC:inst5|vert_sync_out                                       ; FF_X13_Y25_N47            ; 14      ; Clock                       ; no     ; --                   ; --               ; --                        ;
-; bouncy_ball:inst3|start_move                                       ; FF_X12_Y25_N41            ; 12      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
-; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 90      ; Clock                       ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; MOUSE:inst1|Equal4~0                                               ; LABCELL_X1_Y25_N18        ; 21      ; Sync. load                  ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|INCNT[3]~1                                             ; LABCELL_X2_Y25_N54        ; 4       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|MOUSE_CLK_FILTER                                       ; FF_X1_Y26_N5              ; 93      ; Clock                       ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|MOUSE_DATA_BUF~0                                       ; LABCELL_X2_Y26_N45        ; 10      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|PACKET_CHAR1[1]~1                                      ; LABCELL_X2_Y25_N57        ; 2       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|PACKET_CHAR2[7]~0                                      ; LABCELL_X2_Y25_N21        ; 2       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|PACKET_CHAR2[7]~1                                      ; LABCELL_X1_Y24_N42        ; 8       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|SHIFTIN[1]~0                                           ; LABCELL_X2_Y25_N24        ; 9       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|WideOr4                                                ; LABCELL_X2_Y23_N36        ; 1       ; Output enable               ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|cursor_column[7]~0                                     ; LABCELL_X1_Y25_N45        ; 8       ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|cursor_column[9]~1                                     ; LABCELL_X2_Y25_N0         ; 19      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|mouse_state.INHIBIT_TRANS                              ; FF_X2_Y23_N50             ; 18      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY                          ; FF_X2_Y25_N41             ; 16      ; Clock enable, Output enable ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|new_cursor_column[9]~0                                 ; LABCELL_X1_Y26_N18        ; 20      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|output_ready~0                                         ; LABCELL_X2_Y26_N30        ; 5       ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|right_button~0                                         ; LABCELL_X2_Y25_N51        ; 10      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; MOUSE:inst1|send_data                                              ; FF_X1_Y26_N29             ; 17      ; Async. clear                ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|Equal0~1                                            ; MLABCELL_X4_Y37_N21       ; 15      ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|LessThan6~0                                         ; MLABCELL_X4_Y35_N42       ; 11      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|LessThan7~1                                         ; MLABCELL_X4_Y35_N57       ; 16      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|process_0~7                                         ; MLABCELL_X4_Y35_N51       ; 15      ; Sync. clear                 ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|v_count[1]~0                                        ; LABCELL_X1_Y37_N18        ; 15      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; VGA_SYNC:inst5|vert_sync_out                                       ; FF_X1_Y37_N38             ; 18      ; Clock                       ; no     ; --                   ; --               ; --                        ;
+; bouncy_ball:inst3|start_move                                       ; FF_X1_Y31_N53             ; 16      ; Clock enable                ; no     ; --                   ; --               ; --                        ;
+; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 94      ; Clock                       ; yes    ; Global Clock         ; GCLK3            ; --                        ;
 +--------------------------------------------------------------------+---------------------------+---------+-----------------------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1390,7 +1396,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 ; Name                                                               ; Location                  ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +--------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
-; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 90      ; Global Clock         ; GCLK3            ; --                        ;
+; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ; PLLOUTPUTCOUNTER_X0_Y0_N1 ; 94      ; Global Clock         ; GCLK3            ; --                        ;
 +--------------------------------------------------------------------+---------------------------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1399,22 +1405,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------+-------------------------+
 ; Routing Resource Type        ; Usage                   ;
 +------------------------------+-------------------------+
-; Block interconnects          ; 449 / 140,056 ( < 1 % ) ;
-; C12 interconnects            ; 27 / 6,048 ( < 1 % )    ;
-; C2 interconnects             ; 217 / 54,648 ( < 1 % )  ;
-; C4 interconnects             ; 162 / 25,920 ( < 1 % )  ;
+; Block interconnects          ; 459 / 140,056 ( < 1 % ) ;
+; C12 interconnects            ; 41 / 6,048 ( < 1 % )    ;
+; C2 interconnects             ; 322 / 54,648 ( < 1 % )  ;
+; C4 interconnects             ; 196 / 25,920 ( < 1 % )  ;
 ; DQS bus muxes                ; 0 / 17 ( 0 % )          ;
 ; DQS-18 I/O buses             ; 0 / 17 ( 0 % )          ;
 ; DQS-9 I/O buses              ; 0 / 17 ( 0 % )          ;
-; Direct links                 ; 33 / 140,056 ( < 1 % )  ;
+; Direct links                 ; 26 / 140,056 ( < 1 % )  ;
 ; Global clocks                ; 1 / 16 ( 6 % )          ;
-; Local interconnects          ; 98 / 36,960 ( < 1 % )   ;
+; Local interconnects          ; 102 / 36,960 ( < 1 % )  ;
 ; Quadrant clocks              ; 0 / 88 ( 0 % )          ;
-; R14 interconnects            ; 98 / 5,984 ( 2 % )      ;
-; R14/C12 interconnect drivers ; 119 / 9,504 ( 1 % )     ;
-; R3 interconnects             ; 326 / 60,192 ( < 1 % )  ;
-; R6 interconnects             ; 345 / 127,072 ( < 1 % ) ;
-; Spine clocks                 ; 2 / 120 ( 2 % )         ;
+; R14 interconnects            ; 111 / 5,984 ( 2 % )     ;
+; R14/C12 interconnect drivers ; 144 / 9,504 ( 2 % )     ;
+; R3 interconnects             ; 385 / 60,192 ( < 1 % )  ;
+; R6 interconnects             ; 423 / 127,072 ( < 1 % ) ;
+; Spine clocks                 ; 1 / 120 ( < 1 % )       ;
 ; Wire stub REs                ; 0 / 7,344 ( 0 % )       ;
 +------------------------------+-------------------------+
 
@@ -1479,6 +1485,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Total Inapplicable     ; 20           ; 31           ; 20           ; 31           ; 31           ; 0         ; 20           ; 31           ; 0         ; 0         ; 31           ; 3            ; 31           ; 31           ; 31           ; 31           ; 3            ; 31           ; 31           ; 31           ; 31           ; 3            ; 31           ; 31           ; 31           ; 31           ; 31           ; 31           ;
 ; Total Fail             ; 0            ; 0            ; 0            ; 0            ; 0            ; 0         ; 0            ; 0            ; 0         ; 0         ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
 ; VGA_HS                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; KEY[1]                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
+; KEY[0]                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; VGA_VS                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; LEDR[1]                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; mouse_cursor_column[9] ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
@@ -1506,8 +1514,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; VGA_R[3]               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; PS2_DAT                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; PS2_CLK                ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; KEY[1]                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
-; KEY[0]                 ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 ; CLOCK_50               ; Pass         ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass      ; Pass         ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ;
 +------------------------+--------------+--------------+--------------+--------------+--------------+-----------+--------------+--------------+-----------+-----------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
 
@@ -1560,12 +1566,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
 ; Source Clock(s)                                                                                    ; Destination Clock(s)                                                  ; Delay Added in ns ;
 +----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
-; MOUSE:inst1|MOUSE_CLK_FILTER                                                                       ; MOUSE:inst1|MOUSE_CLK_FILTER                                          ; 194.2             ;
-; VGA_SYNC:inst5|vert_sync_out                                                                       ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 62.4              ;
-; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk,VGA_SYNC:inst5|vert_sync_out ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 34.5              ;
-; MOUSE:inst1|MOUSE_CLK_FILTER                                                                       ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 23.9              ;
-; VGA_SYNC:inst5|vert_sync_out                                                                       ; VGA_SYNC:inst5|vert_sync_out                                          ; 19.2              ;
-; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                              ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 13.3              ;
+; MOUSE:inst1|MOUSE_CLK_FILTER                                                                       ; MOUSE:inst1|MOUSE_CLK_FILTER                                          ; 182.3             ;
+; VGA_SYNC:inst5|vert_sync_out                                                                       ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 97.9              ;
+; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk,VGA_SYNC:inst5|vert_sync_out ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 51.8              ;
+; VGA_SYNC:inst5|vert_sync_out                                                                       ; VGA_SYNC:inst5|vert_sync_out                                          ; 23.7              ;
+; MOUSE:inst1|MOUSE_CLK_FILTER                                                                       ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 22.1              ;
+; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                              ; inst6|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 12.9              ;
 +----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
@@ -1576,106 +1582,106 @@ This will disable optimization of problematic paths and expose them for further 
 +-------------------------------------------+-------------------------------------------+-------------------+
 ; Source Register                           ; Destination Register                      ; Delay Added in ns ;
 +-------------------------------------------+-------------------------------------------+-------------------+
-; MOUSE:inst1|MOUSE_CLK_FILTER              ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 8.536             ;
-; bouncy_ball:inst3|ball_y_pos[3]           ; VGA_SYNC:inst5|green_out                  ; 7.638             ;
-; MOUSE:inst1|iready_set                    ; MOUSE:inst1|mouse_state.WAIT_CMD_ACK      ; 7.283             ;
-; bouncy_ball:inst3|ball_y_pos[4]           ; VGA_SYNC:inst5|green_out                  ; 6.559             ;
-; bouncy_ball:inst3|ball_y_pos[2]           ; VGA_SYNC:inst5|green_out                  ; 6.554             ;
-; bouncy_ball:inst3|ball_y_pos[1]           ; VGA_SYNC:inst5|green_out                  ; 6.515             ;
-; bouncy_ball:inst3|ball_y_pos[7]           ; VGA_SYNC:inst5|green_out                  ; 6.484             ;
-; bouncy_ball:inst3|ball_y_pos[8]           ; VGA_SYNC:inst5|green_out                  ; 6.475             ;
-; MOUSE:inst1|output_ready                  ; MOUSE:inst1|mouse_state.WAIT_CMD_ACK      ; 6.410             ;
-; bouncy_ball:inst3|ball_y_pos[6]           ; VGA_SYNC:inst5|green_out                  ; 6.403             ;
-; bouncy_ball:inst3|ball_y_pos[5]           ; VGA_SYNC:inst5|green_out                  ; 6.325             ;
-; bouncy_ball:inst3|ball_y_pos[9]           ; VGA_SYNC:inst5|green_out                  ; 6.308             ;
-; VGA_SYNC:inst5|pixel_row[2]               ; VGA_SYNC:inst5|green_out                  ; 5.159             ;
-; VGA_SYNC:inst5|pixel_row[1]               ; VGA_SYNC:inst5|green_out                  ; 5.159             ;
-; VGA_SYNC:inst5|pixel_row[3]               ; VGA_SYNC:inst5|green_out                  ; 5.159             ;
-; VGA_SYNC:inst5|pixel_row[0]               ; VGA_SYNC:inst5|green_out                  ; 5.056             ;
-; VGA_SYNC:inst5|pixel_row[6]               ; VGA_SYNC:inst5|green_out                  ; 5.025             ;
-; VGA_SYNC:inst5|pixel_row[5]               ; VGA_SYNC:inst5|green_out                  ; 5.025             ;
-; VGA_SYNC:inst5|pixel_row[4]               ; VGA_SYNC:inst5|green_out                  ; 5.025             ;
-; MOUSE:inst1|filter[5]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[6]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[7]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[0]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[1]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[2]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[3]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; MOUSE:inst1|filter[4]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 4.268             ;
-; VGA_SYNC:inst5|pixel_row[8]               ; VGA_SYNC:inst5|green_out                  ; 4.157             ;
-; VGA_SYNC:inst5|pixel_row[7]               ; VGA_SYNC:inst5|green_out                  ; 4.157             ;
-; VGA_SYNC:inst5|pixel_column[9]            ; VGA_SYNC:inst5|green_out                  ; 4.042             ;
-; MOUSE:inst1|mouse_state.LOAD_COMMAND2     ; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; 2.965             ;
-; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; 2.965             ;
-; VGA_SYNC:inst5|pixel_column[8]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[7]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[6]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[5]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[4]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[3]            ; VGA_SYNC:inst5|green_out                  ; 2.167             ;
-; VGA_SYNC:inst5|pixel_column[0]            ; VGA_SYNC:inst5|green_out                  ; 1.843             ;
-; VGA_SYNC:inst5|pixel_column[1]            ; VGA_SYNC:inst5|green_out                  ; 1.843             ;
-; VGA_SYNC:inst5|pixel_column[2]            ; VGA_SYNC:inst5|green_out                  ; 1.843             ;
-; MOUSE:inst1|cursor_column[6]              ; MOUSE:inst1|new_cursor_column[6]          ; 1.678             ;
-; MOUSE:inst1|SHIFTOUT[9]                   ; MOUSE:inst1|SHIFTOUT[8]                   ; 1.443             ;
-; MOUSE:inst1|SHIFTOUT[5]                   ; MOUSE:inst1|SHIFTOUT[4]                   ; 1.443             ;
-; MOUSE:inst1|SHIFTOUT[3]                   ; MOUSE:inst1|SHIFTOUT[2]                   ; 1.443             ;
-; MOUSE:inst1|new_cursor_row[3]             ; MOUSE:inst1|cursor_row[3]                 ; 1.440             ;
-; MOUSE:inst1|new_cursor_row[2]             ; MOUSE:inst1|cursor_row[2]                 ; 1.431             ;
-; MOUSE:inst1|SHIFTOUT[4]                   ; MOUSE:inst1|SHIFTOUT[3]                   ; 1.428             ;
-; MOUSE:inst1|SHIFTIN[6]                    ; MOUSE:inst1|PACKET_CHAR3[6]               ; 1.362             ;
-; MOUSE:inst1|SHIFTIN[4]                    ; MOUSE:inst1|PACKET_CHAR3[4]               ; 1.362             ;
-; MOUSE:inst1|new_cursor_column[8]          ; MOUSE:inst1|cursor_column[8]              ; 1.358             ;
-; MOUSE:inst1|SHIFTIN[3]                    ; MOUSE:inst1|PACKET_CHAR3[3]               ; 1.345             ;
-; MOUSE:inst1|PACKET_CHAR1[1]               ; MOUSE:inst1|right_button                  ; 1.343             ;
-; MOUSE:inst1|new_cursor_column[6]          ; MOUSE:inst1|cursor_column[6]              ; 1.337             ;
-; MOUSE:inst1|cursor_row[8]                 ; MOUSE:inst1|cursor_row[4]                 ; 1.298             ;
-; MOUSE:inst1|new_cursor_column[5]          ; MOUSE:inst1|cursor_column[5]              ; 1.284             ;
-; MOUSE:inst1|new_cursor_column[3]          ; MOUSE:inst1|cursor_column[3]              ; 1.275             ;
-; MOUSE:inst1|new_cursor_column[4]          ; MOUSE:inst1|cursor_column[4]              ; 1.262             ;
-; MOUSE:inst1|cursor_row[7]                 ; MOUSE:inst1|cursor_row[4]                 ; 1.261             ;
-; MOUSE:inst1|new_cursor_column[2]          ; MOUSE:inst1|cursor_column[2]              ; 1.250             ;
-; MOUSE:inst1|SHIFTIN[7]                    ; MOUSE:inst1|SHIFTIN[6]                    ; 1.231             ;
-; MOUSE:inst1|SHIFTIN[5]                    ; MOUSE:inst1|SHIFTIN[4]                    ; 1.231             ;
-; MOUSE:inst1|SHIFTIN[1]                    ; MOUSE:inst1|SHIFTIN[0]                    ; 1.231             ;
-; MOUSE:inst1|new_cursor_column[9]          ; MOUSE:inst1|cursor_column[1]              ; 1.230             ;
-; MOUSE:inst1|new_cursor_column[1]          ; MOUSE:inst1|cursor_column[1]              ; 1.219             ;
-; MOUSE:inst1|SHIFTIN[8]                    ; MOUSE:inst1|SHIFTIN[7]                    ; 1.217             ;
-; MOUSE:inst1|OUTCNT[1]                     ; MOUSE:inst1|send_char                     ; 1.212             ;
-; MOUSE:inst1|OUTCNT[2]                     ; MOUSE:inst1|send_char                     ; 1.188             ;
-; MOUSE:inst1|new_cursor_column[0]          ; MOUSE:inst1|cursor_column[0]              ; 1.187             ;
-; MOUSE:inst1|SHIFTIN[0]                    ; MOUSE:inst1|PACKET_CHAR1[0]               ; 1.174             ;
-; MOUSE:inst1|new_cursor_row[0]             ; MOUSE:inst1|cursor_row[0]                 ; 1.172             ;
-; bouncy_ball:inst3|prev_left_click         ; bouncy_ball:inst3|start_move              ; 1.160             ;
-; MOUSE:inst1|OUTCNT[3]                     ; MOUSE:inst1|send_char                     ; 1.153             ;
-; MOUSE:inst1|SHIFTOUT[8]                   ; MOUSE:inst1|SHIFTOUT[7]                   ; 1.150             ;
-; MOUSE:inst1|SHIFTOUT[6]                   ; MOUSE:inst1|SHIFTOUT[5]                   ; 1.150             ;
-; MOUSE:inst1|SHIFTOUT[2]                   ; MOUSE:inst1|SHIFTOUT[1]                   ; 1.150             ;
-; bouncy_ball:inst3|start_move              ; bouncy_ball:inst3|ball_y_motion[2]        ; 1.150             ;
-; MOUSE:inst1|SHIFTOUT[7]                   ; MOUSE:inst1|SHIFTOUT[6]                   ; 1.145             ;
-; MOUSE:inst1|SHIFTOUT[1]                   ; MOUSE:inst1|MOUSE_DATA_BUF                ; 1.145             ;
-; MOUSE:inst1|new_cursor_row[1]             ; MOUSE:inst1|cursor_row[1]                 ; 1.137             ;
-; MOUSE:inst1|PACKET_COUNT[0]               ; MOUSE:inst1|cursor_row[4]                 ; 1.124             ;
-; MOUSE:inst1|PACKET_COUNT[1]               ; MOUSE:inst1|cursor_row[4]                 ; 1.123             ;
-; MOUSE:inst1|cursor_row[1]                 ; MOUSE:inst1|new_cursor_row[8]             ; 1.108             ;
-; MOUSE:inst1|cursor_row[3]                 ; MOUSE:inst1|new_cursor_row[8]             ; 1.108             ;
-; MOUSE:inst1|PACKET_CHAR2[0]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.103             ;
-; MOUSE:inst1|cursor_row[2]                 ; MOUSE:inst1|new_cursor_row[8]             ; 1.099             ;
-; MOUSE:inst1|cursor_row[0]                 ; MOUSE:inst1|new_cursor_row[8]             ; 1.099             ;
-; MOUSE:inst1|PACKET_CHAR2[2]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.099             ;
-; MOUSE:inst1|PACKET_CHAR2[4]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.094             ;
-; MOUSE:inst1|new_cursor_row[8]             ; MOUSE:inst1|cursor_row[1]                 ; 1.065             ;
-; MOUSE:inst1|SHIFTIN[2]                    ; MOUSE:inst1|SHIFTIN[1]                    ; 1.047             ;
-; MOUSE:inst1|PACKET_CHAR1[0]               ; MOUSE:inst1|left_button                   ; 1.033             ;
-; MOUSE:inst1|PACKET_CHAR2[7]               ; MOUSE:inst1|new_cursor_column[9]          ; 1.028             ;
-; MOUSE:inst1|cursor_column[8]              ; MOUSE:inst1|new_cursor_column[9]          ; 1.027             ;
-; MOUSE:inst1|OUTCNT[0]                     ; MOUSE:inst1|OUTCNT[1]                     ; 1.026             ;
-; MOUSE:inst1|PACKET_CHAR2[5]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.023             ;
-; MOUSE:inst1|PACKET_CHAR2[1]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.008             ;
-; MOUSE:inst1|PACKET_CHAR2[3]               ; MOUSE:inst1|new_cursor_column[6]          ; 0.998             ;
-; MOUSE:inst1|new_cursor_column[7]          ; MOUSE:inst1|cursor_column[0]              ; 0.986             ;
-; MOUSE:inst1|cursor_row[6]                 ; MOUSE:inst1|new_cursor_row[8]             ; 0.939             ;
+; MOUSE:inst1|MOUSE_CLK_FILTER              ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 7.728             ;
+; bouncy_ball:inst3|ball_y_pos[3]           ; VGA_SYNC:inst5|red_out                    ; 7.671             ;
+; bouncy_ball:inst3|ball_y_pos[4]           ; VGA_SYNC:inst5|red_out                    ; 7.513             ;
+; bouncy_ball:inst3|ball_y_pos[8]           ; VGA_SYNC:inst5|red_out                    ; 7.279             ;
+; bouncy_ball:inst3|ball_y_pos[7]           ; VGA_SYNC:inst5|red_out                    ; 7.271             ;
+; bouncy_ball:inst3|ball_y_pos[1]           ; VGA_SYNC:inst5|red_out                    ; 7.032             ;
+; bouncy_ball:inst3|ball_y_pos[2]           ; VGA_SYNC:inst5|red_out                    ; 7.008             ;
+; bouncy_ball:inst3|ball_y_pos[9]           ; VGA_SYNC:inst5|red_out                    ; 6.806             ;
+; bouncy_ball:inst3|ball_y_pos[6]           ; VGA_SYNC:inst5|red_out                    ; 6.802             ;
+; bouncy_ball:inst3|ball_y_pos[5]           ; VGA_SYNC:inst5|red_out                    ; 6.797             ;
+; MOUSE:inst1|output_ready                  ; MOUSE:inst1|mouse_state.WAIT_CMD_ACK      ; 6.528             ;
+; MOUSE:inst1|iready_set                    ; MOUSE:inst1|mouse_state.INPUT_PACKETS     ; 6.352             ;
+; VGA_SYNC:inst5|pixel_row[3]               ; VGA_SYNC:inst5|red_out                    ; 5.471             ;
+; VGA_SYNC:inst5|pixel_row[2]               ; VGA_SYNC:inst5|red_out                    ; 5.471             ;
+; VGA_SYNC:inst5|pixel_row[0]               ; VGA_SYNC:inst5|red_out                    ; 5.402             ;
+; VGA_SYNC:inst5|pixel_row[1]               ; VGA_SYNC:inst5|red_out                    ; 5.402             ;
+; VGA_SYNC:inst5|pixel_row[6]               ; VGA_SYNC:inst5|red_out                    ; 5.385             ;
+; VGA_SYNC:inst5|pixel_row[5]               ; VGA_SYNC:inst5|red_out                    ; 5.385             ;
+; VGA_SYNC:inst5|pixel_row[4]               ; VGA_SYNC:inst5|red_out                    ; 5.385             ;
+; VGA_SYNC:inst5|video_on_v                 ; VGA_SYNC:inst5|red_out                    ; 4.940             ;
+; VGA_SYNC:inst5|video_on_h                 ; VGA_SYNC:inst5|red_out                    ; 4.940             ;
+; VGA_SYNC:inst5|pixel_column[9]            ; VGA_SYNC:inst5|red_out                    ; 4.940             ;
+; VGA_SYNC:inst5|pixel_column[8]            ; VGA_SYNC:inst5|red_out                    ; 4.940             ;
+; VGA_SYNC:inst5|pixel_row[8]               ; VGA_SYNC:inst5|red_out                    ; 4.598             ;
+; VGA_SYNC:inst5|pixel_row[7]               ; VGA_SYNC:inst5|red_out                    ; 4.598             ;
+; MOUSE:inst1|filter[5]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[6]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[7]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[0]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[1]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[2]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[3]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; MOUSE:inst1|filter[4]                     ; MOUSE:inst1|MOUSE_CLK_FILTER              ; 3.864             ;
+; VGA_SYNC:inst5|pixel_column[0]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[1]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[2]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[7]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[6]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[5]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[4]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; VGA_SYNC:inst5|pixel_column[3]            ; VGA_SYNC:inst5|red_out                    ; 3.759             ;
+; MOUSE:inst1|mouse_state.LOAD_COMMAND2     ; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; 2.823             ;
+; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; 2.823             ;
+; bouncy_ball:inst3|ball_y_motion[2]        ; bouncy_ball:inst3|ball_y_pos[7]           ; 1.683             ;
+; MOUSE:inst1|cursor_row[7]                 ; MOUSE:inst1|cursor_row[7]                 ; 1.683             ;
+; MOUSE:inst1|new_cursor_row[0]             ; MOUSE:inst1|cursor_row[7]                 ; 1.518             ;
+; MOUSE:inst1|PACKET_CHAR2[5]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.476             ;
+; MOUSE:inst1|PACKET_CHAR2[3]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.475             ;
+; MOUSE:inst1|PACKET_CHAR2[1]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.475             ;
+; MOUSE:inst1|PACKET_CHAR2[0]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.474             ;
+; MOUSE:inst1|PACKET_CHAR2[4]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.459             ;
+; MOUSE:inst1|PACKET_CHAR2[2]               ; MOUSE:inst1|new_cursor_column[6]          ; 1.458             ;
+; MOUSE:inst1|new_cursor_row[7]             ; MOUSE:inst1|cursor_row[7]                 ; 1.383             ;
+; MOUSE:inst1|new_cursor_row[6]             ; MOUSE:inst1|cursor_row[7]                 ; 1.355             ;
+; MOUSE:inst1|SHIFTOUT[5]                   ; MOUSE:inst1|SHIFTOUT[4]                   ; 1.343             ;
+; MOUSE:inst1|SHIFTOUT[3]                   ; MOUSE:inst1|SHIFTOUT[2]                   ; 1.343             ;
+; MOUSE:inst1|OUTCNT[3]                     ; MOUSE:inst1|output_ready                  ; 1.335             ;
+; MOUSE:inst1|OUTCNT[1]                     ; MOUSE:inst1|output_ready                  ; 1.331             ;
+; MOUSE:inst1|SHIFTOUT[9]                   ; MOUSE:inst1|SHIFTOUT[8]                   ; 1.326             ;
+; MOUSE:inst1|SHIFTOUT[4]                   ; MOUSE:inst1|SHIFTOUT[3]                   ; 1.326             ;
+; MOUSE:inst1|SHIFTIN[7]                    ; MOUSE:inst1|PACKET_CHAR3[7]               ; 1.320             ;
+; MOUSE:inst1|SHIFTIN[6]                    ; MOUSE:inst1|PACKET_CHAR3[6]               ; 1.320             ;
+; MOUSE:inst1|SHIFTIN[5]                    ; MOUSE:inst1|PACKET_CHAR3[5]               ; 1.320             ;
+; MOUSE:inst1|SHIFTIN[3]                    ; MOUSE:inst1|PACKET_CHAR3[3]               ; 1.320             ;
+; MOUSE:inst1|SHIFTIN[1]                    ; MOUSE:inst1|PACKET_CHAR3[1]               ; 1.320             ;
+; MOUSE:inst1|SHIFTIN[0]                    ; MOUSE:inst1|PACKET_CHAR1[0]               ; 1.320             ;
+; MOUSE:inst1|PACKET_CHAR1[1]               ; MOUSE:inst1|right_button                  ; 1.308             ;
+; MOUSE:inst1|SHIFTIN[4]                    ; MOUSE:inst1|PACKET_CHAR3[4]               ; 1.306             ;
+; MOUSE:inst1|SHIFTIN[2]                    ; MOUSE:inst1|PACKET_CHAR3[2]               ; 1.306             ;
+; MOUSE:inst1|OUTCNT[2]                     ; MOUSE:inst1|output_ready                  ; 1.304             ;
+; MOUSE:inst1|new_cursor_row[3]             ; MOUSE:inst1|cursor_row[3]                 ; 1.265             ;
+; MOUSE:inst1|new_cursor_row[2]             ; MOUSE:inst1|cursor_row[2]                 ; 1.251             ;
+; MOUSE:inst1|PACKET_COUNT[0]               ; MOUSE:inst1|cursor_row[7]                 ; 1.229             ;
+; MOUSE:inst1|PACKET_COUNT[1]               ; MOUSE:inst1|cursor_row[7]                 ; 1.228             ;
+; MOUSE:inst1|PACKET_CHAR2[7]               ; MOUSE:inst1|new_cursor_column[9]          ; 1.196             ;
+; MOUSE:inst1|cursor_row[8]                 ; MOUSE:inst1|cursor_row[6]                 ; 1.192             ;
+; MOUSE:inst1|cursor_row[6]                 ; MOUSE:inst1|new_cursor_row[8]             ; 1.136             ;
+; MOUSE:inst1|new_cursor_row[9]             ; MOUSE:inst1|cursor_row[7]                 ; 1.129             ;
+; MOUSE:inst1|new_cursor_row[1]             ; MOUSE:inst1|cursor_row[1]                 ; 1.112             ;
+; MOUSE:inst1|cursor_column[6]              ; MOUSE:inst1|new_cursor_column[6]          ; 1.111             ;
+; MOUSE:inst1|new_cursor_row[5]             ; MOUSE:inst1|cursor_row[7]                 ; 1.111             ;
+; MOUSE:inst1|new_cursor_row[8]             ; MOUSE:inst1|cursor_row[7]                 ; 1.102             ;
+; MOUSE:inst1|new_cursor_row[4]             ; MOUSE:inst1|cursor_row[4]                 ; 1.091             ;
+; MOUSE:inst1|new_cursor_column[0]          ; MOUSE:inst1|cursor_column[0]              ; 1.085             ;
+; bouncy_ball:inst3|prev_left_click         ; bouncy_ball:inst3|start_move              ; 1.081             ;
+; MOUSE:inst1|new_cursor_column[5]          ; MOUSE:inst1|cursor_column[5]              ; 1.076             ;
+; MOUSE:inst1|new_cursor_column[1]          ; MOUSE:inst1|cursor_column[1]              ; 1.071             ;
+; MOUSE:inst1|PACKET_CHAR1[0]               ; MOUSE:inst1|left_button                   ; 1.065             ;
+; MOUSE:inst1|cursor_column[9]              ; MOUSE:inst1|cursor_column[6]              ; 1.062             ;
+; MOUSE:inst1|new_cursor_column[3]          ; MOUSE:inst1|cursor_column[3]              ; 1.059             ;
+; MOUSE:inst1|SHIFTIN[8]                    ; MOUSE:inst1|SHIFTIN[7]                    ; 1.052             ;
+; MOUSE:inst1|SHIFTOUT[7]                   ; MOUSE:inst1|SHIFTOUT[6]                   ; 1.051             ;
+; MOUSE:inst1|SHIFTOUT[6]                   ; MOUSE:inst1|SHIFTOUT[5]                   ; 1.051             ;
+; MOUSE:inst1|SHIFTOUT[1]                   ; MOUSE:inst1|MOUSE_DATA_BUF                ; 1.051             ;
+; MOUSE:inst1|OUTCNT[0]                     ; MOUSE:inst1|OUTCNT[2]                     ; 1.049             ;
+; MOUSE:inst1|SHIFTOUT[8]                   ; MOUSE:inst1|SHIFTOUT[7]                   ; 1.046             ;
+; MOUSE:inst1|new_cursor_column[2]          ; MOUSE:inst1|cursor_column[2]              ; 1.045             ;
+; MOUSE:inst1|SHIFTOUT[2]                   ; MOUSE:inst1|SHIFTOUT[1]                   ; 1.044             ;
+; MOUSE:inst1|READ_CHAR                     ; MOUSE:inst1|iready_set                    ; 1.025             ;
+; MOUSE:inst1|INCNT[1]                      ; MOUSE:inst1|INCNT[0]                      ; 1.000             ;
 +-------------------------------------------+-------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
@@ -1920,19 +1926,19 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 0.58 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.52 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:01
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/QuartusTutorialeg/output_files/flappybird21.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 203 warnings
-    Info: Peak virtual memory: 7097 megabytes
-    Info: Processing ended: Wed May 08 22:11:05 2024
+    Info: Peak virtual memory: 7123 megabytes
+    Info: Processing ended: Thu May 09 02:17:02 2024
     Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +----------------------------+

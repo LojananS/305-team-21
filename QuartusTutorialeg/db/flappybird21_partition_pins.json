@@ -110,14 +110,6 @@
 				{
 					"name" : "PS2_CLK",
 					"strict" : false
-				},
-				{
-					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "KEY[0]",
-					"strict" : false
 				}
 			]
 		}

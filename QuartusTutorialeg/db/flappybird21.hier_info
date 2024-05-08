@@ -298,8 +298,8 @@ zdbfbclk <> <GND>
 
 
 |flappybird21block|bouncy_ball:inst3
-pb1 => red.DATAIN
-pb2 => green.IN1
+pb1 => ~NO_FANOUT~
+pb2 => ~NO_FANOUT~
 clk => ~NO_FANOUT~
 vert_sync => ball_y_pos[0].CLK
 vert_sync => ball_y_pos[1].CLK
@@ -324,8 +324,8 @@ vert_sync => ball_y_motion[9].CLK
 vert_sync => prev_left_click.CLK
 vert_sync => start_move.CLK
 left_click => Move_Ball.IN1
-left_click => prev_left_click.DATAIN
 left_click => ball_y_motion.DATAA
+left_click => prev_left_click.DATAIN
 pixel_row[0] => Add2.IN20
 pixel_row[0] => LessThan3.IN22
 pixel_row[1] => Add2.IN19
@@ -366,9 +366,9 @@ pixel_column[8] => Add0.IN14
 pixel_column[8] => LessThan1.IN16
 pixel_column[9] => Add0.IN13
 pixel_column[9] => LessThan1.IN15
-red <= pb1.DB_MAX_OUTPUT_PORT_TYPE
-green <= green.DB_MAX_OUTPUT_PORT_TYPE
-blue <= ball_on.DB_MAX_OUTPUT_PORT_TYPE
+red <= ball_on.DB_MAX_OUTPUT_PORT_TYPE
+green <= <VCC>
+blue <= <VCC>
 
 
 |flappybird21block|MOUSE:inst1

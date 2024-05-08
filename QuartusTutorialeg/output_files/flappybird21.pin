@@ -81,7 +81,7 @@ nCONFIG                      : A4        :        :                   :         
 VGA_R[3]                     : A5        : output : 2.5 V             :         : 8A        : Y              
 VCCIO8A                      : A6        : power  :                   : 2.5V    : 8A        :                
 VGA_B[3]                     : A7        : output : 2.5 V             :         : 8A        : Y              
-mouse_cursor_column[4]       : A8        : output : 2.5 V             :         : 8A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : A8        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A9        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : A10       :        :                   :         : 8A        :                
 GND                          : A11       : gnd    :                   :         :           :                
@@ -97,7 +97,7 @@ NC                           : A20       :        :                   :         
 GND                          : A21       : gnd    :                   :         :           :                
 NC                           : A22       :        :                   :         :           :                
 LEDR[1]                      : AA1       : output : 2.5 V             :         : 2A        : Y              
-mouse_cursor_column[6]       : AA2       : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[2]          : AA2       : output : 2.5 V             :         : 2A        : N              
 GND                          : AA3       : gnd    :                   :         :           :                
 GND                          : AA4       : gnd    :                   :         :           :                
 AS_DATA2, DATA2              : AA5       :        :                   :         : 3A        :                
@@ -162,8 +162,8 @@ VCCIO7A                      : B19       : power  :                   : 2.5V    
 NC                           : B20       :        :                   :         :           :                
 NC                           : B21       :        :                   :         :           :                
 NC                           : B22       :        :                   :         :           :                
-mouse_cursor_column[9]       : C1        : output : 2.5 V             :         : 2A        : N              
-mouse_cursor_row[4]          : C2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[3]       : C1        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[9]       : C2        : output : 2.5 V             :         : 2A        : N              
 GND                          : C3        : gnd    :                   :         :           :                
 GND                          : C4        : gnd    :                   :         :           :                
 GND                          : C5        :        :                   :         : 9A        :                
@@ -207,12 +207,12 @@ GND                          : D20       : gnd    :                   :         
 NC                           : D21       :        :                   :         :           :                
 NC                           : D22       :        :                   :         :           :                
 VCCPD1A2A                    : E1        : power  :                   : 2.5V    : 1A, 2A    :                
-mouse_cursor_column[5]       : E2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[0]          : E2        : output : 2.5 V             :         : 2A        : N              
 GND                          : E3        : gnd    :                   :         :           :                
 GND                          : E4        : gnd    :                   :         :           :                
 MSEL3                        : E5        :        :                   :         : 9A        :                
 VCC_AUX                      : E6        : power  :                   : 2.5V    :           :                
-mouse_cursor_column[3]       : E7        : output : 2.5 V             :         : 8A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : E7        :        :                   :         : 8A        :                
 VCCIO8A                      : E8        : power  :                   : 2.5V    : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E9        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : E10       :        :                   :         : 8A        :                
@@ -234,7 +234,7 @@ MSEL4                        : F3        :        :                   :         
 VCCA_FPLL                    : F4        : power  :                   : 2.5V    :           :                
 GND                          : F5        : gnd    :                   :         :           :                
 GND                          : F6        : gnd    :                   :         :           :                
-mouse_cursor_column[0]       : F7        : output : 2.5 V             :         : 8A        : N              
+mouse_cursor_row[1]          : F7        : output : 2.5 V             :         : 8A        : N              
 VCCPGM                       : F8        : power  :                   : 1.8V/2.5V/3.0V/3.3V :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F9        :        :                   :         : 8A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : F10       :        :                   :         : 8A        :                
@@ -250,12 +250,12 @@ NC                           : F19       :        :                   :         
 NC                           : F20       :        :                   :         :           :                
 VCCIO7A                      : F21       : power  :                   : 2.5V    : 7A        :                
 NC                           : F22       :        :                   :         :           :                
-mouse_cursor_column[1]       : G1        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[6]       : G1        : output : 2.5 V             :         : 2A        : N              
 PS2_DAT                      : G2        : bidir  : 2.5 V             :         : 2A        : Y              
 GND                          : G3        : gnd    :                   :         :           :                
 GND                          : G4        : gnd    :                   :         :           :                
 nCE                          : G5        :        :                   :         : 9A        :                
-mouse_cursor_row[6]          : G6        : output : 2.5 V             :         : 8A        : N              
+mouse_cursor_column[8]       : G6        : output : 2.5 V             :         : 8A        : N              
 VCCIO8A                      : G7        : power  :                   : 2.5V    : 8A        :                
 VGA_VS                       : G8        : output : 2.5 V             :         : 8A        : Y              
 GND                          : G9        : gnd    :                   :         :           :                
@@ -277,7 +277,7 @@ GND                          : H2        : gnd    :                   :         
 GND                          : H3        : gnd    :                   :         :           :                
 GND                          : H4        : gnd    :                   :         :           :                
 nSTATUS                      : H5        :        :                   :         : 9A        :                
-mouse_cursor_column[8]       : H6        : output : 2.5 V             :         : 8A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : H6        :        :                   :         : 8A        :                
 GND                          : H7        : gnd    :                   :         :           :                
 VGA_HS                       : H8        : output : 2.5 V             :         : 8A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : H9        :        :                   :         : 8A        :                
@@ -336,10 +336,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : K17       :        :                   :      
 VCCIO5B                      : K18       : power  :                   : 2.5V    : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K19       :        :                   :         : 7A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : K20       :        :                   :         : 7A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : K21       :        :                   :         : 5B        :                
+mouse_cursor_column[7]       : K21       : output : 2.5 V             :         : 5B        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : K22       :        :                   :         : 5B        :                
-mouse_cursor_column[7]       : L1        : output : 2.5 V             :         : 2A        : N              
-mouse_cursor_row[1]          : L2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[4]          : L1        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[4]       : L2        : output : 2.5 V             :         : 2A        : N              
 GND                          : L3        : gnd    :                   :         :           :                
 VCC                          : L4        : power  :                   : 1.1V    :           :                
 GND                          : L5        : gnd    :                   :         :           :                
@@ -379,11 +379,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : M16       :        :                   :      
 VCCPD5B                      : M17       : power  :                   : 2.5V    : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : M18       :        :                   :         : 5B        :                
 VCCIO5B                      : M19       : power  :                   : 2.5V    : 5B        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : M20       :        :                   :         : 5B        :                
+mouse_cursor_row[9]          : M20       : output : 2.5 V             :         : 5B        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : M21       :        :                   :         : 5B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : M22       :        :                   :         : 5B        :                
-mouse_cursor_row[3]          : N1        : output : 2.5 V             :         : 2A        : N              
-mouse_cursor_row[7]          : N2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[2]       : N1        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[5]          : N2        : output : 2.5 V             :         : 2A        : N              
 GND                          : N3        : gnd    :                   :         :           :                
 VCC                          : N4        : power  :                   : 1.1V    :           :                
 GND                          : N5        : gnd    :                   :         :           :                
@@ -430,7 +430,7 @@ VCCIO2A                      : R1        : power  :                   : 2.5V    
 VCCPD1A2A                    : R2        : power  :                   : 2.5V    : 1A, 2A    :                
 GND                          : R3        : gnd    :                   :         :           :                
 nCSO, DATA4                  : R4        :        :                   :         : 3A        :                
-mouse_cursor_row[0]          : R5        : output : 2.5 V             :         : 3A        : N              
+mouse_cursor_column[0]       : R5        : output : 2.5 V             :         : 3A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : R6        :        :                   :         : 3A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : R7        :        :                   :         : 3A        :                
 VCCIO3B                      : R8        : power  :                   : 2.5V    : 3B        :                
@@ -455,7 +455,7 @@ AS_DATA3, DATA3              : T4        :        :                   :         
 VCCA_FPLL                    : T5        : power  :                   : 2.5V    :           :                
 VCCIO3A                      : T6        : power  :                   : 2.5V    : 3A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T7        :        :                   :         : 3A        :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : T8        :        :                   :         : 3A        :                
+mouse_cursor_row[8]          : T8        : output : 2.5 V             :         : 3A        : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : T9        :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T10       :        :                   :         : 3B        :                
 VCCIO3B                      : T11       : power  :                   : 2.5V    : 3B        :                
@@ -470,14 +470,14 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : T19       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : T20       :        :                   :         : 5A        :                
 GND                          : T21       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : T22       :        :                   :         : 5A        :                
-mouse_cursor_row[5]          : U1        : output : 2.5 V             :         : 2A        : N              
-mouse_cursor_row[2]          : U2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_column[1]       : U1        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[3]          : U2        : output : 2.5 V             :         : 2A        : N              
 GND                          : U3        : gnd    :                   :         :           :                
 GND                          : U4        : gnd    :                   :         :           :                
 GND                          : U5        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U6        :        :                   :         : 3A        :                
 KEY[0]                       : U7        : input  : 2.5 V             :         : 3A        : Y              
-mouse_cursor_row[8]          : U8        : output : 2.5 V             :         : 3A        : N              
+mouse_cursor_column[5]       : U8        : output : 2.5 V             :         : 3A        : N              
 GND                          : U9        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U10       :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : U11       :        :                   :         : 3B        :                
@@ -511,11 +511,11 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : V16       :        :                   :      
 GND                          : V17       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V18       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V19       :        :                   :         : 4A        :                
-mouse_cursor_row[9]          : V20       : output : 2.5 V             :         : 4A        : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : V20       :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : V21       :        :                   :         : 4A        :                
 GND                          : V22       : gnd    :                   :         :           :                
 VREFB2AN0                    : W1        : power  :                   :         : 2A        :                
-mouse_cursor_column[2]       : W2        : output : 2.5 V             :         : 2A        : N              
+mouse_cursor_row[6]          : W2        : output : 2.5 V             :         : 2A        : N              
 GND                          : W3        : gnd    :                   :         :           :                
 GND                          : W4        : gnd    :                   :         :           :                
 TDI                          : W5        : input  :                   :         : 3A        :                
@@ -538,7 +538,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : W21       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : W22       :        :                   :         : 4A        :                
 GND                          : Y1        : gnd    :                   :         :           :                
 GND                          : Y2        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : Y3        :        :                   :         : 2A        :                
+mouse_cursor_row[7]          : Y3        : output : 2.5 V             :         : 2A        : N              
 VCCIO2A                      : Y4        : power  :                   : 2.5V    : 2A        :                
 GND                          : Y5        : gnd    :                   :         :           :                
 NC                           : Y6        :        :                   :         :           :                

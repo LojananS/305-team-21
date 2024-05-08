@@ -21,7 +21,7 @@ refer to the applicable agreement for further details.
 (header "graphic" (version "1.4"))
 (pin
 	(input)
-	(rect -208 312 -40 328)
+	(rect -256 288 -88 304)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "KEY[0]" (rect 5 0 40 12)(font "Arial" ))
 	(pt 168 8)
@@ -34,11 +34,11 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -264 328 -208 352))
+	(annotation_block (location)(rect -312 288 -256 312))
 )
 (pin
 	(input)
-	(rect -208 328 -40 344)
+	(rect -256 304 -88 320)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "KEY[1]" (rect 5 0 40 12)(font "Arial" ))
 	(pt 168 8)
@@ -51,7 +51,7 @@ refer to the applicable agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -264 344 -208 368))
+	(annotation_block (location)(rect -312 304 -256 328))
 )
 (pin
 	(input)
@@ -72,7 +72,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 600 296 776 312)
+	(rect 680 296 856 312)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "VGA_R[3]" (rect 90 0 139 12)(font "Arial" ))
 	(pt 0 8)
@@ -85,11 +85,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 776 312 832 336))
+	(annotation_block (location)(rect 856 296 912 320))
 )
 (pin
 	(output)
-	(rect 600 312 776 328)
+	(rect 680 312 856 328)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "VGA_G[3]" (rect 90 0 139 12)(font "Arial" ))
 	(pt 0 8)
@@ -102,11 +102,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 776 328 832 352))
+	(annotation_block (location)(rect 856 312 912 336))
 )
 (pin
 	(output)
-	(rect 600 328 776 344)
+	(rect 680 328 856 344)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "VGA_B[3]\n" (rect 90 0 138 24)(font "Arial" ))
 	(pt 0 8)
@@ -119,11 +119,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 776 344 832 368))
+	(annotation_block (location)(rect 856 328 912 352))
 )
 (pin
 	(output)
-	(rect 600 344 776 360)
+	(rect 680 344 856 360)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "VGA_HS" (rect 90 0 133 12)(font "Arial" ))
 	(pt 0 8)
@@ -136,11 +136,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 776 360 832 384))
+	(annotation_block (location)(rect 856 344 912 368))
 )
 (pin
 	(output)
-	(rect 736 392 912 408)
+	(rect 816 392 992 408)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "VGA_VS" (rect 90 0 132 12)(font "Arial" ))
 	(pt 0 8)
@@ -153,7 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 912 408 968 432))
+	(annotation_block (location)(rect 992 392 1048 416))
 )
 (pin
 	(output)
@@ -202,6 +202,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect -72 88 -8 112))
 )
 (pin
 	(bidir)
@@ -219,6 +220,7 @@ refer to the applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -80 24 -24 48))
 )
 (pin
 	(bidir)
@@ -236,6 +238,7 @@ refer to the applicable agreement for further details.
 		(line (pt 52 8)(pt 56 12))
 	)
 	(text "VCC" (rect 4 7 24 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect -80 48 -24 72))
 )
 (symbol
 	(rect 8 -112 40 -80)
@@ -304,7 +307,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 376 272 600 448)
+	(rect 456 272 680 448)
 	(text "VGA_SYNC" (rect 5 0 65 12)(font "Arial" ))
 	(text "inst5" (rect 8 160 30 177)(font "Intel Clear" ))
 	(port
@@ -548,104 +551,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (connector
-	(pt -32 264)
-	(pt 368 264)
-)
-(connector
-	(pt 688 488)
-	(pt -72 488)
-)
-(connector
-	(pt 616 456)
-	(pt -40 456)
-	(bus)
-)
-(connector
-	(pt -56 472)
-	(pt 648 472)
-	(bus)
-)
-(connector
-	(pt 368 304)
-	(pt 376 304)
-)
-(connector
-	(pt 688 368)
-	(pt 600 368)
-)
-(connector
-	(pt 616 400)
-	(pt 600 400)
-	(bus)
-)
-(connector
-	(pt 616 456)
-	(pt 616 400)
-	(bus)
-)
-(connector
-	(pt 648 384)
-	(pt 600 384)
-	(bus)
-)
-(connector
-	(pt 648 472)
-	(pt 648 384)
-	(bus)
-)
-(connector
-	(pt -32 352)
-	(pt -32 264)
-)
-(connector
-	(pt -32 352)
-	(pt -8 352)
-)
-(connector
-	(pt -72 368)
-	(pt -72 488)
-)
-(connector
-	(pt -72 368)
-	(pt -8 368)
-)
-(connector
-	(pt 688 400)
-	(pt 736 400)
-)
-(connector
-	(pt 688 368)
-	(pt 688 400)
-)
-(connector
-	(pt 688 400)
-	(pt 688 488)
-)
-(connector
-	(pt -8 336)
-	(pt -40 336)
-)
-(connector
-	(pt -8 320)
-	(pt -40 320)
-)
-(connector
-	(pt 184 320)
-	(pt 376 320)
-)
-(connector
-	(pt 184 336)
-	(pt 376 336)
-)
-(connector
-	(pt 184 352)
-	(pt 376 352)
-)
-(connector
-	(pt 368 264)
-	(pt 368 304)
-)
-(connector
 	(pt 56 -160)
 	(pt 0 -160)
 )
@@ -660,26 +565,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 368 -160)
 	(pt 216 -160)
-)
-(connector
-	(pt -40 456)
-	(pt -40 416)
-	(bus)
-)
-(connector
-	(pt -40 416)
-	(pt -8 416)
-	(bus)
-)
-(connector
-	(pt -56 472)
-	(pt -56 400)
-	(bus)
-)
-(connector
-	(pt -56 400)
-	(pt -8 400)
-	(bus)
 )
 (connector
 	(pt -512 56)
@@ -698,10 +583,6 @@ refer to the applicable agreement for further details.
 	(pt 368 -32)
 )
 (connector
-	(pt 368 -32)
-	(pt 368 264)
-)
-(connector
 	(pt -560 -32)
 	(pt -560 40)
 )
@@ -718,21 +599,159 @@ refer to the applicable agreement for further details.
 	(pt 24 72)
 )
 (connector
-	(pt -328 200)
-	(pt 24 200)
-)
-(connector
-	(pt -328 200)
-	(pt -328 384)
-)
-(connector
-	(pt -328 384)
-	(pt -8 384)
-)
-(connector
 	(pt -248 40)
 	(pt -256 40)
 )
+(connector
+	(pt 768 368)
+	(pt 680 368)
+)
+(connector
+	(pt 768 400)
+	(pt 816 400)
+)
+(connector
+	(pt 368 304)
+	(pt 456 304)
+)
+(connector
+	(pt 184 320)
+	(pt 456 320)
+)
+(connector
+	(pt 184 336)
+	(pt 456 336)
+)
+(connector
+	(pt 184 352)
+	(pt 456 352)
+)
+(connector
+	(pt -8 368)
+	(pt -72 368)
+)
+(connector
+	(pt -8 416)
+	(pt -40 416)
+	(bus)
+)
+(connector
+	(pt -8 400)
+	(pt -56 400)
+	(bus)
+)
+(connector
+	(pt -72 528)
+	(pt 768 528)
+)
+(connector
+	(pt -40 496)
+	(pt 696 496)
+	(bus)
+)
+(connector
+	(pt -56 512)
+	(pt 728 512)
+	(bus)
+)
+(connector
+	(pt 680 400)
+	(pt 696 400)
+	(bus)
+)
+(connector
+	(pt 696 400)
+	(pt 696 496)
+	(bus)
+)
+(connector
+	(pt 680 384)
+	(pt 728 384)
+	(bus)
+)
+(connector
+	(pt 728 384)
+	(pt 728 512)
+	(bus)
+)
+(connector
+	(pt -72 368)
+	(pt -72 528)
+)
+(connector
+	(pt -40 416)
+	(pt -40 496)
+	(bus)
+)
+(connector
+	(pt -56 400)
+	(pt -56 512)
+	(bus)
+)
+(connector
+	(pt 768 368)
+	(pt 768 400)
+)
+(connector
+	(pt 768 400)
+	(pt 768 528)
+)
+(connector
+	(pt 24 200)
+	(pt -376 200)
+)
+(connector
+	(pt -376 200)
+	(pt -376 384)
+)
+(connector
+	(pt -8 384)
+	(pt -376 384)
+)
+(connector
+	(pt 368 264)
+	(pt -336 264)
+)
+(connector
+	(pt 368 -32)
+	(pt 368 264)
+)
+(connector
+	(pt 368 264)
+	(pt 368 304)
+)
+(connector
+	(pt -336 264)
+	(pt -336 352)
+)
+(connector
+	(pt -8 352)
+	(pt -336 352)
+)
+(connector
+	(pt -16 320)
+	(pt -16 296)
+)
+(connector
+	(pt -8 320)
+	(pt -16 320)
+)
+(connector
+	(pt -16 296)
+	(pt -88 296)
+)
+(connector
+	(pt -24 336)
+	(pt -24 312)
+)
+(connector
+	(pt -8 336)
+	(pt -24 336)
+)
+(connector
+	(pt -24 312)
+	(pt -88 312)
+)
 (junction (pt 368 264))
-(junction (pt 688 400))
 (junction (pt 368 -32))
+(junction (pt 768 400))
