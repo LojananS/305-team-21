@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Tue May 07 13:30:54 2024
+Wed May 08 18:30:17 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -14,14 +14,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis IP Cores Summary
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -47,14 +48,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May 07 13:30:54 2024           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 08 18:30:17 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
 ; Total registers                 ; 58                                              ;
-; Total pins                      ; 8                                               ;
+; Total pins                      ; 31                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
 ; Total DSP Blocks                ; 0                                               ;
@@ -171,18 +172,19 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                ; Library ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
-; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd                            ;         ;
-; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd                         ;         ;
-; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/flappybird21block.bdf ;         ;
-; pll.vhd                          ; yes             ; User Wizard-Generated File         ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd               ; pll     ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v        ; pll     ;
-; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                                              ;         ;
-+----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                         ; Library ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
+; ../mouse.vhd                     ; yes             ; User VHDL File                     ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd                               ;         ;
+; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/vga_sync.vhd                            ;         ;
+; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/bouncy_ball.vhd                         ;         ;
+; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/flappybird21block.bdf ;         ;
+; pll.vhd                          ; yes             ; User Wizard-Generated File         ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll.vhd               ; pll     ;
+; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll/pll_0002.v        ; pll     ;
+; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                                       ;         ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------+
@@ -190,18 +192,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 52                                                                 ;
+; Estimate of Logic utilization (ALMs needed) ; 53                                                                 ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 87                                                                 ;
+; Combinational ALUT usage for logic          ; 88                                                                 ;
 ;     -- 7 input functions                    ; 2                                                                  ;
 ;     -- 6 input functions                    ; 11                                                                 ;
-;     -- 5 input functions                    ; 14                                                                 ;
-;     -- 4 input functions                    ; 8                                                                  ;
-;     -- <=3 input functions                  ; 52                                                                 ;
+;     -- 5 input functions                    ; 17                                                                 ;
+;     -- 4 input functions                    ; 9                                                                  ;
+;     -- <=3 input functions                  ; 49                                                                 ;
 ;                                             ;                                                                    ;
 ; Dedicated logic registers                   ; 58                                                                 ;
 ;                                             ;                                                                    ;
-; I/O pins                                    ; 8                                                                  ;
+; I/O pins                                    ; 31                                                                 ;
 ;                                             ;                                                                    ;
 ; Total DSP Blocks                            ; 0                                                                  ;
 ;                                             ;                                                                    ;
@@ -210,8 +212,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 49                                                                 ;
-; Total fan-out                               ; 479                                                                ;
-; Average fan-out                             ; 2.96                                                               ;
+; Total fan-out                               ; 513                                                                ;
+; Average fan-out                             ; 2.43                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -220,9 +222,9 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name       ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
-; |flappybird21block                 ; 87 (0)              ; 58 (0)                    ; 0                 ; 0          ; 8    ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
-;    |VGA_SYNC:inst5|                ; 41 (41)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
-;    |bouncy_ball:inst4|             ; 46 (46)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4                                   ; bouncy_ball       ; work         ;
+; |flappybird21block                 ; 88 (0)              ; 58 (0)                    ; 0                 ; 0          ; 31   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
+;    |VGA_SYNC:inst5|                ; 40 (40)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
+;    |bouncy_ball:inst3|             ; 48 (48)             ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst3                                   ; bouncy_ball       ; work         ;
 ;    |pll:inst6|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                           ; pll               ; pll          ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                         ; pll_0002          ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll        ; work         ;
@@ -239,28 +241,128 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+------------------------------+-----------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+----------------------------------------+------------------------------------------------+
-; Register name                          ; Reason for Removal                             ;
-+----------------------------------------+------------------------------------------------+
-; bouncy_ball:inst4|ball_y_motion[3..9]  ; Merged with bouncy_ball:inst4|ball_y_motion[2] ;
-; bouncy_ball:inst4|ball_y_motion[0]     ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst4|ball_y_pos[0]        ; Stuck at GND due to stuck port data_in         ;
-; bouncy_ball:inst4|ball_y_motion[1]     ; Stuck at VCC due to stuck port data_in         ;
-; VGA_SYNC:inst5|pixel_row[9]            ; Stuck at GND due to stuck port data_in         ;
-; Total Number of Removed Registers = 11 ;                                                ;
-+----------------------------------------+------------------------------------------------+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |flappybird21block|MOUSE:inst1|mouse_state                                                                                                                                              ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
+; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
+; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
+; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
+; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
++-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                          ;
-+---------------------------------+---------------------------+----------------------------------------+
-; Register name                   ; Reason for Removal        ; Registers Removed due to This Register ;
-+---------------------------------+---------------------------+----------------------------------------+
-; bouncy_ball:inst4|ball_y_pos[0] ; Stuck at GND              ; bouncy_ball:inst4|ball_y_motion[1]     ;
-;                                 ; due to stuck port data_in ;                                        ;
-+---------------------------------+---------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++-------------------------------------------+------------------------------------------------+
+; Register name                             ; Reason for Removal                             ;
++-------------------------------------------+------------------------------------------------+
+; MOUSE:inst1|inhibit_wait_count[0..11]     ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|send_data                     ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|CHAROUT[0..7]                 ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|MOUSE_CLK_FILTER              ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|filter[0..7]                  ; Lost fanout                                    ;
+; MOUSE:inst1|OUTCNT[0..3]                  ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|send_char                     ; Stuck at VCC due to stuck port clock           ;
+; MOUSE:inst1|output_ready                  ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|SHIFTOUT[10]                  ; Stuck at VCC due to stuck port clock           ;
+; MOUSE:inst1|SHIFTOUT[1..9]                ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|MOUSE_DATA_BUF                ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|INCNT[0..3]                   ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|READ_CHAR                     ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|PACKET_COUNT[0,1]             ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|left_button                   ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|right_button                  ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|iready_set                    ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|SHIFTIN[0..8]                 ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|cursor_column[0..9]           ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|cursor_row[0..9]              ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|new_cursor_column[0..9]       ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|new_cursor_row[1..9]          ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|PACKET_CHAR3[0]               ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|new_cursor_row[0]             ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|PACKET_CHAR1[0,1]             ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|PACKET_CHAR2[0..7]            ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|PACKET_CHAR3[1..7]            ; Stuck at GND due to stuck port clock           ;
+; bouncy_ball:inst3|ball_y_motion[3..9]     ; Merged with bouncy_ball:inst3|ball_y_motion[2] ;
+; bouncy_ball:inst3|ball_y_motion[0]        ; Stuck at GND due to stuck port data_in         ;
+; bouncy_ball:inst3|ball_y_pos[0]           ; Stuck at GND due to stuck port data_in         ;
+; bouncy_ball:inst3|ball_y_motion[1]        ; Stuck at VCC due to stuck port data_in         ;
+; VGA_SYNC:inst5|pixel_row[9]               ; Stuck at GND due to stuck port data_in         ;
+; MOUSE:inst1|mouse_state.LOAD_COMMAND      ; Lost fanout                                    ;
+; MOUSE:inst1|mouse_state.INHIBIT_TRANS     ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|mouse_state.LOAD_COMMAND2     ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|mouse_state.WAIT_CMD_ACK      ; Stuck at GND due to stuck port clock           ;
+; MOUSE:inst1|mouse_state.INPUT_PACKETS     ; Stuck at GND due to stuck port clock           ;
+; Total Number of Removed Registers = 141   ;                                                ;
++-------------------------------------------+------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                               ;
++---------------------------------------+-------------------------+-----------------------------------------------------------------------------------------+
+; Register name                         ; Reason for Removal      ; Registers Removed due to This Register                                                  ;
++---------------------------------------+-------------------------+-----------------------------------------------------------------------------------------+
+; MOUSE:inst1|MOUSE_CLK_FILTER          ; Stuck at GND            ; MOUSE:inst1|INCNT[3], MOUSE:inst1|INCNT[2], MOUSE:inst1|INCNT[1], MOUSE:inst1|INCNT[0], ;
+;                                       ; due to stuck port clock ; MOUSE:inst1|READ_CHAR, MOUSE:inst1|PACKET_COUNT[1], MOUSE:inst1|PACKET_COUNT[0],        ;
+;                                       ;                         ; MOUSE:inst1|left_button, MOUSE:inst1|right_button, MOUSE:inst1|iready_set,              ;
+;                                       ;                         ; MOUSE:inst1|SHIFTIN[8], MOUSE:inst1|SHIFTIN[7], MOUSE:inst1|SHIFTIN[6],                 ;
+;                                       ;                         ; MOUSE:inst1|SHIFTIN[5], MOUSE:inst1|SHIFTIN[4], MOUSE:inst1|SHIFTIN[3],                 ;
+;                                       ;                         ; MOUSE:inst1|SHIFTIN[2], MOUSE:inst1|SHIFTIN[1], MOUSE:inst1|SHIFTIN[0],                 ;
+;                                       ;                         ; MOUSE:inst1|cursor_column[9], MOUSE:inst1|cursor_column[8],                             ;
+;                                       ;                         ; MOUSE:inst1|cursor_column[7], MOUSE:inst1|cursor_column[6],                             ;
+;                                       ;                         ; MOUSE:inst1|cursor_column[5], MOUSE:inst1|cursor_column[4],                             ;
+;                                       ;                         ; MOUSE:inst1|cursor_column[3], MOUSE:inst1|cursor_column[2],                             ;
+;                                       ;                         ; MOUSE:inst1|cursor_column[1], MOUSE:inst1|cursor_column[0],                             ;
+;                                       ;                         ; MOUSE:inst1|cursor_row[9], MOUSE:inst1|cursor_row[8], MOUSE:inst1|cursor_row[7],        ;
+;                                       ;                         ; MOUSE:inst1|cursor_row[6], MOUSE:inst1|cursor_row[5], MOUSE:inst1|cursor_row[4],        ;
+;                                       ;                         ; MOUSE:inst1|cursor_row[3], MOUSE:inst1|cursor_row[2], MOUSE:inst1|cursor_row[1],        ;
+;                                       ;                         ; MOUSE:inst1|cursor_row[0], MOUSE:inst1|new_cursor_column[9],                            ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_column[8], MOUSE:inst1|new_cursor_column[7],                     ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_column[6], MOUSE:inst1|new_cursor_column[5],                     ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_column[4], MOUSE:inst1|new_cursor_column[3],                     ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_column[2], MOUSE:inst1|new_cursor_column[1],                     ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_column[0], MOUSE:inst1|new_cursor_row[9],                        ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_row[8], MOUSE:inst1|new_cursor_row[7],                           ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_row[6], MOUSE:inst1|new_cursor_row[5],                           ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_row[4], MOUSE:inst1|new_cursor_row[3],                           ;
+;                                       ;                         ; MOUSE:inst1|new_cursor_row[2], MOUSE:inst1|new_cursor_row[1],                           ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR3[0], MOUSE:inst1|new_cursor_row[0],                             ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR1[1], MOUSE:inst1|PACKET_CHAR1[0],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR2[7], MOUSE:inst1|PACKET_CHAR2[6],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR2[5], MOUSE:inst1|PACKET_CHAR2[4],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR2[3], MOUSE:inst1|PACKET_CHAR2[2],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR2[1], MOUSE:inst1|PACKET_CHAR2[0],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR3[7], MOUSE:inst1|PACKET_CHAR3[6],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR3[5], MOUSE:inst1|PACKET_CHAR3[4],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR3[3], MOUSE:inst1|PACKET_CHAR3[2],                               ;
+;                                       ;                         ; MOUSE:inst1|PACKET_CHAR3[1], bouncy_ball:inst3|ball_y_motion[0],                        ;
+;                                       ;                         ; bouncy_ball:inst3|ball_y_motion[1]                                                      ;
+; MOUSE:inst1|inhibit_wait_count[11]    ; Stuck at GND            ; MOUSE:inst1|inhibit_wait_count[10], MOUSE:inst1|inhibit_wait_count[9],                  ;
+;                                       ; due to stuck port clock ; MOUSE:inst1|inhibit_wait_count[8], MOUSE:inst1|inhibit_wait_count[7],                   ;
+;                                       ;                         ; MOUSE:inst1|inhibit_wait_count[6], MOUSE:inst1|inhibit_wait_count[5],                   ;
+;                                       ;                         ; MOUSE:inst1|inhibit_wait_count[4], MOUSE:inst1|inhibit_wait_count[3],                   ;
+;                                       ;                         ; MOUSE:inst1|inhibit_wait_count[2], MOUSE:inst1|inhibit_wait_count[1],                   ;
+;                                       ;                         ; MOUSE:inst1|inhibit_wait_count[0], MOUSE:inst1|send_data, MOUSE:inst1|CHAROUT[7],       ;
+;                                       ;                         ; MOUSE:inst1|CHAROUT[6], MOUSE:inst1|CHAROUT[5], MOUSE:inst1|CHAROUT[4],                 ;
+;                                       ;                         ; MOUSE:inst1|CHAROUT[3], MOUSE:inst1|CHAROUT[2], MOUSE:inst1|CHAROUT[1],                 ;
+;                                       ;                         ; MOUSE:inst1|CHAROUT[0], MOUSE:inst1|OUTCNT[3], MOUSE:inst1|OUTCNT[2],                   ;
+;                                       ;                         ; MOUSE:inst1|OUTCNT[1], MOUSE:inst1|OUTCNT[0], MOUSE:inst1|send_char,                    ;
+;                                       ;                         ; MOUSE:inst1|output_ready, MOUSE:inst1|SHIFTOUT[10], MOUSE:inst1|SHIFTOUT[9],            ;
+;                                       ;                         ; MOUSE:inst1|SHIFTOUT[8], MOUSE:inst1|SHIFTOUT[7], MOUSE:inst1|SHIFTOUT[6],              ;
+;                                       ;                         ; MOUSE:inst1|SHIFTOUT[5], MOUSE:inst1|SHIFTOUT[4], MOUSE:inst1|SHIFTOUT[3],              ;
+;                                       ;                         ; MOUSE:inst1|SHIFTOUT[2], MOUSE:inst1|SHIFTOUT[1], MOUSE:inst1|MOUSE_DATA_BUF            ;
+; MOUSE:inst1|filter[7]                 ; Lost Fanouts            ; MOUSE:inst1|filter[6], MOUSE:inst1|filter[5], MOUSE:inst1|filter[4],                    ;
+;                                       ;                         ; MOUSE:inst1|filter[3], MOUSE:inst1|filter[2], MOUSE:inst1|filter[1],                    ;
+;                                       ;                         ; MOUSE:inst1|filter[0]                                                                   ;
+; MOUSE:inst1|mouse_state.LOAD_COMMAND2 ; Stuck at GND            ; MOUSE:inst1|mouse_state.WAIT_OUTPUT_READY                                               ;
+;                                       ; due to stuck port clock ;                                                                                         ;
++---------------------------------------+-------------------------+-----------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -284,7 +386,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst5|v_count[9]          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst4|ball_y_motion[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst3|ball_y_motion[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
@@ -545,24 +647,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR          ; 10                          ;
 ;     SCLR              ; 10                          ;
 ;     plain             ; 19                          ;
-; arriav_lcell_comb     ; 87                          ;
+; arriav_io_obuf        ; 2                           ;
+; arriav_lcell_comb     ; 89                          ;
 ;     arith             ; 42                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 31                          ;
 ;         2 data inputs ; 10                          ;
 ;     extend            ; 2                           ;
 ;         7 data inputs ; 2                           ;
-;     normal            ; 43                          ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 9                           ;
-;         4 data inputs ; 8                           ;
-;         5 data inputs ; 14                          ;
+;     normal            ; 45                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 17                          ;
 ;         6 data inputs ; 11                          ;
-; boundary_port         ; 8                           ;
+; boundary_port         ; 31                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.30                        ;
-; Average LUT depth     ; 2.62                        ;
+; Average LUT depth     ; 2.57                        ;
 +-----------------------+-----------------------------+
 
 
@@ -581,31 +685,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Tue May 07 13:30:48 2024
+    Info: Processing started: Wed May 08 18:30:11 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/onedrive - the university of auckland/documents/github/305-team-21/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd Line: 13
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/vga_sync.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/onedrive - the university of auckland/documents/github/305-team-21/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 14
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/bouncy_ball.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/lsiv157/onedrive - the university of auckland/documents/305-team-21/mouse.vhd
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /users/lsiv157/onedrive - the university of auckland/documents/305-team-21/vga_sync.vhd
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/vga_sync.vhd Line: 13
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/vga_sync.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/lsiv157/onedrive - the university of auckland/documents/305-team-21/bouncy_ball.vhd
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/bouncy_ball.vhd Line: 14
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/bouncy_ball.vhd Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file flappybird21block.bdf
     Info (12023): Found entity 1: flappybird21block
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-rtl File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 19
-    Info (12023): Found entity 1: pll File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 11
+    Info (12022): Found design unit 1: pll-rtl File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll.vhd Line: 19
+    Info (12023): Found entity 1: pll File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
-    Info (12023): Found entity 1: pll_0002 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 2
+    Info (12023): Found entity 1: pll_0002 File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 2
 Info (12127): Elaborating entity "flappybird21block" for the top level hierarchy
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst5"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst6"
-Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 31
-Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll.vhd Line: 31
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -666,8 +773,37 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst4"
+Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst3"
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lsiv157/OneDrive - The University of Auckland/Documents/305-team-21/mouse.vhd Line: 157
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "right_button" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[9]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[8]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[7]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[6]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[5]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[4]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[3]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[2]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[1]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_column[0]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[9]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[8]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[7]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[6]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[5]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[4]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[3]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[2]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[1]" is stuck at GND
+    Warning (13410): Pin "mouse_cursor_row[0]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -903,15 +1039,16 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 119 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 145 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 110 logic cells
+    Info (21059): Implemented 26 output pins
+    Info (21060): Implemented 2 bidirectional pins
+    Info (21061): Implemented 113 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 233 warnings
-    Info: Peak virtual memory: 4893 megabytes
-    Info: Processing ended: Tue May 07 13:30:54 2024
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 260 warnings
+    Info: Peak virtual memory: 4924 megabytes
+    Info: Processing ended: Wed May 08 18:30:17 2024
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
