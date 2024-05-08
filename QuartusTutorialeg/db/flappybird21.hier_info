@@ -3,10 +3,10 @@ VGA_HS <= VGA_SYNC:inst5.horiz_sync_out
 CLOCK_50 => pll:inst6.refclk
 KEY[0] => bouncy_ball:inst3.pb1
 KEY[1] => bouncy_ball:inst3.pb2
-mouse_data <> MOUSE:inst1.mouse_data
-mouse_clk <> MOUSE:inst1.mouse_clk
+PS2_DAT <> MOUSE:inst1.mouse_data
+PS2_CLK <> MOUSE:inst1.mouse_clk
 VGA_VS <= VGA_SYNC:inst5.vert_sync_out
-right_button <= MOUSE:inst1.right_button
+LEDR[1] <= MOUSE:inst1.right_button
 mouse_cursor_column[0] <= MOUSE:inst1.mouse_cursor_column[0]
 mouse_cursor_column[1] <= MOUSE:inst1.mouse_cursor_column[1]
 mouse_cursor_column[2] <= MOUSE:inst1.mouse_cursor_column[2]
@@ -298,10 +298,8 @@ zdbfbclk <> <GND>
 
 
 |flappybird21block|bouncy_ball:inst3
-pb1 => red.IN0
-pb2 => red.IN1
+pb1 => red.DATAIN
 pb2 => green.IN1
-pb2 => blue.IN1
 clk => ~NO_FANOUT~
 vert_sync => ball_y_pos[0].CLK
 vert_sync => ball_y_pos[1].CLK
@@ -323,16 +321,11 @@ vert_sync => ball_y_motion[6].CLK
 vert_sync => ball_y_motion[7].CLK
 vert_sync => ball_y_motion[8].CLK
 vert_sync => ball_y_motion[9].CLK
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
-left_click => ball_y_motion.OUTPUTSELECT
+vert_sync => prev_left_click.CLK
+vert_sync => start_move.CLK
+left_click => Move_Ball.IN1
+left_click => prev_left_click.DATAIN
+left_click => ball_y_motion.DATAA
 pixel_row[0] => Add2.IN20
 pixel_row[0] => LessThan3.IN22
 pixel_row[1] => Add2.IN19
@@ -373,9 +366,9 @@ pixel_column[8] => Add0.IN14
 pixel_column[8] => LessThan1.IN16
 pixel_column[9] => Add0.IN13
 pixel_column[9] => LessThan1.IN15
-red <= red.DB_MAX_OUTPUT_PORT_TYPE
+red <= pb1.DB_MAX_OUTPUT_PORT_TYPE
 green <= green.DB_MAX_OUTPUT_PORT_TYPE
-blue <= blue.DB_MAX_OUTPUT_PORT_TYPE
+blue <= ball_on.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |flappybird21block|MOUSE:inst1

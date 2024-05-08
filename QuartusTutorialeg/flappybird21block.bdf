@@ -157,22 +157,6 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect -248 80 -72 96)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "right_button" (rect 90 0 147 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
 	(rect -248 96 -34 112)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "mouse_cursor_row[9..0]" (rect 90 0 208 12)(font "Arial" ))
@@ -204,10 +188,26 @@ refer to the applicable agreement for further details.
 	)
 )
 (pin
+	(output)
+	(rect -248 80 -72 96)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "LEDR[1]" (rect 90 0 132 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
 	(bidir)
-	(rect -248 32 -72 48)
+	(rect -256 32 -80 48)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
-	(text "mouse_data" (rect 90 0 150 12)(font "Arial" ))
+	(text "PS2_DAT" (rect 90 0 137 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 56 4)(pt 78 4))
@@ -224,7 +224,7 @@ refer to the applicable agreement for further details.
 	(bidir)
 	(rect -248 48 -72 64)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
-	(text "mouse_clk" (rect 90 0 143 12)(font "Arial" ))
+	(text "PS2_CLK" (rect 90 0 137 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 56 4)(pt 78 4))
@@ -662,10 +662,6 @@ refer to the applicable agreement for further details.
 	(pt 216 -160)
 )
 (connector
-	(pt 368 -160)
-	(pt 368 264)
-)
-(connector
 	(pt -40 456)
 	(pt -40 416)
 	(bus)
@@ -694,24 +690,49 @@ refer to the applicable agreement for further details.
 	(pt -552 88)
 )
 (connector
-	(pt -8 384)
-	(pt -304 384)
+	(pt 368 -32)
+	(pt -560 -32)
 )
 (connector
-	(pt -304 176)
-	(pt -304 384)
+	(pt 368 -160)
+	(pt 368 -32)
 )
 (connector
-	(pt 80 176)
-	(pt -304 176)
+	(pt 368 -32)
+	(pt 368 264)
 )
 (connector
-	(pt 80 72)
-	(pt 80 176)
+	(pt -560 -32)
+	(pt -560 40)
+)
+(connector
+	(pt -560 40)
+	(pt -512 40)
 )
 (connector
 	(pt -248 72)
-	(pt 80 72)
+	(pt 24 72)
+)
+(connector
+	(pt 24 200)
+	(pt 24 72)
+)
+(connector
+	(pt -328 200)
+	(pt 24 200)
+)
+(connector
+	(pt -328 200)
+	(pt -328 384)
+)
+(connector
+	(pt -328 384)
+	(pt -8 384)
+)
+(connector
+	(pt -248 40)
+	(pt -256 40)
 )
 (junction (pt 368 264))
 (junction (pt 688 400))
+(junction (pt 368 -32))

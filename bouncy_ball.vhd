@@ -18,6 +18,8 @@ SIGNAL size 					: std_logic_vector(9 DOWNTO 0);
 SIGNAL ball_y_pos				: std_logic_vector(9 DOWNTO 0);
 SiGNAL ball_x_pos				: std_logic_vector(10 DOWNTO 0);
 SIGNAL ball_y_motion			: std_logic_vector(9 DOWNTO 0);
+SIGNAL start_move				: std_logic := '0'; -- Bird starts at centre
+SIGNAL prev_left_click		: std_logic := '0'; -- Checking previous left click
 
 BEGIN           
 
@@ -32,28 +34,40 @@ ball_on <= '1' when ( ('0' & ball_x_pos <= '0' & pixel_column + size) and ('0' &
 
 -- Colours for pixel data on video signal
 -- Changing the background and ball colour by pushbuttons
-Red <=  pb1 and (pb2);
+Red <=  pb1;
 Green <= (not pb2) and (not ball_on);
-Blue <=  (not pb2) and (not ball_on);
+Blue <=  not ball_on;
 
 
-Move_Ball: process (vert_sync)  	
+Move_Ball: process (vert_sync, left_click)
 begin
-	
-	-- Move ball once every vertical sync
-	if (rising_edge(vert_sync)) then			
-		-- Bounce off top or bottom of the screen
-		if ( ('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(479,10) - size) ) then
-			ball_y_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
-		elsif (ball_y_pos <= size) then 
-			ball_y_motion <= CONV_STD_LOGIC_VECTOR(2,10);
+-- Move ball once every vertical sync
+	if (rising_edge(vert_sync)) then 
+	-- Start the movement
+		if (left_click = '1' and prev_left_click = '0' and start_move ='0') then
+			start_move <= '1';
 		end if;
 		
-		if (left_click = '1') then
-			ball_y_motion <= - CONV_STD_LOGIC_VECTOR(5,10);
+		prev_left_click <= left_click;
+		
+	-- Proceeds with the game
+		if (start_move = '1') then
+		
+			if ( ('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(479,10) - size) ) then -- Checks if top of screen and sets motion to -2 pixels if it is (bounces off top)
+				ball_y_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
+		
+			elsif (ball_y_pos <= size) then -- Checks if bottom of screen and sets motion to 2 pixels if it is (bounces off bottom)
+				ball_y_motion <= CONV_STD_LOGIC_VECTOR(2,10);
+			else
+				if (left_click = '1') then
+					ball_y_motion <= CONV_STD_LOGIC_VECTOR(2,10); -- Moves up by 5 pixels
+				else
+					ball_y_motion <= - CONV_STD_LOGIC_VECTOR(2,10); -- Moves down by 2 pixels
+				end if;
+			end if;
+
+		ball_y_pos <= ball_y_pos + ball_y_motion; -- Compute next ball Y position
 		end if;
-		-- Compute next ball Y position
-		ball_y_pos <= ball_y_pos + ball_y_motion;
 	end if;
 end process Move_Ball;
 
