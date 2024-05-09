@@ -15,7 +15,7 @@ architecture behavior of pipes is
 
 SIGNAL pipe_on					: std_logic;
 SIGNAL size 					: std_logic_vector(9 DOWNTO 0);  
-SIGNAL pipe_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- Initializing y position of pipe to be at centre.
+SIGNAL pipe_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10); -- Initializing y position of pipe to be at centre.
 SIGNAL pipe_x_pos				: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(500,11);
 SIGNAL pipe_x_motion			: std_logic_vector(10 DOWNTO 0);
 SIGNAL pipe_x_size 			: std_logic_vector(9 DOWNTO 0);
@@ -26,11 +26,11 @@ SIGNAL start_move				: std_logic := '0'; -- Pipe starts at right sides
 BEGIN           
 
 pipe_x_size <= CONV_STD_LOGIC_VECTOR(12,10);
-pipe_y_size <= CONV_STD_LOGIC_VECTOR(200,10);
+pipe_y_size <= CONV_STD_LOGIC_VECTOR(480,10);
 
 -- pipe_on changes the color of the pixels it is on. So background colour will change for the pixels it is on
 pipe_on <= '1' when ( ('0' & pipe_x_pos <= '0' & pixel_column + pipe_x_size) and ('0' & pixel_column <= '0' & pipe_x_pos + pipe_x_size)
-					and ('0' & pipe_y_pos <= pixel_row + pipe_y_size) and ('0' & pixel_row <= pipe_y_pos + pipe_y_size) )  else
+					and ('0' & pipe_y_pos <= pixel_row) and ('0' & pixel_row <= pipe_y_pos + pipe_y_size))  else
 			'0';
 
 -- Colours for pixel data on video signal
