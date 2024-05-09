@@ -22,9 +22,17 @@ SIGNAL ball_y_motion			: std_logic_vector(9 DOWNTO 0);
 SIGNAL start_move				: std_logic := '0'; -- Bird starts at centre
 SIGNAL prev_left_click		: std_logic := '0'; -- Checking previous left click
 
+SIGNAL pipe_on					: std_logic;
+SIGNAL pipe_x_pos				: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(480,11);
+SIGNAL pipe_y_pos				: std_logic_vector(9 DOWNTO 0);
+SIGNAL pipe_x_size 			: std_logic_vector(9 DOWNTO 0);
+SIGNAL pipe_y_size 			: std_logic_vector(9 DOWNTO 0);
+
 BEGIN           
 
 size <= CONV_STD_LOGIC_VECTOR(8,10);
+pipe_x_size <= CONV_STD_LOGIC_VECTOR(12,10);
+pipe_y_size <= CONV_STD_LOGIC_VECTOR(60,10);
 
 -- ball_x_pos sets the x position of the ball from the left side
 ball_x_pos <= CONV_STD_LOGIC_VECTOR(200,11);
@@ -36,7 +44,7 @@ ball_on <= '1' when ( ('0' & ball_x_pos <= '0' & pixel_column + size) and ('0' &
 
 -- Colours for pixel data on video signal
 -- Changing the colors of ball to yellow (110) and background to cyan (011)
-Red <=  '1' when ball_on = '1' else
+Red <=  '1' when ball_on = '1' and pb1 else
 			'0';
 
 Green <= '1' when ball_on = '1' else
