@@ -26,7 +26,7 @@ SIGNAL start_move				: std_logic := '0'; -- Pipe starts at right sides
 BEGIN           
 
 pipe_x_size <= CONV_STD_LOGIC_VECTOR(12,10);
-pipe_y_size <= CONV_STD_LOGIC_VECTOR(480,10);
+pipe_y_size <= CONV_STD_LOGIC_VECTOR(479,10);
 
 -- pipe_on changes the color of the pixels it is on. So background colour will change for the pixels it is on
 pipe_on <= '1' when ( ('0' & pipe_x_pos <= '0' & pixel_column + pipe_x_size) and ('0' & pixel_column <= '0' & pipe_x_pos + pipe_x_size)
@@ -35,13 +35,14 @@ pipe_on <= '1' when ( ('0' & pipe_x_pos <= '0' & pixel_column + pipe_x_size) and
 
 -- Colours for pixel data on video signal
 -- Changing the colors of pipe to yellow (110) and background to cyan (011)
-Red <=  '0' when pipe_on = '1' else
+Red <=  '1' when pipe_on = '1' else
 			'0';
 
 Green <= '1' when pipe_on = '1' else
 			'0';
 			
-Blue <=  '0';
+Blue <=  '1' when pipe_on = '1' else
+			'0';
 
 
 Move_pipe: process (vert_sync, left_click)
@@ -55,8 +56,8 @@ begin
 		
 	-- Proceeds with the game
 		if (start_move = '1') then
-			if (pipe_x_pos <= pipe_x_size) then -- Checks if left of screen and resets position to 500 pixels if it is
-				pipe_x_pos <= CONV_STD_LOGIC_VECTOR(500,11);
+			if (pipe_x_pos <= -pipe_x_size) then -- Checks if left of screen
+				pipe_x_pos <= CONV_STD_LOGIC_VECTOR(650,11);
 			else
 				pipe_x_pos <= pipe_x_pos - CONV_STD_LOGIC_VECTOR(1,11);
 			end if;
