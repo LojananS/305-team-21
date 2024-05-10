@@ -61,52 +61,29 @@ ARCHITECTURE behavior OF background IS
 		CONV_STD_LOGIC_VECTOR(225, 10), -- Star 19
 		CONV_STD_LOGIC_VECTOR(325, 10)  -- Star 20
 	);
-	
-	-- Moon position and size
-    CONSTANT moon_center_x : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(540, 10);
-    CONSTANT moon_center_y : std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(120, 10);
-    CONSTANT moon_radius   : INTEGER := 30;
 
 BEGIN
 	PROCESS (pixel_row, pixel_column)
 		VARIABLE is_star : BOOLEAN := FALSE;
-		VARIABLE is_moon : BOOLEAN := FALSE;
-      VARIABLE delta_x : INTEGER;
-      VARIABLE delta_y : INTEGER;
-      VARIABLE distance_squared : INTEGER;
 	BEGIN
 		is_star := FALSE;
-		is_moon := FALSE;
 		-- Check if current pixel corresponds to any of the star positions
 		FOR i IN 0 TO star_count-1 LOOP
 			IF (pixel_row = star_y_positions(i) AND pixel_column = star_x_positions(i)) THEN
 				is_star := TRUE;
 			END IF;
 		END LOOP;
-		
-		-- Check if current pixel corresponds to the moon
-        delta_x := CONV_INTEGER(pixel_column) - CONV_INTEGER(moon_center_x);
-        delta_y := CONV_INTEGER(pixel_row) - CONV_INTEGER(moon_center_y);
-        distance_squared := delta_x * delta_x + delta_y * delta_y;
-        IF distance_squared <= moon_radius * moon_radius THEN
-            is_moon := TRUE;
-        END IF;
 
-		-- Set colors based on whether the current pixel is a star or background
 		if(is_star = TRUE) then
 			red <= '1';
 			green <= '1';
 			blue <= '1';
-		elsif (is_moon = TRUE) THEN
-            red <= '1';
-            green <= '1';
-            blue <= '0';
 		else 
 			red <= '0';
 			green <= '0';
 			blue <= '0';
 		end if;
-		
+		-- Set colors based on whether the current pixel is a star or background
 		
 	END PROCESS;
 
