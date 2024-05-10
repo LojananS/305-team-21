@@ -479,5 +479,10 @@ set_global_assignment -name VHDL_FILE ../bouncy_ball.vhd
 set_global_assignment -name BDF_FILE flappybird21block.bdf
 set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name SIP_FILE pll.sip
+<<<<<<< HEAD
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VHDL_FILE text_rom.vhd
+=======
 set_global_assignment -name VHDL_FILE background.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+>>>>>>> 0b3a7a4905ab15318b22e865c3db312efc9b33f5
