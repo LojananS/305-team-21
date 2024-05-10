@@ -8,7 +8,9 @@ ENTITY bouncy_ball IS
 	PORT
 		( pb1, pb2, clk, vert_sync, left_click	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+--		  red, green, blue 			: OUT std_logic;
+			output_on				: OUT std_logic;
+		  RGB							: OUT std_logic_vector(2 downto 0));		
 END bouncy_ball;
 
 architecture behavior of bouncy_ball is
@@ -36,13 +38,17 @@ ball_on <= '1' when ( ('0' & ball_x_pos <= '0' & pixel_column + size) and ('0' &
 
 -- Colours for pixel data on video signal
 -- Changing the colors of ball to yellow (110) and background to cyan (011)
-Red <=  '1' when ball_on = '1' else
-			'0';
-
-Green <= '1' when ball_on = '1' else
-			'0';
-			
-Blue <=  '0';
+RGB <= "110" when ball_on = '1' else
+		"000";
+output_on <= ball_on;
+		
+--Red <=  '1' when ball_on = '1' else
+--			'0';
+--
+--Green <= '1' when ball_on = '1' else
+--			'0';
+--			
+--Blue <=  '0';
 
 
 Move_Ball: process (vert_sync, left_click)

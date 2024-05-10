@@ -6,7 +6,8 @@ ENTITY background IS
     PORT
         ( pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
           clk, vert_sync, left_click : IN std_logic;
-          red, green, blue           : OUT std_logic);        
+			output_on						: OUT std_logic;
+			RGB									: OUT std_logic_vector(2 downto 0));        
 END background;
 
 ARCHITECTURE behavior OF background IS
@@ -126,18 +127,12 @@ BEGIN
 
         -- Set colors based on whether the current pixel is a star, moon, or background
         IF (is_star = TRUE) THEN
-            red <= '1';
-            green <= '1';
-            blue <= '1';
+				RGB <= "111";
         ELSIF (is_moon = TRUE) THEN
-            red <= '1';
-            green <= '1';
-            blue <= '0';
+				RGB <= "110";
         ELSE
-            red <= '0';
-            green <= '0';
-            blue <= '0';
+				RGB <= "000";
         END IF;
     END PROCESS;
-
+	 output_on <= '1';
 END behavior;

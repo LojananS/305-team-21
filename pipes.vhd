@@ -8,7 +8,9 @@ ENTITY pipes IS
 	PORT
 		( clk, vert_sync, left_click	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
-		  red, green, blue 			: OUT std_logic);		
+--		  red, green, blue 			: OUT std_logic;
+			output_on						: OUT std_logic;
+			RGB							: OUT std_logic_vector(2 downto 0));		
 END pipes;
 
 architecture behavior of pipes is
@@ -35,15 +37,18 @@ pipe_on <= '1' when ( ('0' & pipe_x_pos <= '0' & pixel_column + pipe_x_size) and
 
 -- Colours for pixel data on video signal
 -- Changing the colors of pipe to yellow (110) and background to cyan (011)
-Red <=  '1' when pipe_on = '1' else
-			'0';
-
-Green <= '1' when pipe_on = '1' else
-			'0';
-			
-Blue <=  '1' when pipe_on = '1' else
-			'0';
-
+RGB <= "111" when pipe_on = '1' else
+		"000";
+		
+--Red <=  '1' when pipe_on = '1' else
+--			'0';
+--
+--Green <= '1' when pipe_on = '1' else
+--			'0';
+--			
+--Blue <=  '1' when pipe_on = '1' else
+--			'0';
+output_on <= pipe_on;
 
 Move_pipe: process (vert_sync, left_click)
 begin
