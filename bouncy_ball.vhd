@@ -29,7 +29,7 @@ BEGIN
 size <= CONV_STD_LOGIC_VECTOR(8,10);
 
 -- ball_x_pos sets the x position of the ball from the left side
-ball_x_pos <= CONV_STD_LOGIC_VECTOR(200,11);
+ball_x_pos <= CONV_STD_LOGIC_VECTOR(150,11);
 
 -- Ball_on changes the color of the pixels it is on. So background colour will change for the pixels it is on
 ball_on <= '1' when ( ('0' & ball_x_pos <= '0' & pixel_column + size) and ('0' & pixel_column <= '0' & ball_x_pos + size) 	-- x_pos - size <= pixel_column <= x_pos + size
