@@ -467,6 +467,9 @@ set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_RO
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+
+set_global_assignment -name VHDL_FILE background.vhd
 set_global_assignment -name VHDL_FILE ../char_rom.vhd
 set_global_assignment -name VHDL_FILE ../ball.vhd
 set_global_assignment -name VHDL_FILE ../BCD_to_7Seg.vhd
@@ -479,10 +482,4 @@ set_global_assignment -name VHDL_FILE ../bouncy_ball.vhd
 set_global_assignment -name BDF_FILE flappybird21block.bdf
 set_global_assignment -name QIP_FILE pll.qip
 set_global_assignment -name SIP_FILE pll.sip
-<<<<<<< HEAD
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name VHDL_FILE text_rom.vhd
-=======
-set_global_assignment -name VHDL_FILE background.vhd
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
->>>>>>> 0b3a7a4905ab15318b22e865c3db312efc9b33f5

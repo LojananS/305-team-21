@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Fri May 10 14:53:38 2024
+Fri May 10 16:07:30 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -51,13 +51,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri May 10 14:53:38 2024           ;
+; Analysis & Synthesis Status     ; Successful - Fri May 10 16:07:30 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 166                                             ;
+; Total registers                 ; 370                                             ;
 ; Total pins                      ; 25                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 0                                               ;
@@ -171,7 +171,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-16        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -180,6 +181,7 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                           ; Library ;
 +----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------+---------+
+; background.vhd                   ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd         ;         ;
 ; ../char_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/char_rom.vhd                             ;         ;
 ; ../BCD_to_7Seg.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/BCD_to_7Seg.vhd                          ;         ;
 ; ../pipes.vhd                     ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/pipes.vhd                                ;         ;
@@ -189,7 +191,6 @@ refer to the applicable agreement for further details.
 ; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/bouncy_ball.vhd                          ;         ;
 ; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/flappybird21block.bdf  ;         ;
 ; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v         ; pll     ;
-; background.vhd                   ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd         ;         ;
 ; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                         ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                       ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                ;         ;
@@ -209,16 +210,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 145                          ;
+; Estimate of Logic utilization (ALMs needed) ; 341                          ;
 ;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 236                          ;
+; Combinational ALUT usage for logic          ; 576                          ;
 ;     -- 7 input functions                    ; 1                            ;
-;     -- 6 input functions                    ; 44                           ;
-;     -- 5 input functions                    ; 37                           ;
-;     -- 4 input functions                    ; 44                           ;
-;     -- <=3 input functions                  ; 110                          ;
+;     -- 6 input functions                    ; 96                           ;
+;     -- 5 input functions                    ; 57                           ;
+;     -- 4 input functions                    ; 39                           ;
+;     -- <=3 input functions                  ; 383                          ;
 ;                                             ;                              ;
-; Dedicated logic registers                   ; 166                          ;
+; Dedicated logic registers                   ; 370                          ;
 ;                                             ;                              ;
 ; I/O pins                                    ; 25                           ;
 ;                                             ;                              ;
@@ -227,10 +228,10 @@ refer to the applicable agreement for further details.
 ; Total PLLs                                  ; 1                            ;
 ;     -- PLLs                                 ; 1                            ;
 ;                                             ;                              ;
-; Maximum fan-out node                        ; MOUSE:inst1|MOUSE_CLK_FILTER ;
-; Maximum fan-out                             ; 91                           ;
-; Total fan-out                               ; 1485                         ;
-; Average fan-out                             ; 3.26                         ;
+; Maximum fan-out node                        ; VGA_SYNC:inst5|vert_sync_out ;
+; Maximum fan-out                             ; 203                          ;
+; Total fan-out                               ; 2930                         ;
+; Average fan-out                             ; 2.93                         ;
 +---------------------------------------------+------------------------------+
 
 
@@ -239,12 +240,12 @@ refer to the applicable agreement for further details.
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name       ; Library Name ;
 +------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
-; |flappybird21block                 ; 236 (1)             ; 166 (0)                   ; 0                 ; 1          ; 25   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
+; |flappybird21block                 ; 576 (1)             ; 370 (0)                   ; 0                 ; 1          ; 25   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
 ;    |BCD_to_SevenSeg:inst7|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                               ; BCD_to_SevenSeg   ; work         ;
 ;    |BCD_to_SevenSeg:inst8|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                               ; BCD_to_SevenSeg   ; work         ;
-;    |MOUSE:inst1|                   ; 107 (107)           ; 118 (118)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                         ; MOUSE             ; work         ;
+;    |MOUSE:inst1|                   ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                         ; MOUSE             ; work         ;
 ;    |VGA_SYNC:inst5|                ; 43 (43)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                      ; VGA_SYNC          ; work         ;
-;    |background:inst10|             ; 70 (70)             ; 0 (0)                     ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst10                                   ; background        ; work         ;
+;    |background:inst11|             ; 411 (411)           ; 202 (202)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst11                                   ; background        ; work         ;
 ;    |pll:inst6|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                           ; pll               ; work         ;
 ;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                         ; pll_0002          ; pll          ;
 ;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll        ; work         ;
@@ -300,29 +301,107 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 166   ;
+; Total registers                              ; 370   ;
 ; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 129   ;
+; Number of registers using Clock Enable       ; 332   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; MOUSE:inst1|send_char                  ; 3       ;
-; MOUSE:inst1|SHIFTOUT[3]                ; 1       ;
-; MOUSE:inst1|SHIFTOUT[5]                ; 1       ;
-; MOUSE:inst1|SHIFTOUT[6]                ; 1       ;
-; MOUSE:inst1|SHIFTOUT[7]                ; 1       ;
-; MOUSE:inst1|SHIFTOUT[8]                ; 1       ;
-; Total number of inverted registers = 6 ;         ;
-+----------------------------------------+---------+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; background:inst11|star_x_positions[16][9] ; 2       ;
+; background:inst11|star_x_positions[16][3] ; 2       ;
+; background:inst11|star_x_positions[10][9] ; 2       ;
+; background:inst11|star_x_positions[10][5] ; 2       ;
+; background:inst11|star_x_positions[10][1] ; 2       ;
+; background:inst11|star_x_positions[10][2] ; 2       ;
+; background:inst11|star_x_positions[0][5]  ; 2       ;
+; background:inst11|star_x_positions[0][6]  ; 2       ;
+; background:inst11|star_x_positions[0][2]  ; 2       ;
+; background:inst11|star_x_positions[2][8]  ; 2       ;
+; background:inst11|star_x_positions[2][5]  ; 2       ;
+; background:inst11|star_x_positions[2][2]  ; 2       ;
+; background:inst11|star_x_positions[2][3]  ; 2       ;
+; background:inst11|star_x_positions[17][9] ; 2       ;
+; background:inst11|star_x_positions[15][5] ; 2       ;
+; background:inst11|star_x_positions[15][7] ; 2       ;
+; background:inst11|star_x_positions[15][8] ; 2       ;
+; background:inst11|star_x_positions[15][2] ; 2       ;
+; background:inst11|star_x_positions[17][5] ; 2       ;
+; background:inst11|star_x_positions[17][6] ; 2       ;
+; background:inst11|star_x_positions[17][2] ; 2       ;
+; background:inst11|star_x_positions[17][3] ; 2       ;
+; background:inst11|star_x_positions[3][7]  ; 2       ;
+; background:inst11|star_x_positions[3][8]  ; 2       ;
+; background:inst11|star_x_positions[3][4]  ; 2       ;
+; background:inst11|star_x_positions[11][5] ; 2       ;
+; background:inst11|star_x_positions[11][1] ; 2       ;
+; background:inst11|star_x_positions[11][4] ; 2       ;
+; background:inst11|star_x_positions[14][6] ; 2       ;
+; background:inst11|star_x_positions[14][8] ; 2       ;
+; background:inst11|star_x_positions[19][7] ; 2       ;
+; background:inst11|star_x_positions[19][2] ; 2       ;
+; background:inst11|star_x_positions[19][4] ; 2       ;
+; background:inst11|star_x_positions[19][5] ; 2       ;
+; background:inst11|star_x_positions[12][5] ; 2       ;
+; background:inst11|star_x_positions[12][6] ; 2       ;
+; background:inst11|star_x_positions[12][3] ; 2       ;
+; background:inst11|star_x_positions[12][4] ; 2       ;
+; background:inst11|star_x_positions[8][8]  ; 2       ;
+; background:inst11|star_x_positions[8][6]  ; 2       ;
+; background:inst11|star_x_positions[8][1]  ; 2       ;
+; background:inst11|star_x_positions[8][2]  ; 2       ;
+; background:inst11|star_x_positions[8][3]  ; 2       ;
+; background:inst11|star_x_positions[8][4]  ; 2       ;
+; background:inst11|star_x_positions[6][7]  ; 2       ;
+; background:inst11|star_x_positions[6][1]  ; 2       ;
+; background:inst11|star_x_positions[6][2]  ; 2       ;
+; background:inst11|star_x_positions[6][4]  ; 2       ;
+; background:inst11|star_x_positions[4][8]  ; 2       ;
+; background:inst11|star_x_positions[4][5]  ; 2       ;
+; background:inst11|star_x_positions[4][6]  ; 2       ;
+; background:inst11|star_x_positions[4][7]  ; 2       ;
+; background:inst11|star_x_positions[4][2]  ; 2       ;
+; background:inst11|star_x_positions[4][4]  ; 2       ;
+; background:inst11|star_x_positions[1][6]  ; 2       ;
+; background:inst11|star_x_positions[1][7]  ; 2       ;
+; background:inst11|star_x_positions[1][3]  ; 2       ;
+; background:inst11|star_x_positions[7][5]  ; 2       ;
+; background:inst11|star_x_positions[7][6]  ; 2       ;
+; background:inst11|star_x_positions[7][7]  ; 2       ;
+; background:inst11|star_x_positions[7][1]  ; 2       ;
+; background:inst11|star_x_positions[7][3]  ; 2       ;
+; background:inst11|star_x_positions[7][4]  ; 2       ;
+; background:inst11|star_x_positions[13][6] ; 2       ;
+; background:inst11|star_x_positions[13][7] ; 2       ;
+; background:inst11|star_x_positions[13][2] ; 2       ;
+; background:inst11|star_x_positions[13][3] ; 2       ;
+; background:inst11|star_x_positions[13][4] ; 2       ;
+; background:inst11|star_x_positions[18][6] ; 2       ;
+; background:inst11|star_x_positions[18][4] ; 2       ;
+; background:inst11|star_x_positions[5][9]  ; 2       ;
+; background:inst11|star_x_positions[5][6]  ; 2       ;
+; background:inst11|star_x_positions[5][3]  ; 2       ;
+; background:inst11|star_x_positions[5][4]  ; 2       ;
+; background:inst11|star_x_positions[9][6]  ; 2       ;
+; background:inst11|star_x_positions[9][7]  ; 2       ;
+; background:inst11|star_x_positions[9][8]  ; 2       ;
+; background:inst11|star_x_positions[9][1]  ; 2       ;
+; MOUSE:inst1|send_char                     ; 3       ;
+; MOUSE:inst1|SHIFTOUT[3]                   ; 1       ;
+; MOUSE:inst1|SHIFTOUT[5]                   ; 1       ;
+; MOUSE:inst1|SHIFTOUT[6]                   ; 1       ;
+; MOUSE:inst1|SHIFTOUT[7]                   ; 1       ;
+; MOUSE:inst1|SHIFTOUT[8]                   ; 1       ;
+; Total number of inverted registers = 84   ;         ;
++-------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -683,29 +762,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 166                         ;
+; arriav_ff             ; 370                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 76                          ;
+;     ENA               ; 279                         ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 18                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 10                          ;
-;     plain             ; 26                          ;
+;     plain             ; 27                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 239                         ;
-;     arith             ; 50                          ;
-;         1 data inputs ; 39                          ;
+; arriav_lcell_comb     ; 579                         ;
+;     arith             ; 250                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 238                         ;
 ;         2 data inputs ; 11                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 178                         ;
+;     normal            ; 318                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 31                          ;
-;         4 data inputs ; 44                          ;
-;         5 data inputs ; 37                          ;
-;         6 data inputs ; 44                          ;
+;         1 data inputs ; 86                          ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 27                          ;
+;         4 data inputs ; 39                          ;
+;         5 data inputs ; 57                          ;
+;         6 data inputs ; 96                          ;
 ;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
@@ -713,8 +793,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 25                          ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.07                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.80                        ;
 +-----------------------+-----------------------------+
 
 
@@ -733,10 +813,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Fri May 10 14:53:32 2024
+    Info: Processing started: Fri May 10 16:07:19 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file background.vhd
+    Info (12022): Found design unit 1: background-behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 12
+    Info (12023): Found entity 1: background File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/github/305-team-21/char_rom.vhd
     Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/htho884/Documents/GitHub/305-team-21/char_rom.vhd Line: 20
     Info (12023): Found entity 1: char_rom File: C:/Users/htho884/Documents/GitHub/305-team-21/char_rom.vhd Line: 9
@@ -767,9 +850,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
     Info (12023): Found entity 1: pll File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
     Info (12023): Found entity 1: pll_0002 File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/pll/pll_0002.v Line: 2
-Info (12021): Found 2 design units, including 1 entities, in source file background.vhd
-    Info (12022): Found design unit 1: background-behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 12
-    Info (12023): Found entity 1: background File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 6
 Info (12127): Elaborating entity "flappybird21block" for the top level hierarchy
 Warning (275011): Block or symbol "MOUSE" of instance "inst1" overlaps another block or symbol
 Warning (275011): Block or symbol "char_rom" of instance "inst9" overlaps another block or symbol
@@ -840,7 +920,9 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "duty_cycle17" = "50"
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
-Info (12128): Elaborating entity "background" for hierarchy "background:inst10"
+Info (12128): Elaborating entity "background" for hierarchy "background:inst11"
+Warning (10540): VHDL Signal Declaration warning at background.vhd(73): used explicit default value for signal "star_speed" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 73
+Warning (10492): VHDL Process Statement warning at background.vhd(114): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/GitHub/305-team-21/QuartusTutorialeg/background.vhd Line: 114
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/htho884/Documents/GitHub/305-team-21/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/GitHub/305-team-21/mouse.vhd Line: 151
@@ -1123,17 +1205,17 @@ Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]"
     Warning (15610): No output dependent on input pin "KEY[0]"
-Info (21057): Implemented 331 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 675 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 20 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 304 logic cells
+    Info (21061): Implemented 648 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 254 warnings
-    Info: Peak virtual memory: 4956 megabytes
-    Info: Processing ended: Fri May 10 14:53:38 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 256 warnings
+    Info: Peak virtual memory: 4953 megabytes
+    Info: Processing ended: Fri May 10 16:07:30 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:04
 
 
