@@ -1,0 +1,31 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+ENTITY sprite_rom IS
+    PORT (
+        clk         : IN  std_logic;
+        address     : IN  std_logic_vector(7 DOWNTO 0);
+        data_out    : OUT std_logic_vector(2 DOWNTO 0)
+    );
+END ENTITY sprite_rom;
+
+ARCHITECTURE behavior OF sprite_rom IS
+    TYPE rom_type IS ARRAY (0 TO 255) OF std_logic_vector(2 DOWNTO 0);
+    SIGNAL rom : rom_type;
+BEGIN
+    PROCESS
+    BEGIN
+        -- Initialize ROM from MIF file
+        -- Replace 'bird_sprite.MIF' with your actual MIF file name
+        FILE_OPEN(rom, "bird_sprite.MIF", READ_MODE);
+        FOR i IN 0 TO 255 LOOP
+            READ(rom, rom(i));
+        END LOOP;
+        FILE_CLOSE(rom);
+        WAIT;
+    END PROCESS;
+
+    -- Output the data based on the address
+    data_out <= rom(to_integer(unsigned(address)));
+END ARCHITECTURE behavior;

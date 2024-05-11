@@ -469,6 +469,7 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 
 
+set_global_assignment -name VHDL_FILE ../sprite_rom.vhd
 set_global_assignment -name VHDL_FILE ../text_rom.vhd
 set_global_assignment -name VHDL_FILE background.vhd
 set_global_assignment -name VHDL_FILE ../char_rom.vhd

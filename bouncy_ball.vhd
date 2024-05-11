@@ -1,88 +1,102 @@
 LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.all;
-USE  IEEE.STD_LOGIC_ARITH.all;
-USE  IEEE.STD_LOGIC_SIGNED.all;
-
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY bouncy_ball IS
-	PORT
-		( pb1, pb2, clk, vert_sync, left_click	: IN std_logic;
-          pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
---		  red, green, blue 			: OUT std_logic;
-			output_on				: OUT std_logic;
-		  RGB							: OUT std_logic_vector(2 downto 0));		
+    PORT
+    (
+        pb1, pb2, clk, vert_sync, left_click : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        output_on : OUT std_logic;
+        RGB : OUT std_logic_vector(2 downto 0)
+    );
 END bouncy_ball;
 
-architecture behavior of bouncy_ball is
+ARCHITECTURE behavior OF bouncy_ball IS
+    SIGNAL ball_on : std_logic;
+    SIGNAL size : signed(9 DOWNTO 0) := to_signed(8, 10);
+    SIGNAL ball_y_pos : signed(9 DOWNTO 0) := to_signed(240, 10);
+    SIGNAL ball_x_pos : signed(10 DOWNTO 0) := to_signed(150, 11);
+    SIGNAL ball_y_motion : signed(9 DOWNTO 0);
 
-SIGNAL ball_on					: std_logic;
-SIGNAL size 					: std_logic_vector(9 DOWNTO 0);  
-SIGNAL ball_y_pos				: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10); -- Initializing y position of ball to be at centre. idk why it doesn't work in architecture
-SIGNAL ball_x_pos				: std_logic_vector(10 DOWNTO 0);
-SIGNAL ball_y_motion			: std_logic_vector(9 DOWNTO 0);
+    SIGNAL start_move : std_logic := '0';
+    SIGNAL prev_left_click : std_logic := '0';
 
-SIGNAL start_move				: std_logic := '0'; -- Bird starts at centre
-SIGNAL prev_left_click		: std_logic := '0'; -- Checking previous left click
+    SIGNAL bird_address : std_logic_vector(7 DOWNTO 0);
+    SIGNAL bird_data : std_logic_vector(2 DOWNTO 0);
 
-BEGIN           
+    -- Assume sprite_rom is a component defined elsewhere
+    COMPONENT sprite_rom
+        PORT (
+            clk            : IN std_logic;
+            sprite_address : IN std_logic_vector(7 DOWNTO 0);
+            data_out       : OUT std_logic_vector(2 DOWNTO 0)
+        );
+    END COMPONENT;
 
-size <= CONV_STD_LOGIC_VECTOR(8,10);
+BEGIN
+    -- Instantiating the sprite ROM
+    sprite_rom_inst : sprite_rom
+        PORT MAP (
+            clk => clk,
+            sprite_address => bird_address,
+            data_out => bird_data
+        );
+	 
+	Pixel_Display : PROCESS (clk)
+	BEGIN
+		IF rising_edge(clk) THEN
+			-- Calculate offset within the sprite
+			IF ( unsigned(pixel_column) >= unsigned(ball_x_pos) AND 
+				unsigned(pixel_column) < unsigned(ball_x_pos) + 16 AND  -- Adjusted to explicit sprite width
+				unsigned(pixel_row) >= unsigned(ball_y_pos) AND 
+				unsigned(pixel_row) < unsigned(ball_y_pos) + 16 ) THEN  -- Adjusted to explicit sprite height
+				ball_on <= '1';
+			-- Calculate relative positions within sprite dimensions
+				bird_address <= std_logic_vector(to_unsigned(
+					(to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 16 +
+					(to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 8));
+			ELSE
+				ball_on <= '0';
+			END IF;
+--			-- Set the RGB output based on the sprite data or default to black
+--			IF ball_on = '1' THEN
+--				RGB <= bird_data;
+--			END IF;
+		END IF;
+	END PROCESS Pixel_Display;
+	
+	RGB <= bird_data when ball_on = '1';
+	output_on <= '1' when ball_on = '1' else
+					'0';
+	
+	-- Move ball once every vertical sync
+	Move_Ball: PROCESS (vert_sync, left_click)
+	BEGIN
+		IF (rising_edge(vert_sync)) THEN
+			-- Start the movement
+			IF (left_click = '1' AND prev_left_click = '0') THEN
+				start_move <= '1';
+			END IF;
 
--- ball_x_pos sets the x position of the ball from the left side
-ball_x_pos <= CONV_STD_LOGIC_VECTOR(150,11);
-
--- Ball_on changes the color of the pixels it is on. So background colour will change for the pixels it is on
-ball_on <= '1' when ( ('0' & ball_x_pos <= '0' & pixel_column + size) and ('0' & pixel_column <= '0' & ball_x_pos + size) 	-- x_pos - size <= pixel_column <= x_pos + size
-					and ('0' & ball_y_pos <= pixel_row + size) and ('0' & pixel_row <= ball_y_pos + size) )  else	-- y_pos - size <= pixel_row <= y_pos + size
-			'0';
-
--- Colours for pixel data on video signal
--- Changing the colors of ball to yellow (110) and background to cyan (011)
-RGB <= "110" when ball_on = '1' else
-		"000";
-output_on <= ball_on;
-		
---Red <=  '1' when ball_on = '1' else
---			'0';
---
---Green <= '1' when ball_on = '1' else
---			'0';
---			
---Blue <=  '0';
-
-
-Move_Ball: process (vert_sync, left_click)
-begin
--- Move ball once every vertical sync
-	if (rising_edge(vert_sync)) then 
-	-- Start the movement
-		if (left_click = '1' and prev_left_click = '0' and start_move ='0') then
-			start_move <= '1';
-		end if;
-		
-	-- Proceeds with the game
-		if (start_move = '1') then
-			if (prev_left_click = '1') then
-				ball_y_motion <= CONV_STD_LOGIC_VECTOR(1,10);
-			else
-				if ( ('0' & ball_y_pos >= CONV_STD_LOGIC_VECTOR(479,10) - size) ) then -- Checks if bottom of screen and sets motion to -2 pixels if it is (bounces off bottom)
-					ball_y_motion <= - CONV_STD_LOGIC_VECTOR(2,10);
-		
-				elsif (ball_y_pos <= size) then -- Checks if top of screen and sets motion to 2 pixels if it is (bounces off top)
-					ball_y_motion <= CONV_STD_LOGIC_VECTOR(1,10);
-				else
-					if (left_click = '1') then
-						ball_y_motion <= - CONV_STD_LOGIC_VECTOR(50,10); -- Moves up by 50 pixels
-					else
-						ball_y_motion <= CONV_STD_LOGIC_VECTOR(1,10); -- Moves down by 1 pixels
-					end if;
-				end if;
-			end if;
-			ball_y_pos <= ball_y_pos + ball_y_motion; -- Compute next ball Y position
-		end if;
-		prev_left_click <= left_click;
-	end if;
-end process Move_Ball;
-
+			-- Proceeds with the game
+			IF (start_move = '1') THEN
+				-- Calculate the upper boundary for ball movement
+				IF (ball_y_pos >= to_signed(479, 10) - size) THEN
+					ball_y_motion <= to_signed(-1, 10); -- Bounce off bottom with negative speed
+				ELSIF (ball_y_pos <= size) THEN
+					ball_y_motion <= to_signed(1, 10); -- Bounce off top with positive speed
+				ELSE
+					-- Left click pressed
+					IF (left_click = '1') THEN
+						ball_y_motion <= to_signed(-10, 10); -- Move up rapidly
+					ELSE
+						ball_y_motion <= to_signed(1, 10); -- Gravity pulls down slowly
+					END IF;
+				END IF;
+				ball_y_pos <= ball_y_pos + ball_y_motion; -- Compute next ball Y position
+			END IF;
+			prev_left_click <= left_click;
+		END IF;
+	END PROCESS Move_Ball;
 END behavior;
-

@@ -1127,11 +1127,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt -8 576)
-	(pt -48 576)
-	(bus)
-)
-(connector
 	(pt -8 560)
 	(pt -80 560)
 	(bus)
@@ -1191,10 +1186,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 32 -32)
 	(pt 32 264)
-)
-(connector
-	(pt -560 -32)
-	(pt 32 -32)
 )
 (connector
 	(pt 32 -32)
@@ -1413,11 +1404,6 @@ refer to the applicable agreement for further details.
 	(pt -152 384)
 )
 (connector
-	(pt -80 672)
-	(pt -8 672)
-	(bus)
-)
-(connector
 	(pt -48 688)
 	(pt -8 688)
 	(bus)
@@ -1477,10 +1463,6 @@ refer to the applicable agreement for further details.
 	(pt 256 576)
 )
 (connector
-	(pt 256 576)
-	(pt 296 576)
-)
-(connector
 	(pt 208 512)
 	(pt 224 512)
 )
@@ -1512,11 +1494,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 248 336)
 	(pt 248 624)
-	(bus)
-)
-(connector
-	(pt 248 624)
-	(pt 296 624)
 	(bus)
 )
 (connector
@@ -1562,14 +1539,6 @@ refer to the applicable agreement for further details.
 	(pt 320 496)
 )
 (connector
-	(pt 320 496)
-	(pt 320 320)
-)
-(connector
-	(pt 320 320)
-	(pt 456 320)
-)
-(connector
 	(pt 512 576)
 	(pt 544 576)
 )
@@ -1580,14 +1549,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 544 480)
 	(pt 336 480)
-)
-(connector
-	(pt 336 480)
-	(pt 336 336)
-)
-(connector
-	(pt 336 336)
-	(pt 456 336)
 )
 (connector
 	(pt 512 592)
@@ -1602,12 +1563,51 @@ refer to the applicable agreement for further details.
 	(pt 560 464)
 )
 (connector
-	(pt 352 464)
-	(pt 352 352)
+	(pt 320 320)
+	(pt 456 320)
+)
+(connector
+	(pt 320 320)
+	(pt 320 496)
+)
+(connector
+	(pt 336 336)
+	(pt 456 336)
+)
+(connector
+	(pt 336 336)
+	(pt 336 480)
 )
 (connector
 	(pt 352 352)
 	(pt 456 352)
+)
+(connector
+	(pt 352 352)
+	(pt 352 464)
+)
+(connector
+	(pt -560 -32)
+	(pt 32 -32)
+)
+(connector
+	(pt -80 672)
+	(pt -8 672)
+	(bus)
+)
+(connector
+	(pt -48 576)
+	(pt -8 576)
+	(bus)
+)
+(connector
+	(pt 248 624)
+	(pt 296 624)
+	(bus)
+)
+(connector
+	(pt 256 576)
+	(pt 296 576)
 )
 (junction (pt 768 400))
 (junction (pt -48 576))

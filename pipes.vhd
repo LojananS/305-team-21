@@ -35,7 +35,7 @@ architecture behavior of pipes is
 
 BEGIN           
 
-	pipe_x_size <= CONV_STD_LOGIC_VECTOR(12,10);
+	pipe_x_size <= CONV_STD_LOGIC_VECTOR(24,10);
 	pipe_y_size <= CONV_STD_LOGIC_VECTOR(479,10);
 	gap_size <= CONV_STD_LOGIC_VECTOR(30,10);
 
