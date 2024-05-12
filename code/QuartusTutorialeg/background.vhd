@@ -72,6 +72,9 @@ ARCHITECTURE behavior OF background IS
     SIGNAL prev_left_click : std_logic := '0';
     SIGNAL start_move : std_logic := '0';
     SIGNAL star_speed : std_logic_vector(9 DOWNTO 0) := std_logic_vector(to_unsigned(1, 10));
+	 
+	 signal star_on : std_logic;
+	 signal moon_on : std_logic;
 
 BEGIN
     -- Move Stars Process
@@ -128,11 +131,16 @@ BEGIN
         -- Set colors based on whether the current pixel is a star, moon, or background
         IF (is_star = TRUE) THEN
 				RGB <= "111";
+				star_on <= '1';
         ELSIF (is_moon = TRUE) THEN
 				RGB <= "110";
+				moon_on <= '1';
         ELSE
 				RGB <= "000";
+				star_on <= '0';
+				moon_on <= '0';
         END IF;
     END PROCESS;
-	 output_on <= '1';
+	 output_on <= '1' when (star_on = '1' or moon_on = '1') else
+						'0';
 END behavior;

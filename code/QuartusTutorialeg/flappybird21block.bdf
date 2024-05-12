@@ -1483,10 +1483,6 @@ refer to the applicable agreement for further details.
 	(pt 232 608)
 )
 (connector
-	(pt 232 608)
-	(pt 296 608)
-)
-(connector
 	(pt 208 336)
 	(pt 248 336)
 	(bus)
@@ -1519,11 +1515,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 264 656)
 	(pt 264 688)
-	(bus)
-)
-(connector
-	(pt 264 656)
-	(pt 296 656)
 	(bus)
 )
 (connector
@@ -1608,6 +1599,15 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 256 576)
 	(pt 296 576)
+)
+(connector
+	(pt 264 656)
+	(pt 296 656)
+	(bus)
+)
+(connector
+	(pt 232 608)
+	(pt 296 608)
 )
 (junction (pt 768 400))
 (junction (pt -48 576))

@@ -955,7 +955,7 @@ pixel_column[9] => LessThan5.IN13
 output_on <= output_on.DB_MAX_OUTPUT_PORT_TYPE
 RGB[0] <= <GND>
 RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-RGB[2] <= <GND>
+RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |flappybird21block|background:inst16
@@ -1559,7 +1559,7 @@ vert_sync => star_x_positions[0][9].CLK
 vert_sync => start_move.CLK
 left_click => Move_Stars.IN1
 left_click => prev_left_click.DATAIN
-output_on <= <VCC>
+output_on <= output_on.DB_MAX_OUTPUT_PORT_TYPE
 RGB[0] <= is_star.DB_MAX_OUTPUT_PORT_TYPE
 RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE

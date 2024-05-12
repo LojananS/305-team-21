@@ -14,13 +14,13 @@ END pipes;
 architecture behavior of pipes is
 	-- Pipe 1 Characteristics
 	SIGNAL p1_on				: std_logic;
-	SIGNAL p1_x_pos			: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(600,11); 
+	SIGNAL p1_x_pos			: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(340,11); 
 	SIGNAL p1_y_pos			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10); -- Initializing y position of pipe to be at centre.
 	SIGNAL p1_gap_center		: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10);
 
 	-- Pipe 2 Characteristics
 	SIGNAL p2_on				: std_logic;
-	SIGNAL p2_x_pos			: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(350,11);
+	SIGNAL p2_x_pos			: std_logic_vector(10 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(590,11);
 	SIGNAL p2_y_pos			: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(0,10);
 	SIGNAL p2_gap_center		: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10);
 
@@ -35,7 +35,7 @@ architecture behavior of pipes is
 
 BEGIN           
 
-	pipe_x_size <= CONV_STD_LOGIC_VECTOR(24,10);
+	pipe_x_size <= CONV_STD_LOGIC_VECTOR(50,10);
 	pipe_y_size <= CONV_STD_LOGIC_VECTOR(479,10);
 	gap_size <= CONV_STD_LOGIC_VECTOR(30,10);
 
@@ -50,9 +50,10 @@ BEGIN
 
 	-- Colours for pixel data on video signal
 	-- Changing the color of pipe to green (010)
-	RGB <= "010" when p1_on = '1' or p2_on ='1' else
-			"000";
-	output_on <= p1_on or p2_on;
+	RGB <= "010" when (p1_on = '1' or p2_on ='1') else
+				"100";
+	output_on <= '1' when (p1_on = '1' or p2_on = '1') else
+					'0';
 
 	Move_pipe: process (vert_sync, left_click)
 	begin
