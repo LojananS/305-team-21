@@ -68,14 +68,14 @@ begin
         -- Proceeds with the game
         if (start_move = '1') then
             -- Checks if the entire pipe has left the screen
-            if (p1_x_pos <= - 1) then  -- Ensuring the entire pipe is off-screen
+            if (p1_x_pos + pipe_x_size <= 0) then  -- Ensuring the entire pipe is off-screen
                 p1_x_pos <= to_signed(640, 11); -- Reset position to the right side of the screen
             else
                 p1_x_pos <= p1_x_pos - to_signed(1, 11); -- Move the pipe left
             end if;
 
             -- Same logic for Pipe 2
-            if (p2_x_pos + pipe_x_size < 0) then  -- Ensuring the entire pipe is off-screen
+            if (p2_x_pos + pipe_x_size <= 0) then  -- Ensuring the entire pipe is off-screen
                 p2_x_pos <= to_signed(640, 11); -- Reset position to the right side of the screen
             else
                 p2_x_pos <= p2_x_pos - to_signed(1, 11); -- Move the pipe left
