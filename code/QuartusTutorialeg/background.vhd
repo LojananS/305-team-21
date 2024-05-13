@@ -133,7 +133,7 @@ BEGIN
 				RGB <= "111";
 				star_on <= '1';
         ELSIF (is_moon = TRUE) THEN
-				RGB <= "110";
+				RGB <= "111";
 				moon_on <= '1';
         ELSE
 				RGB <= "000";

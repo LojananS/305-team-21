@@ -59,10 +59,6 @@ BEGIN
 			ELSE
 				ball_on <= '0';
 			END IF;
---			-- Set the RGB output based on the sprite data or default to black
---			IF ball_on = '1' THEN
---				RGB <= bird_data;
---			END IF;
 		END IF;
 	END PROCESS Pixel_Display;
 	

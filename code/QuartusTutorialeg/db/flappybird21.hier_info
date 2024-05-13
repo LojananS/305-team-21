@@ -944,18 +944,14 @@ pixel_column[8] => LessThan0.IN3
 pixel_column[8] => LessThan1.IN14
 pixel_column[8] => LessThan4.IN3
 pixel_column[8] => LessThan5.IN14
-pixel_column[9] => LessThan0.IN1
 pixel_column[9] => LessThan0.IN2
-pixel_column[9] => LessThan1.IN12
 pixel_column[9] => LessThan1.IN13
-pixel_column[9] => LessThan4.IN1
 pixel_column[9] => LessThan4.IN2
-pixel_column[9] => LessThan5.IN12
 pixel_column[9] => LessThan5.IN13
 output_on <= output_on.DB_MAX_OUTPUT_PORT_TYPE
 RGB[0] <= <GND>
-RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
-RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
+RGB[1] <= <VCC>
+RGB[2] <= <GND>
 
 
 |flappybird21block|background:inst16
@@ -1560,7 +1556,7 @@ vert_sync => start_move.CLK
 left_click => Move_Stars.IN1
 left_click => prev_left_click.DATAIN
 output_on <= output_on.DB_MAX_OUTPUT_PORT_TYPE
-RGB[0] <= is_star.DB_MAX_OUTPUT_PORT_TYPE
+RGB[0] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 
