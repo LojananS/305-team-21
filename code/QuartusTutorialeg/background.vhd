@@ -5,7 +5,7 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY background IS
     PORT
         ( pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
-          clk, vert_sync, left_click : IN std_logic;
+          pb1, clk, vert_sync, left_click : IN std_logic;
 			output_on						: OUT std_logic;
 			RGB									: OUT std_logic_vector(2 downto 0));        
 END background;
@@ -68,15 +68,32 @@ ARCHITECTURE behavior OF background IS
     CONSTANT moon_center_x : std_logic_vector(9 DOWNTO 0) := std_logic_vector(to_unsigned(540, 10));
     CONSTANT moon_center_y : std_logic_vector(9 DOWNTO 0) := std_logic_vector(to_unsigned(120, 10));
     CONSTANT moon_radius   : INTEGER := 30;
+	 CONSTANT sun_radius    : INTEGER := 40; 
 
     SIGNAL prev_left_click : std_logic := '0';
     SIGNAL start_move : std_logic := '0';
+	 SIGNAL toggle_state : std_logic := '0'; -- Toggle state for pb1
+    SIGNAL pb1_prev : std_logic := '0'; -- Previous state of pb1 for edge detection
+
     SIGNAL star_speed : std_logic_vector(9 DOWNTO 0) := std_logic_vector(to_unsigned(1, 10));
 	 
 	 signal star_on : std_logic;
 	 signal moon_on : std_logic;
 
 BEGIN
+
+-- Toggle Functionality for Background and Moon/Sun Transition
+    Toggle_Background: PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF pb1 = '1' AND pb1_prev = '0' THEN
+                toggle_state <= NOT toggle_state; -- Toggle the state on button press
+            END IF;
+            pb1_prev <= pb1; -- Update previous state
+        END IF;
+    END PROCESS;
+	 
+	 
     -- Move Stars Process
     Move_Stars: PROCESS (vert_sync, left_click)
     BEGIN
@@ -105,13 +122,13 @@ BEGIN
     -- Drawing Process
     PROCESS (pixel_row, pixel_column)
         VARIABLE is_star : BOOLEAN := FALSE;
-        VARIABLE is_moon : BOOLEAN := FALSE;
+        VARIABLE is_moon_sun : BOOLEAN := FALSE;
         VARIABLE delta_x : INTEGER;
         VARIABLE delta_y : INTEGER;
         VARIABLE distance_squared : INTEGER;
-    BEGIN
+    BEGIN			
         is_star := FALSE;
-        is_moon := FALSE;
+        is_moon_sun := FALSE;
 
         -- Check if the current pixel corresponds to any of the star positions
         FOR i IN 0 TO star_count-1 LOOP
@@ -120,26 +137,37 @@ BEGIN
             END IF;
         END LOOP;
 
-        -- Check if the current pixel corresponds to the moon
+        -- Check if the current pixel corresponds to the moon or sun
         delta_x := to_integer(unsigned(pixel_column)) - to_integer(unsigned(moon_center_x));
         delta_y := to_integer(unsigned(pixel_row)) - to_integer(unsigned(moon_center_y));
         distance_squared := delta_x * delta_x + delta_y * delta_y;
-        IF distance_squared <= moon_radius * moon_radius THEN
-            is_moon := TRUE;
-        END IF;
-
-        -- Set colors based on whether the current pixel is a star, moon, or background
-        IF (is_star = TRUE) THEN
-				RGB <= "111";
-				star_on <= '1';
-        ELSIF (is_moon = TRUE) THEN
-				RGB <= "111";
-				moon_on <= '1';
+		  
+        IF toggle_state = '0' AND distance_squared <= moon_radius * moon_radius THEN
+            is_moon_sun := TRUE;
+            RGB <= "111"; -- White for the moon
+        ELSIF toggle_state = '1' AND distance_squared <= sun_radius * sun_radius THEN
+            is_moon_sun := TRUE;
+            RGB <= "110"; -- Yellow for the sun
         ELSE
-				RGB <= "000";
-				star_on <= '0';
-				moon_on <= '0';
+            -- Background color toggle based on the state
+            IF toggle_state = '1' THEN
+                RGB <= "001"; -- Blue background when toggled
+            ELSE
+                RGB <= "000"; -- Default black background
+            END IF;
         END IF;
+		  
+		  -- Check if the current pixel corresponds to any of the star positions
+        -- Only display stars if the moon is visible
+        IF toggle_state = '0' THEN
+            FOR i IN 0 TO star_count-1 LOOP
+                IF (pixel_row = star_y_positions(i) AND pixel_column = star_x_positions(i)) THEN
+                    is_star := TRUE;
+                    RGB <= "111"; -- White for stars
+                END IF;
+            END LOOP;
+        END IF;
+		  
     END PROCESS;
 	 output_on <= '1' when (star_on = '1' or moon_on = '1') else
 						'0';
