@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Mon May 13 16:05:50 2024
+Mon May 13 16:24:42 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -20,14 +20,14 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
  12. General Register Statistics
  13. Inverted Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated
- 16. Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated
- 17. Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated
+ 15. Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated
+ 16. Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated
+ 17. Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated
  18. Source assignments for text_rom:inst13|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
  19. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
- 20. Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1
- 21. Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2
- 22. Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3
+ 20. Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1
+ 21. Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2
+ 22. Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3
  23. Parameter Settings for User Entity Instance: text_rom:inst13|char_rom:char_rom_inst|altsyncram:altsyncram_component
  24. altsyncram Parameter Settings by Entity Instance
  25. Post-Synthesis Netlist Statistics for Top Partition
@@ -58,14 +58,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 13 16:05:50 2024           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 13 16:24:42 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 453                                             ;
-; Total pins                      ; 25                                              ;
+; Total registers                 ; 454                                             ;
+; Total pins                      ; 26                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 2,304                                           ;
 ; Total DSP Blocks                ; 1                                               ;
@@ -228,18 +228,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------+
 ; Resource                                    ; Usage                        ;
 +---------------------------------------------+------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 477                          ;
+; Estimate of Logic utilization (ALMs needed) ; 471                          ;
 ;                                             ;                              ;
-; Combinational ALUT usage for logic          ; 789                          ;
+; Combinational ALUT usage for logic          ; 790                          ;
 ;     -- 7 input functions                    ; 1                            ;
-;     -- 6 input functions                    ; 155                          ;
-;     -- 5 input functions                    ; 62                           ;
-;     -- 4 input functions                    ; 57                           ;
-;     -- <=3 input functions                  ; 514                          ;
+;     -- 6 input functions                    ; 142                          ;
+;     -- 5 input functions                    ; 79                           ;
+;     -- 4 input functions                    ; 56                           ;
+;     -- <=3 input functions                  ; 512                          ;
 ;                                             ;                              ;
-; Dedicated logic registers                   ; 453                          ;
+; Dedicated logic registers                   ; 454                          ;
 ;                                             ;                              ;
-; I/O pins                                    ; 25                           ;
+; I/O pins                                    ; 26                           ;
 ; Total MLAB memory bits                      ; 0                            ;
 ; Total block memory bits                     ; 2304                         ;
 ;                                             ;                              ;
@@ -249,49 +249,49 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                            ;
 ;                                             ;                              ;
 ; Maximum fan-out node                        ; VGA_SYNC:inst5|vert_sync_out ;
-; Maximum fan-out                             ; 239                          ;
+; Maximum fan-out                             ; 240                          ;
 ; Total fan-out                               ; 3989                         ;
-; Average fan-out                             ; 3.06                         ;
+; Average fan-out                             ; 3.05                         ;
 +---------------------------------------------+------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Entity Name        ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
-; |flappybird21block                           ; 789 (1)             ; 453 (0)                   ; 2304              ; 1          ; 25   ; 0            ; |flappybird21block                                                                                              ; flappybird21block  ; work         ;
-;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                        ; BCD_to_SevenSeg    ; work         ;
-;    |BCD_to_SevenSeg:inst8|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                        ; BCD_to_SevenSeg    ; work         ;
-;    |MOUSE:inst1|                             ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                  ; MOUSE              ; work         ;
-;    |VGA_SYNC:inst5|                          ; 44 (44)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                                                               ; VGA_SYNC           ; work         ;
-;    |background:inst3|                        ; 424 (424)           ; 204 (204)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst3                                                                             ; background         ; work         ;
-;    |bouncy_ball:inst12|                      ; 95 (51)             ; 58 (22)                   ; 2304              ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12                                                                           ; bouncy_ball        ; work         ;
-;       |sprite_rom:sprite_rom_inst|           ; 44 (44)             ; 36 (36)                   ; 2304              ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst                                                ; sprite_rom         ; work         ;
-;          |altsyncram:ROM1|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1                                ; altsyncram         ; work         ;
-;             |altsyncram_8ng1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated ; altsyncram_8ng1    ; work         ;
-;          |altsyncram:ROM2|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2                                ; altsyncram         ; work         ;
-;             |altsyncram_9ng1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated ; altsyncram_9ng1    ; work         ;
-;          |altsyncram:ROM3|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3                                ; altsyncram         ; work         ;
-;             |altsyncram_ang1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated ; altsyncram_ang1    ; work         ;
-;    |display_controller:inst11|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|display_controller:inst11                                                                    ; display_controller ; work         ;
-;    |pipes:inst14|                            ; 101 (101)           ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst14                                                                                 ; pipes              ; work         ;
-;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                    ; pll                ; work         ;
-;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                  ; pll_0002           ; pll          ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                          ; altera_pll         ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                        ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                            ; Entity Name        ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; |flappybird21block                           ; 790 (1)             ; 454 (0)                   ; 2304              ; 1          ; 26   ; 0            ; |flappybird21block                                                                                             ; flappybird21block  ; work         ;
+;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                       ; BCD_to_SevenSeg    ; work         ;
+;    |BCD_to_SevenSeg:inst8|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                       ; BCD_to_SevenSeg    ; work         ;
+;    |MOUSE:inst1|                             ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                 ; MOUSE              ; work         ;
+;    |VGA_SYNC:inst5|                          ; 44 (44)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst5                                                                              ; VGA_SYNC           ; work         ;
+;    |background:inst3|                        ; 424 (424)           ; 204 (204)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst3                                                                            ; background         ; work         ;
+;    |bouncy_ball:inst4|                       ; 96 (52)             ; 59 (23)                   ; 2304              ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4                                                                           ; bouncy_ball        ; work         ;
+;       |sprite_rom:sprite_rom_inst|           ; 44 (44)             ; 36 (36)                   ; 2304              ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst                                                ; sprite_rom         ; work         ;
+;          |altsyncram:ROM1|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1                                ; altsyncram         ; work         ;
+;             |altsyncram_8ng1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated ; altsyncram_8ng1    ; work         ;
+;          |altsyncram:ROM2|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2                                ; altsyncram         ; work         ;
+;             |altsyncram_9ng1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated ; altsyncram_9ng1    ; work         ;
+;          |altsyncram:ROM3|                   ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3                                ; altsyncram         ; work         ;
+;             |altsyncram_ang1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 768               ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated ; altsyncram_ang1    ; work         ;
+;    |display_controller:inst11|               ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|display_controller:inst11                                                                   ; display_controller ; work         ;
+;    |pipes:inst14|                            ; 101 (101)           ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst14                                                                                ; pipes              ; work         ;
+;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                   ; pll                ; work         ;
+;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                 ; pll_0002           ; pll          ;
+;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                         ; altera_pll         ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                            ;
-+---------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
-; Name                                                                                                    ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF              ;
-+---------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
-; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite1.mif ;
-; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite2.mif ;
-; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite3.mif ;
-+---------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
+; Name                                                                                                   ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF              ;
++--------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
+; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite1.mif ;
+; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite2.mif ;
+; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 3            ; --           ; --           ; 768  ; bird_sprite3.mif ;
++--------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+------------------+
 
 
 +----------------------------------------------+
@@ -321,25 +321,24 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                         ;
-+------------------------------------------+-------------------------------------------------+
-; Register name                            ; Reason for Removal                              ;
-+------------------------------------------+-------------------------------------------------+
-; text_rom:inst13|fr[0..2]                 ; Lost fanout                                     ;
-; text_rom:inst13|char_address[0..5]       ; Lost fanout                                     ;
-; MOUSE:inst1|CHAROUT[4..7]                ; Stuck at VCC due to stuck port data_in          ;
-; MOUSE:inst1|CHAROUT[3]                   ; Stuck at GND due to stuck port data_in          ;
-; MOUSE:inst1|CHAROUT[2]                   ; Stuck at VCC due to stuck port data_in          ;
-; MOUSE:inst1|CHAROUT[0,1]                 ; Stuck at GND due to stuck port data_in          ;
-; MOUSE:inst1|SHIFTOUT[10]                 ; Stuck at VCC due to stuck port data_in          ;
-; bouncy_ball:inst12|start_move            ; Merged with background:inst3|start_move         ;
-; bouncy_ball:inst12|prev_left_click       ; Merged with background:inst3|prev_left_click    ;
-; bouncy_ball:inst12|ball_y_motion[2,4..9] ; Merged with bouncy_ball:inst12|ball_y_motion[1] ;
-; MOUSE:inst1|cursor_row[9]                ; Stuck at GND due to stuck port data_in          ;
-; VGA_SYNC:inst5|pixel_row[9]              ; Stuck at GND due to stuck port data_in          ;
-; Total Number of Removed Registers = 29   ;                                                 ;
-+------------------------------------------+-------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                       ;
++-----------------------------------------+------------------------------------------------+
+; Register name                           ; Reason for Removal                             ;
++-----------------------------------------+------------------------------------------------+
+; text_rom:inst13|fr[0..2]                ; Lost fanout                                    ;
+; text_rom:inst13|char_address[0..5]      ; Lost fanout                                    ;
+; MOUSE:inst1|CHAROUT[4..7]               ; Stuck at VCC due to stuck port data_in         ;
+; MOUSE:inst1|CHAROUT[3]                  ; Stuck at GND due to stuck port data_in         ;
+; MOUSE:inst1|CHAROUT[2]                  ; Stuck at VCC due to stuck port data_in         ;
+; MOUSE:inst1|CHAROUT[0,1]                ; Stuck at GND due to stuck port data_in         ;
+; MOUSE:inst1|SHIFTOUT[10]                ; Stuck at VCC due to stuck port data_in         ;
+; bouncy_ball:inst4|prev_left_click       ; Merged with background:inst3|prev_left_click   ;
+; bouncy_ball:inst4|ball_y_motion[2,4..9] ; Merged with bouncy_ball:inst4|ball_y_motion[1] ;
+; MOUSE:inst1|cursor_row[9]               ; Stuck at GND due to stuck port data_in         ;
+; VGA_SYNC:inst5|pixel_row[9]             ; Stuck at GND due to stuck port data_in         ;
+; Total Number of Removed Registers = 28  ;                                                ;
++-----------------------------------------+------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -347,7 +346,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 453   ;
+; Total registers                              ; 454   ;
 ; Number of registers using Synchronous Clear  ; 69    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
@@ -357,154 +356,154 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------+
-; Inverted Register Statistics                                            ;
-+---------------------------------------------------------------+---------+
-; Inverted Register                                             ; Fan out ;
-+---------------------------------------------------------------+---------+
-; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|sprite_index[1] ; 4       ;
-; background:inst3|star_x_positions[18][6]                      ; 2       ;
-; background:inst3|star_x_positions[18][4]                      ; 2       ;
-; background:inst3|star_x_positions[19][7]                      ; 2       ;
-; background:inst3|star_x_positions[19][4]                      ; 2       ;
-; background:inst3|star_x_positions[19][5]                      ; 2       ;
-; background:inst3|star_x_positions[19][2]                      ; 2       ;
-; background:inst3|star_x_positions[17][9]                      ; 2       ;
-; background:inst3|star_x_positions[17][6]                      ; 2       ;
-; background:inst3|star_x_positions[17][3]                      ; 2       ;
-; background:inst3|star_x_positions[17][5]                      ; 2       ;
-; background:inst3|star_x_positions[17][2]                      ; 2       ;
-; background:inst3|star_x_positions[15][7]                      ; 2       ;
-; background:inst3|star_x_positions[15][8]                      ; 2       ;
-; background:inst3|star_x_positions[15][5]                      ; 2       ;
-; background:inst3|star_x_positions[15][2]                      ; 2       ;
-; background:inst3|star_x_positions[14][6]                      ; 2       ;
-; background:inst3|star_x_positions[14][8]                      ; 2       ;
-; background:inst3|star_x_positions[13][6]                      ; 2       ;
-; background:inst3|star_x_positions[13][7]                      ; 2       ;
-; background:inst3|star_x_positions[13][3]                      ; 2       ;
-; background:inst3|star_x_positions[13][4]                      ; 2       ;
-; background:inst3|star_x_positions[13][2]                      ; 2       ;
-; background:inst3|star_x_positions[9][8]                       ; 2       ;
-; background:inst3|star_x_positions[9][6]                       ; 2       ;
-; background:inst3|star_x_positions[9][7]                       ; 2       ;
-; background:inst3|star_x_positions[9][1]                       ; 2       ;
-; background:inst3|star_x_positions[12][5]                      ; 2       ;
-; background:inst3|star_x_positions[12][6]                      ; 2       ;
-; background:inst3|star_x_positions[12][3]                      ; 2       ;
-; background:inst3|star_x_positions[12][4]                      ; 2       ;
-; background:inst3|star_x_positions[2][8]                       ; 2       ;
-; background:inst3|star_x_positions[2][5]                       ; 2       ;
-; background:inst3|star_x_positions[2][2]                       ; 2       ;
-; background:inst3|star_x_positions[2][3]                       ; 2       ;
-; background:inst3|star_x_positions[16][9]                      ; 2       ;
-; background:inst3|star_x_positions[16][3]                      ; 2       ;
-; background:inst3|star_x_positions[8][8]                       ; 2       ;
-; background:inst3|star_x_positions[8][4]                       ; 2       ;
-; background:inst3|star_x_positions[8][6]                       ; 2       ;
-; background:inst3|star_x_positions[8][1]                       ; 2       ;
-; background:inst3|star_x_positions[8][2]                       ; 2       ;
-; background:inst3|star_x_positions[8][3]                       ; 2       ;
-; background:inst3|star_x_positions[11][5]                      ; 2       ;
-; background:inst3|star_x_positions[11][1]                      ; 2       ;
-; background:inst3|star_x_positions[11][4]                      ; 2       ;
-; background:inst3|star_x_positions[3][8]                       ; 2       ;
-; background:inst3|star_x_positions[3][7]                       ; 2       ;
-; background:inst3|star_x_positions[3][4]                       ; 2       ;
-; background:inst3|star_x_positions[0][5]                       ; 2       ;
-; background:inst3|star_x_positions[0][6]                       ; 2       ;
-; background:inst3|star_x_positions[0][2]                       ; 2       ;
-; background:inst3|star_x_positions[10][9]                      ; 2       ;
-; background:inst3|star_x_positions[10][5]                      ; 2       ;
-; background:inst3|star_x_positions[10][1]                      ; 2       ;
-; background:inst3|star_x_positions[10][2]                      ; 2       ;
-; background:inst3|star_x_positions[4][8]                       ; 2       ;
-; background:inst3|star_x_positions[4][5]                       ; 2       ;
-; background:inst3|star_x_positions[4][6]                       ; 2       ;
-; background:inst3|star_x_positions[4][7]                       ; 2       ;
-; background:inst3|star_x_positions[4][2]                       ; 2       ;
-; background:inst3|star_x_positions[4][4]                       ; 2       ;
-; background:inst3|star_x_positions[6][7]                       ; 2       ;
-; background:inst3|star_x_positions[6][1]                       ; 2       ;
-; background:inst3|star_x_positions[6][2]                       ; 2       ;
-; background:inst3|star_x_positions[6][4]                       ; 2       ;
-; background:inst3|star_x_positions[5][9]                       ; 2       ;
-; background:inst3|star_x_positions[5][6]                       ; 2       ;
-; background:inst3|star_x_positions[5][3]                       ; 2       ;
-; background:inst3|star_x_positions[5][4]                       ; 2       ;
-; background:inst3|star_x_positions[1][6]                       ; 2       ;
-; background:inst3|star_x_positions[1][7]                       ; 2       ;
-; background:inst3|star_x_positions[1][3]                       ; 2       ;
-; background:inst3|star_x_positions[7][5]                       ; 2       ;
-; background:inst3|star_x_positions[7][6]                       ; 2       ;
-; background:inst3|star_x_positions[7][7]                       ; 2       ;
-; background:inst3|star_x_positions[7][1]                       ; 2       ;
-; background:inst3|star_x_positions[7][3]                       ; 2       ;
-; background:inst3|star_x_positions[7][4]                       ; 2       ;
-; pipes:inst14|p1_x_pos[4]                                      ; 4       ;
-; pipes:inst14|p1_x_pos[7]                                      ; 4       ;
-; pipes:inst14|p1_x_pos[8]                                      ; 4       ;
-; pipes:inst14|p2_x_pos[7]                                      ; 5       ;
-; pipes:inst14|p2_x_pos[9]                                      ; 4       ;
-; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|prev_sprite[1]  ; 1       ;
-; bouncy_ball:inst12|ball_y_pos[7]                              ; 7       ;
-; bouncy_ball:inst12|ball_y_pos[6]                              ; 8       ;
-; bouncy_ball:inst12|ball_y_pos[4]                              ; 8       ;
-; bouncy_ball:inst12|ball_y_pos[5]                              ; 8       ;
-; MOUSE:inst1|send_char                                         ; 3       ;
-; MOUSE:inst1|SHIFTOUT[3]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[5]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[6]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[7]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[8]                                       ; 1       ;
-; Total number of inverted registers = 95                       ;         ;
-+---------------------------------------------------------------+---------+
++------------------------------------------------------------------------+
+; Inverted Register Statistics                                           ;
++--------------------------------------------------------------+---------+
+; Inverted Register                                            ; Fan out ;
++--------------------------------------------------------------+---------+
+; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|sprite_index[1] ; 4       ;
+; background:inst3|star_x_positions[18][6]                     ; 2       ;
+; background:inst3|star_x_positions[18][4]                     ; 2       ;
+; background:inst3|star_x_positions[19][7]                     ; 2       ;
+; background:inst3|star_x_positions[19][4]                     ; 2       ;
+; background:inst3|star_x_positions[19][5]                     ; 2       ;
+; background:inst3|star_x_positions[19][2]                     ; 2       ;
+; background:inst3|star_x_positions[17][9]                     ; 2       ;
+; background:inst3|star_x_positions[17][6]                     ; 2       ;
+; background:inst3|star_x_positions[17][3]                     ; 2       ;
+; background:inst3|star_x_positions[17][5]                     ; 2       ;
+; background:inst3|star_x_positions[17][2]                     ; 2       ;
+; background:inst3|star_x_positions[15][7]                     ; 2       ;
+; background:inst3|star_x_positions[15][8]                     ; 2       ;
+; background:inst3|star_x_positions[15][5]                     ; 2       ;
+; background:inst3|star_x_positions[15][2]                     ; 2       ;
+; background:inst3|star_x_positions[14][6]                     ; 2       ;
+; background:inst3|star_x_positions[14][8]                     ; 2       ;
+; background:inst3|star_x_positions[13][6]                     ; 2       ;
+; background:inst3|star_x_positions[13][7]                     ; 2       ;
+; background:inst3|star_x_positions[13][3]                     ; 2       ;
+; background:inst3|star_x_positions[13][4]                     ; 2       ;
+; background:inst3|star_x_positions[13][2]                     ; 2       ;
+; background:inst3|star_x_positions[9][8]                      ; 2       ;
+; background:inst3|star_x_positions[9][6]                      ; 2       ;
+; background:inst3|star_x_positions[9][7]                      ; 2       ;
+; background:inst3|star_x_positions[9][1]                      ; 2       ;
+; background:inst3|star_x_positions[12][5]                     ; 2       ;
+; background:inst3|star_x_positions[12][6]                     ; 2       ;
+; background:inst3|star_x_positions[12][3]                     ; 2       ;
+; background:inst3|star_x_positions[12][4]                     ; 2       ;
+; background:inst3|star_x_positions[2][8]                      ; 2       ;
+; background:inst3|star_x_positions[2][5]                      ; 2       ;
+; background:inst3|star_x_positions[2][2]                      ; 2       ;
+; background:inst3|star_x_positions[2][3]                      ; 2       ;
+; background:inst3|star_x_positions[16][9]                     ; 2       ;
+; background:inst3|star_x_positions[16][3]                     ; 2       ;
+; background:inst3|star_x_positions[8][8]                      ; 2       ;
+; background:inst3|star_x_positions[8][4]                      ; 2       ;
+; background:inst3|star_x_positions[8][6]                      ; 2       ;
+; background:inst3|star_x_positions[8][1]                      ; 2       ;
+; background:inst3|star_x_positions[8][2]                      ; 2       ;
+; background:inst3|star_x_positions[8][3]                      ; 2       ;
+; background:inst3|star_x_positions[11][5]                     ; 2       ;
+; background:inst3|star_x_positions[11][1]                     ; 2       ;
+; background:inst3|star_x_positions[11][4]                     ; 2       ;
+; background:inst3|star_x_positions[3][8]                      ; 2       ;
+; background:inst3|star_x_positions[3][7]                      ; 2       ;
+; background:inst3|star_x_positions[3][4]                      ; 2       ;
+; background:inst3|star_x_positions[0][5]                      ; 2       ;
+; background:inst3|star_x_positions[0][6]                      ; 2       ;
+; background:inst3|star_x_positions[0][2]                      ; 2       ;
+; background:inst3|star_x_positions[10][9]                     ; 2       ;
+; background:inst3|star_x_positions[10][5]                     ; 2       ;
+; background:inst3|star_x_positions[10][1]                     ; 2       ;
+; background:inst3|star_x_positions[10][2]                     ; 2       ;
+; background:inst3|star_x_positions[4][8]                      ; 2       ;
+; background:inst3|star_x_positions[4][5]                      ; 2       ;
+; background:inst3|star_x_positions[4][6]                      ; 2       ;
+; background:inst3|star_x_positions[4][7]                      ; 2       ;
+; background:inst3|star_x_positions[4][2]                      ; 2       ;
+; background:inst3|star_x_positions[4][4]                      ; 2       ;
+; background:inst3|star_x_positions[6][7]                      ; 2       ;
+; background:inst3|star_x_positions[6][1]                      ; 2       ;
+; background:inst3|star_x_positions[6][2]                      ; 2       ;
+; background:inst3|star_x_positions[6][4]                      ; 2       ;
+; background:inst3|star_x_positions[5][9]                      ; 2       ;
+; background:inst3|star_x_positions[5][6]                      ; 2       ;
+; background:inst3|star_x_positions[5][3]                      ; 2       ;
+; background:inst3|star_x_positions[5][4]                      ; 2       ;
+; background:inst3|star_x_positions[1][6]                      ; 2       ;
+; background:inst3|star_x_positions[1][7]                      ; 2       ;
+; background:inst3|star_x_positions[1][3]                      ; 2       ;
+; background:inst3|star_x_positions[7][5]                      ; 2       ;
+; background:inst3|star_x_positions[7][6]                      ; 2       ;
+; background:inst3|star_x_positions[7][7]                      ; 2       ;
+; background:inst3|star_x_positions[7][1]                      ; 2       ;
+; background:inst3|star_x_positions[7][3]                      ; 2       ;
+; background:inst3|star_x_positions[7][4]                      ; 2       ;
+; pipes:inst14|p1_x_pos[4]                                     ; 4       ;
+; pipes:inst14|p1_x_pos[7]                                     ; 4       ;
+; pipes:inst14|p1_x_pos[8]                                     ; 4       ;
+; pipes:inst14|p2_x_pos[7]                                     ; 5       ;
+; pipes:inst14|p2_x_pos[9]                                     ; 4       ;
+; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|prev_sprite[1]  ; 1       ;
+; bouncy_ball:inst4|ball_y_pos[7]                              ; 8       ;
+; bouncy_ball:inst4|ball_y_pos[6]                              ; 9       ;
+; bouncy_ball:inst4|ball_y_pos[4]                              ; 8       ;
+; bouncy_ball:inst4|ball_y_pos[5]                              ; 9       ;
+; MOUSE:inst1|send_char                                        ; 3       ;
+; MOUSE:inst1|SHIFTOUT[3]                                      ; 1       ;
+; MOUSE:inst1|SHIFTOUT[5]                                      ; 1       ;
+; MOUSE:inst1|SHIFTOUT[6]                                      ; 1       ;
+; MOUSE:inst1|SHIFTOUT[7]                                      ; 1       ;
+; MOUSE:inst1|SHIFTOUT[8]                                      ; 1       ;
+; Total number of inverted registers = 95                      ;         ;
++--------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|new_cursor_column[7]                   ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst5|v_count[2]                          ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst12|ball_y_motion[0]                ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[0]                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[5]                          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[7]                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[8]                       ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|Mux2 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|display_controller:inst11|green                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[0]              ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[0]              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|new_cursor_column[7]                  ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst5|v_count[2]                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst4|ball_y_motion[0]                ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[0]                         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[5]                         ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[7]                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[8]                      ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|Mux2 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|display_controller:inst11|green                   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[0]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[0]             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                    ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                    ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                    ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
-+---------------------------------+--------------------+------+-------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
@@ -763,186 +762,186 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1 ;
-+------------------------------------+----------------------+------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                           ;
-+------------------------------------+----------------------+------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                        ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                   ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                 ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                        ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                        ;
-; WIDTH_A                            ; 3                    ; Signed Integer                                 ;
-; WIDTHAD_A                          ; 8                    ; Signed Integer                                 ;
-; NUMWORDS_A                         ; 256                  ; Signed Integer                                 ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                        ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                        ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WIDTH_B                            ; 1                    ; Untyped                                        ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                        ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                        ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                        ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                        ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                        ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                 ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                        ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                        ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; INIT_FILE                          ; bird_sprite1.mif     ; Untyped                                        ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                        ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                        ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                        ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                        ;
-; CBXI_PARAMETER                     ; altsyncram_8ng1      ; Untyped                                        ;
-+------------------------------------+----------------------+------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1 ;
++------------------------------------+----------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                          ;
++------------------------------------+----------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                       ;
+; WIDTH_A                            ; 3                    ; Signed Integer                                ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WIDTH_B                            ; 1                    ; Untyped                                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; INIT_FILE                          ; bird_sprite1.mif     ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_8ng1      ; Untyped                                       ;
++------------------------------------+----------------------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2 ;
-+------------------------------------+----------------------+------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                           ;
-+------------------------------------+----------------------+------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                        ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                   ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                 ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                        ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                        ;
-; WIDTH_A                            ; 3                    ; Signed Integer                                 ;
-; WIDTHAD_A                          ; 8                    ; Signed Integer                                 ;
-; NUMWORDS_A                         ; 256                  ; Signed Integer                                 ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                        ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                        ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WIDTH_B                            ; 1                    ; Untyped                                        ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                        ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                        ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                        ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                        ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                        ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                 ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                        ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                        ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; INIT_FILE                          ; bird_sprite2.mif     ; Untyped                                        ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                        ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                        ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                        ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                        ;
-; CBXI_PARAMETER                     ; altsyncram_9ng1      ; Untyped                                        ;
-+------------------------------------+----------------------+------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2 ;
++------------------------------------+----------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                          ;
++------------------------------------+----------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                       ;
+; WIDTH_A                            ; 3                    ; Signed Integer                                ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WIDTH_B                            ; 1                    ; Untyped                                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; INIT_FILE                          ; bird_sprite2.mif     ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_9ng1      ; Untyped                                       ;
++------------------------------------+----------------------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3 ;
-+------------------------------------+----------------------+------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                           ;
-+------------------------------------+----------------------+------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                        ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                   ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                 ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                        ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                        ;
-; WIDTH_A                            ; 3                    ; Signed Integer                                 ;
-; WIDTHAD_A                          ; 8                    ; Signed Integer                                 ;
-; NUMWORDS_A                         ; 256                  ; Signed Integer                                 ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                        ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                        ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                        ;
-; WIDTH_B                            ; 1                    ; Untyped                                        ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                        ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                        ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                        ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                        ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                        ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                        ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                        ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                        ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                        ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                 ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                        ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                        ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                        ;
-; INIT_FILE                          ; bird_sprite3.mif     ; Untyped                                        ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                        ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                        ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                        ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                        ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                        ;
-; CBXI_PARAMETER                     ; altsyncram_ang1      ; Untyped                                        ;
-+------------------------------------+----------------------+------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3 ;
++------------------------------------+----------------------+-----------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                          ;
++------------------------------------+----------------------+-----------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                       ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                       ;
+; WIDTH_A                            ; 3                    ; Signed Integer                                ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                       ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                       ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                       ;
+; WIDTH_B                            ; 1                    ; Untyped                                       ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                       ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                       ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                       ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                       ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                       ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                       ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                       ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                       ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                       ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                       ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                       ;
+; INIT_FILE                          ; bird_sprite3.mif     ; Untyped                                       ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                       ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                       ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                       ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                       ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                       ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                       ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                       ;
+; CBXI_PARAMETER                     ; altsyncram_ang1      ; Untyped                                       ;
++------------------------------------+----------------------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1013,7 +1012,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Name                                      ; Value                                                                  ;
 +-------------------------------------------+------------------------------------------------------------------------+
 ; Number of entity instances                ; 4                                                                      ;
-; Entity Instance                           ; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1          ;
+; Entity Instance                           ; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1           ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 3                                                                      ;
 ;     -- NUMWORDS_A                         ; 256                                                                    ;
@@ -1024,7 +1023,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2          ;
+; Entity Instance                           ; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2           ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 3                                                                      ;
 ;     -- NUMWORDS_A                         ; 256                                                                    ;
@@ -1035,7 +1034,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3          ;
+; Entity Instance                           ; bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3           ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 3                                                                      ;
 ;     -- NUMWORDS_A                         ; 256                                                                    ;
@@ -1065,37 +1064,37 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 453                         ;
+; arriav_ff             ; 454                         ;
 ;     CLR               ; 1                           ;
 ;     ENA               ; 317                         ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 27                          ;
 ;     ENA SLD           ; 20                          ;
 ;     SCLR              ; 42                          ;
-;     plain             ; 31                          ;
+;     plain             ; 32                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 792                         ;
+; arriav_lcell_comb     ; 793                         ;
 ;     arith             ; 340                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 317                         ;
 ;         2 data inputs ; 22                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 436                         ;
+;     normal            ; 437                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 92                          ;
 ;         2 data inputs ; 30                          ;
-;         3 data inputs ; 39                          ;
-;         4 data inputs ; 57                          ;
-;         5 data inputs ; 62                          ;
-;         6 data inputs ; 155                         ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 56                          ;
+;         5 data inputs ; 79                          ;
+;         6 data inputs ; 142                         ;
 ;     shared            ; 15                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
 ;         3 data inputs ; 4                           ;
 ; arriav_mac            ; 1                           ;
-; boundary_port         ; 25                          ;
+; boundary_port         ; 26                          ;
 ; generic_pll           ; 1                           ;
 ; stratixv_ram_block    ; 9                           ;
 ;                       ;                             ;
@@ -1119,7 +1118,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 13 16:05:42 2024
+    Info: Processing started: Mon May 13 16:24:27 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1236,13 +1235,13 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "display_controller" for hierarchy "display_controller:inst11"
-Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst12"
+Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst4"
 Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(17): used explicit default value for signal "size" because signal was never assigned a value File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/bouncy_ball.vhd Line: 17
 Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(19): used explicit default value for signal "ball_x_pos" because signal was never assigned a value File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/bouncy_ball.vhd Line: 19
-Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/bouncy_ball.vhd Line: 39
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
+Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/bouncy_ball.vhd Line: 39
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 51
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1259,10 +1258,10 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8ng1.tdf
     Info (12023): Found entity 1: altsyncram_8ng1 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/QuartusTutorialeg/db/altsyncram_8ng1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_8ng1" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
-Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
+Info (12128): Elaborating entity "altsyncram_8ng1" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
+Info (12133): Instantiated megafunction "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 74
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1279,10 +1278,10 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_9ng1.tdf
     Info (12023): Found entity 1: altsyncram_9ng1 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/QuartusTutorialeg/db/altsyncram_9ng1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_9ng1" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
-Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
+Info (12128): Elaborating entity "altsyncram_9ng1" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
+Info (12133): Instantiated megafunction "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3" with the following parameter: File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/sprite_rom.vhd Line: 97
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1299,7 +1298,7 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst12|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ang1.tdf
     Info (12023): Found entity 1: altsyncram_ang1 File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/QuartusTutorialeg/db/altsyncram_ang1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_ang1" for hierarchy "bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "altsyncram_ang1" for hierarchy "bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/OneDrive - The University of Auckland/Documents/305-team-21/305-team-21/code/mouse.vhd Line: 151
@@ -1599,18 +1598,18 @@ Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll
     Info: Must be connected
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]"
-Info (21057): Implemented 900 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (21057): Implemented 902 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 20 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 864 logic cells
+    Info (21061): Implemented 865 logic cells
     Info (21064): Implemented 9 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 268 warnings
-    Info: Peak virtual memory: 4989 megabytes
-    Info: Processing ended: Mon May 13 16:05:50 2024
-    Info: Elapsed time: 00:00:08
+    Info: Peak virtual memory: 4956 megabytes
+    Info: Processing ended: Mon May 13 16:24:42 2024
+    Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:04
 
 

@@ -1,9 +1,10 @@
 |flappybird21block
 VGA_HS <= VGA_SYNC:inst5.horiz_sync_out
 CLOCK_50 => pll:inst6.refclk
-KEY[0] => bouncy_ball:inst12.pb1
+SW[9] => bouncy_ball:inst4.sw9
+KEY[0] => bouncy_ball:inst4.pb1
 KEY[0] => background:inst3.pb1
-KEY[1] => bouncy_ball:inst12.pb2
+KEY[1] => bouncy_ball:inst4.pb2
 PS2_DAT <> MOUSE:inst1.mouse_data
 PS2_CLK <> MOUSE:inst1.mouse_clk
 VGA_VS <= VGA_SYNC:inst5.vert_sync_out
@@ -316,7 +317,9 @@ green <= green.DB_MAX_OUTPUT_PORT_TYPE
 blue <= blue.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird21block|bouncy_ball:inst12
+|flappybird21block|bouncy_ball:inst4
+sw9 => Move_Ball.IN1
+sw9 => Move_Ball.IN0
 pb1 => ~NO_FANOUT~
 pb2 => ~NO_FANOUT~
 clk => sprite_rom:sprite_rom_inst.clk
@@ -352,9 +355,8 @@ vert_sync => ball_y_motion[8].CLK
 vert_sync => ball_y_motion[9].CLK
 vert_sync => start_move.CLK
 left_click => Move_Ball.IN1
-left_click => ball_y_motion.DATAA
+left_click => Move_Ball.IN1
 left_click => prev_left_click.DATAIN
-left_click => ball_y_motion.DATAA
 pixel_row[0] => LessThan2.IN10
 pixel_row[0] => LessThan3.IN16
 pixel_row[0] => Add1.IN20
@@ -421,7 +423,7 @@ RGB[1] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 RGB[2] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst
 clk => altsyncram:ROM1.clock0
 clk => cycle_count[0].CLK
 clk => cycle_count[1].CLK
@@ -490,7 +492,7 @@ data_out[1] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 data_out[2] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -529,7 +531,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_8ng1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -562,7 +564,7 @@ q_a[1] <= ram_block1a1.PORTADATAOUT
 q_a[2] <= ram_block1a2.PORTADATAOUT
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -601,7 +603,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_9ng1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -634,7 +636,7 @@ q_a[1] <= ram_block1a1.PORTADATAOUT
 q_a[2] <= ram_block1a2.PORTADATAOUT
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -673,7 +675,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|flappybird21block|bouncy_ball:inst12|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated
+|flappybird21block|bouncy_ball:inst4|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_ang1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR

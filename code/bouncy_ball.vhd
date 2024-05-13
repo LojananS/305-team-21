@@ -5,7 +5,7 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY bouncy_ball IS
     PORT
     (
-        pb1, pb2, clk, vert_sync, left_click : IN std_logic;
+        sw9, pb1, pb2, clk, vert_sync, left_click : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(2 downto 0)
@@ -39,11 +39,11 @@ BEGIN
     sprite_rom_inst : sprite_rom
         PORT MAP (
             clk => clk,
-			sprite_address => bird_address,
+					sprite_address => bird_address,
             data_out => bird_data
         );
-	 
-	Pixel_Display : PROCESS (clk)
+    
+    Pixel_Display : PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
             IF (unsigned(pixel_column) >= unsigned(ball_x_pos) AND 
@@ -63,10 +63,10 @@ BEGIN
     RGB <= bird_data when ball_on = '1' and bird_data /= "000" else (others => '0');
     output_on <= '1' when ball_on = '1' and bird_data /= "000" else '0';
     
-    Move_Ball: PROCESS (vert_sync, left_click)
+    Move_Ball: PROCESS (vert_sync, left_click, sw9)
     BEGIN
         IF (rising_edge(vert_sync)) THEN
-            IF (left_click = '1' AND prev_left_click = '0') THEN
+            IF (sw9 = '1') AND (left_click = '1' AND prev_left_click = '0') THEN
                 start_move <= '1';
             END IF;
             IF (start_move = '1') THEN
@@ -75,10 +75,11 @@ BEGIN
                 ELSIF (ball_y_pos <= size) THEN
                     ball_y_motion <= to_signed(1, 10);
                 ELSE
-                    IF (left_click = '1') THEN
-                        ball_y_motion <= to_signed(-10, 10);
+                    -- Check if left click should be handled based on sw9
+                    IF (sw9 = '1') AND (left_click = '1') THEN
+                        ball_y_motion <= to_signed(-10, 10); -- Move up rapidly
                     ELSE
-                        ball_y_motion <= to_signed(1, 10);
+                        ball_y_motion <= to_signed(1, 10); -- Gravity pulls down slowly
                     END IF;
                 END IF;
                 ball_y_pos <= ball_y_pos + ball_y_motion;
