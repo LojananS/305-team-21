@@ -47,66 +47,109 @@ ARCHITECTURE SYN OF sprite_rom IS
     SIGNAL rom1_data, rom2_data, rom3_data : STD_LOGIC_VECTOR(11 DOWNTO 0); -- Updated to 12 bits
 
 BEGIN
-    -- Each ROM instance needs to be updated similarly as below:
     ROM1 : altsyncram
     GENERIC MAP (
         address_aclr_a => "NONE",
         clock_enable_input_a => "BYPASS",
         clock_enable_output_a => "BYPASS",
-        init_file => "yeji.mif", -- Ensure this MIF file is formatted for 12-bit data
+        init_file => "bird_sprite1.mif", -- Bird state up MIF file with 12 bit color depth
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
         lpm_type => "altsyncram",
-        numwords_a => 1024,
+        numwords_a => 1024, -- Depth of address
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
         outdata_reg_a => "UNREGISTERED",
-        widthad_a => 10,
-        width_a => 12, -- Updated to 12 bits
+        widthad_a => 10, -- Since depth of address is 1024, we need 2^10
+        width_a => 12, -- 12-bit color
         width_byteena_a => 1
     )
     PORT MAP (
         clock0 => clk,
         address_a => sprite_address,
-        q_a => rom1_data
+        q_a => rom1_data -- Set to rom1_data signal
     );
 	 
-	 data_out <= rom1_data;
+	 ROM2 : altsyncram
+    GENERIC MAP (
+        address_aclr_a => "NONE",
+        clock_enable_input_a => "BYPASS",
+        clock_enable_output_a => "BYPASS",
+        init_file => "bird_sprite2.mif", -- Bird state middle MIF file with 12 bit color depth
+        intended_device_family => "Cyclone V",
+        lpm_hint => "ENABLE_RUNTIME_MOD=NO",
+        lpm_type => "altsyncram",
+        numwords_a => 1024, -- Depth of address
+        operation_mode => "ROM",
+        outdata_aclr_a => "NONE",
+        outdata_reg_a => "UNREGISTERED",
+        widthad_a => 10, -- Since depth of address is 1024, we need 2^10
+        width_a => 12, -- 12-bit color
+        width_byteena_a => 1
+    )
+    PORT MAP (
+        clock0 => clk,
+        address_a => sprite_address,
+        q_a => rom2_data -- Set to rom2_data signal
+    );
+	 
+	 ROM3 : altsyncram
+    GENERIC MAP (
+        address_aclr_a => "NONE",
+        clock_enable_input_a => "BYPASS",
+        clock_enable_output_a => "BYPASS",
+        init_file => "bird_sprite3.mif", -- Bird state down MIF file with 12 bit color depth
+        intended_device_family => "Cyclone V",
+        lpm_hint => "ENABLE_RUNTIME_MOD=NO",
+        lpm_type => "altsyncram",
+        numwords_a => 1024, -- Depth of address
+        operation_mode => "ROM",
+        outdata_aclr_a => "NONE",
+        outdata_reg_a => "UNREGISTERED",
+        widthad_a => 10, -- Since depth of address is 1024, we need 2^10
+        width_a => 12, -- 12-bit color
+        width_byteena_a => 1
+    )
+    PORT MAP (
+        clock0 => clk,
+        address_a => sprite_address,
+        q_a => rom3_data -- Set to rom3_data signal
+    );
 
     -- Multiplexer for selecting the output data based on the sprite index
---    with sprite_index select
---        data_out <= rom1_data when 1,
---                    rom1_data when 2,
---                    rom1_data when 3,
---                    rom1_data when others;
---
---    -- Process to cycle through sprites based on the clock and a counter
---    output_state_decode : process (clk)
---    begin
---        if rising_edge(clk) then
---            if cycle_count >= 2500000 then -- Timer to cycle sprites
---                -- Update sprite indices to cycle through different sprites
---                case sprite_index is
---                    when 1 =>
---                        sprite_index <= 2;
---                        prev_sprite <= 1;
---                    when 2 =>
---                        if prev_sprite = 3 then
---                            sprite_index <= 1;
---                        else
---                            sprite_index <= 3;
---                        end if;
---                        prev_sprite <= 2;
---                    when 3 =>
---                        sprite_index <= 2;
---                        prev_sprite <= 3;
---                    when others =>
---                        sprite_index <= 2;
---                end case;
---                cycle_count <= 0; -- Reset cycle counter
---            else
---                cycle_count <= cycle_count + 1;
---            end if;
---        end if;
---    end process;
+    with sprite_index select
+        data_out <= rom1_data when 1,
+                    rom2_data when 2,
+                    rom3_data when 3,
+                    rom2_data when others;
+
+    -- Process to cycle through sprites based on the clock and a counter
+    output_state_decode : process (clk)
+    begin
+        if rising_edge(clk) then
+            if cycle_count >= 2500000 then -- Timer to cycle sprites
+                -- Update sprite indices to cycle through different sprites
+                case sprite_index is
+                    when 1 =>
+                        sprite_index <= 2;
+                        prev_sprite <= 1;
+                    when 2 =>
+                        if prev_sprite = 3 then
+                            sprite_index <= 1;
+                        else
+                            sprite_index <= 3;
+                        end if;
+                        prev_sprite <= 2;
+                    when 3 =>
+                        sprite_index <= 2;
+                        prev_sprite <= 3;
+                    when others =>
+                        sprite_index <= 2;
+                end case;
+                cycle_count <= 0; -- Reset cycle counter
+            else
+                cycle_count <= cycle_count + 1;
+            end if;
+        end if;
+    end process;
 END SYN;
