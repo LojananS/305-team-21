@@ -8,7 +8,7 @@ ENTITY bouncy_ball IS
         sw9, pb1, pb2, clk, vert_sync, left_click : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         output_on : OUT std_logic;
-        RGB : OUT std_logic_vector(2 downto 0)
+        RGB : OUT std_logic_vector(11 DOWNTO 0)
     );
 END bouncy_ball;
 
@@ -23,14 +23,14 @@ ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL prev_left_click : std_logic := '0';
 
     SIGNAL bird_address : std_logic_vector(7 DOWNTO 0);
-    SIGNAL bird_data : std_logic_vector(2 DOWNTO 0);
+    SIGNAL bird_data : std_logic_vector(11 DOWNTO 0);
 
     -- Assume sprite_rom is a component defined elsewhere
     COMPONENT sprite_rom
         PORT (
             clk            : IN std_logic;
             sprite_address : IN std_logic_vector(7 DOWNTO 0);
-            data_out       : OUT std_logic_vector(2 DOWNTO 0)
+            data_out       : OUT std_logic_vector(11 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -39,10 +39,10 @@ BEGIN
     sprite_rom_inst : sprite_rom
         PORT MAP (
             clk => clk,
-					sprite_address => bird_address,
+            sprite_address => bird_address,
             data_out => bird_data
         );
-    
+
     Pixel_Display : PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
@@ -59,11 +59,14 @@ BEGIN
             END IF;
         END IF;
     END PROCESS Pixel_Display;
-    
-    RGB <= bird_data when ball_on = '1' and bird_data /= "000" else (others => '0');
-    output_on <= '1' when ball_on = '1' and bird_data /= "000" else '0';
-    
+
+    RGB <= bird_data when ball_on = '1' and bird_data /= "000000000000" else (others => '0');
+    output_on <= '1' when ball_on = '1' and bird_data /= "000000000000" else '0';
+
     Move_Ball: PROCESS (vert_sync, left_click, sw9)
+        variable gravity_cntr : integer range 0 to 3 := 0;
+        variable up_cntr : integer range 0 to 8 := 0;
+        variable up_checker : std_logic;
     BEGIN
         IF (rising_edge(vert_sync)) THEN
             IF (sw9 = '1') AND (left_click = '1' AND prev_left_click = '0') THEN
@@ -76,10 +79,37 @@ BEGIN
                     ball_y_motion <= to_signed(1, 10);
                 ELSE
                     -- Check if left click should be handled based on sw9
-                    IF (sw9 = '1') AND (left_click = '1') THEN
-                        ball_y_motion <= to_signed(-10, 10); -- Move up rapidly
+                    IF (sw9 = '1') AND (left_click = '1') and (prev_left_click = '0') THEN
+                        up_checker := '1';
+                        up_cntr := 0;
+                        gravity_cntr := 0;
                     ELSE
-                        ball_y_motion <= to_signed(1, 10); -- Gravity pulls down slowly
+                        IF (up_checker ='1') THEN
+                            up_cntr := up_cntr + 1;
+									 gravity_cntr := 0;
+                            CASE up_cntr IS
+                                WHEN 0 => ball_y_motion <= to_signed(-6, 10);
+                                WHEN 1 => ball_y_motion <= to_signed(-8, 10);
+                                WHEN 2 => ball_y_motion <= to_signed(-10, 10);
+                                WHEN 3 => ball_y_motion <= to_signed(-12, 10);
+                                WHEN 4 => ball_y_motion <= to_signed(-14, 10);
+										  WHEN 5 => ball_y_motion <= to_signed(-12, 10);
+										  WHEN 6 => ball_y_motion <= to_signed(-10, 10);
+										  WHEN 7 => ball_y_motion <= to_signed(-8, 10);
+                                WHEN 8 => up_checker := '0';
+                                WHEN OTHERS => NULL;
+                            END CASE;
+                        ELSE
+                            gravity_cntr := gravity_cntr + 1;
+									 up_checker := '0';
+                            CASE gravity_cntr IS
+                                WHEN 0 => ball_y_motion <= to_signed(0, 10);
+                                WHEN 1 => ball_y_motion <= to_signed(2, 10);
+                                WHEN 2 => ball_y_motion <= to_signed(4, 10);
+                                WHEN 3 => ball_y_motion <= to_signed(6, 10);
+                                WHEN OTHERS => ball_y_motion <= to_signed(6, 10);
+                            END CASE;
+                        END IF;
                     END IF;
                 END IF;
                 ball_y_pos <= ball_y_pos + ball_y_motion;
