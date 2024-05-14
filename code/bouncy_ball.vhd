@@ -14,7 +14,7 @@ END bouncy_ball;
 
 ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL ball_on : std_logic;
-    SIGNAL size : signed(9 DOWNTO 0) := to_signed(8, 10);
+    SIGNAL size : signed(9 DOWNTO 0) := to_signed(16, 10);
     SIGNAL ball_y_pos : signed(9 DOWNTO 0) := to_signed(240, 10);
     SIGNAL ball_x_pos : signed(10 DOWNTO 0) := to_signed(150, 11);
     SIGNAL ball_y_motion : signed(9 DOWNTO 0);
@@ -22,14 +22,14 @@ ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL start_move : std_logic := '0';
     SIGNAL prev_left_click : std_logic := '0';
 
-    SIGNAL bird_address : std_logic_vector(7 DOWNTO 0);
+    SIGNAL bird_address : std_logic_vector(9 DOWNTO 0);
     SIGNAL bird_data : std_logic_vector(11 DOWNTO 0);
 
     -- Assume sprite_rom is a component defined elsewhere
     COMPONENT sprite_rom
         PORT (
             clk            : IN std_logic;
-            sprite_address : IN std_logic_vector(7 DOWNTO 0);
+            sprite_address : IN std_logic_vector(9 DOWNTO 0);
             data_out       : OUT std_logic_vector(11 DOWNTO 0)
         );
     END COMPONENT;
@@ -47,13 +47,13 @@ BEGIN
     BEGIN
         IF rising_edge(clk) THEN
             IF (unsigned(pixel_column) >= unsigned(ball_x_pos) AND 
-                unsigned(pixel_column) < unsigned(ball_x_pos) + 16 AND
+                unsigned(pixel_column) < unsigned(ball_x_pos) + 32 AND
                 unsigned(pixel_row) >= unsigned(ball_y_pos) AND 
-                unsigned(pixel_row) < unsigned(ball_y_pos) + 16) THEN
+                unsigned(pixel_row) < unsigned(ball_y_pos) + 32) THEN
                 ball_on <= '1';
                 bird_address <= std_logic_vector(to_unsigned(
-                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 16 +
-                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 8));
+                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 32 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 10));
             ELSE
                 ball_on <= '0';
             END IF;

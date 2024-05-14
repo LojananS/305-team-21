@@ -9,7 +9,7 @@ ENTITY sprite_rom IS
     PORT
     (
         clk             :   IN STD_LOGIC;
-        sprite_address  :   IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+        sprite_address  :   IN STD_LOGIC_VECTOR(9 DOWNTO 0);
         data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
     );
 END sprite_rom;
@@ -39,7 +39,7 @@ ARCHITECTURE SYN OF sprite_rom IS
     );
     PORT (
         clock0      : IN STD_LOGIC ;
-        address_a   : IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+        address_a   : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
         q_a         : OUT STD_LOGIC_VECTOR (11 DOWNTO 0) -- Updated to 12 bits
     );
     END COMPONENT;
@@ -70,41 +70,43 @@ BEGIN
         address_a => sprite_address,
         q_a => rom1_data
     );
+	 
+	 data_out <= rom1_data;
 
     -- Multiplexer for selecting the output data based on the sprite index
-    with sprite_index select
-        data_out <= rom1_data when 1,
-                    rom1_data when 2,
-                    rom1_data when 3,
-                    rom1_data when others;
-
-    -- Process to cycle through sprites based on the clock and a counter
-    output_state_decode : process (clk)
-    begin
-        if rising_edge(clk) then
-            if cycle_count >= 2500000 then -- Timer to cycle sprites
-                -- Update sprite indices to cycle through different sprites
-                case sprite_index is
-                    when 1 =>
-                        sprite_index <= 2;
-                        prev_sprite <= 1;
-                    when 2 =>
-                        if prev_sprite = 3 then
-                            sprite_index <= 1;
-                        else
-                            sprite_index <= 3;
-                        end if;
-                        prev_sprite <= 2;
-                    when 3 =>
-                        sprite_index <= 2;
-                        prev_sprite <= 3;
-                    when others =>
-                        sprite_index <= 2;
-                end case;
-                cycle_count <= 0; -- Reset cycle counter
-            else
-                cycle_count <= cycle_count + 1;
-            end if;
-        end if;
-    end process;
+--    with sprite_index select
+--        data_out <= rom1_data when 1,
+--                    rom1_data when 2,
+--                    rom1_data when 3,
+--                    rom1_data when others;
+--
+--    -- Process to cycle through sprites based on the clock and a counter
+--    output_state_decode : process (clk)
+--    begin
+--        if rising_edge(clk) then
+--            if cycle_count >= 2500000 then -- Timer to cycle sprites
+--                -- Update sprite indices to cycle through different sprites
+--                case sprite_index is
+--                    when 1 =>
+--                        sprite_index <= 2;
+--                        prev_sprite <= 1;
+--                    when 2 =>
+--                        if prev_sprite = 3 then
+--                            sprite_index <= 1;
+--                        else
+--                            sprite_index <= 3;
+--                        end if;
+--                        prev_sprite <= 2;
+--                    when 3 =>
+--                        sprite_index <= 2;
+--                        prev_sprite <= 3;
+--                    when others =>
+--                        sprite_index <= 2;
+--                end case;
+--                cycle_count <= 0; -- Reset cycle counter
+--            else
+--                cycle_count <= cycle_count + 1;
+--            end if;
+--        end if;
+--    end process;
 END SYN;
