@@ -16,11 +16,11 @@ ARCHITECTURE behavior OF ground IS
     -- Ground Characteristics
     SIGNAL ground_on : std_logic;
     SIGNAL ground_x_pos : signed(10 DOWNTO 0) := to_signed(0, 11);
-    SIGNAL ground_y_pos : signed(9 DOWNTO 0) := to_signed(420, 10); -- Updated to 400
+    SIGNAL ground_y_pos : signed(9 DOWNTO 0) := to_signed(420, 10); -- Updated to 420
 
     -- General Ground Settings
     SIGNAL ground_x_size : signed(9 DOWNTO 0) := to_signed(640, 10); -- Width of the ground
-    SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(60, 10); -- Height covering 400 to 480
+    SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(60, 10); -- Height covering 420 to 480
 
     SIGNAL start_move : std_logic := '0'; -- ground starts moving when enabled
 
