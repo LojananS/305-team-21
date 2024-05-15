@@ -7,7 +7,8 @@ ENTITY background IS
         ( pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
           pb1, clk, vert_sync, left_click : IN std_logic;
 			output_on						: OUT std_logic;
-			RGB									: OUT std_logic_vector(2 downto 0));        
+			RGB									: OUT std_logic_vector(11 downto 0)
+			);        
 END background;
 
 ARCHITECTURE behavior OF background IS
@@ -144,16 +145,16 @@ BEGIN
 		  
         IF toggle_state = '0' AND distance_squared <= moon_radius * moon_radius THEN
             is_moon_sun := TRUE;
-            RGB <= "111"; -- White for the moon
+            RGB <= "111111111111"; -- White for the moon
         ELSIF toggle_state = '1' AND distance_squared <= sun_radius * sun_radius THEN
             is_moon_sun := TRUE;
-            RGB <= "110"; -- Yellow for the sun
+            RGB <= "111110100000"; -- orange ish for the sun
         ELSE
             -- Background color toggle based on the state
             IF toggle_state = '1' THEN
-                RGB <= "001"; -- Blue background when toggled
+                RGB <= "000000001111"; -- Blue background when toggled
             ELSE
-                RGB <= "000"; -- Default black background
+                RGB <= "000000000000"; -- Default black background
             END IF;
         END IF;
 		  
@@ -163,7 +164,7 @@ BEGIN
             FOR i IN 0 TO star_count-1 LOOP
                 IF (pixel_row = star_y_positions(i) AND pixel_column = star_x_positions(i)) THEN
                     is_star := TRUE;
-                    RGB <= "111"; -- White for stars
+                    RGB <= "111111111111"; -- White for stars
                 END IF;
             END LOOP;
         END IF;

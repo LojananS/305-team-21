@@ -15,18 +15,18 @@ ARCHITECTURE beh OF display_controller IS
 BEGIN
 	process(pipe_on, ball_on, background_on, RGB_pipe, RGB_ball, RGB_background)
 begin
-	if ball_on = '1' then
-		red <= RGB_ball(11 downto 8);
-		green <= RGB_ball(7 downto 4);
-		blue <= RGB_ball(3 downto 0);
-	elsif pipe_on = '1' then
+	if pipe_on = '1' then
+		red <= RGB_pipe(11 downto 8);
+		green <= RGB_pipe(7 downto 4);
+		blue <= RGB_pipe(3 downto 0);
+	elsif ball_on = '1' then
 		red <= RGB_ball(11 downto 8);
 		green <= RGB_ball(7 downto 4);
 		blue <= RGB_ball(3 downto 0);
 	else
-		red <= RGB_ball(11 downto 8);
-		green <= RGB_ball(7 downto 4);
-		blue <= RGB_ball(3 downto 0);
+		red <= RGB_background(11 downto 8);
+		green <= RGB_background(7 downto 4);
+		blue <= RGB_background(3 downto 0);
     end if;
 end process;
 

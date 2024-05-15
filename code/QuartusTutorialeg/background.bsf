@@ -75,8 +75,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 216 48)
 		(output)
-		(text "RGB[2..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "RGB[2..0]" (rect 154 43 195 55)(font "Arial" ))
+		(text "RGB[11..0]" (rect 0 0 43 12)(font "Arial" ))
+		(text "RGB[11..0]" (rect 152 43 195 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(drawing

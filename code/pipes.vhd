@@ -7,7 +7,8 @@ ENTITY pipes IS
 		( clk, vert_sync, left_click	: IN std_logic;
           pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
 			output_on						: OUT std_logic;
-			RGB							: OUT std_logic_vector(2 downto 0));		
+			RGB							: OUT std_logic_vector(11 downto 0)
+			);		
 END pipes;
 
 architecture behavior of pipes is
@@ -52,7 +53,7 @@ p2_on <= '1' WHEN (unsigned(pixel_column) >= unsigned(p2_x_pos) AND
 
 
     -- Control RGB output and overall output display
-    RGB <= "010" when (p1_on = '1' or p2_on = '1'); -- "010" green is the color for the pipes
+    RGB <= "100010001000" when (p1_on = '1' or p2_on = '1'); -- "100010001000" grey is the color for the pipes
     output_on <= '1' when (p1_on = '1' or p2_on = '1') else '0';
 			
 
