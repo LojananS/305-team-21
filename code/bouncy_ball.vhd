@@ -112,7 +112,7 @@ BEGIN
                         END IF;
                     END IF;
                 END IF;
-                ball_y_pos <= ball_y_pos + ball_y_motion;
+                ball_y_pos <= ball_y_pos + ball_y_motion + gravity;
             END IF;
             prev_left_click <= left_click;
         END IF;

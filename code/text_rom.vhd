@@ -19,7 +19,7 @@ ARCHITECTURE beh OF text_rom IS
         PORT (
             character_address : IN STD_LOGIC_VECTOR (5 DOWNTO 0);
             font_row, font_col : IN STD_LOGIC_VECTOR (2 DOWNTO 0);
-            clock : IN STD_LOGIC;
+            clock: IN STD_LOGIC;
             rom_mux_output : OUT STD_LOGIC
         );
     END COMPONENT;

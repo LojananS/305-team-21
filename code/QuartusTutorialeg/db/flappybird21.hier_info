@@ -330,7 +330,7 @@ cascade_out[0] <= <GND>
 zdbfbclk <> <GND>
 
 
-|flappybird21block|display_controller:inst21
+|flappybird21block|display_controller:inst15
 clk => ~NO_FANOUT~
 ball_on => red.OUTPUTSELECT
 ball_on => red.OUTPUTSELECT
@@ -357,6 +357,18 @@ pipe_on => blue.OUTPUTSELECT
 pipe_on => blue.OUTPUTSELECT
 pipe_on => blue.OUTPUTSELECT
 background_on => ~NO_FANOUT~
+text_on => red.OUTPUTSELECT
+text_on => red.OUTPUTSELECT
+text_on => red.OUTPUTSELECT
+text_on => red.OUTPUTSELECT
+text_on => green.OUTPUTSELECT
+text_on => green.OUTPUTSELECT
+text_on => green.OUTPUTSELECT
+text_on => green.OUTPUTSELECT
+text_on => blue.OUTPUTSELECT
+text_on => blue.OUTPUTSELECT
+text_on => blue.OUTPUTSELECT
+text_on => blue.OUTPUTSELECT
 RGB_ball[0] => blue.DATAB
 RGB_ball[1] => blue.DATAB
 RGB_ball[2] => blue.DATAB
@@ -2100,107 +2112,7 @@ RGB[10] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 RGB[11] <= RGB.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird21block|BCD_to_SevenSeg:inst7
-BCD_digit[0] => Equal0.IN3
-BCD_digit[0] => Equal1.IN3
-BCD_digit[0] => Equal2.IN2
-BCD_digit[0] => Equal3.IN3
-BCD_digit[0] => Equal4.IN1
-BCD_digit[0] => Equal5.IN3
-BCD_digit[0] => Equal6.IN2
-BCD_digit[0] => Equal7.IN3
-BCD_digit[0] => Equal8.IN2
-BCD_digit[0] => Equal9.IN3
-BCD_digit[1] => Equal0.IN2
-BCD_digit[1] => Equal1.IN1
-BCD_digit[1] => Equal2.IN1
-BCD_digit[1] => Equal3.IN2
-BCD_digit[1] => Equal4.IN3
-BCD_digit[1] => Equal5.IN1
-BCD_digit[1] => Equal6.IN1
-BCD_digit[1] => Equal7.IN2
-BCD_digit[1] => Equal8.IN3
-BCD_digit[1] => Equal9.IN2
-BCD_digit[2] => Equal0.IN1
-BCD_digit[2] => Equal1.IN0
-BCD_digit[2] => Equal2.IN0
-BCD_digit[2] => Equal3.IN1
-BCD_digit[2] => Equal4.IN2
-BCD_digit[2] => Equal5.IN2
-BCD_digit[2] => Equal6.IN3
-BCD_digit[2] => Equal7.IN1
-BCD_digit[2] => Equal8.IN1
-BCD_digit[2] => Equal9.IN1
-BCD_digit[3] => Equal0.IN0
-BCD_digit[3] => Equal1.IN2
-BCD_digit[3] => Equal2.IN3
-BCD_digit[3] => Equal3.IN0
-BCD_digit[3] => Equal4.IN0
-BCD_digit[3] => Equal5.IN0
-BCD_digit[3] => Equal6.IN0
-BCD_digit[3] => Equal7.IN0
-BCD_digit[3] => Equal8.IN0
-BCD_digit[3] => Equal9.IN0
-SevenSeg_out[0] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[1] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[2] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[3] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[4] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[5] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[6] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|flappybird21block|BCD_to_SevenSeg:inst8
-BCD_digit[0] => Equal0.IN3
-BCD_digit[0] => Equal1.IN3
-BCD_digit[0] => Equal2.IN2
-BCD_digit[0] => Equal3.IN3
-BCD_digit[0] => Equal4.IN1
-BCD_digit[0] => Equal5.IN3
-BCD_digit[0] => Equal6.IN2
-BCD_digit[0] => Equal7.IN3
-BCD_digit[0] => Equal8.IN2
-BCD_digit[0] => Equal9.IN3
-BCD_digit[1] => Equal0.IN2
-BCD_digit[1] => Equal1.IN1
-BCD_digit[1] => Equal2.IN1
-BCD_digit[1] => Equal3.IN2
-BCD_digit[1] => Equal4.IN3
-BCD_digit[1] => Equal5.IN1
-BCD_digit[1] => Equal6.IN1
-BCD_digit[1] => Equal7.IN2
-BCD_digit[1] => Equal8.IN3
-BCD_digit[1] => Equal9.IN2
-BCD_digit[2] => Equal0.IN1
-BCD_digit[2] => Equal1.IN0
-BCD_digit[2] => Equal2.IN0
-BCD_digit[2] => Equal3.IN1
-BCD_digit[2] => Equal4.IN2
-BCD_digit[2] => Equal5.IN2
-BCD_digit[2] => Equal6.IN3
-BCD_digit[2] => Equal7.IN1
-BCD_digit[2] => Equal8.IN1
-BCD_digit[2] => Equal9.IN1
-BCD_digit[3] => Equal0.IN0
-BCD_digit[3] => Equal1.IN2
-BCD_digit[3] => Equal2.IN3
-BCD_digit[3] => Equal3.IN0
-BCD_digit[3] => Equal4.IN0
-BCD_digit[3] => Equal5.IN0
-BCD_digit[3] => Equal6.IN0
-BCD_digit[3] => Equal7.IN0
-BCD_digit[3] => Equal8.IN0
-BCD_digit[3] => Equal9.IN0
-SevenSeg_out[0] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[1] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[2] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[3] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[4] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[5] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-SevenSeg_out[6] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|flappybird21block|text_rom:inst13
+|flappybird21block|text_rom:inst12
 character_address[0] => ~NO_FANOUT~
 character_address[1] => ~NO_FANOUT~
 character_address[2] => ~NO_FANOUT~
@@ -2347,7 +2259,7 @@ clk => char_address[5].CLK
 output <= char_rom:char_rom_inst.rom_mux_output
 
 
-|flappybird21block|text_rom:inst13|char_rom:char_rom_inst
+|flappybird21block|text_rom:inst12|char_rom:char_rom_inst
 character_address[0] => altsyncram:altsyncram_component.address_a[3]
 character_address[1] => altsyncram:altsyncram_component.address_a[4]
 character_address[2] => altsyncram:altsyncram_component.address_a[5]
@@ -2364,7 +2276,7 @@ clock => altsyncram:altsyncram_component.clock0
 rom_mux_output <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|flappybird21block|text_rom:inst13|char_rom:char_rom_inst|altsyncram:altsyncram_component
+|flappybird21block|text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -2414,7 +2326,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|flappybird21block|text_rom:inst13|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+|flappybird21block|text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -2503,5 +2415,105 @@ q_a[4] <= ram_block1a4.PORTADATAOUT
 q_a[5] <= ram_block1a5.PORTADATAOUT
 q_a[6] <= ram_block1a6.PORTADATAOUT
 q_a[7] <= ram_block1a7.PORTADATAOUT
+
+
+|flappybird21block|BCD_to_SevenSeg:inst7
+BCD_digit[0] => Equal0.IN3
+BCD_digit[0] => Equal1.IN3
+BCD_digit[0] => Equal2.IN2
+BCD_digit[0] => Equal3.IN3
+BCD_digit[0] => Equal4.IN1
+BCD_digit[0] => Equal5.IN3
+BCD_digit[0] => Equal6.IN2
+BCD_digit[0] => Equal7.IN3
+BCD_digit[0] => Equal8.IN2
+BCD_digit[0] => Equal9.IN3
+BCD_digit[1] => Equal0.IN2
+BCD_digit[1] => Equal1.IN1
+BCD_digit[1] => Equal2.IN1
+BCD_digit[1] => Equal3.IN2
+BCD_digit[1] => Equal4.IN3
+BCD_digit[1] => Equal5.IN1
+BCD_digit[1] => Equal6.IN1
+BCD_digit[1] => Equal7.IN2
+BCD_digit[1] => Equal8.IN3
+BCD_digit[1] => Equal9.IN2
+BCD_digit[2] => Equal0.IN1
+BCD_digit[2] => Equal1.IN0
+BCD_digit[2] => Equal2.IN0
+BCD_digit[2] => Equal3.IN1
+BCD_digit[2] => Equal4.IN2
+BCD_digit[2] => Equal5.IN2
+BCD_digit[2] => Equal6.IN3
+BCD_digit[2] => Equal7.IN1
+BCD_digit[2] => Equal8.IN1
+BCD_digit[2] => Equal9.IN1
+BCD_digit[3] => Equal0.IN0
+BCD_digit[3] => Equal1.IN2
+BCD_digit[3] => Equal2.IN3
+BCD_digit[3] => Equal3.IN0
+BCD_digit[3] => Equal4.IN0
+BCD_digit[3] => Equal5.IN0
+BCD_digit[3] => Equal6.IN0
+BCD_digit[3] => Equal7.IN0
+BCD_digit[3] => Equal8.IN0
+BCD_digit[3] => Equal9.IN0
+SevenSeg_out[0] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[1] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[2] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[3] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[4] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[5] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[6] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|flappybird21block|BCD_to_SevenSeg:inst8
+BCD_digit[0] => Equal0.IN3
+BCD_digit[0] => Equal1.IN3
+BCD_digit[0] => Equal2.IN2
+BCD_digit[0] => Equal3.IN3
+BCD_digit[0] => Equal4.IN1
+BCD_digit[0] => Equal5.IN3
+BCD_digit[0] => Equal6.IN2
+BCD_digit[0] => Equal7.IN3
+BCD_digit[0] => Equal8.IN2
+BCD_digit[0] => Equal9.IN3
+BCD_digit[1] => Equal0.IN2
+BCD_digit[1] => Equal1.IN1
+BCD_digit[1] => Equal2.IN1
+BCD_digit[1] => Equal3.IN2
+BCD_digit[1] => Equal4.IN3
+BCD_digit[1] => Equal5.IN1
+BCD_digit[1] => Equal6.IN1
+BCD_digit[1] => Equal7.IN2
+BCD_digit[1] => Equal8.IN3
+BCD_digit[1] => Equal9.IN2
+BCD_digit[2] => Equal0.IN1
+BCD_digit[2] => Equal1.IN0
+BCD_digit[2] => Equal2.IN0
+BCD_digit[2] => Equal3.IN1
+BCD_digit[2] => Equal4.IN2
+BCD_digit[2] => Equal5.IN2
+BCD_digit[2] => Equal6.IN3
+BCD_digit[2] => Equal7.IN1
+BCD_digit[2] => Equal8.IN1
+BCD_digit[2] => Equal9.IN1
+BCD_digit[3] => Equal0.IN0
+BCD_digit[3] => Equal1.IN2
+BCD_digit[3] => Equal2.IN3
+BCD_digit[3] => Equal3.IN0
+BCD_digit[3] => Equal4.IN0
+BCD_digit[3] => Equal5.IN0
+BCD_digit[3] => Equal6.IN0
+BCD_digit[3] => Equal7.IN0
+BCD_digit[3] => Equal8.IN0
+BCD_digit[3] => Equal9.IN0
+SevenSeg_out[0] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[1] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[2] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[3] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[4] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[5] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
+SevenSeg_out[6] <= SevenSeg_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
