@@ -64,57 +64,49 @@ BEGIN
     output_on <= '1' when ball_on = '1' and bird_data /= "000000000000" else '0';
 
     Move_Ball: PROCESS (vert_sync, left_click, sw9)
-        variable gravity_cntr : integer range 0 to 3 := 0;
-        variable up_cntr : integer range 0 to 8 := 0;
-        variable up_checker : std_logic;
+		variable gravity_up : integer range -100 to 0 := 0;
+		variable gravity_down : integer range 0 to 4 := 1;
+		variable up : std_logic;
+		variable count: integer range 0 to 7 := 0;
     BEGIN
         IF (rising_edge(vert_sync)) THEN
+				count := count + 1;
             IF (sw9 = '1') AND (left_click = '1' AND prev_left_click = '0') THEN
                 start_move <= '1';
             END IF;
+				
             IF (start_move = '1') THEN
-                IF (ball_y_pos >= to_signed(479, 10) - size) THEN
-                    ball_y_motion <= to_signed(-1, 10);
-                ELSIF (ball_y_pos <= size) THEN
-                    ball_y_motion <= to_signed(1, 10);
-                ELSE
-                    -- Check if left click should be handled based on sw9
-                    IF (sw9 = '1') AND (left_click = '1') and (prev_left_click = '0') THEN
-                        up_checker := '1';
-                        up_cntr := 0;
-                        gravity_cntr := 0;
-                    ELSE
-                        IF (up_checker ='1') THEN
-                            up_cntr := up_cntr + 1;
-									 gravity_cntr := 0;
-                            CASE up_cntr IS
-                                WHEN 0 => ball_y_motion <= to_signed(-6, 10);
-                                WHEN 1 => ball_y_motion <= to_signed(-8, 10);
-                                WHEN 2 => ball_y_motion <= to_signed(-10, 10);
-                                WHEN 3 => ball_y_motion <= to_signed(-12, 10);
-                                WHEN 4 => ball_y_motion <= to_signed(-14, 10);
-										  WHEN 5 => ball_y_motion <= to_signed(-12, 10);
-										  WHEN 6 => ball_y_motion <= to_signed(-10, 10);
-										  WHEN 7 => ball_y_motion <= to_signed(-8, 10);
-                                WHEN 8 => up_checker := '0';
-                                WHEN OTHERS => NULL;
-                            END CASE;
-                        ELSE
-                            gravity_cntr := gravity_cntr + 1;
-									 up_checker := '0';
-                            CASE gravity_cntr IS
-                                WHEN 0 => ball_y_motion <= to_signed(0, 10);
-                                WHEN 1 => ball_y_motion <= to_signed(2, 10);
-                                WHEN 2 => ball_y_motion <= to_signed(4, 10);
-                                WHEN 3 => ball_y_motion <= to_signed(6, 10);
-                                WHEN OTHERS => ball_y_motion <= to_signed(6, 10);
-                            END CASE;
-                        END IF;
-                    END IF;
-                END IF;
-                ball_y_pos <= ball_y_pos + ball_y_motion + gravity;
-            END IF;
+					
+		 
+					IF (sw9 = '1') AND (left_click = '1') and (prev_left_click = '0') THEN
+						count := 0;
+						up := '1';
+					elsif (up = '1') then
+						if (count <= 1) then
+							 gravity_up := -15;
+						elsif (count >= 2 and count <= 3) then
+							 gravity_up := -10;
+						elsif (count >= 4 and count <= 5) then
+							 gravity_up := -5;
+						elsif (count >= 6) then
+							 up := '0';
+						end if;
+						ball_y_motion <= to_signed(gravity_up, 10);
+					ELSIF (ball_y_pos >= to_signed(479, 10) - size*2) THEN
+						ball_y_motion <= to_signed(0, 10);
+					else
+						if (count <= 3) then
+							 gravity_down := 1;
+						elsif (count >= 4 and count <= 6) then
+							 gravity_down := 2;
+						elsif (count >= 7) then
+						 gravity_down := 4;
+						end if;
+						ball_y_motion <= to_signed(gravity_down, 10);
+					END IF;
+               ball_y_pos <= ball_y_pos + ball_y_motion;
+            END IF; -- start move if
             prev_left_click <= left_click;
-        END IF;
+        END IF; -- rising edge if
     END PROCESS Move_Ball;
 END behavior;

@@ -152,7 +152,7 @@ BEGIN
         ELSE
             -- Background color toggle based on the state
             IF toggle_state = '1' THEN
-                RGB <= "000000001111"; -- Blue background when toggled
+                RGB <= "000110101111"; -- Blue background when toggled
             ELSE
                 RGB <= "000000000000"; -- Default black background
             END IF;
