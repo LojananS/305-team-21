@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Wed May 15 18:18:04 2024
+Wed May 15 18:55:22 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -13,22 +13,22 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
- 11. Registers Removed During Synthesis
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
  12. General Register Statistics
  13. Inverted Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated
- 16. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated
- 17. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated
- 18. Source assignments for text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+ 15. Source assignments for text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+ 16. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated
+ 17. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated
+ 18. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated
  19. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
- 20. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1
- 21. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2
- 22. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3
- 23. Parameter Settings for User Entity Instance: text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1
+ 22. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2
+ 23. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3
  24. altsyncram Parameter Settings by Entity Instance
  25. Post-Synthesis Netlist Statistics for Top Partition
  26. Elapsed Time Per Partition
@@ -58,16 +58,16 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 15 18:18:04 2024           ;
+; Analysis & Synthesis Status     ; Successful - Wed May 15 18:55:21 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 475                                             ;
+; Total registers                 ; 404                                             ;
 ; Total pins                      ; 35                                              ;
 ; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 38,912                                          ;
+; Total block memory bits         ; 0                                               ;
 ; Total DSP Blocks                ; 1                                               ;
 ; Total HSSI RX PCSs              ; 0                                               ;
 ; Total HSSI PMA RX Deserializers ; 0                                               ;
@@ -179,9 +179,7 @@ refer to the applicable agreement for further details.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processors 5-16        ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -214,10 +212,10 @@ refer to the applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                         ;         ;
 ; altram.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                         ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                       ;         ;
+; db/altsyncram_d5g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf ;         ;
 ; db/altsyncram_brg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf ;         ;
 ; db/altsyncram_crg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf ;         ;
 ; db/altsyncram_drg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf ;         ;
-; db/altsyncram_d5g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------------------------------+---------+
 
 
@@ -226,20 +224,18 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------------------------+
 ; Resource                                    ; Usage                         ;
 +---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 514                           ;
+; Estimate of Logic utilization (ALMs needed) ; 425                           ;
 ;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 839                           ;
-;     -- 7 input functions                    ; 3                             ;
-;     -- 6 input functions                    ; 176                           ;
-;     -- 5 input functions                    ; 99                            ;
-;     -- 4 input functions                    ; 63                            ;
-;     -- <=3 input functions                  ; 498                           ;
+; Combinational ALUT usage for logic          ; 705                           ;
+;     -- 7 input functions                    ; 1                             ;
+;     -- 6 input functions                    ; 134                           ;
+;     -- 5 input functions                    ; 73                            ;
+;     -- 4 input functions                    ; 41                            ;
+;     -- <=3 input functions                  ; 456                           ;
 ;                                             ;                               ;
-; Dedicated logic registers                   ; 475                           ;
+; Dedicated logic registers                   ; 404                           ;
 ;                                             ;                               ;
 ; I/O pins                                    ; 35                            ;
-; Total MLAB memory bits                      ; 0                             ;
-; Total block memory bits                     ; 38912                         ;
 ;                                             ;                               ;
 ; Total DSP Blocks                            ; 1                             ;
 ;                                             ;                               ;
@@ -247,54 +243,29 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                             ;
 ;                                             ;                               ;
 ; Maximum fan-out node                        ; VGA_SYNC:inst10|vert_sync_out ;
-; Maximum fan-out                             ; 251                           ;
-; Total fan-out                               ; 4759                          ;
-; Average fan-out                             ; 3.32                          ;
+; Maximum fan-out                             ; 226                           ;
+; Total fan-out                               ; 3512                          ;
+; Average fan-out                             ; 2.97                          ;
 +---------------------------------------------+-------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                 ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name       ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |flappybird21block                           ; 839 (1)             ; 475 (0)                   ; 38912             ; 1          ; 35   ; 0            ; |flappybird21block                                                                                                       ; flappybird21block ; work         ;
-;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                                 ; BCD_to_SevenSeg   ; work         ;
-;    |BCD_to_SevenSeg:inst8|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                                 ; BCD_to_SevenSeg   ; work         ;
-;    |MOUSE:inst1|                             ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                           ; MOUSE             ; work         ;
-;    |VGA_SYNC:inst10|                         ; 64 (64)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                       ; VGA_SYNC          ; work         ;
-;    |background:inst5|                        ; 426 (426)           ; 204 (204)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                                                                      ; background        ; work         ;
-;    |bouncy_ball:inst20|                      ; 105 (65)            ; 62 (36)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20                                                                                    ; bouncy_ball       ; work         ;
-;       |sprite_rom:sprite_rom_inst|           ; 40 (40)             ; 26 (26)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst                                                         ; sprite_rom        ; work         ;
-;          |altsyncram:ROM1|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1                                         ; altsyncram        ; work         ;
-;             |altsyncram_brg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated          ; altsyncram_brg1   ; work         ;
-;          |altsyncram:ROM2|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2                                         ; altsyncram        ; work         ;
-;             |altsyncram_crg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated          ; altsyncram_crg1   ; work         ;
-;          |altsyncram:ROM3|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3                                         ; altsyncram        ; work         ;
-;             |altsyncram_drg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated          ; altsyncram_drg1   ; work         ;
-;    |ground:inst13|                           ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst13                                                                                         ; ground            ; work         ;
-;    |pipes:inst4|                             ; 108 (108)           ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst4                                                                                           ; pipes             ; work         ;
-;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                             ; pll               ; work         ;
-;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                           ; pll_0002          ; pll          ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                                   ; altera_pll        ; work         ;
-;    |text_rom:inst12|                         ; 12 (10)             ; 9 (9)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst12                                                                                       ; text_rom          ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst12|char_rom:char_rom_inst                                                                ; char_rom          ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component                                ; altsyncram        ; work         ;
-;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ; altsyncram_d5g1   ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                     ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Entity Name       ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
+; |flappybird21block                 ; 705 (1)             ; 404 (0)                   ; 0                 ; 1          ; 35   ; 0            ; |flappybird21block                                                     ; flappybird21block ; work         ;
+;    |BCD_to_SevenSeg:inst7|         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                               ; BCD_to_SevenSeg   ; work         ;
+;    |BCD_to_SevenSeg:inst8|         ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                               ; BCD_to_SevenSeg   ; work         ;
+;    |MOUSE:inst1|                   ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                         ; MOUSE             ; work         ;
+;    |VGA_SYNC:inst10|               ; 49 (49)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                     ; VGA_SYNC          ; work         ;
+;    |background:inst5|              ; 425 (425)           ; 204 (204)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                    ; background        ; work         ;
+;    |pipes:inst4|                   ; 109 (109)           ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst4                                         ; pipes             ; work         ;
+;    |pll:inst6|                     ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                           ; pll               ; work         ;
+;       |pll_0002:pll_inst|          ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                         ; pll_0002          ; pll          ;
+;          |altera_pll:altera_pll_i| ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i ; altera_pll        ; work         ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
-; Name                                                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF              ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
-; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite1.mif ;
-; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite2.mif ;
-; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite3.mif ;
-; text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096  ; tcgrom.mif       ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
 
 
 +----------------------------------------------+
@@ -324,27 +295,45 @@ Encoding Type:  One-Hot
 +-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                         ;
-+--------------------------------------------------+---------------------------------------------------------+
-; Register name                                    ; Reason for Removal                                      ;
-+--------------------------------------------------+---------------------------------------------------------+
-; MOUSE:inst1|CHAROUT[4..7]                        ; Stuck at VCC due to stuck port data_in                  ;
-; MOUSE:inst1|CHAROUT[3]                           ; Stuck at GND due to stuck port data_in                  ;
-; MOUSE:inst1|CHAROUT[2]                           ; Stuck at VCC due to stuck port data_in                  ;
-; MOUSE:inst1|CHAROUT[0,1]                         ; Stuck at GND due to stuck port data_in                  ;
-; MOUSE:inst1|SHIFTOUT[10]                         ; Stuck at VCC due to stuck port data_in                  ;
-; bouncy_ball:inst20|prev_left_click               ; Merged with background:inst5|prev_left_click            ;
-; bouncy_ball:inst20|ball_y_motion[5..9]           ; Merged with bouncy_ball:inst20|ball_y_motion[4]         ;
-; bouncy_ball:inst20|\Move_Ball:gravity_up[5..7]   ; Merged with bouncy_ball:inst20|\Move_Ball:gravity_up[4] ;
-; text_rom:inst12|char_address[5]                  ; Stuck at GND due to stuck port data_in                  ;
-; MOUSE:inst1|cursor_row[9]                        ; Stuck at GND due to stuck port data_in                  ;
-; VGA_SYNC:inst10|pixel_row[9]                     ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst20|\Move_Ball:gravity_down[0..2] ; Lost fanout                                             ;
-; text_rom:inst12|char_address[1]                  ; Merged with text_rom:inst12|char_address[0]             ;
-; text_rom:inst12|char_address[3]                  ; Merged with text_rom:inst12|char_address[2]             ;
-; Total Number of Removed Registers = 26           ;                                                         ;
-+--------------------------------------------------+---------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++--------------------------------------------------+----------------------------------------+
+; Register name                                    ; Reason for Removal                     ;
++--------------------------------------------------+----------------------------------------+
+; bouncy_ball:inst20|bird_address[0..9]            ; Lost fanout                            ;
+; bouncy_ball:inst20|ball_y_pos[0,1]               ; Lost fanout                            ;
+; bouncy_ball:inst20|prev_left_click               ; Lost fanout                            ;
+; bouncy_ball:inst20|ball_y_pos[2..9]              ; Lost fanout                            ;
+; bouncy_ball:inst20|ball_y_motion[0..9]           ; Lost fanout                            ;
+; bouncy_ball:inst20|start_move                    ; Lost fanout                            ;
+; bouncy_ball:inst20|\Move_Ball:gravity_down[0..2] ; Lost fanout                            ;
+; bouncy_ball:inst20|\Move_Ball:gravity_up[0..7]   ; Lost fanout                            ;
+; bouncy_ball:inst20|\Move_Ball:up                 ; Lost fanout                            ;
+; bouncy_ball:inst20|\Move_Ball:count[0..2]        ; Lost fanout                            ;
+; text_rom:inst12|fr[0..2]                         ; Lost fanout                            ;
+; text_rom:inst12|char_address[0..5]               ; Lost fanout                            ;
+; MOUSE:inst1|CHAROUT[4..7]                        ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst1|CHAROUT[3]                           ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst1|CHAROUT[2]                           ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst1|CHAROUT[0,1]                         ; Stuck at GND due to stuck port data_in ;
+; MOUSE:inst1|SHIFTOUT[10]                         ; Stuck at VCC due to stuck port data_in ;
+; MOUSE:inst1|cursor_row[9]                        ; Stuck at GND due to stuck port data_in ;
+; VGA_SYNC:inst10|pixel_row[9]                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 67           ;                                        ;
++--------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                   ;
++------------------------------------+--------------------+---------------------------------------------------------------------+
+; Register name                      ; Reason for Removal ; Registers Removed due to This Register                              ;
++------------------------------------+--------------------+---------------------------------------------------------------------+
+; bouncy_ball:inst20|bird_address[5] ; Lost Fanouts       ; bouncy_ball:inst20|ball_y_pos[4], bouncy_ball:inst20|ball_y_pos[5], ;
+;                                    ;                    ; bouncy_ball:inst20|ball_y_pos[6], bouncy_ball:inst20|ball_y_pos[7], ;
+;                                    ;                    ; bouncy_ball:inst20|ball_y_pos[8], bouncy_ball:inst20|ball_y_pos[9]  ;
+; bouncy_ball:inst20|ball_y_pos[1]   ; Lost Fanouts       ; bouncy_ball:inst20|ball_y_pos[2], bouncy_ball:inst20|ball_y_pos[3], ;
+;                                    ;                    ; bouncy_ball:inst20|start_move                                       ;
++------------------------------------+--------------------+---------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -352,145 +341,141 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 475   ;
-; Number of registers using Synchronous Clear  ; 59    ;
+; Total registers                              ; 404   ;
+; Number of registers using Synchronous Clear  ; 37    ;
 ; Number of registers using Synchronous Load   ; 20    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 398   ;
+; Number of registers using Clock Enable       ; 354   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------+
-; Inverted Register Statistics                                            ;
-+---------------------------------------------------------------+---------+
-; Inverted Register                                             ; Fan out ;
-+---------------------------------------------------------------+---------+
-; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|sprite_index[1] ; 13      ;
-; background:inst5|star_x_positions[18][6]                      ; 2       ;
-; background:inst5|star_x_positions[18][4]                      ; 2       ;
-; background:inst5|star_x_positions[19][7]                      ; 2       ;
-; background:inst5|star_x_positions[19][4]                      ; 2       ;
-; background:inst5|star_x_positions[19][5]                      ; 2       ;
-; background:inst5|star_x_positions[19][2]                      ; 2       ;
-; background:inst5|star_x_positions[17][9]                      ; 2       ;
-; background:inst5|star_x_positions[17][6]                      ; 2       ;
-; background:inst5|star_x_positions[17][3]                      ; 2       ;
-; background:inst5|star_x_positions[17][5]                      ; 2       ;
-; background:inst5|star_x_positions[17][2]                      ; 2       ;
-; background:inst5|star_x_positions[15][7]                      ; 2       ;
-; background:inst5|star_x_positions[15][8]                      ; 2       ;
-; background:inst5|star_x_positions[15][5]                      ; 2       ;
-; background:inst5|star_x_positions[15][2]                      ; 2       ;
-; background:inst5|star_x_positions[14][6]                      ; 2       ;
-; background:inst5|star_x_positions[14][8]                      ; 2       ;
-; background:inst5|star_x_positions[13][6]                      ; 2       ;
-; background:inst5|star_x_positions[13][7]                      ; 2       ;
-; background:inst5|star_x_positions[13][3]                      ; 2       ;
-; background:inst5|star_x_positions[13][4]                      ; 2       ;
-; background:inst5|star_x_positions[13][2]                      ; 2       ;
-; background:inst5|star_x_positions[9][6]                       ; 2       ;
-; background:inst5|star_x_positions[9][7]                       ; 2       ;
-; background:inst5|star_x_positions[9][8]                       ; 2       ;
-; background:inst5|star_x_positions[9][1]                       ; 2       ;
-; background:inst5|star_x_positions[10][9]                      ; 2       ;
-; background:inst5|star_x_positions[10][5]                      ; 2       ;
-; background:inst5|star_x_positions[10][1]                      ; 2       ;
-; background:inst5|star_x_positions[10][2]                      ; 2       ;
-; background:inst5|star_x_positions[16][9]                      ; 2       ;
-; background:inst5|star_x_positions[16][3]                      ; 2       ;
-; background:inst5|star_x_positions[8][8]                       ; 2       ;
-; background:inst5|star_x_positions[8][6]                       ; 2       ;
-; background:inst5|star_x_positions[8][1]                       ; 2       ;
-; background:inst5|star_x_positions[8][2]                       ; 2       ;
-; background:inst5|star_x_positions[8][3]                       ; 2       ;
-; background:inst5|star_x_positions[8][4]                       ; 2       ;
-; background:inst5|star_x_positions[5][9]                       ; 2       ;
-; background:inst5|star_x_positions[5][6]                       ; 2       ;
-; background:inst5|star_x_positions[5][3]                       ; 2       ;
-; background:inst5|star_x_positions[5][4]                       ; 2       ;
-; background:inst5|star_x_positions[2][8]                       ; 2       ;
-; background:inst5|star_x_positions[2][5]                       ; 2       ;
-; background:inst5|star_x_positions[2][2]                       ; 2       ;
-; background:inst5|star_x_positions[2][3]                       ; 2       ;
-; background:inst5|star_x_positions[0][5]                       ; 2       ;
-; background:inst5|star_x_positions[0][6]                       ; 2       ;
-; background:inst5|star_x_positions[0][2]                       ; 2       ;
-; background:inst5|star_x_positions[1][6]                       ; 2       ;
-; background:inst5|star_x_positions[1][7]                       ; 2       ;
-; background:inst5|star_x_positions[1][3]                       ; 2       ;
-; background:inst5|star_x_positions[7][6]                       ; 2       ;
-; background:inst5|star_x_positions[7][7]                       ; 2       ;
-; background:inst5|star_x_positions[7][1]                       ; 2       ;
-; background:inst5|star_x_positions[7][3]                       ; 2       ;
-; background:inst5|star_x_positions[7][4]                       ; 2       ;
-; background:inst5|star_x_positions[7][5]                       ; 2       ;
-; background:inst5|star_x_positions[12][5]                      ; 2       ;
-; background:inst5|star_x_positions[12][6]                      ; 2       ;
-; background:inst5|star_x_positions[12][3]                      ; 2       ;
-; background:inst5|star_x_positions[12][4]                      ; 2       ;
-; background:inst5|star_x_positions[4][8]                       ; 2       ;
-; background:inst5|star_x_positions[4][5]                       ; 2       ;
-; background:inst5|star_x_positions[4][6]                       ; 2       ;
-; background:inst5|star_x_positions[4][7]                       ; 2       ;
-; background:inst5|star_x_positions[4][2]                       ; 2       ;
-; background:inst5|star_x_positions[4][4]                       ; 2       ;
-; background:inst5|star_x_positions[6][7]                       ; 2       ;
-; background:inst5|star_x_positions[6][1]                       ; 2       ;
-; background:inst5|star_x_positions[6][2]                       ; 2       ;
-; background:inst5|star_x_positions[6][4]                       ; 2       ;
-; background:inst5|star_x_positions[3][8]                       ; 2       ;
-; background:inst5|star_x_positions[3][7]                       ; 2       ;
-; background:inst5|star_x_positions[3][4]                       ; 2       ;
-; background:inst5|star_x_positions[11][1]                      ; 2       ;
-; background:inst5|star_x_positions[11][4]                      ; 2       ;
-; background:inst5|star_x_positions[11][5]                      ; 2       ;
-; pipes:inst4|p1_x_pos[4]                                       ; 4       ;
-; pipes:inst4|p1_x_pos[7]                                       ; 4       ;
-; pipes:inst4|p1_x_pos[8]                                       ; 4       ;
-; pipes:inst4|p2_x_pos[7]                                       ; 5       ;
-; pipes:inst4|p2_x_pos[9]                                       ; 4       ;
-; bouncy_ball:inst20|ball_y_pos[6]                              ; 7       ;
-; bouncy_ball:inst20|ball_y_pos[5]                              ; 6       ;
-; bouncy_ball:inst20|ball_y_pos[4]                              ; 4       ;
-; bouncy_ball:inst20|ball_y_pos[7]                              ; 7       ;
-; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|prev_sprite[1]  ; 1       ;
-; MOUSE:inst1|send_char                                         ; 3       ;
-; MOUSE:inst1|SHIFTOUT[3]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[5]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[6]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[7]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[8]                                       ; 1       ;
-; Total number of inverted registers = 95                       ;         ;
-+---------------------------------------------------------------+---------+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; pipes:inst4|p1_x_pos[3]                  ; 6       ;
+; pipes:inst4|p1_x_pos[2]                  ; 3       ;
+; pipes:inst4|p1_x_pos[8]                  ; 6       ;
+; pipes:inst4|p1_x_pos[5]                  ; 5       ;
+; pipes:inst4|p2_x_pos[9]                  ; 6       ;
+; pipes:inst4|p2_x_pos[7]                  ; 5       ;
+; background:inst5|star_x_positions[18][6] ; 2       ;
+; background:inst5|star_x_positions[18][4] ; 2       ;
+; background:inst5|star_x_positions[19][7] ; 2       ;
+; background:inst5|star_x_positions[19][4] ; 2       ;
+; background:inst5|star_x_positions[19][5] ; 2       ;
+; background:inst5|star_x_positions[19][2] ; 2       ;
+; background:inst5|star_x_positions[17][9] ; 2       ;
+; background:inst5|star_x_positions[17][6] ; 2       ;
+; background:inst5|star_x_positions[17][3] ; 2       ;
+; background:inst5|star_x_positions[17][5] ; 2       ;
+; background:inst5|star_x_positions[17][2] ; 2       ;
+; background:inst5|star_x_positions[15][7] ; 2       ;
+; background:inst5|star_x_positions[15][8] ; 2       ;
+; background:inst5|star_x_positions[15][5] ; 2       ;
+; background:inst5|star_x_positions[15][2] ; 2       ;
+; background:inst5|star_x_positions[14][6] ; 2       ;
+; background:inst5|star_x_positions[14][8] ; 2       ;
+; background:inst5|star_x_positions[13][6] ; 2       ;
+; background:inst5|star_x_positions[13][7] ; 2       ;
+; background:inst5|star_x_positions[13][3] ; 2       ;
+; background:inst5|star_x_positions[13][4] ; 2       ;
+; background:inst5|star_x_positions[13][2] ; 2       ;
+; background:inst5|star_x_positions[4][8]  ; 2       ;
+; background:inst5|star_x_positions[4][5]  ; 2       ;
+; background:inst5|star_x_positions[4][6]  ; 2       ;
+; background:inst5|star_x_positions[4][7]  ; 2       ;
+; background:inst5|star_x_positions[4][2]  ; 2       ;
+; background:inst5|star_x_positions[4][4]  ; 2       ;
+; background:inst5|star_x_positions[12][5] ; 2       ;
+; background:inst5|star_x_positions[12][6] ; 2       ;
+; background:inst5|star_x_positions[12][3] ; 2       ;
+; background:inst5|star_x_positions[12][4] ; 2       ;
+; background:inst5|star_x_positions[8][8]  ; 2       ;
+; background:inst5|star_x_positions[8][4]  ; 2       ;
+; background:inst5|star_x_positions[8][6]  ; 2       ;
+; background:inst5|star_x_positions[8][1]  ; 2       ;
+; background:inst5|star_x_positions[8][2]  ; 2       ;
+; background:inst5|star_x_positions[8][3]  ; 2       ;
+; background:inst5|star_x_positions[6][7]  ; 2       ;
+; background:inst5|star_x_positions[6][1]  ; 2       ;
+; background:inst5|star_x_positions[6][2]  ; 2       ;
+; background:inst5|star_x_positions[6][4]  ; 2       ;
+; background:inst5|star_x_positions[3][8]  ; 2       ;
+; background:inst5|star_x_positions[3][7]  ; 2       ;
+; background:inst5|star_x_positions[3][4]  ; 2       ;
+; background:inst5|star_x_positions[5][9]  ; 2       ;
+; background:inst5|star_x_positions[5][6]  ; 2       ;
+; background:inst5|star_x_positions[5][3]  ; 2       ;
+; background:inst5|star_x_positions[5][4]  ; 2       ;
+; background:inst5|star_x_positions[0][5]  ; 2       ;
+; background:inst5|star_x_positions[0][6]  ; 2       ;
+; background:inst5|star_x_positions[0][2]  ; 2       ;
+; background:inst5|star_x_positions[2][8]  ; 2       ;
+; background:inst5|star_x_positions[2][5]  ; 2       ;
+; background:inst5|star_x_positions[2][2]  ; 2       ;
+; background:inst5|star_x_positions[2][3]  ; 2       ;
+; background:inst5|star_x_positions[11][5] ; 2       ;
+; background:inst5|star_x_positions[11][1] ; 2       ;
+; background:inst5|star_x_positions[11][4] ; 2       ;
+; background:inst5|star_x_positions[10][9] ; 2       ;
+; background:inst5|star_x_positions[10][5] ; 2       ;
+; background:inst5|star_x_positions[10][1] ; 2       ;
+; background:inst5|star_x_positions[10][2] ; 2       ;
+; background:inst5|star_x_positions[16][9] ; 2       ;
+; background:inst5|star_x_positions[16][3] ; 2       ;
+; background:inst5|star_x_positions[7][6]  ; 2       ;
+; background:inst5|star_x_positions[7][7]  ; 2       ;
+; background:inst5|star_x_positions[7][1]  ; 2       ;
+; background:inst5|star_x_positions[7][3]  ; 2       ;
+; background:inst5|star_x_positions[7][4]  ; 2       ;
+; background:inst5|star_x_positions[7][5]  ; 2       ;
+; background:inst5|star_x_positions[1][6]  ; 2       ;
+; background:inst5|star_x_positions[1][7]  ; 2       ;
+; background:inst5|star_x_positions[1][3]  ; 2       ;
+; background:inst5|star_x_positions[9][6]  ; 2       ;
+; background:inst5|star_x_positions[9][7]  ; 2       ;
+; background:inst5|star_x_positions[9][8]  ; 2       ;
+; background:inst5|star_x_positions[9][1]  ; 2       ;
+; MOUSE:inst1|send_char                    ; 3       ;
+; MOUSE:inst1|SHIFTOUT[3]                  ; 1       ;
+; MOUSE:inst1|SHIFTOUT[5]                  ; 1       ;
+; MOUSE:inst1|SHIFTOUT[6]                  ; 1       ;
+; MOUSE:inst1|SHIFTOUT[7]                  ; 1       ;
+; MOUSE:inst1|SHIFTOUT[8]                  ; 1       ;
+; Total number of inverted registers = 90  ;         ;
++------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|new_cursor_column[9]                   ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[6]                         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst20|ball_y_motion[2]                ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[1]                        ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[0]                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[5]                          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[1]                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[8]                       ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[0]                        ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|text_rom:inst12|char_address[0]                    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|text_rom:inst12|char_address[1]                    ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[3]                        ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|Mux8 ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|gravity_up                      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|gravity_up                      ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|gravity_down                    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[3]              ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[3]              ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |flappybird21block|background:inst5|RGB[7]                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|new_cursor_row[1]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[3]           ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[3]            ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[9]             ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[6]             ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[7]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[6]          ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |flappybird21block|VGA_SYNC:inst10|red_out               ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[0] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[0] ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |flappybird21block|background:inst5|RGB[3]               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                             ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
++---------------------------------+--------------------+------+----------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -518,15 +503,6 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+-------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                     ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                             ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                              ;
-+---------------------------------+--------------------+------+----------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -776,6 +752,67 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++---------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                    ;
++------------------------------------+----------------------+---------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                          ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                 ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                 ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                          ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                          ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                 ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                 ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                 ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                 ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                 ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                 ;
+; WIDTH_B                            ; 1                    ; Untyped                                                 ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                 ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                 ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                 ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                 ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                 ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                 ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                 ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                 ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                 ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                 ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                 ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                 ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                 ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                 ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                 ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                 ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                 ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                 ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                 ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                 ;
+; INIT_FILE                          ; tcgrom.mif           ; Untyped                                                 ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                 ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                 ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                 ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                 ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                 ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                 ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                 ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                 ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                 ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                 ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                 ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                 ;
+; CBXI_PARAMETER                     ; altsyncram_d5g1      ; Untyped                                                 ;
++------------------------------------+----------------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1 ;
 +------------------------------------+----------------------+------------------------------------------------+
@@ -959,73 +996,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+---------------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                                    ;
-+------------------------------------+----------------------+---------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                 ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                              ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                            ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                            ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                          ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                 ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                                 ;
-; WIDTH_A                            ; 8                    ; Signed Integer                                          ;
-; WIDTHAD_A                          ; 9                    ; Signed Integer                                          ;
-; NUMWORDS_A                         ; 512                  ; Signed Integer                                          ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                 ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                 ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                 ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                 ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                 ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                 ;
-; WIDTH_B                            ; 1                    ; Untyped                                                 ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                                 ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                                 ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                 ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                 ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                 ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                 ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                 ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                 ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                 ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                 ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                 ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                 ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                 ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                 ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                          ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                 ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                 ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                                 ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                 ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                 ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                 ;
-; INIT_FILE                          ; tcgrom.mif           ; Untyped                                                 ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                 ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                 ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                 ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                 ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                 ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                 ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                 ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                 ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                                 ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                 ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                 ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                 ;
-; CBXI_PARAMETER                     ; altsyncram_d5g1      ; Untyped                                                 ;
-+------------------------------------+----------------------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +--------------------------------------------------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                                                                   ;
 +-------------------------------------------+------------------------------------------------------------------------+
 ; Name                                      ; Value                                                                  ;
 +-------------------------------------------+------------------------------------------------------------------------+
 ; Number of entity instances                ; 4                                                                      ;
+; Entity Instance                           ; text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; ROM                                                                    ;
+;     -- WIDTH_A                            ; 8                                                                      ;
+;     -- NUMWORDS_A                         ; 512                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
+;     -- WIDTH_B                            ; 1                                                                      ;
+;     -- NUMWORDS_B                         ; 1                                                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
 ; Entity Instance                           ; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1          ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 12                                                                     ;
@@ -1059,17 +1046,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                                    ;
-;     -- WIDTH_A                            ; 8                                                                      ;
-;     -- NUMWORDS_A                         ; 512                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
-;     -- WIDTH_B                            ; 1                                                                      ;
-;     -- NUMWORDS_B                         ; 1                                                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
 +-------------------------------------------+------------------------------------------------------------------------+
 
 
@@ -1078,42 +1054,39 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 475                         ;
+; arriav_ff             ; 404                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 336                         ;
+;     ENA               ; 292                         ;
 ;     ENA CLR           ; 15                          ;
 ;     ENA SCLR          ; 27                          ;
 ;     ENA SLD           ; 20                          ;
-;     SCLR              ; 32                          ;
-;     plain             ; 44                          ;
+;     SCLR              ; 10                          ;
+;     plain             ; 39                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 842                         ;
-;     arith             ; 332                         ;
+; arriav_lcell_comb     ; 708                         ;
+;     arith             ; 300                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 309                         ;
-;         2 data inputs ; 22                          ;
-;     extend            ; 3                           ;
-;         7 data inputs ; 3                           ;
-;     normal            ; 491                         ;
+;         1 data inputs ; 284                         ;
+;         2 data inputs ; 15                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 397                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 94                          ;
-;         2 data inputs ; 25                          ;
-;         3 data inputs ; 33                          ;
-;         4 data inputs ; 63                          ;
-;         5 data inputs ; 99                          ;
-;         6 data inputs ; 176                         ;
-;     shared            ; 16                          ;
-;         0 data inputs ; 1                           ;
+;         1 data inputs ; 86                          ;
+;         2 data inputs ; 26                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 41                          ;
+;         5 data inputs ; 73                          ;
+;         6 data inputs ; 134                         ;
+;     shared            ; 10                          ;
 ;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 9                           ;
-;         3 data inputs ; 5                           ;
 ; arriav_mac            ; 1                           ;
 ; boundary_port         ; 35                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 44                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.10                        ;
-; Average LUT depth     ; 3.24                        ;
+; Max LUT depth         ; 5.20                        ;
+; Average LUT depth     ; 2.95                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1132,7 +1105,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Wed May 15 18:17:57 2024
+    Info: Processing started: Wed May 15 18:55:07 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -1255,6 +1228,80 @@ Warning (10492): VHDL Process Statement warning at display_controller.vhd(26): s
 Warning (10492): VHDL Process Statement warning at display_controller.vhd(27): signal "RGB_ground" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 27
 Warning (10492): VHDL Process Statement warning at display_controller.vhd(28): signal "RGB_ground" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 28
 Warning (10492): VHDL Process Statement warning at display_controller.vhd(29): signal "RGB_ground" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 29
+Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst4"
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(19): used explicit default value for signal "p1_gap_center" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 19
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(25): used explicit default value for signal "p2_gap_center" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 25
+Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(31): object "pipe_y_size" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 31
+Info (10041): Inferred latch for "RGB[0]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[1]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[2]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[3]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[4]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[5]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[6]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[7]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[8]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[9]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[10]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (10041): Inferred latch for "RGB[11]" at pipes.vhd(55) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 157
+Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
+Warning (10540): VHDL Signal Declaration warning at background.vhd(79): used explicit default value for signal "star_speed" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 79
+Warning (10541): VHDL Signal Declaration warning at background.vhd(81): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 81
+Warning (10541): VHDL Signal Declaration warning at background.vhd(82): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 82
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(125): object "is_star" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 125
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(126): object "is_moon_sun" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 126
+Warning (10492): VHDL Process Statement warning at background.vhd(136): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 136
+Warning (10492): VHDL Process Statement warning at background.vhd(146): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at background.vhd(149): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 149
+Warning (10492): VHDL Process Statement warning at background.vhd(154): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 154
+Warning (10492): VHDL Process Statement warning at background.vhd(163): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at background.vhd(165): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 165
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
+Info (12128): Elaborating entity "text_rom" for hierarchy "text_rom:inst12"
+Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst12|char_rom:char_rom_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 28
+Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "tcgrom.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
+    Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12128): Elaborating entity "ground" for hierarchy "ground:inst13"
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(18): used explicit default value for signal "ground_x_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 18
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(19): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 19
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(22): used explicit default value for signal "ground_x_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 22
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(23): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 23
+Info (10041): Inferred latch for "RGB[0]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[1]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[2]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[3]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[4]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[5]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[6]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[7]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[8]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[9]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[10]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
+Info (10041): Inferred latch for "RGB[11]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
 Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst20"
 Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(17): used explicit default value for signal "size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 17
 Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(19): used explicit default value for signal "ball_x_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 19
@@ -1319,85 +1366,56 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst20|sprite_rom:sprite_ro
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_drg1.tdf
     Info (12023): Found entity 1: altsyncram_drg1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_drg1" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 157
-Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst4"
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(19): used explicit default value for signal "p1_gap_center" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 19
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(25): used explicit default value for signal "p2_gap_center" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 25
-Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(31): object "pipe_y_size" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 31
-Info (10041): Inferred latch for "RGB[0]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[1]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[2]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[3]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[4]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[5]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[6]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[7]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[8]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[9]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[10]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (10041): Inferred latch for "RGB[11]" at pipes.vhd(56) File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 56
-Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
-Warning (10540): VHDL Signal Declaration warning at background.vhd(79): used explicit default value for signal "star_speed" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 79
-Warning (10541): VHDL Signal Declaration warning at background.vhd(81): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 81
-Warning (10541): VHDL Signal Declaration warning at background.vhd(82): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 82
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(125): object "is_star" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 125
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(126): object "is_moon_sun" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 126
-Warning (10492): VHDL Process Statement warning at background.vhd(136): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 136
-Warning (10492): VHDL Process Statement warning at background.vhd(146): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 146
-Warning (10492): VHDL Process Statement warning at background.vhd(149): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 149
-Warning (10492): VHDL Process Statement warning at background.vhd(154): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 154
-Warning (10492): VHDL Process Statement warning at background.vhd(163): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 163
-Warning (10492): VHDL Process Statement warning at background.vhd(165): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 165
-Info (12128): Elaborating entity "text_rom" for hierarchy "text_rom:inst12"
-Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst12|char_rom:char_rom_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 28
-Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
-    Info (12134): Parameter "address_aclr_a" = "NONE"
-    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
-    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
-    Info (12134): Parameter "init_file" = "tcgrom.mif"
-    Info (12134): Parameter "intended_device_family" = "Cyclone V"
-    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
-    Info (12134): Parameter "lpm_type" = "altsyncram"
-    Info (12134): Parameter "numwords_a" = "512"
-    Info (12134): Parameter "operation_mode" = "ROM"
-    Info (12134): Parameter "outdata_aclr_a" = "NONE"
-    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
-    Info (12134): Parameter "widthad_a" = "9"
-    Info (12134): Parameter "width_a" = "8"
-    Info (12134): Parameter "width_byteena_a" = "1"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
-    Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Info (12128): Elaborating entity "ground" for hierarchy "ground:inst13"
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(18): used explicit default value for signal "ground_x_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 18
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(19): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 19
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(22): used explicit default value for signal "ground_x_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 22
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(23): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 23
-Info (10041): Inferred latch for "RGB[0]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[1]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[2]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[3]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[4]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[5]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[6]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[7]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[8]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[9]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[10]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (10041): Inferred latch for "RGB[11]" at ground.vhd(36) File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/ground.vhd Line: 36
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[0]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 34
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[1]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 55
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[2]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 76
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[3]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 97
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[4]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 118
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[5]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 139
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[6]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 160
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[7]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 181
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[8]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 202
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[9]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 223
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[10]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 244
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|q_a[11]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 265
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[0]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 34
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[1]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 55
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[2]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 76
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[3]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 97
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[4]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 118
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[5]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 139
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[6]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 160
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[7]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 181
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[8]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 202
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[9]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 223
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[10]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 244
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|q_a[11]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 265
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[0]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 34
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[1]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 55
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[2]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 76
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[3]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 97
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[4]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 118
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[5]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 139
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[6]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 160
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[7]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 181
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[8]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 202
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[9]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 223
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[10]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 244
+        Warning (14320): Synthesized away node "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|q_a[11]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 265
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[0]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 34
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[1]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 55
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[2]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 76
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[3]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 97
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[4]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 118
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[5]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 139
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[6]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 160
+        Warning (14320): Synthesized away node "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|q_a[7]" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 181
 Info (13000): Registers with preset signals will power-up high File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 1 MSB VCC or GND address nodes from RAM block "text_rom:inst12|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 31
+Info (17049): 56 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -1633,20 +1651,20 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]"
-Info (21057): Implemented 1004 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "SW[9]"
+Info (21057): Implemented 822 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 29 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 923 logic cells
-    Info (21064): Implemented 44 RAM segments
+    Info (21061): Implemented 785 logic cells
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 265 warnings
-    Info: Peak virtual memory: 4959 megabytes
-    Info: Processing ended: Wed May 15 18:18:04 2024
-    Info: Elapsed time: 00:00:07
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 312 warnings
+    Info: Peak virtual memory: 4992 megabytes
+    Info: Processing ended: Wed May 15 18:55:22 2024
+    Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:04
 
 

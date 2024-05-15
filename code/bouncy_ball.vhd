@@ -76,12 +76,10 @@ BEGIN
             END IF;
 				
             IF (start_move = '1') THEN
-					
-		 
 					IF (sw9 = '1') AND (left_click = '1') and (prev_left_click = '0') THEN
 						count := 0;
 						up := '1';
-					elsif (up = '1') then
+					elsif (up = '1') then   --make the count interval to be one maybe
 						if (count <= 1) then
 							 gravity_up := -15;
 						elsif (count >= 2 and count <= 3) then
@@ -92,10 +90,10 @@ BEGIN
 							 up := '0';
 						end if;
 						ball_y_motion <= to_signed(gravity_up, 10);
-					ELSIF (ball_y_pos >= to_signed(479, 10) - size*2) THEN
+					ELSIF (ball_y_pos >= to_signed(420, 10) - size*2) THEN
 						ball_y_motion <= to_signed(0, 10);
 					else
-						if (count <= 3) then
+						if (count <= 3) then  --same applies here
 							 gravity_down := 1;
 						elsif (count >= 4 and count <= 6) then
 							 gravity_down := 2;
