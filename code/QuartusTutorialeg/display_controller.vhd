@@ -13,7 +13,7 @@ ARCHITECTURE beh OF display_controller IS
 
 
 BEGIN
-	process(pipe_on, ball_on, background_on, text_on, RGB_pipe, RGB_ball, RGB_background)
+	process(pipe_on, ball_on, background_on, text_on, ground_on, RGB_pipe, RGB_ball, RGB_background, RGB_ground)
 begin
 	if text_on = '1' then
 		red <= "1111";
