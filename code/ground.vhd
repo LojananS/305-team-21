@@ -26,9 +26,10 @@ ARCHITECTURE behavior OF ground IS
     SIGNAL ground_y_pos : signed(9 DOWNTO 0) := to_signed(420, 10);
     SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(60, 10);
 
-    TYPE ground_type IS ARRAY (0 TO 3) OF signed(10 DOWNTO 0);
-    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(213, 11), to_signed(426, 11), to_signed(640, 11));
-    SIGNAL ground_on : std_logic_vector(3 DOWNTO 0);
+    TYPE ground_type IS ARRAY (0 TO 2) OF signed(10 DOWNTO 0);
+    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(640, 11));
+	 CONSTANT ground_x_size : integer := 320;
+    SIGNAL ground_on : std_logic_vector(2 DOWNTO 0);
 
     SIGNAL ground_address : std_logic_vector(15 DOWNTO 0);
     SIGNAL ground_data : std_logic_vector(11 DOWNTO 0);
@@ -46,9 +47,9 @@ BEGIN
     BEGIN
         IF rising_edge(clk) THEN
             ground_on <= (others => '0');
-            FOR i IN 0 TO 3 LOOP
+            FOR i IN 0 TO 2 LOOP
                 IF (to_integer(unsigned(pixel_column)) >= to_integer(ground_x_pos(i)) AND
-                    to_integer(unsigned(pixel_column)) < to_integer(ground_x_pos(i)) + 213 AND
+                    to_integer(unsigned(pixel_column)) < to_integer(ground_x_pos(i)) + ground_x_size AND
                     to_integer(unsigned(pixel_row)) >= to_integer(ground_y_pos) AND
                     to_integer(unsigned(pixel_row)) < to_integer(ground_y_pos + ground_y_size)) THEN
                     ground_on(i) <= '1';
@@ -61,18 +62,18 @@ BEGIN
     END PROCESS Ground_Display;
 	 
     -- Control RGB output and overall output display
-    RGB <= ground_data WHEN (ground_on /= "0000") ELSE (others => '0');
-    output_on <= '1' when ground_on > "0000" else '0';
+    RGB <= ground_data WHEN (ground_on /= "000") ELSE (others => '0');
+    output_on <= '1' when ground_on > "000" else '0';
 
 
     -- Process to Move ground segments continuously
     Move_ground: PROCESS (vert_sync)
     BEGIN
         IF rising_edge(vert_sync) THEN
-            FOR i IN 0 TO 3 LOOP
+            FOR i IN 0 TO 2 LOOP
                 ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
                 -- Check and reset position
-                IF ground_x_pos(i) < -to_signed(213, 11) THEN
+                IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
                     ground_x_pos(i) <= to_signed(640, 11);
                 END IF;
             END LOOP;
