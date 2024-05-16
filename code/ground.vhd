@@ -28,7 +28,7 @@ ARCHITECTURE behavior OF ground IS
 
     TYPE ground_type IS ARRAY (0 TO 2) OF signed(10 DOWNTO 0);
     SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(640, 11));
-	 CONSTANT ground_x_size : integer := 320;
+	 CONSTANT ground_x_size : integer range 0 to 320 := 320;
     SIGNAL ground_on : std_logic_vector(2 DOWNTO 0);
 
     SIGNAL ground_address : std_logic_vector(15 DOWNTO 0);

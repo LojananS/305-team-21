@@ -52,11 +52,11 @@ BEGIN
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
         lpm_type => "altsyncram",
-        numwords_a => 38400, -- Depth of address
+        numwords_a => 19200, -- Depth of address is 19200
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
         outdata_reg_a => "UNREGISTERED",
-        widthad_a => 16, -- Since depth of address is 38400, we need 2^16
+        widthad_a => 15, -- Since depth of address is 19200, we need 2^15
         width_a => 12, -- 12-bit color
         width_byteena_a => 1
     )
