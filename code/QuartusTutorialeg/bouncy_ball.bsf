@@ -89,9 +89,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 216 48)
 		(output)
+		(text "start" (rect 0 0 17 12)(font "Arial" ))
+		(text "start" (rect 178 43 195 55)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48)(line_width 1))
+	)
+	(port
+		(pt 216 64)
+		(output)
 		(text "RGB[11..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "RGB[11..0]" (rect 152 43 195 55)(font "Arial" ))
-		(line (pt 216 48)(pt 200 48)(line_width 3))
+		(text "RGB[11..0]" (rect 152 59 195 71)(font "Arial" ))
+		(line (pt 216 64)(pt 200 64)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 200 160)(line_width 1))

@@ -7,7 +7,7 @@ ENTITY bouncy_ball IS
     (
         sw9, pb1, pb2, clk, vert_sync, left_click : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-        output_on : OUT std_logic;
+        output_on, start : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0)
     );
 END bouncy_ball;
@@ -42,6 +42,7 @@ BEGIN
             sprite_address => bird_address,
             data_out => bird_data
         );
+		  
 
     Pixel_Display : PROCESS (clk)
     BEGIN
@@ -73,6 +74,9 @@ BEGIN
 				count := count + 1;
             IF (sw9 = '1') AND (left_click = '1' AND prev_left_click = '0') THEN
                 start_move <= '1';
+					 start <= '1';
+				ELSIF (start_move = '0') THEN
+					start <= '0';
             END IF;
 				
             IF (start_move = '1') THEN
@@ -93,7 +97,7 @@ BEGIN
 					ELSIF (ball_y_pos >= to_signed(420, 10) - size*2) THEN
 						ball_y_motion <= to_signed(0, 10);
 					else
-						if (count <= 3) then  --same applies here
+					if (count <= 3) then  --same applies here
 							 gravity_down := 1;
 						elsif (count >= 4 and count <= 6) then
 							 gravity_down := 2;

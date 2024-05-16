@@ -65,7 +65,6 @@ BEGIN
                         to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center) + 45))
                 ELSE '0';
 
-    -- Combinational logic for Pipe 2
     p2_on <= '1' WHEN (p2_x_pos + pipe_x_size > to_signed(0, 11) AND
                        to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos) AND 
                        to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos) + to_integer(pipe_x_size) AND
@@ -73,7 +72,6 @@ BEGIN
                         to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center) + 45))
                 ELSE '0';
 
-    -- Combinational logic for Pipe 3
     p3_on <= '1' WHEN (p3_x_pos + pipe_x_size > to_signed(0, 11) AND
                        to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos) AND 
                        to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos) + to_integer(pipe_x_size) AND
@@ -87,7 +85,6 @@ BEGIN
 	
 	Move_pipe: PROCESS (vert_sync, left_click, reset)
     BEGIN
-        -- Randomize the gap center on reset
         IF rising_edge(vert_sync) THEN
             -- Start the movement
             IF left_click = '1' AND start_move = '0' THEN
@@ -104,20 +101,18 @@ BEGIN
                     p1_x_pos <= p1_x_pos - to_signed(1, 11); -- Move the pipe left
                 END IF;
 
-                -- Checks if the entire pipe has left the screen for Pipe 2
-                IF (p2_x_pos + pipe_x_size <= to_signed(0, 11)) THEN  -- Ensuring the entire pipe is off-screen
-                    p2_x_pos <= to_signed(640, 11); -- Reset position to the right side of the screen
-                    p2_gap_center <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10); -- New random gap center
+                IF (p2_x_pos + pipe_x_size <= to_signed(0, 11)) THEN
+                    p2_x_pos <= to_signed(640, 11);
+                    p2_gap_center <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
                 ELSE
-                    p2_x_pos <= p2_x_pos - to_signed(1, 11); -- Move the pipe left
+                    p2_x_pos <= p2_x_pos - to_signed(1, 11);
                 END IF;
 
-                -- Checks if the entire pipe has left the screen for Pipe 3
-                IF (p3_x_pos + pipe_x_size <= to_signed(0, 11)) THEN  -- Ensuring the entire pipe is off-screen
-                    p3_x_pos <= to_signed(640, 11); -- Reset position to the right side of the screen
-                    p3_gap_center <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10); -- New random gap center
+                IF (p3_x_pos + pipe_x_size <= to_signed(0, 11)) THEN
+                    p3_x_pos <= to_signed(640, 11);
+                    p3_gap_center <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
                 ELSE
-                    p3_x_pos <= p3_x_pos - to_signed(1, 11); -- Move the pipe left
+                    p3_x_pos <= p3_x_pos - to_signed(1, 11);
                 END IF;
             END IF;
         END IF;
