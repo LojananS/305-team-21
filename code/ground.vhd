@@ -26,14 +26,14 @@ ARCHITECTURE behavior OF ground IS
     SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(60, 10);
 
     TYPE ground_type IS ARRAY (0 TO 2) OF signed(10 DOWNTO 0);
-    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(640, 11));
+    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
     CONSTANT ground_x_size : integer range 0 to 320 := 320;
     SIGNAL ground_on : std_logic_vector(2 DOWNTO 0);
 
     SIGNAL ground_address : std_logic_vector(15 DOWNTO 0);
     SIGNAL ground_data : std_logic_vector(11 DOWNTO 0);
 
-    SIGNAL start_move : std_logic := '0';
+    SIGNAL start_move : std_logic := '1';
     SIGNAL collision_occurred : std_logic := '0';
     SIGNAL reset_ground : std_logic := '0';
     SIGNAL prev_left_click : std_logic := '0';
@@ -57,7 +57,7 @@ BEGIN
                     to_integer(unsigned(pixel_row)) < to_integer(ground_y_pos + ground_y_size)) THEN
                     ground_on(i) <= '1';
                     ground_address <= std_logic_vector(to_unsigned(
-                        ((to_integer(unsigned(pixel_row)) - to_integer(unsigned(ground_y_pos))) * 640) +
+                        ((to_integer(unsigned(pixel_row)) - to_integer(unsigned(ground_y_pos))) * 320) +
                         (to_integer(unsigned(pixel_column)) - to_integer(ground_x_pos(i))), 16));
                 END IF;
             END LOOP;
@@ -70,11 +70,6 @@ BEGIN
     Move_Ground: PROCESS (vert_sync, left_click, collision, reset)
     BEGIN
         IF rising_edge(vert_sync) THEN
-		  
-				if left_click ='1' then
-					start_move <= '1';
-				end if;
-				
             IF collision = '1' THEN
                 start_move <= '0';
                 collision_occurred <= '1';
@@ -87,21 +82,21 @@ BEGIN
 				
 				
 
-            IF reset_ground = '1' THEN
-                -- Reset ground positions to initial values
-                ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(640, 11));
-                start_move <= '1';
-                reset_ground <= '0';
-            END IF;
+				IF reset_ground = '1' THEN
+					 -- Reset ground positions to initial values
+					 ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
+					 start_move <= '1';
+					 reset_ground <= '0';
+				END IF;
 
-            IF start_move = '1' THEN
-                FOR i IN 0 TO 2 LOOP
-                    ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
-                    IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
-                        ground_x_pos(i) <= to_signed(640, 11);
-                    END IF;
-                END LOOP;
-            END IF;
+			IF start_move = '1' THEN
+				FOR i IN 0 TO 2 LOOP
+					ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
+					IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
+						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 1, 11);
+					END IF;
+				END LOOP;
+			END IF;
 
             prev_left_click <= left_click;
         END IF;

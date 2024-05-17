@@ -71,20 +71,22 @@ BEGIN
     BEGIN
         IF rising_edge(clk) THEN
             collision_internal <= '0';
-            -- Check collision with Pipe 1
-            IF (ball_x_pos + size >= p1_x_pos AND ball_x_pos <= p1_x_pos + 30 AND
-                (ball_y_pos <= p1_gap_center - 45 OR ball_y_pos + size >= p1_gap_center + 45)) THEN
-                collision_internal <= '1';
-            END IF;
-            -- Check collision with Pipe 2
-            IF (ball_x_pos + size >= p2_x_pos AND ball_x_pos <= p2_x_pos + 30 AND
-                (ball_y_pos <= p2_gap_center - 45 OR ball_y_pos + size >= p2_gap_center + 45)) THEN
-                collision_internal <= '1';
-            END IF;
-            -- Check collision with Pipe 3
-            IF (ball_x_pos + size >= p3_x_pos AND ball_x_pos <= p3_x_pos + 30 AND
-                (ball_y_pos <= p3_gap_center - 45 OR ball_y_pos + size >= p3_gap_center + 45)) THEN
-                collision_internal <= '1';
+            IF sw9 = '1' THEN -- Check if collisions are enabled
+                -- Check collision with Pipe 1
+                IF (ball_x_pos + size >= p1_x_pos AND ball_x_pos <= p1_x_pos + 30 AND
+                    (ball_y_pos <= p1_gap_center - 45 OR ball_y_pos + size >= p1_gap_center + 45)) THEN
+                    collision_internal <= '1';
+                END IF;
+                -- Check collision with Pipe 2
+                IF (ball_x_pos + size >= p2_x_pos AND ball_x_pos <= p2_x_pos + 30 AND
+                    (ball_y_pos <= p2_gap_center - 45 OR ball_y_pos + size >= p2_gap_center + 45)) THEN
+                    collision_internal <= '1';
+                END IF;
+                -- Check collision with Pipe 3
+                IF (ball_x_pos + size >= p3_x_pos AND ball_x_pos <= p3_x_pos + 30 AND
+                    (ball_y_pos <= p3_gap_center - 45 OR ball_y_pos + size >= p3_gap_center + 45)) THEN
+                    collision_internal <= '1';
+                END IF;
             END IF;
         END IF;
         collision <= collision_internal;
@@ -98,7 +100,7 @@ BEGIN
     BEGIN
         IF (rising_edge(vert_sync)) THEN
             count := count + 1;
-            IF (sw9 = '1') AND (left_click = '1' AND prev_left_click = '0') THEN
+            IF (left_click = '1' AND prev_left_click = '0') THEN
                 start_move <= '1';
                 start <= '1';
                 IF collision_internal = '1' THEN
@@ -109,10 +111,10 @@ BEGIN
             END IF;
             
             IF (start_move = '1') THEN
-                IF (collision_internal = '1') THEN
-                    start_move <= '0'; -- Stop bird movement on collision
+                IF (sw9 = '1') AND (collision_internal = '1') THEN
+                    start_move <= '0'; -- Stop bird movement on collision only if collisions are enabled
                 ELSE
-                    IF (sw9 = '1') AND (left_click = '1') AND (prev_left_click = '0') THEN
+                    IF (left_click = '1') AND (prev_left_click = '0') THEN
                         count := 0;
                         up := '1';
                     ELSIF (up = '1') THEN
