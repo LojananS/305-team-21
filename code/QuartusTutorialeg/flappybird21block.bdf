@@ -1813,7 +1813,7 @@ refer to the applicable agreement for further details.
 	(pt 240 488)
 )
 (connector
-	(text "RGB_pipe[11..0]" (rect 302 488 378 505)(font "Intel Clear" ))
+	(text "RGB_pipe[11..0]" (rect 230 488 306 505)(font "Intel Clear" ))
 	(pt 208 504)
 	(pt 288 504)
 	(bus)
@@ -2089,23 +2089,6 @@ refer to the applicable agreement for further details.
 	(pt -80 960)
 )
 (connector
-	(text "output_ball" (rect 404 496 459 513)(font "Intel Clear" ))
-	(pt 408 512)
-	(pt 464 512)
-)
-(connector
-	(text "RGB_ball[11..0]" (rect 384 576 459 593)(font "Intel Clear" ))
-	(pt 400 592)
-	(pt 464 592)
-	(bus)
-)
-(connector
-	(text "RGB_pipe[11..0]" (rect 388 592 464 609)(font "Intel Clear" ))
-	(pt 400 608)
-	(pt 464 608)
-	(bus)
-)
-(connector
 	(text "RGB_bg[11..0]" (rect 400 608 468 625)(font "Intel Clear" ))
 	(pt 400 624)
 	(pt 464 624)
@@ -2122,18 +2105,35 @@ refer to the applicable agreement for further details.
 	(pt 464 544)
 )
 (connector
-	(text "output_ground" (rect 416 560 485 577)(font "Intel Clear" ))
-	(pt 472 576)
-	(pt 408 576)
+	(text "RGB_ball[11..0]" (rect 384 576 459 593)(font "Intel Clear" ))
+	(pt 472 592)
+	(pt 400 592)
+	(bus)
+)
+(connector
+	(text "RGB_pipe[11..0]" (rect 388 592 464 609)(font "Intel Clear" ))
+	(pt 472 608)
+	(pt 400 608)
+	(bus)
 )
 (connector
 	(text "output_pipes" (rect 396 512 457 529)(font "Intel Clear" ))
+	(pt 472 528)
 	(pt 408 528)
-	(pt 464 528)
+)
+(connector
+	(text "output_ball" (rect 404 496 459 513)(font "Intel Clear" ))
+	(pt 472 512)
+	(pt 408 512)
 )
 (connector
 	(text "RGB_ground[11..0]" (rect 368 624 457 641)(font "Intel Clear" ))
-	(pt 472 640)
 	(pt 400 640)
+	(pt 464 640)
 	(bus)
+)
+(connector
+	(text "output_ground" (rect 416 560 485 577)(font "Intel Clear" ))
+	(pt 408 576)
+	(pt 464 576)
 )

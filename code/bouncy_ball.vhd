@@ -74,7 +74,7 @@ BEGIN
             IF sw9 = '1' THEN -- Check if collisions are enabled
                 -- Check collision with Pipe 1
                 IF (ball_x_pos + size >= p1_x_pos AND ball_x_pos <= p1_x_pos + 30 AND
-                    (ball_y_pos <= p1_gap_center - 45 OR ball_y_pos + size >= p1_gap_center + 45)) THEN
+                    (ball_y_pos <= p1_gap_center - 45 OR ball_y_pos >= p1_gap_center + 45)) THEN
                     collision_internal <= '1';
                 END IF;
                 -- Check collision with Pipe 2
@@ -118,25 +118,27 @@ BEGIN
                         count := 0;
                         up := '1';
                     ELSIF (up = '1') THEN
-                        IF (count <= 1) THEN
+                        IF (count = 1) THEN
                             gravity_up := -15;
-                        ELSIF (count >= 2 AND count <= 3) THEN
+                        ELSIF (count = 2) THEN
                             gravity_up := -10;
-                        ELSIF (count >= 4 AND count <= 5) THEN
+                        ELSIF (count = 4) THEN
                             gravity_up := -5;
-                        ELSIF (count >= 6) THEN
+								ELSIF (count = 5) THEN
+                            gravity_up := -3;
+                        ELSIF (count = 6) THEN
+                            gravity_up := -1;
+                        ELSIF (count >= 7) THEN
                             up := '0';
                         END IF;
                         ball_y_motion <= to_signed(gravity_up, 10);
-                    ELSIF (ball_y_pos >= to_signed(420, 10) - size*2) THEN
+                    ELSIF (ball_y_pos >= to_signed(450, 10) - size*2) THEN
                         ball_y_motion <= to_signed(0, 10);
                     ELSE
-                        IF (count <= 3) THEN
-                            gravity_down := 1;
-                        ELSIF (count >= 4 AND count <= 6) THEN
-                            gravity_down := 2;
-                        ELSIF (count >= 7) THEN
-                            gravity_down := 4;
+                        IF (count > 0) THEN
+                            gravity_down := 3;
+								ELSIF (count >= 3) THEN
+									 gravity_down := 4;
                         END IF;
                         ball_y_motion <= to_signed(gravity_down, 10);
                     END IF;

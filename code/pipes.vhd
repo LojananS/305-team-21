@@ -88,7 +88,6 @@ BEGIN
                 p2_gap_center_internal <= to_signed(360, 10);
                 p3_x_pos_internal <= to_signed(640, 11);
                 p3_gap_center_internal <= to_signed(100, 10);
-                start_move <= '1'; -- Restart pipes movement
             ELSIF start_move = '1' THEN
                 IF collision = '1' THEN
                     start_move <= '0'; -- Stop pipes movement on collision

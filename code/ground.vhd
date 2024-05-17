@@ -22,11 +22,11 @@ ARCHITECTURE behavior OF ground IS
         );
     END COMPONENT;
 
-    SIGNAL ground_y_pos : signed(9 DOWNTO 0) := to_signed(420, 10);
-    SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(60, 10);
+    SIGNAL ground_y_pos : signed(9 DOWNTO 0) := to_signed(450, 10);
+    SIGNAL ground_y_size : signed(9 DOWNTO 0) := to_signed(30, 10);
 
     TYPE ground_type IS ARRAY (0 TO 2) OF signed(10 DOWNTO 0);
-    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
+    SIGNAL ground_x_pos : ground_type := (to_signed(0, 11), to_signed(320, 11), to_signed(640, 11));
     CONSTANT ground_x_size : integer range 0 to 320 := 320;
     SIGNAL ground_on : std_logic_vector(2 DOWNTO 0);
 
