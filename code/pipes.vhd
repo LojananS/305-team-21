@@ -1,3 +1,4 @@
+-- File path: pipes.vhd
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -32,6 +33,12 @@ ARCHITECTURE behavior OF pipes IS
 
     SIGNAL random_value : std_logic_vector(9 DOWNTO 0);
 
+    SIGNAL blue_box_on : std_logic;
+    SIGNAL blue_box_x_pos_internal : signed(10 DOWNTO 0) := to_signed(640, 11);
+    SIGNAL blue_box_y_pos_internal : signed(9 DOWNTO 0);
+
+    SIGNAL blue_box_size : signed(9 DOWNTO 0) := to_signed(20, 10); -- size of the blue box
+
     COMPONENT galois_lfsr
         PORT
         (
@@ -45,7 +52,7 @@ BEGIN
     lfsr_inst: galois_lfsr
         PORT MAP (
             clk => clk,
-            reset => '0',
+            reset => reset,
             random_value => random_value
         );
 
@@ -70,8 +77,15 @@ BEGIN
                         to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
                 ELSE '0';
 
-    RGB <= "100010001000" WHEN (p1_on = '1' OR p2_on = '1' OR p3_on = '1');
-    output_on <= '1' WHEN (p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
+    blue_box_on <= '1' WHEN (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
+                             to_integer(unsigned(pixel_column)) < to_integer(blue_box_x_pos_internal) + to_integer(blue_box_size) AND
+                             to_integer(unsigned(pixel_row)) >= to_integer(blue_box_y_pos_internal) AND 
+                             to_integer(unsigned(pixel_row)) < to_integer(blue_box_y_pos_internal) + to_integer(blue_box_size))
+                     ELSE '0';
+
+    RGB <= "000000111111" WHEN blue_box_on = '1' ELSE "100010001000" WHEN (p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE "000000000000";
+
+    output_on <= '1' WHEN (blue_box_on = '1' OR p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
 
     Move_pipe: PROCESS (vert_sync, left_click, reset, collision, reset_pipes)
     BEGIN
@@ -88,6 +102,8 @@ BEGIN
                 p2_gap_center_internal <= to_signed(360, 10);
                 p3_x_pos_internal <= to_signed(640, 11);
                 p3_gap_center_internal <= to_signed(100, 10);
+                blue_box_x_pos_internal <= to_signed(640, 11);
+                blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
             ELSIF start_move = '1' THEN
                 IF collision = '1' THEN
                     start_move <= '0'; -- Stop pipes movement on collision
@@ -111,6 +127,14 @@ BEGIN
                         p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
                     ELSE
                         p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
+                    END IF;
+
+                    -- Move blue box
+                    IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
+                        blue_box_x_pos_internal <= to_signed(640, 11);
+                        blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                    ELSE
+                        blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
                     END IF;
                 END IF;
             END IF;

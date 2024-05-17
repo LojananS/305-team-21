@@ -2089,22 +2089,6 @@ refer to the applicable agreement for further details.
 	(pt -80 960)
 )
 (connector
-	(text "RGB_bg[11..0]" (rect 400 608 468 625)(font "Intel Clear" ))
-	(pt 400 624)
-	(pt 464 624)
-	(bus)
-)
-(connector
-	(text "output_text" (rect 410 544 464 561)(font "Intel Clear" ))
-	(pt 408 560)
-	(pt 464 560)
-)
-(connector
-	(text "output_bg" (rect 402 528 450 545)(font "Intel Clear" ))
-	(pt 408 544)
-	(pt 464 544)
-)
-(connector
 	(text "RGB_ball[11..0]" (rect 384 576 459 593)(font "Intel Clear" ))
 	(pt 472 592)
 	(pt 400 592)
@@ -2127,13 +2111,29 @@ refer to the applicable agreement for further details.
 	(pt 408 512)
 )
 (connector
-	(text "RGB_ground[11..0]" (rect 368 624 457 641)(font "Intel Clear" ))
-	(pt 400 640)
-	(pt 464 640)
+	(text "RGB_bg[11..0]" (rect 384 608 452 625)(font "Intel Clear" ))
+	(pt 384 624)
+	(pt 472 624)
 	(bus)
 )
 (connector
-	(text "output_ground" (rect 416 560 485 577)(font "Intel Clear" ))
-	(pt 408 576)
-	(pt 464 576)
+	(text "RGB_ground[11..0]" (rect 352 624 441 641)(font "Intel Clear" ))
+	(pt 384 640)
+	(pt 472 640)
+	(bus)
+)
+(connector
+	(text "output_text" (rect 418 544 472 561)(font "Intel Clear" ))
+	(pt 416 560)
+	(pt 472 560)
+)
+(connector
+	(text "output_bg" (rect 410 528 458 545)(font "Intel Clear" ))
+	(pt 416 544)
+	(pt 472 544)
+)
+(connector
+	(text "output_ground" (rect 424 560 493 577)(font "Intel Clear" ))
+	(pt 416 576)
+	(pt 472 576)
 )
