@@ -1,3 +1,4 @@
+-- File path: bouncy_ball.vhd
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
@@ -46,51 +47,57 @@ BEGIN
             data_out => bird_data
         );
 
-    Pixel_Display : PROCESS (clk)
-    BEGIN
-        IF rising_edge(clk) THEN
-            IF (unsigned(pixel_column) >= unsigned(ball_x_pos) AND 
-                unsigned(pixel_column) < unsigned(ball_x_pos) + 32 AND
-                unsigned(pixel_row) >= unsigned(ball_y_pos) AND 
-                unsigned(pixel_row) < unsigned(ball_y_pos) + 32) THEN
-                ball_on <= '1';
-                bird_address <= std_logic_vector(to_unsigned(
-                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 32 +
-                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 10));
-            ELSE
-                ball_on <= '0';
-            END IF;
-        END IF;
-    END PROCESS Pixel_Display;
+		Pixel_Display : PROCESS (clk)
+		BEGIN
+		  IF rising_edge(clk) THEN
+				IF (unsigned(pixel_column) >= unsigned(ball_x_pos) AND 
+					 unsigned(pixel_column) < unsigned(ball_x_pos) + 32 AND
+					 unsigned(pixel_row) >= unsigned(ball_y_pos) AND 
+					 unsigned(pixel_row) < unsigned(ball_y_pos) + 32) THEN
+					 ball_on <= '1';
+					 bird_address <= std_logic_vector(to_unsigned(
+						  (to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 32 +
+						  (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 10));
+				ELSE
+					 ball_on <= '0';
+				END IF;
+		  END IF;
+		END PROCESS Pixel_Display;
 
-    RGB <= bird_data when ball_on = '1' and bird_data /= "000000000000" else (others => '0');
-    output_on <= '1' when ball_on = '1' and bird_data /= "000000000000" else '0';
+		RGB <= bird_data when ball_on = '1' and bird_data /= "000000000000" else (others => '0');
+		output_on <= '1' when ball_on = '1' and bird_data /= "000000000000" else '0';
     
-    -- Collision Detection Logic
-    PROCESS (clk)
-    BEGIN
-        IF rising_edge(clk) THEN
-            collision_internal <= '0';
-            IF sw9 = '1' THEN -- Check if collisions are enabled
-                -- Check collision with Pipe 1
-                IF (ball_x_pos + size >= p1_x_pos AND ball_x_pos <= p1_x_pos + 30 AND
-                    (ball_y_pos <= p1_gap_center - 45 OR ball_y_pos >= p1_gap_center + 45)) THEN
-                    collision_internal <= '1';
-                END IF;
-                -- Check collision with Pipe 2
-                IF (ball_x_pos + size >= p2_x_pos AND ball_x_pos <= p2_x_pos + 30 AND
-                    (ball_y_pos <= p2_gap_center - 45 OR ball_y_pos + size >= p2_gap_center + 45)) THEN
-                    collision_internal <= '1';
-                END IF;
-                -- Check collision with Pipe 3
-                IF (ball_x_pos + size >= p3_x_pos AND ball_x_pos <= p3_x_pos + 30 AND
-                    (ball_y_pos <= p3_gap_center - 45 OR ball_y_pos + size >= p3_gap_center + 45)) THEN
-                    collision_internal <= '1';
-                END IF;
-            END IF;
-        END IF;
-        collision <= collision_internal;
-    END PROCESS;
+		-- Collision Detection Logic
+		PROCESS (clk)
+		BEGIN
+			 IF rising_edge(clk) THEN
+				  collision_internal <= '0';
+				  IF sw9 = '1' THEN -- Check if collisions are enabled
+						-- Check collision with Pipe 1
+						IF ((ball_x_pos + 2*size >= p1_x_pos AND ball_x_pos + 5 < p1_x_pos + to_signed(30, 10)) AND
+							 ((ball_y_pos + 5 <= p1_gap_center - to_signed(45, 10)) OR 
+							  (ball_y_pos + 2*size - 6 >= p1_gap_center + to_signed(45, 10)))) THEN
+							 collision_internal <= '1';
+						END IF;
+
+						-- Check collision with Pipe 2
+						IF ((ball_x_pos + 2*size >= p2_x_pos AND ball_x_pos + 5 < p2_x_pos + to_signed(30, 10)) AND
+							 ((ball_y_pos + 5 <= p2_gap_center - to_signed(45, 10)) OR 
+							  (ball_y_pos + 2*size - 6 >= p2_gap_center + to_signed(45, 10)))) THEN
+							 collision_internal <= '1';
+						END IF;
+
+						-- Check collision with Pipe 3
+						IF ((ball_x_pos + 2*size >= p3_x_pos AND ball_x_pos + 5 < p3_x_pos + to_signed(30, 10)) AND
+							 ((ball_y_pos + 5 <= p3_gap_center - to_signed(45, 10)) OR 
+							  (ball_y_pos + 2*size - 6 >= p3_gap_center + to_signed(45, 10)))) THEN
+							 collision_internal <= '1';
+						END IF;
+				  END IF;
+			 END IF;
+			 collision <= collision_internal;
+		END PROCESS;
+
 
     Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;

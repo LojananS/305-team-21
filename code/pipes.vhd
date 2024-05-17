@@ -6,7 +6,7 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY pipes IS
     PORT
     (
-        clk, vert_sync, left_click, reset, collision, reset_pipes : IN std_logic;
+        clk, vert_sync, start, reset, collision, reset_pipes : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0);
@@ -87,13 +87,9 @@ BEGIN
 
     output_on <= '1' WHEN (blue_box_on = '1' OR p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, left_click, reset, collision, reset_pipes)
+    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes)
     BEGIN
         IF rising_edge(vert_sync) THEN
-            IF left_click = '1' AND start_move = '0' THEN
-                start_move <= '1';
-            END IF;
-
             IF reset_pipes = '1' THEN
                 -- Reset pipes to their original positions
                 p1_x_pos_internal <= to_signed(213, 11);
@@ -104,39 +100,36 @@ BEGIN
                 p3_gap_center_internal <= to_signed(100, 10);
                 blue_box_x_pos_internal <= to_signed(640, 11);
                 blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-            ELSIF start_move = '1' THEN
-                IF collision = '1' THEN
-                    start_move <= '0'; -- Stop pipes movement on collision
-                ELSE
-                    IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p1_x_pos_internal <= to_signed(640, 11);
-                        p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                    ELSE
-                        p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
-                    END IF;
+					 start_move <= '0';
+            ELSIF start = '1' THEN
+					  IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+							p1_x_pos_internal <= to_signed(640, 11);
+							p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+					  ELSE
+							p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
+					  END IF;
 
-                    IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p2_x_pos_internal <= to_signed(640, 11);
-                        p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                    ELSE
-                        p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
-                    END IF;
+					  IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+							p2_x_pos_internal <= to_signed(640, 11);
+							p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+					  ELSE
+							p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
+					  END IF;
 
-                    IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p3_x_pos_internal <= to_signed(640, 11);
-                        p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                    ELSE
-                        p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
-                    END IF;
+					  IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+							p3_x_pos_internal <= to_signed(640, 11);
+							p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+					  ELSE
+							p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
+					  END IF;
 
-                    -- Move blue box
-                    IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
-                        blue_box_x_pos_internal <= to_signed(640, 11);
-                        blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                    ELSE
-                        blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
-                    END IF;
-                END IF;
+					  -- Move blue box
+					  IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
+							blue_box_x_pos_internal <= to_signed(640, 11);
+							blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+					  ELSE
+							blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
+					  END IF;
             END IF;
         END IF;
     END PROCESS Move_pipe;
