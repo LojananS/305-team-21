@@ -5,7 +5,7 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY ground IS
     PORT
     (
-        clk, vert_sync, left_click, collision, reset : IN std_logic;
+        clk, vert_sync, left_click, collision, reset, pause: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0)
@@ -67,9 +67,10 @@ BEGIN
     RGB <= ground_data WHEN (ground_on /= "000") ELSE (others => '0');
     output_on <= '1' WHEN ground_on > "000" ELSE '0';
 
-    Move_Ground: PROCESS (vert_sync, left_click, collision, reset)
-    BEGIN
-        IF rising_edge(vert_sync) THEN
+	Move_Ground: PROCESS (vert_sync, left_click, collision, reset)
+	BEGIN
+		IF rising_edge(vert_sync) THEN
+--			IF (pause = '0') THEN
             IF collision = '1' THEN
                 start_move <= '0';
                 collision_occurred <= '1';
@@ -87,17 +88,18 @@ BEGIN
 					 reset_ground <= '0';
 				END IF;
 
-			IF start_move = '1' THEN
-				FOR i IN 0 TO 2 LOOP
-					ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
-					IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
-						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
-					END IF;
-				END LOOP;
-			END IF;
+				IF start_move = '1' THEN
+					FOR i IN 0 TO 2 LOOP
+						ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
+						IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
+							ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
+						END IF;
+					END LOOP;
+				END IF;
 
             prev_left_click <= left_click;
-        END IF;
-    END PROCESS Move_Ground;
+--			END IF;
+		END IF;
+	END PROCESS Move_Ground;
 
 END behavior;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Sat May 18 17:34:15 2024
+Sat May 18 18:52:34 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
 
 
@@ -14,30 +14,34 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
- 10. Registers Removed During Synthesis
- 11. Removed Registers Triggering Further Register Optimizations
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
+ 11. Registers Removed During Synthesis
  12. General Register Statistics
  13. Inverted Register Statistics
  14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated
- 16. Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated
- 17. Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated
- 18. Source assignments for text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
- 19. Source assignments for ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated
+ 15. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated
+ 16. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated
+ 17. Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated
+ 18. Source assignments for text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+ 19. Source assignments for ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated
  20. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
- 21. Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1
- 22. Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2
- 23. Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3
- 24. Parameter Settings for User Entity Instance: text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component
- 25. Parameter Settings for User Entity Instance: ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync
- 26. Parameter Settings for Inferred Entity Instance: pipes:inst3|lpm_divide:Mod0
- 27. Parameter Settings for Inferred Entity Instance: text_rom:inst16|lpm_divide:Mod0
- 28. Parameter Settings for Inferred Entity Instance: text_rom:inst16|lpm_divide:Div0
- 29. altsyncram Parameter Settings by Entity Instance
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
+ 21. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1
+ 22. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2
+ 23. Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3
+ 24. Parameter Settings for User Entity Instance: text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 25. Parameter Settings for User Entity Instance: ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync
+ 26. Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Mod0
+ 27. Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Div1
+ 28. Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Div0
+ 29. Parameter Settings for Inferred Entity Instance: pipes:inst21|lpm_divide:Mod0
+ 30. Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Div0
+ 31. Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Mod0
+ 32. Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Div1
+ 33. altsyncram Parameter Settings by Entity Instance
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
@@ -64,17 +68,17 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +---------------------------------+----------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 18 17:34:15 2024              ;
+; Analysis & Synthesis Status     ; Successful - Sat May 18 18:52:34 2024              ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Standard Edition ;
 ; Revision Name                   ; flappybird21                                       ;
 ; Top-level Entity Name           ; flappybird21block                                  ;
 ; Family                          ; Cyclone V                                          ;
 ; Logic utilization (in ALMs)     ; N/A                                                ;
-; Total registers                 ; 378                                                ;
-; Total pins                      ; 36                                                 ;
+; Total registers                 ; 606                                                ;
+; Total pins                      ; 44                                                 ;
 ; Total virtual pins              ; 0                                                  ;
-; Total block memory bits         ; 40,960                                             ;
-; Total DSP Blocks                ; 0                                                  ;
+; Total block memory bits         ; 271,360                                            ;
+; Total DSP Blocks                ; 1                                                  ;
 ; Total HSSI RX PCSs              ; 0                                                  ;
 ; Total HSSI PMA RX Deserializers ; 0                                                  ;
 ; Total HSSI TX PCSs              ; 0                                                  ;
@@ -238,106 +242,144 @@ https://fpgasoftware.intel.com/eula.
 ; lpm_divide.tdf                   ; yes             ; Megafunction                           ; e:/quartus/quartus/libraries/megafunctions/lpm_divide.tdf                                      ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                           ; e:/quartus/quartus/libraries/megafunctions/abs_divider.inc                                     ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                           ; e:/quartus/quartus/libraries/megafunctions/sign_div_unsign.inc                                 ;         ;
+; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf      ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf ;         ;
+; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf       ;         ;
+; db/lpm_divide_ebm.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf ;         ;
+; db/alt_u_div_eve.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf       ;         ;
+; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf ;         ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf       ;         ;
 ; db/lpm_divide_mio.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf      ;         ;
 ; db/abs_divider_scg.tdf           ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf     ;         ;
-; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf       ;         ;
 ; db/lpm_abs_0p9.tdf               ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf         ;         ;
-; db/lpm_divide_a2m.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_a2m.tdf      ;         ;
-; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_dkh.tdf ;         ;
-; db/alt_u_div_0te.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_0te.tdf       ;         ;
-; db/lpm_divide_4am.tdf            ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_4am.tdf      ;         ;
-; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_akh.tdf ;         ;
-; db/alt_u_div_qse.tdf             ; yes             ; Auto-Generated Megafunction            ; D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_qse.tdf       ;         ;
 +----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                      ;
-+---------------------------------------------+--------------------------------------------------------------------+
-; Resource                                    ; Usage                                                              ;
-+---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 648                                                                ;
-;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 1102                                                               ;
-;     -- 7 input functions                    ; 5                                                                  ;
-;     -- 6 input functions                    ; 176                                                                ;
-;     -- 5 input functions                    ; 121                                                                ;
-;     -- 4 input functions                    ; 113                                                                ;
-;     -- <=3 input functions                  ; 687                                                                ;
-;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 378                                                                ;
-;                                             ;                                                                    ;
-; I/O pins                                    ; 36                                                                 ;
-; Total MLAB memory bits                      ; 0                                                                  ;
-; Total block memory bits                     ; 40960                                                              ;
-;                                             ;                                                                    ;
-; Total DSP Blocks                            ; 0                                                                  ;
-;                                             ;                                                                    ;
-; Total PLLs                                  ; 1                                                                  ;
-;     -- PLLs                                 ; 1                                                                  ;
-;                                             ;                                                                    ;
-; Maximum fan-out node                        ; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 219                                                                ;
-; Total fan-out                               ; 5367                                                               ;
-; Average fan-out                             ; 3.36                                                               ;
-+---------------------------------------------+--------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++---------------------------------------------+-------------------------------+
+; Resource                                    ; Usage                         ;
++---------------------------------------------+-------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 1219                          ;
+;                                             ;                               ;
+; Combinational ALUT usage for logic          ; 2157                          ;
+;     -- 7 input functions                    ; 7                             ;
+;     -- 6 input functions                    ; 263                           ;
+;     -- 5 input functions                    ; 209                           ;
+;     -- 4 input functions                    ; 220                           ;
+;     -- <=3 input functions                  ; 1458                          ;
+;                                             ;                               ;
+; Dedicated logic registers                   ; 606                           ;
+;                                             ;                               ;
+; I/O pins                                    ; 44                            ;
+; Total MLAB memory bits                      ; 0                             ;
+; Total block memory bits                     ; 271360                        ;
+;                                             ;                               ;
+; Total DSP Blocks                            ; 1                             ;
+;                                             ;                               ;
+; Total PLLs                                  ; 1                             ;
+;     -- PLLs                                 ; 1                             ;
+;                                             ;                               ;
+; Maximum fan-out node                        ; VGA_SYNC:inst10|vert_sync_out ;
+; Maximum fan-out                             ; 352                           ;
+; Total fan-out                               ; 9831                          ;
+; Average fan-out                             ; 3.35                          ;
++---------------------------------------------+-------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                             ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                ; Entity Name         ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |flappybird21block                           ; 1102 (1)            ; 378 (0)                   ; 40960             ; 0          ; 36   ; 0            ; |flappybird21block                                                                                                                 ; flappybird21block   ; work         ;
-;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                                           ; BCD_to_SevenSeg     ; work         ;
-;    |BCD_to_SevenSeg:inst8|                   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                                           ; BCD_to_SevenSeg     ; work         ;
-;    |MOUSE:inst1|                             ; 106 (106)           ; 120 (120)                 ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                                     ; MOUSE               ; work         ;
-;    |VGA_SYNC:inst10|                         ; 54 (54)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                 ; VGA_SYNC            ; work         ;
-;    |bouncy_ball:inst11|                      ; 331 (291)           ; 83 (57)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11                                                                                              ; bouncy_ball         ; work         ;
-;       |sprite_rom:sprite_rom_inst|           ; 40 (40)             ; 26 (26)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst                                                                   ; sprite_rom          ; work         ;
-;          |altsyncram:ROM1|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1                                                   ; altsyncram          ; work         ;
-;             |altsyncram_brg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated                    ; altsyncram_brg1     ; work         ;
-;          |altsyncram:ROM2|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2                                                   ; altsyncram          ; work         ;
-;             |altsyncram_crg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated                    ; altsyncram_crg1     ; work         ;
-;          |altsyncram:ROM3|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3                                                   ; altsyncram          ; work         ;
-;             |altsyncram_drg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated                    ; altsyncram_drg1     ; work         ;
-;    |display_controller:inst9|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|display_controller:inst9                                                                                        ; display_controller  ; work         ;
-;    |pipes:inst3|                             ; 441 (366)           ; 94 (84)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3                                                                                                     ; pipes               ; work         ;
-;       |galois_lfsr:lfsr_inst|                ; 1 (1)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|galois_lfsr:lfsr_inst                                                                               ; galois_lfsr         ; work         ;
-;       |lpm_divide:Mod0|                      ; 74 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|lpm_divide:Mod0                                                                                     ; lpm_divide          ; work         ;
-;          |lpm_divide_mio:auto_generated|     ; 74 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|lpm_divide:Mod0|lpm_divide_mio:auto_generated                                                       ; lpm_divide_mio      ; work         ;
-;             |abs_divider_scg:divider|        ; 74 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider                               ; abs_divider_scg     ; work         ;
-;                |alt_u_div_82f:divider|       ; 44 (44)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider|alt_u_div_82f:divider         ; alt_u_div_82f       ; work         ;
-;                |lpm_abs_0p9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst3|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider|lpm_abs_0p9:my_abs_num        ; lpm_abs_0p9         ; work         ;
-;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                                       ; pll                 ; work         ;
-;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                                     ; pll_0002            ; pll          ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                                             ; altera_pll          ; work         ;
-;    |text_rom:inst16|                         ; 153 (65)            ; 24 (24)                   ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16                                                                                                 ; text_rom            ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|char_rom:char_rom_inst                                                                          ; char_rom            ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component                                          ; altsyncram          ; work         ;
-;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated           ; altsyncram_d5g1     ; work         ;
-;       |lpm_divide:Div0|                      ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_4am:auto_generated|     ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Div0|lpm_divide_4am:auto_generated                                                   ; lpm_divide_4am      ; work         ;
-;             |sign_div_unsign_akh:divider|    ; 38 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider                       ; sign_div_unsign_akh ; work         ;
-;                |alt_u_div_qse:divider|       ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Div0|lpm_divide_4am:auto_generated|sign_div_unsign_akh:divider|alt_u_div_qse:divider ; alt_u_div_qse       ; work         ;
-;       |lpm_divide:Mod0|                      ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_a2m:auto_generated|     ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Mod0|lpm_divide_a2m:auto_generated                                                   ; lpm_divide_a2m      ; work         ;
-;             |sign_div_unsign_dkh:divider|    ; 48 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider                       ; sign_div_unsign_dkh ; work         ;
-;                |alt_u_div_0te:divider|       ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst16|lpm_divide:Mod0|lpm_divide_a2m:auto_generated|sign_div_unsign_dkh:divider|alt_u_div_0te:divider ; alt_u_div_0te       ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                       ; Entity Name         ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |flappybird21block                           ; 2157 (0)            ; 606 (0)                   ; 271360            ; 1          ; 44   ; 0            ; |flappybird21block                                                                                                                        ; flappybird21block   ; work         ;
+;    |BCD_to_SevenSeg:inst13|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst13                                                                                                 ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                                                  ; BCD_to_SevenSeg     ; work         ;
+;    |BCD_to_SevenSeg:inst8|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                                                  ; BCD_to_SevenSeg     ; work         ;
+;    |MOUSE:inst1|                             ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                                            ; MOUSE               ; work         ;
+;    |VGA_SYNC:inst10|                         ; 73 (73)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                        ; VGA_SYNC            ; work         ;
+;    |background:inst5|                        ; 439 (439)           ; 205 (205)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                                                                                       ; background          ; work         ;
+;    |bouncy_ball:inst20|                      ; 549 (266)           ; 103 (77)                  ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20                                                                                                     ; bouncy_ball         ; work         ;
+;       |lpm_divide:Div0|                      ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div0                                                                                     ; lpm_divide          ; work         ;
+;          |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                       ; lpm_divide_hbm      ; work         ;
+;             |sign_div_unsign_nlh:divider|    ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                           ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_kve:divider|       ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_kve:divider     ; alt_u_div_kve       ; work         ;
+;       |lpm_divide:Div1|                      ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div1                                                                                     ; lpm_divide          ; work         ;
+;          |lpm_divide_ebm:auto_generated|     ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div1|lpm_divide_ebm:auto_generated                                                       ; lpm_divide_ebm      ; work         ;
+;             |sign_div_unsign_klh:divider|    ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider                           ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_eve:divider|       ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider|alt_u_div_eve:divider     ; alt_u_div_eve       ; work         ;
+;       |lpm_divide:Mod0|                      ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Mod0                                                                                     ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|     ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                       ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider|    ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                           ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|       ; 112 (112)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider     ; alt_u_div_82f       ; work         ;
+;       |sprite_rom:sprite_rom_inst|           ; 40 (40)             ; 26 (26)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst                                                                          ; sprite_rom          ; work         ;
+;          |altsyncram:ROM1|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1                                                          ; altsyncram          ; work         ;
+;             |altsyncram_brg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated                           ; altsyncram_brg1     ; work         ;
+;          |altsyncram:ROM2|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2                                                          ; altsyncram          ; work         ;
+;             |altsyncram_crg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated                           ; altsyncram_crg1     ; work         ;
+;          |altsyncram:ROM3|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3                                                          ; altsyncram          ; work         ;
+;             |altsyncram_drg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated                           ; altsyncram_drg1     ; work         ;
+;    |display_controller:inst9|                ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|display_controller:inst9                                                                                               ; display_controller  ; work         ;
+;    |ground:inst22|                           ; 219 (216)           ; 54 (52)                   ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst22                                                                                                          ; ground              ; work         ;
+;       |floor_rom:floor_rom_inst|             ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst22|floor_rom:floor_rom_inst                                                                                 ; floor_rom           ; work         ;
+;          |altsyncram:floor_rom_sync|         ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync                                                       ; altsyncram          ; work         ;
+;             |altsyncram_18g1:auto_generated| ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated                        ; altsyncram_18g1     ; work         ;
+;                |decode_01a:rden_decode|      ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode ; decode_01a          ; work         ;
+;    |pipes:inst21|                            ; 479 (404)           ; 94 (84)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21                                                                                                           ; pipes               ; work         ;
+;       |galois_lfsr:lfsr_inst|                ; 1 (1)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|galois_lfsr:lfsr_inst                                                                                     ; galois_lfsr         ; work         ;
+;       |lpm_divide:Mod0|                      ; 74 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|lpm_divide:Mod0                                                                                           ; lpm_divide          ; work         ;
+;          |lpm_divide_mio:auto_generated|     ; 74 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|lpm_divide:Mod0|lpm_divide_mio:auto_generated                                                             ; lpm_divide_mio      ; work         ;
+;             |abs_divider_scg:divider|        ; 74 (20)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider                                     ; abs_divider_scg     ; work         ;
+;                |alt_u_div_82f:divider|       ; 44 (44)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider|alt_u_div_82f:divider               ; alt_u_div_82f       ; work         ;
+;                |lpm_abs_0p9:my_abs_num|      ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst21|lpm_divide:Mod0|lpm_divide_mio:auto_generated|abs_divider_scg:divider|lpm_abs_0p9:my_abs_num              ; lpm_abs_0p9         ; work         ;
+;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                                              ; pll                 ; work         ;
+;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                                            ; pll_0002            ; pll          ;
+;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                    ; altera_pll          ; work         ;
+;    |text_rom:inst18|                         ; 324 (79)            ; 28 (28)                   ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18                                                                                                        ; text_rom            ; work         ;
+;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|char_rom:char_rom_inst                                                                                 ; char_rom            ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component                                                 ; altsyncram          ; work         ;
+;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                  ; altsyncram_d5g1     ; work         ;
+;       |lpm_divide:Div0|                      ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div0                                                                                        ; lpm_divide          ; work         ;
+;          |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                          ; lpm_divide_hbm      ; work         ;
+;             |sign_div_unsign_nlh:divider|    ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                              ; sign_div_unsign_nlh ; work         ;
+;                |alt_u_div_kve:divider|       ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider|alt_u_div_kve:divider        ; alt_u_div_kve       ; work         ;
+;       |lpm_divide:Div1|                      ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div1                                                                                        ; lpm_divide          ; work         ;
+;          |lpm_divide_ebm:auto_generated|     ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div1|lpm_divide_ebm:auto_generated                                                          ; lpm_divide_ebm      ; work         ;
+;             |sign_div_unsign_klh:divider|    ; 71 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider                              ; sign_div_unsign_klh ; work         ;
+;                |alt_u_div_eve:divider|       ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Div1|lpm_divide_ebm:auto_generated|sign_div_unsign_klh:divider|alt_u_div_eve:divider        ; alt_u_div_eve       ; work         ;
+;       |lpm_divide:Mod0|                      ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Mod0                                                                                        ; lpm_divide          ; work         ;
+;          |lpm_divide_u4m:auto_generated|     ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                          ; lpm_divide_u4m      ; work         ;
+;             |sign_div_unsign_1nh:divider|    ; 112 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                              ; sign_div_unsign_1nh ; work         ;
+;                |alt_u_div_82f:divider|       ; 112 (112)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst18|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider        ; alt_u_div_82f       ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
-; Name                                                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF              ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
-; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite1.mif ;
-; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite2.mif ;
-; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288 ; bird_sprite3.mif ;
-; text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096  ; tcgrom.mif       ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+-------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                       ;
++------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+; Name                                                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF              ;
++------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288  ; bird_sprite1.mif ;
+; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288  ; bird_sprite2.mif ;
+; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288  ; bird_sprite3.mif ;
+; ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; 19200        ; 12           ; --           ; --           ; 230400 ; floor.MIF        ;
+; text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif       ;
++------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+------------------+
+
+
++----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary ;
++-------------------------------+--------------+
+; Statistic                     ; Number Used  ;
++-------------------------------+--------------+
+; Sum of two 18x18              ; 1            ;
+; Total number of DSP blocks    ; 1            ;
+;                               ;              ;
+; Fixed Point Signed Multiplier ; 2            ;
++-------------------------------+--------------+
 
 
 Encoding Type:  One-Hot
@@ -360,74 +402,27 @@ Encoding Type:  One-Hot
 +------------------------------------------------+---------------------------------------------------------+
 ; Register name                                  ; Reason for Removal                                      ;
 +------------------------------------------------+---------------------------------------------------------+
-; bouncy_ball:inst11|ball_x_pos[0]               ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[1,2]             ; Stuck at VCC due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[3]               ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[4]               ; Stuck at VCC due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[5,6]             ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[7]               ; Stuck at VCC due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_x_pos[8..10]           ; Stuck at GND due to stuck port data_in                  ;
-; ground:inst113|ground_x_pos[2][2]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][1]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][0]              ; Lost fanout                                             ;
-; ground:inst113|ground_address[0]               ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][3]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][4]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][5]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][6]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][7]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][8]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][9]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[2][10]             ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][0]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][1]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][2]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][3]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][4]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][5]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][6]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][7]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][8]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][9]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[1][10]             ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][0]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][1]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][2]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][3]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][4]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][5]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][6]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][7]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][8]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][9]              ; Lost fanout                                             ;
-; ground:inst113|ground_x_pos[0][10]             ; Lost fanout                                             ;
-; ground:inst113|reset_ground                    ; Lost fanout                                             ;
-; ground:inst113|collision_occurred              ; Lost fanout                                             ;
-; ground:inst113|start_move                      ; Lost fanout                                             ;
-; ground:inst113|ground_address[1..14]           ; Lost fanout                                             ;
+; bouncy_ball:inst20|ball_x_pos[0]               ; Stuck at GND due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[1,2]             ; Stuck at VCC due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[3]               ; Stuck at GND due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[4]               ; Stuck at VCC due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[5,6]             ; Stuck at GND due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[7]               ; Stuck at VCC due to stuck port data_in                  ;
+; bouncy_ball:inst20|ball_x_pos[8..10]           ; Stuck at GND due to stuck port data_in                  ;
 ; MOUSE:inst1|CHAROUT[4..7]                      ; Stuck at VCC due to stuck port data_in                  ;
 ; MOUSE:inst1|CHAROUT[3]                         ; Stuck at GND due to stuck port data_in                  ;
 ; MOUSE:inst1|CHAROUT[2]                         ; Stuck at VCC due to stuck port data_in                  ;
 ; MOUSE:inst1|CHAROUT[0,1]                       ; Stuck at GND due to stuck port data_in                  ;
 ; MOUSE:inst1|SHIFTOUT[10]                       ; Stuck at VCC due to stuck port data_in                  ;
-; bouncy_ball:inst11|ball_y_motion[5..9]         ; Merged with bouncy_ball:inst11|ball_y_motion[4]         ;
-; bouncy_ball:inst11|\Move_Ball:gravity_up[5..7] ; Merged with bouncy_ball:inst11|\Move_Ball:gravity_up[4] ;
-; MOUSE:inst1|cursor_row[9]                      ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst11|\Move_Ball:gravity_down[2]  ; Stuck at GND due to stuck port data_in                  ;
+; ground:inst22|reset_ground                     ; Merged with background:inst5|reset_background           ;
+; ground:inst22|collision_occurred               ; Merged with background:inst5|collision_occurred         ;
+; bouncy_ball:inst20|ball_y_motion[5..9]         ; Merged with bouncy_ball:inst20|ball_y_motion[4]         ;
+; bouncy_ball:inst20|\Move_Ball:gravity_up[5..7] ; Merged with bouncy_ball:inst20|\Move_Ball:gravity_up[4] ;
+; bouncy_ball:inst20|\Move_Ball:gravity_down[2]  ; Stuck at GND due to stuck port data_in                  ;
 ; VGA_SYNC:inst10|pixel_row[9]                   ; Stuck at GND due to stuck port data_in                  ;
-; bouncy_ball:inst11|\Move_Ball:gravity_down[0]  ; Stuck at VCC due to stuck port data_in                  ;
-; Total Number of Removed Registers = 83         ;                                                         ;
+; bouncy_ball:inst20|\Move_Ball:gravity_down[0]  ; Stuck at VCC due to stuck port data_in                  ;
+; Total Number of Removed Registers = 33         ;                                                         ;
 +------------------------------------------------+---------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                     ;
-+-----------------------------------+--------------------+--------------------------------------------------------+
-; Register name                     ; Reason for Removal ; Registers Removed due to This Register                 ;
-+-----------------------------------+--------------------+--------------------------------------------------------+
-; ground:inst113|ground_x_pos[2][2] ; Lost Fanouts       ; ground:inst113|reset_ground, ground:inst113|start_move ;
-; ground:inst113|ground_x_pos[2][0] ; Lost Fanouts       ; ground:inst113|ground_x_pos[1][0]                      ;
-+-----------------------------------+--------------------+--------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -435,12 +430,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 378   ;
-; Number of registers using Synchronous Clear  ; 60    ;
-; Number of registers using Synchronous Load   ; 29    ;
+; Total registers                              ; 606   ;
+; Number of registers using Synchronous Clear  ; 206   ;
+; Number of registers using Synchronous Load   ; 7     ;
 ; Number of registers using Asynchronous Clear ; 26    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 284   ;
+; Number of registers using Clock Enable       ; 483   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -450,51 +445,109 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------+---------+
 ; Inverted Register                                             ; Fan out ;
 +---------------------------------------------------------------+---------+
-; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|sprite_index[1] ; 13      ;
-; pipes:inst3|blue_box_x_pos_internal[7]                        ; 3       ;
-; pipes:inst3|blue_box_x_pos_internal[6]                        ; 3       ;
-; pipes:inst3|blue_box_x_pos_internal[5]                        ; 4       ;
-; pipes:inst3|blue_box_x_pos_internal[3]                        ; 3       ;
-; pipes:inst3|blue_box_x_pos_internal[9]                        ; 4       ;
-; pipes:inst3|blue_box_x_pos_internal[8]                        ; 4       ;
-; pipes:inst3|p3_x_pos_internal[7]                              ; 7       ;
-; pipes:inst3|p3_x_pos_internal[9]                              ; 8       ;
-; pipes:inst3|p1_x_pos_internal[0]                              ; 6       ;
-; pipes:inst3|p1_x_pos_internal[7]                              ; 7       ;
-; pipes:inst3|p1_x_pos_internal[6]                              ; 7       ;
-; pipes:inst3|p1_x_pos_internal[4]                              ; 7       ;
-; pipes:inst3|p1_x_pos_internal[2]                              ; 7       ;
-; pipes:inst3|p2_x_pos_internal[7]                              ; 7       ;
-; pipes:inst3|p2_x_pos_internal[5]                              ; 8       ;
-; pipes:inst3|p2_x_pos_internal[3]                              ; 7       ;
-; pipes:inst3|p2_x_pos_internal[1]                              ; 7       ;
-; pipes:inst3|p2_x_pos_internal[8]                              ; 8       ;
-; bouncy_ball:inst11|ball_y_pos[7]                              ; 9       ;
-; bouncy_ball:inst11|ball_y_pos[6]                              ; 12      ;
-; bouncy_ball:inst11|ball_y_pos[5]                              ; 9       ;
-; bouncy_ball:inst11|ball_y_pos[4]                              ; 6       ;
-; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|prev_sprite[1]  ; 1       ;
-; pipes:inst3|p3_gap_center_internal[6]                         ; 4       ;
-; pipes:inst3|p3_gap_center_internal[5]                         ; 4       ;
-; pipes:inst3|p3_gap_center_internal[2]                         ; 4       ;
-; pipes:inst3|p1_gap_center_internal[7]                         ; 4       ;
-; pipes:inst3|p1_gap_center_internal[6]                         ; 4       ;
-; pipes:inst3|p1_gap_center_internal[5]                         ; 4       ;
-; pipes:inst3|p1_gap_center_internal[4]                         ; 4       ;
-; pipes:inst3|p2_gap_center_internal[8]                         ; 4       ;
-; pipes:inst3|p2_gap_center_internal[6]                         ; 4       ;
-; pipes:inst3|p2_gap_center_internal[5]                         ; 4       ;
-; pipes:inst3|p2_gap_center_internal[3]                         ; 4       ;
-; MOUSE:inst1|send_char                                         ; 3       ;
-; text_rom:inst16|init_disp                                     ; 16      ;
-; pipes:inst3|galois_lfsr:lfsr_inst|lfsr_reg[0]                 ; 3       ;
-; MOUSE:inst1|SHIFTOUT[3]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[5]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[6]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[7]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[8]                                       ; 1       ;
-; Total number of inverted registers = 43                       ;         ;
+; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|sprite_index[1] ; 13      ;
+; pipes:inst21|blue_box_x_pos_internal[7]                       ; 3       ;
+; pipes:inst21|blue_box_x_pos_internal[6]                       ; 3       ;
+; pipes:inst21|blue_box_x_pos_internal[5]                       ; 4       ;
+; pipes:inst21|blue_box_x_pos_internal[3]                       ; 3       ;
+; pipes:inst21|blue_box_x_pos_internal[9]                       ; 4       ;
+; pipes:inst21|blue_box_x_pos_internal[8]                       ; 4       ;
+; pipes:inst21|p3_x_pos_internal[9]                             ; 7       ;
+; pipes:inst21|p3_x_pos_internal[7]                             ; 7       ;
+; pipes:inst21|p1_x_pos_internal[0]                             ; 6       ;
+; pipes:inst21|p1_x_pos_internal[7]                             ; 7       ;
+; pipes:inst21|p1_x_pos_internal[6]                             ; 6       ;
+; pipes:inst21|p1_x_pos_internal[4]                             ; 6       ;
+; pipes:inst21|p1_x_pos_internal[2]                             ; 6       ;
+; pipes:inst21|p2_x_pos_internal[8]                             ; 6       ;
+; pipes:inst21|p2_x_pos_internal[7]                             ; 6       ;
+; pipes:inst21|p2_x_pos_internal[5]                             ; 7       ;
+; pipes:inst21|p2_x_pos_internal[3]                             ; 6       ;
+; pipes:inst21|p2_x_pos_internal[1]                             ; 6       ;
+; background:inst5|star_x_positions[18][6]                      ; 2       ;
+; background:inst5|star_x_positions[18][4]                      ; 2       ;
+; background:inst5|star_x_positions[19][7]                      ; 2       ;
+; background:inst5|star_x_positions[19][2]                      ; 2       ;
+; background:inst5|star_x_positions[19][4]                      ; 2       ;
+; background:inst5|star_x_positions[19][5]                      ; 2       ;
+; background:inst5|star_x_positions[17][9]                      ; 2       ;
+; background:inst5|star_x_positions[17][6]                      ; 2       ;
+; background:inst5|star_x_positions[17][3]                      ; 2       ;
+; background:inst5|star_x_positions[17][5]                      ; 2       ;
+; background:inst5|star_x_positions[17][2]                      ; 2       ;
+; background:inst5|star_x_positions[15][7]                      ; 2       ;
+; background:inst5|star_x_positions[15][8]                      ; 2       ;
+; background:inst5|star_x_positions[15][5]                      ; 2       ;
+; background:inst5|star_x_positions[15][2]                      ; 2       ;
+; background:inst5|star_x_positions[14][6]                      ; 2       ;
+; background:inst5|star_x_positions[14][8]                      ; 2       ;
+; background:inst5|star_x_positions[13][6]                      ; 2       ;
+; background:inst5|star_x_positions[13][7]                      ; 2       ;
+; background:inst5|star_x_positions[13][3]                      ; 2       ;
+; background:inst5|star_x_positions[13][4]                      ; 2       ;
+; background:inst5|star_x_positions[13][2]                      ; 2       ;
+; background:inst5|star_x_positions[9][8]                       ; 2       ;
+; background:inst5|star_x_positions[9][6]                       ; 2       ;
+; background:inst5|star_x_positions[9][7]                       ; 2       ;
+; background:inst5|star_x_positions[9][1]                       ; 2       ;
+; background:inst5|star_x_positions[10][9]                      ; 2       ;
+; background:inst5|star_x_positions[10][5]                      ; 2       ;
+; background:inst5|star_x_positions[10][1]                      ; 2       ;
+; background:inst5|star_x_positions[10][2]                      ; 2       ;
+; background:inst5|star_x_positions[3][7]                       ; 2       ;
+; background:inst5|star_x_positions[3][8]                       ; 2       ;
+; background:inst5|star_x_positions[3][4]                       ; 2       ;
+; background:inst5|star_x_positions[16][9]                      ; 2       ;
+; background:inst5|star_x_positions[16][3]                      ; 2       ;
+; background:inst5|star_x_positions[8][8]                       ; 2       ;
+; background:inst5|star_x_positions[8][4]                       ; 2       ;
+; background:inst5|star_x_positions[8][6]                       ; 2       ;
+; background:inst5|star_x_positions[8][1]                       ; 2       ;
+; background:inst5|star_x_positions[8][2]                       ; 2       ;
+; background:inst5|star_x_positions[8][3]                       ; 2       ;
+; background:inst5|star_x_positions[1][6]                       ; 2       ;
+; background:inst5|star_x_positions[1][7]                       ; 2       ;
+; background:inst5|star_x_positions[1][3]                       ; 2       ;
+; background:inst5|star_x_positions[7][5]                       ; 2       ;
+; background:inst5|star_x_positions[7][6]                       ; 2       ;
+; background:inst5|star_x_positions[7][7]                       ; 2       ;
+; background:inst5|star_x_positions[7][1]                       ; 2       ;
+; background:inst5|star_x_positions[7][3]                       ; 2       ;
+; background:inst5|star_x_positions[7][4]                       ; 2       ;
+; background:inst5|star_x_positions[0][5]                       ; 2       ;
+; background:inst5|star_x_positions[0][6]                       ; 2       ;
+; background:inst5|star_x_positions[0][2]                       ; 2       ;
+; background:inst5|star_x_positions[6][7]                       ; 2       ;
+; background:inst5|star_x_positions[6][1]                       ; 2       ;
+; background:inst5|star_x_positions[6][2]                       ; 2       ;
+; background:inst5|star_x_positions[6][4]                       ; 2       ;
+; background:inst5|star_x_positions[5][9]                       ; 2       ;
+; background:inst5|star_x_positions[5][6]                       ; 2       ;
+; background:inst5|star_x_positions[5][3]                       ; 2       ;
+; background:inst5|star_x_positions[5][4]                       ; 2       ;
+; background:inst5|star_x_positions[4][5]                       ; 2       ;
+; background:inst5|star_x_positions[4][6]                       ; 2       ;
+; background:inst5|star_x_positions[4][7]                       ; 2       ;
+; background:inst5|star_x_positions[4][8]                       ; 2       ;
+; background:inst5|star_x_positions[4][2]                       ; 2       ;
+; background:inst5|star_x_positions[4][4]                       ; 2       ;
+; background:inst5|star_x_positions[12][4]                      ; 2       ;
+; background:inst5|star_x_positions[12][5]                      ; 2       ;
+; background:inst5|star_x_positions[12][6]                      ; 2       ;
+; background:inst5|star_x_positions[12][3]                      ; 2       ;
+; background:inst5|star_x_positions[2][8]                       ; 2       ;
+; background:inst5|star_x_positions[2][5]                       ; 2       ;
+; background:inst5|star_x_positions[2][2]                       ; 2       ;
+; background:inst5|star_x_positions[2][3]                       ; 2       ;
+; background:inst5|star_x_positions[11][1]                      ; 2       ;
+; background:inst5|star_x_positions[11][4]                      ; 2       ;
+; background:inst5|star_x_positions[11][5]                      ; 2       ;
+; bouncy_ball:inst20|ball_y_pos[7]                              ; 9       ;
+; bouncy_ball:inst20|ball_y_pos[6]                              ; 12      ;
+; bouncy_ball:inst20|ball_y_pos[5]                              ; 9       ;
+; Total number of inverted registers = 126*                     ;         ;
 +---------------------------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -502,45 +555,53 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|new_cursor_column[6]                   ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst11|score_internal[3]               ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p1_gap_center_internal[9]              ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst11|ball_y_pos[9]                   ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p2_gap_center_internal[4]              ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p3_gap_center_internal[0]              ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|text_rom:inst16|fr[2]                              ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|bouncy_ball:inst20|score_internal[7]               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst20|ball_y_pos[2]                   ;
+; 3:1                ; 122 bits  ; 244 LEs       ; 0 LEs                ; 244 LEs                ; Yes        ; |flappybird21block|background:inst5|star_x_positions[16][8]           ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p1_gap_center_internal[9]             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p2_gap_center_internal[2]             ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p3_gap_center_internal[7]             ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|ground:inst22|ground_address[10]                   ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|text_rom:inst18|fr[2]                              ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[5]                         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst11|ball_y_motion[0]                ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|green_out[2]                       ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|green_out[1]                       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p1_x_pos_internal[5]                   ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p2_x_pos_internal[9]                   ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|pipes:inst3|p3_x_pos_internal[0]                   ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|blue_box_x_pos_internal[4]             ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[0]                          ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_row[5]                          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[5]                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|MOUSE:inst1|cursor_column[8]                       ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 20 LEs               ; 4 LEs                  ; Yes        ; |flappybird21block|text_rom:inst16|char_address[4]                    ;
-; 18:1               ; 4 bits    ; 48 LEs        ; 40 LEs               ; 8 LEs                  ; Yes        ; |flappybird21block|text_rom:inst16|char_address[0]                    ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p1_gap_center_internal[4]              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst11|ball_y_pos[6]                   ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p2_gap_center_internal[5]              ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p3_gap_center_internal[2]              ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p1_x_pos_internal[0]                   ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p2_x_pos_internal[8]                   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|p3_x_pos_internal[7]                   ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst3|blue_box_x_pos_internal[3]             ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst11|sprite_rom:sprite_rom_inst|Mux5 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst11|gravity_down                    ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst11|gravity_up                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst20|ball_y_motion[0]                ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |flappybird21block|ground:inst22|ground_x_pos[0][6]                   ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |flappybird21block|ground:inst22|ground_x_pos[1][5]                   ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst22|ground_x_pos[2][10]                  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst22|ground_address[2]                    ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p1_x_pos_internal[10]                 ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p2_x_pos_internal[4]                  ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|pipes:inst21|p3_x_pos_internal[1]                  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|blue_box_x_pos_internal[2]            ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 35 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|red_out[1]                         ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|red_out[0]                         ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|red_out[3]                         ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 22 LEs               ; 2 LEs                  ; Yes        ; |flappybird21block|text_rom:inst18|char_address[4]                    ;
+; 19:1               ; 4 bits    ; 48 LEs        ; 44 LEs               ; 4 LEs                  ; Yes        ; |flappybird21block|text_rom:inst18|char_address[3]                    ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst20|ball_y_pos[4]                   ;
+; 3:1                ; 78 bits   ; 156 LEs       ; 78 LEs               ; 78 LEs                 ; Yes        ; |flappybird21block|background:inst5|star_x_positions[13][2]           ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p1_gap_center_internal[5]             ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p2_gap_center_internal[8]             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p3_gap_center_internal[2]             ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst22|ground_x_pos[1][6]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst22|ground_x_pos[2][7]                   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p1_x_pos_internal[6]                  ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p2_x_pos_internal[3]                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|p3_x_pos_internal[7]                  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|pipes:inst21|blue_box_x_pos_internal[3]            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|sprite_rom:sprite_rom_inst|Mux8 ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|ground:inst22|Add4                                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|gravity_down                    ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst20|gravity_up                      ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[2]              ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[0]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst13|SevenSeg_out[3]             ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |flappybird21block|background:inst5|RGB[3]                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated ;
+; Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                    ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
@@ -549,7 +610,7 @@ Encoding Type:  One-Hot
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated ;
+; Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                    ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
@@ -558,7 +619,7 @@ Encoding Type:  One-Hot
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Source assignments for bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated ;
+; Source assignments for bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                    ;
 +---------------------------------+--------------------+------+-------------------------------------------------------+
@@ -567,7 +628,7 @@ Encoding Type:  One-Hot
 
 
 +------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ;
+; Source assignments for text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated ;
 +---------------------------------+--------------------+------+----------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                             ;
 +---------------------------------+--------------------+------+----------------------------------------------------------------+
@@ -575,13 +636,13 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------------+------+----------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                        ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                         ;
-+---------------------------------+--------------------+------+-----------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                       ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                        ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -832,7 +893,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1 ;
+; Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1 ;
 +------------------------------------+----------------------+------------------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                           ;
 +------------------------------------+----------------------+------------------------------------------------+
@@ -893,7 +954,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2 ;
+; Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2 ;
 +------------------------------------+----------------------+------------------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                           ;
 +------------------------------------+----------------------+------------------------------------------------+
@@ -954,7 +1015,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3 ;
+; Parameter Settings for User Entity Instance: bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3 ;
 +------------------------------------+----------------------+------------------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                           ;
 +------------------------------------+----------------------+------------------------------------------------+
@@ -1015,7 +1076,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
+; Parameter Settings for User Entity Instance: text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
 +------------------------------------+----------------------+---------------------------------------------------------+
 ; Parameter Name                     ; Value                ; Type                                                    ;
 +------------------------------------+----------------------+---------------------------------------------------------+
@@ -1075,103 +1136,172 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync ;
-+------------------------------------+----------------------+----------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                               ;
-+------------------------------------+----------------------+----------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                            ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                         ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                       ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                       ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                     ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                            ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                                            ;
-; WIDTH_A                            ; 12                   ; Signed Integer                                     ;
-; WIDTHAD_A                          ; 15                   ; Signed Integer                                     ;
-; NUMWORDS_A                         ; 19200                ; Signed Integer                                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                            ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                            ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                            ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                            ;
-; WIDTH_B                            ; 1                    ; Untyped                                            ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                            ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                            ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                            ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                            ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                            ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                            ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                            ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                            ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                            ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                            ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                            ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                            ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                            ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                            ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                            ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                            ;
-; INIT_FILE                          ; floor.MIF            ; Untyped                                            ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                            ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                            ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                            ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                            ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                            ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                            ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                            ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                            ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                            ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                            ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                            ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                            ;
-; CBXI_PARAMETER                     ; altsyncram_18g1      ; Untyped                                            ;
-+------------------------------------+----------------------+----------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                           ;
+; WIDTH_A                            ; 12                   ; Signed Integer                                    ;
+; WIDTHAD_A                          ; 15                   ; Signed Integer                                    ;
+; NUMWORDS_A                         ; 19200                ; Signed Integer                                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 1                    ; Untyped                                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; floor.MIF            ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_18g1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: pipes:inst3|lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------------------+
-; Parameter Name         ; Value          ; Type                               ;
-+------------------------+----------------+------------------------------------+
-; LPM_WIDTHN             ; 10             ; Untyped                            ;
-; LPM_WIDTHD             ; 10             ; Untyped                            ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                            ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                            ;
-; LPM_PIPELINE           ; 0              ; Untyped                            ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                            ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                            ;
-; CBXI_PARAMETER         ; lpm_divide_mio ; Untyped                            ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                            ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                            ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                         ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                       ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                       ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                     ;
-+------------------------+----------------+------------------------------------+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                   ;
+; LPM_WIDTHD             ; 10             ; Untyped                                   ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_PIPELINE           ; 0              ; Untyped                                   ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                   ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                   ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                   ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                   ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Div1 ;
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                   ;
+; LPM_WIDTHD             ; 4              ; Untyped                                   ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_PIPELINE           ; 0              ; Untyped                                   ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                   ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                   ;
+; CBXI_PARAMETER         ; lpm_divide_ebm ; Untyped                                   ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                   ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bouncy_ball:inst20|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                   ;
+; LPM_WIDTHD             ; 7              ; Untyped                                   ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                   ;
+; LPM_PIPELINE           ; 0              ; Untyped                                   ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                   ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                   ;
+; CBXI_PARAMETER         ; lpm_divide_hbm ; Untyped                                   ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                   ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: pipes:inst21|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------+
+; Parameter Name         ; Value          ; Type                                ;
++------------------------+----------------+-------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                             ;
+; LPM_WIDTHD             ; 10             ; Untyped                             ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                             ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                             ;
+; CBXI_PARAMETER         ; lpm_divide_mio ; Untyped                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                      ;
++------------------------+----------------+-------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: text_rom:inst16|lpm_divide:Mod0 ;
+; Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Div0 ;
 +------------------------+----------------+----------------------------------------+
 ; Parameter Name         ; Value          ; Type                                   ;
 +------------------------+----------------+----------------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                                ;
+; LPM_WIDTHN             ; 10             ; Untyped                                ;
 ; LPM_WIDTHD             ; 7              ; Untyped                                ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
-; CBXI_PARAMETER         ; lpm_divide_a2m ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_hbm ; Untyped                                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
@@ -1183,18 +1313,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: text_rom:inst16|lpm_divide:Div0 ;
+; Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Mod0 ;
 +------------------------+----------------+----------------------------------------+
 ; Parameter Name         ; Value          ; Type                                   ;
 +------------------------+----------------+----------------------------------------+
-; LPM_WIDTHN             ; 7              ; Untyped                                ;
+; LPM_WIDTHN             ; 10             ; Untyped                                ;
+; LPM_WIDTHD             ; 10             ; Untyped                                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
+; LPM_PIPELINE           ; 0              ; Untyped                                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                         ;
++------------------------+----------------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: text_rom:inst18|lpm_divide:Div1 ;
++------------------------+----------------+----------------------------------------+
+; Parameter Name         ; Value          ; Type                                   ;
++------------------------+----------------+----------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                ;
 ; LPM_WIDTHD             ; 4              ; Untyped                                ;
 ; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
 ; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                                ;
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                ;
-; CBXI_PARAMETER         ; lpm_divide_4am ; Untyped                                ;
+; CBXI_PARAMETER         ; lpm_divide_ebm ; Untyped                                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                             ;
@@ -1211,7 +1364,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Name                                      ; Value                                                                  ;
 +-------------------------------------------+------------------------------------------------------------------------+
 ; Number of entity instances                ; 5                                                                      ;
-; Entity Instance                           ; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1          ;
+; Entity Instance                           ; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1          ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 12                                                                     ;
 ;     -- NUMWORDS_A                         ; 1024                                                                   ;
@@ -1222,7 +1375,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2          ;
+; Entity Instance                           ; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2          ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 12                                                                     ;
 ;     -- NUMWORDS_A                         ; 1024                                                                   ;
@@ -1233,7 +1386,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3          ;
+; Entity Instance                           ; bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3          ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 12                                                                     ;
 ;     -- NUMWORDS_A                         ; 1024                                                                   ;
@@ -1244,7 +1397,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
+; Entity Instance                           ; text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 8                                                                      ;
 ;     -- NUMWORDS_A                         ; 512                                                                    ;
@@ -1255,7 +1408,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync      ;
+; Entity Instance                           ; ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync       ;
 ;     -- OPERATION_MODE                     ; ROM                                                                    ;
 ;     -- WIDTH_A                            ; 12                                                                     ;
 ;     -- NUMWORDS_A                         ; 19200                                                                  ;
@@ -1274,44 +1427,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 378                         ;
+; arriav_ff             ; 606                         ;
 ;     CLR               ; 11                          ;
-;     ENA               ; 214                         ;
+;     ENA               ; 288                         ;
 ;     ENA CLR           ; 15                          ;
-;     ENA SCLR          ; 27                          ;
-;     ENA SLD           ; 28                          ;
+;     ENA SCLR          ; 173                         ;
+;     ENA SLD           ; 7                           ;
 ;     SCLR              ; 33                          ;
-;     SLD               ; 1                           ;
-;     plain             ; 49                          ;
+;     plain             ; 79                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1105                        ;
-;     arith             ; 492                         ;
-;         0 data inputs ; 16                          ;
-;         1 data inputs ; 374                         ;
-;         2 data inputs ; 55                          ;
-;         3 data inputs ; 27                          ;
-;         4 data inputs ; 20                          ;
-;     extend            ; 5                           ;
-;         7 data inputs ; 5                           ;
-;     normal            ; 572                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 105                         ;
-;         3 data inputs ; 60                          ;
-;         4 data inputs ; 93                          ;
-;         5 data inputs ; 121                         ;
-;         6 data inputs ; 176                         ;
-;     shared            ; 36                          ;
-;         0 data inputs ; 4                           ;
-;         1 data inputs ; 18                          ;
-;         2 data inputs ; 9                           ;
+; arriav_lcell_comb     ; 2157                        ;
+;     arith             ; 961                         ;
+;         0 data inputs ; 65                          ;
+;         1 data inputs ; 647                         ;
+;         2 data inputs ; 62                          ;
+;         3 data inputs ; 114                         ;
+;         4 data inputs ; 73                          ;
+;     extend            ; 7                           ;
+;         7 data inputs ; 7                           ;
+;     normal            ; 1101                        ;
+;         1 data inputs ; 25                          ;
+;         2 data inputs ; 312                         ;
+;         3 data inputs ; 145                         ;
+;         4 data inputs ; 147                         ;
+;         5 data inputs ; 209                         ;
+;         6 data inputs ; 263                         ;
+;     shared            ; 88                          ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 45                          ;
+;         2 data inputs ; 30                          ;
 ;         3 data inputs ; 5                           ;
-; boundary_port         ; 36                          ;
+; arriav_mac            ; 1                           ;
+; boundary_port         ; 44                          ;
 ; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 44                          ;
+; stratixv_ram_block    ; 80                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 11.70                       ;
-; Average LUT depth     ; 4.85                        ;
+; Max LUT depth         ; 13.20                       ;
+; Average LUT depth     ; 5.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1320,7 +1472,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -1330,7 +1482,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition
-    Info: Processing started: Sat May 18 17:34:07 2024
+    Info: Processing started: Sat May 18 18:52:25 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -1370,7 +1522,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /uni/pa
     Info (12022): Found design unit 1: VGA_SYNC-a File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/vga_sync.vhd Line: 16
     Info (12023): Found entity 1: VGA_SYNC File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/vga_sync.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file /uni/part_iii/sem_1/compsys305/305-team-21/code/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 19
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 20
     Info (12023): Found entity 1: bouncy_ball File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file flappybird21block.bdf
     Info (12023): Found entity 1: flappybird21block
@@ -1387,6 +1539,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file /uni/pa
     Info (12023): Found entity 1: galois_lfsr File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/Galois.vhd Line: 5
 Info (12127): Elaborating entity "flappybird21block" for the top level hierarchy
 Warning (275011): Block or symbol "MOUSE" of instance "inst1" overlaps another block or symbol
+Warning (275011): Block or symbol "bouncy_ball" of instance "inst20" overlaps another block or symbol
+Warning (275089): Not all bits in bus "SW[9..0]" are used
+Warning (275080): Converted elements in bus name "SW" using legacy naming rules. Make any assignments on the new names, not on the original names.
+    Warning (275081): Converted element name(s) from "SW[9]" to "SW9"
+    Warning (275081): Converted element name(s) from "SW[8]" to "SW8"
+    Warning (275081): Converted element name(s) from "SW[0]" to "SW0"
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst10"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst6"
 Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/pll.v Line: 20
@@ -1455,14 +1613,13 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_type" = "General"
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "display_controller" for hierarchy "display_controller:inst9"
-Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst11"
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(21): used explicit default value for signal "size" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 21
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(102): signal "collision_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 102
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(200): signal "start_move" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 200
-Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 47
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
-Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
+Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst20"
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(22): used explicit default value for signal "size" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(104): signal "collision_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 104
+Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 49
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 50
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1479,10 +1636,10 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_brg1.tdf
     Info (12023): Found entity 1: altsyncram_brg1 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_brg1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_brg1" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
-Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
+Info (12128): Elaborating entity "altsyncram_brg1" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM1|altsyncram_brg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 73
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1499,10 +1656,10 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_crg1.tdf
     Info (12023): Found entity 1: altsyncram_crg1 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_crg1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_crg1" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
-Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
+Info (12128): Elaborating entity "altsyncram_crg1" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM2|altsyncram_crg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 96
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1519,23 +1676,36 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst11|sprite_rom:sprite_ro
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_drg1.tdf
     Info (12023): Found entity 1: altsyncram_drg1 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_drg1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_drg1" for hierarchy "bouncy_ball:inst11|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_drg1" for hierarchy "bouncy_ball:inst20|sprite_rom:sprite_rom_inst|altsyncram:ROM3|altsyncram_drg1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
 Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 25
 Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 151
 Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 155
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 157
-Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst3"
+Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst21"
 Warning (10540): VHDL Signal Declaration warning at pipes.vhd(31): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 31
 Warning (10036): Verilog HDL or VHDL warning at pipes.vhd(32): object "start_move" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 32
 Warning (10540): VHDL Signal Declaration warning at pipes.vhd(40): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 40
-Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst3|galois_lfsr:lfsr_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 52
-Info (12128): Elaborating entity "text_rom" for hierarchy "text_rom:inst16"
-Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst16|char_rom:char_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 51
-Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
+Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst21|galois_lfsr:lfsr_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 52
+Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(72): object "prev_left_click" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 72
+Warning (10540): VHDL Signal Declaration warning at background.vhd(77): used explicit default value for signal "star_speed" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 77
+Warning (10541): VHDL Signal Declaration warning at background.vhd(79): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 79
+Warning (10541): VHDL Signal Declaration warning at background.vhd(80): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 80
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(152): object "is_star" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 152
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(153): object "is_moon_sun" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 153
+Warning (10492): VHDL Process Statement warning at background.vhd(162): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 162
+Warning (10492): VHDL Process Statement warning at background.vhd(171): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 171
+Warning (10492): VHDL Process Statement warning at background.vhd(174): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 174
+Warning (10492): VHDL Process Statement warning at background.vhd(178): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 178
+Warning (10492): VHDL Process Statement warning at background.vhd(185): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 185
+Warning (10492): VHDL Process Statement warning at background.vhd(187): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 187
+Info (12128): Elaborating entity "text_rom" for hierarchy "text_rom:inst18"
+Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst18|char_rom:char_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 50
+Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/char_rom.vhd Line: 51
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1552,16 +1722,15 @@ Info (12133): Instantiated megafunction "text_rom:inst16|char_rom:char_rom_inst|
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
     Info (12023): Found entity 1: altsyncram_d5g1 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 28
-Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_rom:inst16|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
-Info (12128): Elaborating entity "ground" for hierarchy "ground:inst113"
+Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_rom:inst18|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "ground" for hierarchy "ground:inst22"
 Warning (10540): VHDL Signal Declaration warning at ground.vhd(25): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/ground.vhd Line: 25
 Warning (10540): VHDL Signal Declaration warning at ground.vhd(26): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/ground.vhd Line: 26
 Warning (10036): Verilog HDL or VHDL warning at ground.vhd(39): object "prev_left_click" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/ground.vhd Line: 39
-Info (12128): Elaborating entity "floor_rom" for hierarchy "ground:inst113|floor_rom:floor_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/ground.vhd Line: 42
-Info (12128): Elaborating entity "altsyncram" for hierarchy "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
-Info (12130): Elaborated megafunction instantiation "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
-Info (12133): Instantiated megafunction "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
+Info (12128): Elaborating entity "floor_rom" for hierarchy "ground:inst22|floor_rom:floor_rom_inst" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/ground.vhd Line: 42
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
+Info (12130): Elaborated megafunction instantiation "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
+Info (12133): Instantiated megafunction "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1578,71 +1747,61 @@ Info (12133): Instantiated megafunction "ground:inst113|floor_rom:floor_rom_inst
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_18g1.tdf
     Info (12023): Found entity 1: altsyncram_18g1 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 32
-Info (12128): Elaborating entity "altsyncram_18g1" for hierarchy "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "altsyncram_18g1" for hierarchy "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated" File: e:/quartus/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
     Info (12023): Found entity 1: decode_01a File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf Line: 23
-Info (12128): Elaborating entity "decode_01a" for hierarchy "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 40
+Info (12128): Elaborating entity "decode_01a" for hierarchy "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
     Info (12023): Found entity 1: mux_2hb File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf Line: 23
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|mux_2hb:mux2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 41
-Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(72): object "prev_left_click" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 72
-Warning (10540): VHDL Signal Declaration warning at background.vhd(77): used explicit default value for signal "star_speed" because signal was never assigned a value File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 77
-Warning (10541): VHDL Signal Declaration warning at background.vhd(79): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 79
-Warning (10541): VHDL Signal Declaration warning at background.vhd(80): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 80
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(152): object "is_star" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 152
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(153): object "is_moon_sun" assigned a value but never read File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 153
-Warning (10492): VHDL Process Statement warning at background.vhd(162): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 162
-Warning (10492): VHDL Process Statement warning at background.vhd(171): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 171
-Warning (10492): VHDL Process Statement warning at background.vhd(174): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 174
-Warning (10492): VHDL Process Statement warning at background.vhd(178): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 178
-Warning (10492): VHDL Process Statement warning at background.vhd(185): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 185
-Warning (10492): VHDL Process Statement warning at background.vhd(187): signal "star_x_positions" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 187
-Warning (12001): Port "address_a[15]" does not exist in entity definition of "altsyncram".  The port's range differs between the entity definition and its actual instantiation, "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync". File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 42
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 63
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 84
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a3" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 105
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a4" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 126
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a5" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 147
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a6" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 168
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a7" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 189
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a8" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 210
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a9" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 231
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a10" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 252
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a11" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 273
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a12" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 294
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a13" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 315
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a14" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 336
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a15" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 357
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a16" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 378
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a17" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 399
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a18" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 420
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a19" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 441
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a20" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 462
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a21" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 483
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a22" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 504
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a23" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 525
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a24" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 546
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a25" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 567
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a26" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 588
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a27" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 609
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a28" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 630
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a29" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 651
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a30" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 672
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a31" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 693
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a32" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 714
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a33" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 735
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a34" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 756
-        Warning (14320): Synthesized away node "ground:inst113|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ram_block1a35" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 777
-Info (278001): Inferred 3 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst3|Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 107
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst16|Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 160
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst16|Div0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 159
-Info (12130): Elaborated megafunction instantiation "pipes:inst3|lpm_divide:Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 107
-Info (12133): Instantiated megafunction "pipes:inst3|lpm_divide:Mod0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 107
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|mux_2hb:mux2" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 41
+Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
+Warning (12001): Port "address_a[15]" does not exist in entity definition of "altsyncram".  The port's range differs between the entity definition and its actual instantiation, "ground:inst22|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync". File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst20|Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 142
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst20|Div1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 141
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst20|Div0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 140
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst21|Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 108
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst18|Div0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 159
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst18|Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 161
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst18|Div1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 160
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|lpm_divide:Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 142
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|lpm_divide:Mod0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 142
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
+    Info (12023): Found entity 1: lpm_divide_u4m File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
+    Info (12023): Found entity 1: alt_u_div_82f File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|lpm_divide:Div1" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 141
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|lpm_divide:Div1" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 141
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ebm.tdf
+    Info (12023): Found entity 1: lpm_divide_ebm File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_klh File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eve.tdf
+    Info (12023): Found entity 1: alt_u_div_eve File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst20|lpm_divide:Div0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 140
+Info (12133): Instantiated megafunction "bouncy_ball:inst20|lpm_divide:Div0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 140
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hbm.tdf
+    Info (12023): Found entity 1: lpm_divide_hbm File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kve.tdf
+    Info (12023): Found entity 1: alt_u_div_kve File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "pipes:inst21|lpm_divide:Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 108
+Info (12133): Instantiated megafunction "pipes:inst21|lpm_divide:Mod0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/pipes.vhd Line: 108
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -1652,38 +1811,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_
     Info (12023): Found entity 1: lpm_divide_mio File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_scg.tdf
     Info (12023): Found entity 1: abs_divider_scg File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf Line: 27
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
-    Info (12023): Found entity 1: alt_u_div_82f File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0p9.tdf
     Info (12023): Found entity 1: lpm_abs_0p9 File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "text_rom:inst16|lpm_divide:Mod0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 160
-Info (12133): Instantiated megafunction "text_rom:inst16|lpm_divide:Mod0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 160
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "7"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_a2m.tdf
-    Info (12023): Found entity 1: lpm_divide_a2m File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_a2m.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_dkh File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_dkh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0te.tdf
-    Info (12023): Found entity 1: alt_u_div_0te File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_0te.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "text_rom:inst16|lpm_divide:Div0" File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 159
-Info (12133): Instantiated megafunction "text_rom:inst16|lpm_divide:Div0" with the following parameter: File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/text_rom.vhd Line: 159
-    Info (12134): Parameter "LPM_WIDTHN" = "7"
-    Info (12134): Parameter "LPM_WIDTHD" = "4"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_4am.tdf
-    Info (12023): Found entity 1: lpm_divide_4am File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/lpm_divide_4am.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_akh File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_akh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qse.tdf
-    Info (12023): Found entity 1: alt_u_div_qse File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/alt_u_div_qse.tdf Line: 23
 Info (13000): Registers with preset signals will power-up high File: D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 51 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
@@ -1921,18 +2053,19 @@ Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll
     Info: Must be connected
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]"
-    Warning (15610): No output dependent on input pin "KEY[0]"
-Info (21057): Implemented 1312 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 29 output pins
+    Warning (15610): No output dependent on input pin "SW0"
+Info (21057): Implemented 2408 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 36 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1231 logic cells
-    Info (21064): Implemented 44 RAM segments
+    Info (21061): Implemented 2282 logic cells
+    Info (21064): Implemented 80 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 302 warnings
-    Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Sat May 18 17:34:15 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 269 warnings
+    Info: Peak virtual memory: 4928 megabytes
+    Info: Processing ended: Sat May 18 18:52:34 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:16
 
 

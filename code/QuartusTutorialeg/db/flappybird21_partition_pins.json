@@ -68,6 +68,34 @@
 					"strict" : false
 				},
 				{
+					"name" : "HEX2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[0]",
+					"strict" : false
+				},
+				{
 					"name" : "LEDR[1]",
 					"strict" : false
 				},
@@ -128,11 +156,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW[9]",
+					"name" : "KEY[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[8]",
+					"name" : "SW9",
+					"strict" : false
+				},
+				{
+					"name" : "SW8",
 					"strict" : false
 				}
 			]

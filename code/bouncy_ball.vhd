@@ -6,12 +6,13 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY bouncy_ball IS
     PORT
     (
-        sw9, pb1, pb2, clk, vert_sync, left_click : IN std_logic;
+        sw9, pb1, pb2, clk, vert_sync, left_click, pause: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : IN signed(10 DOWNTO 0);
         p1_gap_center, p2_gap_center, p3_gap_center : IN signed(9 DOWNTO 0);
-        output_on, start, collision, reset : OUT std_logic;
-        score : OUT integer range 0 to 99;
+        output_on, start, collision, reset: OUT std_logic;
+        score : OUT integer range 0 to 999;
+		  hund_bcd, tens_bcd, units_bcd : OUT std_logic_vector(3 DOWNTO 0);
         RGB : OUT std_logic_vector(11 DOWNTO 0)
     );
 END bouncy_ball;
@@ -31,9 +32,10 @@ ARCHITECTURE behavior OF bouncy_ball IS
     
     SIGNAL collision_internal : std_logic := '0';
     SIGNAL reset_internal : std_logic := '0';
-    SIGNAL score_internal : integer range 0 to 99 := 0;
-    
+	 
+    SIGNAL score_internal : integer range 0 to 999 := 0;
     SIGNAL passed_p1, passed_p2, passed_p3 : std_logic := '0';
+	 SIGNAL hund_bcd_internal, tens_bcd_internal, units_bcd_internal : std_logic_vector(3 DOWNTO 0);
 
     COMPONENT sprite_rom
         PORT (
@@ -108,41 +110,52 @@ BEGIN
         IF rising_edge(clk) THEN
             IF start_move = '1' THEN
                 -- Check if the bird has passed the middle of the pipe
-                IF (ball_x_pos > p1_x_pos + to_signed(15, 11)) AND (passed_p1 = '0') THEN
+                IF (ball_x_pos > p1_x_pos) AND (passed_p1 = '0') THEN
                     passed_p1 <= '1';
                     score_internal <= score_internal + 1;
                 ELSIF ball_x_pos <= p1_x_pos THEN
                     passed_p1 <= '0';
                 END IF;
 
-                IF (ball_x_pos > p2_x_pos + to_signed(15, 11)) AND (passed_p2 = '0') THEN
+                IF (ball_x_pos > p2_x_pos) AND (passed_p2 = '0') THEN
                     passed_p2 <= '1';
                     score_internal <= score_internal + 1;
                 ELSIF ball_x_pos <= p2_x_pos THEN
                     passed_p2 <= '0';
                 END IF;
 
-                IF (ball_x_pos > p3_x_pos + to_signed(15, 11)) AND (passed_p3 = '0') THEN
+                IF (ball_x_pos > p3_x_pos) AND (passed_p3 = '0') THEN
                     passed_p3 <= '1';
                     score_internal <= score_internal + 1;
                 ELSIF ball_x_pos <= p3_x_pos THEN
                     passed_p3 <= '0';
                 END IF;
-				 
-			   ELSIF reset_internal = '1' THEN
-					score_internal <= 0;
             END IF;
+
+            IF reset_internal = '1' THEN
+                score_internal <= 0;
+            END IF;
+            
             score <= score_internal;
+				hund_bcd_internal <= std_logic_vector(to_unsigned(score_internal / 100 , 4));
+            tens_bcd_internal <= std_logic_vector(to_unsigned(score_internal / 10, 4));
+            units_bcd_internal <= std_logic_vector(to_unsigned(score_internal MOD 10, 4));
         END IF;
     END PROCESS;
 
+	 hund_bcd <= hund_bcd_internal;
+    tens_bcd <= tens_bcd_internal;
+    units_bcd <= units_bcd_internal;
+
+	 --Moving logic
     Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;
         VARIABLE gravity_down : integer RANGE 0 TO 4 := 1;
         VARIABLE up : std_logic;
         VARIABLE count: integer RANGE 0 TO 7 := 0;
     BEGIN
-        IF (rising_edge(vert_sync)) THEN
+		IF (rising_edge(vert_sync)) THEN
+--			IF (pause = '0') THEN
             IF (left_click = '1' AND prev_left_click = '0') THEN
                 IF collision_internal = '1' THEN
                     reset_internal <= '1'; -- Reset pipes on click after collision
@@ -195,8 +208,9 @@ BEGIN
                 END IF;
             END IF;
             prev_left_click <= left_click;
-        END IF;
-        reset <= reset_internal;
-		  start <= start_move;
+				reset <= reset_internal;
+				start <= start_move;
+--        END IF;
+		END IF;
     END PROCESS Move_Ball;
 END behavior;

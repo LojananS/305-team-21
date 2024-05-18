@@ -6,8 +6,8 @@ ENTITY text_rom IS
     PORT (
         character_address : IN STD_LOGIC_VECTOR (5 DOWNTO 0);
         pixel_row, pixel_col : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-        clk, start, reset, collision, left_click : IN STD_LOGIC;
-        score : IN integer range 0 to 99;
+        clk, start, reset, collision, left_click, pause: IN STD_LOGIC;
+        score : IN integer range 0 to 999;
         output : OUT STD_LOGIC
     );
 END text_rom;
@@ -17,8 +17,7 @@ ARCHITECTURE beh OF text_rom IS
     SIGNAL char_address : STD_LOGIC_VECTOR(5 DOWNTO 0);
     SIGNAL init_disp : STD_LOGIC := '1';
     SIGNAL collision_occured, reset_text, disp_score : STD_LOGIC;
-    SIGNAL tens_digit : INTEGER RANGE 0 TO 9;
-    SIGNAL units_digit : INTEGER RANGE 0 TO 9;
+    SIGNAL hunds_digit, tens_digit, units_digit: INTEGER RANGE 0 TO 9;
 
     COMPONENT char_rom
         PORT (
@@ -59,7 +58,8 @@ BEGIN
 
     PROCESS (clk)
     BEGIN
-        IF rising_edge(clk) THEN
+		IF rising_edge(clk) THEN
+--			IF pause = '0' THEN 
             IF reset = '1' THEN
                 init_disp <= '1'; -- Reset initial display flag
                 disp_score <= '0';
@@ -156,10 +156,16 @@ BEGIN
                     END IF;
                 END IF;
             ELSIF disp_score = '1' THEN
+					 hunds_digit <= score / 100;
                 tens_digit <= score / 10;
                 units_digit <= score MOD 10;
                 -- Display the tens digit
-                IF (((to_integer(unsigned(pixel_row))) >= 80 AND (to_integer(unsigned(pixel_row)) < 96) AND
+					 IF (((to_integer(unsigned(pixel_row))) >= 80 AND (to_integer(unsigned(pixel_row)) < 96) AND
+                    (to_integer(unsigned(pixel_col)) >= 272 AND (to_integer(unsigned(pixel_col)) < 288))) AND score >= 100) THEN
+                    char_address <= int_to_char(hunds_digit);
+                    fc <= pixel_col(3 DOWNTO 1);
+                    fr <= pixel_row(3 DOWNTO 1);
+                ELSIF (((to_integer(unsigned(pixel_row))) >= 80 AND (to_integer(unsigned(pixel_row)) < 96) AND
                     (to_integer(unsigned(pixel_col)) >= 288 AND (to_integer(unsigned(pixel_col)) < 304))) AND score >= 10) THEN
                     char_address <= int_to_char(tens_digit);
                     fc <= pixel_col(3 DOWNTO 1);
@@ -172,6 +178,33 @@ BEGIN
                     fr <= pixel_row(3 DOWNTO 1);
                 END IF;
             END IF;
-        END IF;
+--		  ELSE
+--				IF (to_integer(unsigned(pixel_col)) >= 272 AND to_integer(unsigned(pixel_col)) < 288) THEN
+--					 char_address <= "010000"; -- ASCII for 'P'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				ELSIF (to_integer(unsigned(pixel_col)) >= 288 AND to_integer(unsigned(pixel_col)) < 304) THEN
+--					 char_address <= "000001"; -- ASCII for 'A'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				ELSIF (to_integer(unsigned(pixel_col)) >= 304 AND to_integer(unsigned(pixel_col)) < 320) THEN
+--					 char_address <= "010101"; -- ASCII for 'U'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				ELSIF (to_integer(unsigned(pixel_col)) >= 320 AND to_integer(unsigned(pixel_col)) < 336) THEN
+--					 char_address <= "010011"; -- ASCII for 'S'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				ELSIF (to_integer(unsigned(pixel_col)) >= 336 AND to_integer(unsigned(pixel_col)) < 352) THEN
+--					 char_address <= "001001"; -- ASCII for 'E'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				ELSIF (to_integer(unsigned(pixel_col)) >= 352 AND to_integer(unsigned(pixel_col)) < 368) THEN
+--					 char_address <= "010000"; -- ASCII for 'D'
+--					 fc <= pixel_col(3 DOWNTO 1);
+--					 fr <= pixel_row(3 DOWNTO 1);
+--				END IF;
+--			END IF;
+		END IF;
     END PROCESS;
 END ARCHITECTURE beh;

@@ -83,8 +83,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 160)
 		(input)
-		(text "score[6..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "score[6..0]" (rect 21 155 63 167)(font "Arial" ))
+		(text "score[9..0]" (rect 0 0 42 12)(font "Arial" ))
+		(text "score[9..0]" (rect 21 155 63 167)(font "Arial" ))
 		(line (pt 0 160)(pt 16 160)(line_width 3))
 	)
 	(port
