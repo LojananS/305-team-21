@@ -80,8 +80,6 @@ BEGIN
                 collision_occurred <= '0';
             END IF;
 				
-				
-
 				IF reset_ground = '1' THEN
 					 -- Reset ground positions to initial values
 					 ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
@@ -93,7 +91,7 @@ BEGIN
 				FOR i IN 0 TO 2 LOOP
 					ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
 					IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
-						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 1, 11);
+						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
 					END IF;
 				END LOOP;
 			END IF;

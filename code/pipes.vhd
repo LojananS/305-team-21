@@ -34,7 +34,7 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL random_value : std_logic_vector(9 DOWNTO 0);
 
     SIGNAL blue_box_on : std_logic;
-    SIGNAL blue_box_x_pos_internal : signed(10 DOWNTO 0) := to_signed(640, 11);
+    SIGNAL blue_box_x_pos_internal : signed(10 DOWNTO 0) := to_signed(1000, 11);
     SIGNAL blue_box_y_pos_internal : signed(9 DOWNTO 0);
 
     SIGNAL blue_box_size : signed(9 DOWNTO 0) := to_signed(20, 10); -- size of the blue box
@@ -125,7 +125,7 @@ BEGIN
 
 					  -- Move blue box
 					  IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
-							blue_box_x_pos_internal <= to_signed(640, 11);
+							blue_box_x_pos_internal <= to_signed(1920, 11);
 							blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
 					  ELSE
 							blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
