@@ -10,7 +10,7 @@ ENTITY heart_rom IS
     (
         clk             :   IN STD_LOGIC;
         heart_address  :   IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-        data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
+        heart_data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
     );
 END heart_rom;
 
@@ -49,7 +49,7 @@ BEGIN
         init_file => "heart.MIF", -- Heart MIF file with 12 bit color depth
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
-        lpm_type => "altHEART_SYNcram",
+        lpm_type => "altsyncram",
         numwords_a => 256, -- Depth of address
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
@@ -61,7 +61,7 @@ BEGIN
     PORT MAP (
         clock0 => clk,
         address_a => heart_address,
-        q_a => data_out
+        q_a => heart_data_out
     );
 
 END HEART_SYN;
