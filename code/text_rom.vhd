@@ -80,7 +80,7 @@ BEGIN
 				 END IF;
 			END IF;
 			
-			IF pause = '0' THEN 
+			IF pause = '1' THEN 
             IF reset = '1' THEN
                 init_disp <= '1'; -- Reset initial display flag
                 disp_score <= '0';
@@ -176,33 +176,40 @@ BEGIN
                     char_address <= int_to_char(units_digit);
                     fc <= pixel_col(3 DOWNTO 1);
                     fr <= pixel_row(3 DOWNTO 1);
+					ELSIF ((to_integer(unsigned(pixel_row))) >= 80 AND (to_integer(unsigned(pixel_row)) < 96) AND
+                    (to_integer(unsigned(pixel_col)) >= 320 AND (to_integer(unsigned(pixel_col)) < 336))) THEN
+                    char_address <= "100000";
+                    fc <= pixel_col(3 DOWNTO 1); --Empty space since the 4 is glitched
+                    fr <= pixel_row(3 DOWNTO 1);
                 END IF;
             END IF;
-		  ELSIF (pause = '1') THEN
-				IF (to_integer(unsigned(pixel_col)) >= 272 AND to_integer(unsigned(pixel_col)) < 288) THEN
-					 char_address <= "010000"; -- ASCII for 'P'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
-				ELSIF (to_integer(unsigned(pixel_col)) >= 288 AND to_integer(unsigned(pixel_col)) < 304) THEN
-					 char_address <= "000001"; -- ASCII for 'A'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
-				ELSIF (to_integer(unsigned(pixel_col)) >= 304 AND to_integer(unsigned(pixel_col)) < 320) THEN
-					 char_address <= "010101"; -- ASCII for 'U'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
-				ELSIF (to_integer(unsigned(pixel_col)) >= 320 AND to_integer(unsigned(pixel_col)) < 336) THEN
-					 char_address <= "010011"; -- ASCII for 'S'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
-				ELSIF (to_integer(unsigned(pixel_col)) >= 336 AND to_integer(unsigned(pixel_col)) < 352) THEN
-					 char_address <= "001001"; -- ASCII for 'E'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
-				ELSIF (to_integer(unsigned(pixel_col)) >= 352 AND to_integer(unsigned(pixel_col)) < 368) THEN
-					 char_address <= "010000"; -- ASCII for 'D'
-					 fc <= pixel_col(3 DOWNTO 1);
-					 fr <= pixel_row(3 DOWNTO 1);
+		  ELSIF (pause = '0') THEN
+				IF (to_integer(unsigned(pixel_row)) >= 95 AND to_integer(unsigned(pixel_row)) < 112) THEN
+					IF (to_integer(unsigned(pixel_col)) >= 272 AND to_integer(unsigned(pixel_col)) < 288) THEN
+						 char_address <= "010000"; -- ASCII for 'P'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					ELSIF (to_integer(unsigned(pixel_col)) >= 288 AND to_integer(unsigned(pixel_col)) < 304) THEN
+						 char_address <= "000001"; -- ASCII for 'A'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					ELSIF (to_integer(unsigned(pixel_col)) >= 304 AND to_integer(unsigned(pixel_col)) < 320) THEN
+						 char_address <= "010101"; -- ASCII for 'U'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					ELSIF (to_integer(unsigned(pixel_col)) >= 320 AND to_integer(unsigned(pixel_col)) < 336) THEN
+						 char_address <= "010011"; -- ASCII for 'S'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					ELSIF (to_integer(unsigned(pixel_col)) >= 336 AND to_integer(unsigned(pixel_col)) < 352) THEN
+						 char_address <= "000101"; -- ASCII for 'E'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					ELSIF (to_integer(unsigned(pixel_col)) >= 352 AND to_integer(unsigned(pixel_col)) < 368) THEN
+						 char_address <= "000100"; -- ASCII for 'D'
+						 fc <= pixel_col(3 DOWNTO 1);
+						 fr <= pixel_row(3 DOWNTO 1);
+					END IF;
 				END IF;
 			END IF;
 		END IF;

@@ -1,0 +1,96 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY game_fsm IS
+    PORT (
+        clk, reset, left_click, pb2, collision_internal : IN std_logic;
+        start, reset_output, pause : OUT std_logic
+    );
+END game_fsm;
+
+ARCHITECTURE behavior OF game_fsm IS
+    TYPE game_state_type IS (IDLE, PLAY, PAUSE, GAME_OVER);
+    SIGNAL current_state, next_state : game_state_type;
+    SIGNAL start_internal, reset_internal, pause_internal : std_logic := '0';
+BEGIN
+    -- State transition process
+    PROCESS (clk, reset)
+    BEGIN
+        IF reset = '1' THEN
+            current_state <= IDLE;
+        ELSIF rising_edge(clk) THEN
+            current_state <= next_state;
+        END IF;
+    END PROCESS;
+
+    -- Next state logic
+    PROCESS (current_state, left_click, collision_internal, pb2)
+    BEGIN
+        CASE current_state IS
+            WHEN IDLE =>
+                IF left_click = '1' THEN
+                    next_state <= PLAY;
+                ELSE
+                    next_state <= IDLE;
+                END IF;
+
+            WHEN PLAY =>
+                IF collision_internal = '1' THEN
+                    next_state <= GAME_OVER;
+                ELSIF pb2 = '0' THEN
+                    next_state <= PAUSE;
+                ELSE
+                    next_state <= PLAY;
+                END IF;
+
+            WHEN PAUSE =>
+                IF pb2 = '0' THEN
+                    next_state <= PLAY;
+                ELSE
+                    next_state <= PAUSE;
+                END IF;
+
+            WHEN GAME_OVER =>
+                IF left_click = '1' THEN
+                    next_state <= IDLE;
+                ELSE
+                    next_state <= GAME_OVER;
+                END IF;
+
+            WHEN OTHERS =>
+                next_state <= IDLE;
+        END CASE;
+    END PROCESS;
+
+    -- Output logic
+    PROCESS (current_state)
+    BEGIN
+        CASE current_state IS
+            WHEN IDLE =>
+                start <= '0';
+                reset_output <= '0';
+                pause <= '0';
+
+            WHEN PLAY =>
+                start <= '1';
+                reset_output <= '0';
+                pause <= '0';
+
+            WHEN PAUSE =>
+                start <= '0';
+                reset_output <= '0';
+                pause <= '1';
+
+            WHEN GAME_OVER =>
+                start <= '0';
+                reset_output <= '1';
+                pause <= '0';
+
+            WHEN OTHERS =>
+                start <= '0';
+                reset_output <= '0';
+                pause <= '0';
+        END CASE;
+    END PROCESS;
+END behavior;

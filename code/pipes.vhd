@@ -89,10 +89,10 @@ BEGIN
 
     output_on <= '1' WHEN (blue_box_on = '1' OR p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box)
+    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box, pause)
     BEGIN
         IF rising_edge(vert_sync) THEN
-			IF (pause = '0') THEN
+			IF (pause = '1') THEN
             IF reset_pipes = '1' OR reset_blue_box = '1' THEN
                 -- Reset pipes to their original positions
                 p1_x_pos_internal <= to_signed(213, 11);

@@ -67,10 +67,10 @@ BEGIN
     RGB <= ground_data WHEN (ground_on /= "000") ELSE (others => '0');
     output_on <= '1' WHEN ground_on > "000" ELSE '0';
 
-	Move_Ground: PROCESS (vert_sync, left_click, collision, reset)
+	Move_Ground: PROCESS (vert_sync, left_click, collision, reset, pause)
 	BEGIN
 		IF rising_edge(vert_sync) THEN
-			IF (pause = '0') THEN
+			IF (pause = '1') THEN
             IF collision = '1' THEN
                 start_move <= '0';
                 collision_occurred <= '1';
