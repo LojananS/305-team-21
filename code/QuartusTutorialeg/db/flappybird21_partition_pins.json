@@ -160,11 +160,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "SW9",
+					"name" : "SW[9]",
 					"strict" : false
 				},
 				{
-					"name" : "SW8",
+					"name" : "SW[8]",
 					"strict" : false
 				}
 			]

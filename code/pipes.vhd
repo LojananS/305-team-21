@@ -143,4 +143,4 @@ BEGIN
     p3_x_pos <= p3_x_pos_internal;
     p3_gap_center <= p3_gap_center_internal;
 
-END behavior;
+END behavior;		

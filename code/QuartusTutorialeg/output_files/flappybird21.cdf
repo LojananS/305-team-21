@@ -1,10 +1,10 @@
-/* Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Standard Edition */
+/* Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("D:/Uni/part_III/sem_1/COMPSYS305/305-team-21/code/QuartusTutorialeg/output_files/") File("flappybird21.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/output_files/") File("flappybird21.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
