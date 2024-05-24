@@ -92,7 +92,7 @@ BEGIN
     Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box)
     BEGIN
         IF rising_edge(vert_sync) THEN
---            IF (pause = '0') THEN
+			IF (pause = '0') THEN
             IF reset_pipes = '1' OR reset_blue_box = '1' THEN
                 -- Reset pipes to their original positions
                 p1_x_pos_internal <= to_signed(213, 11);
@@ -134,7 +134,7 @@ BEGIN
                     blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
                 END IF;
             END IF;
---            END IF;
+			END IF;
         END IF;
     END PROCESS Move_pipe;
 

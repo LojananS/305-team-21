@@ -169,14 +169,14 @@ BEGIN
     units_bcd <= units_bcd_internal;
 
     -- Moving logic
-    Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal)
+    Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal, pause)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;
         VARIABLE gravity_down : integer RANGE 0 TO 4 := 1;
         VARIABLE up : std_logic;
         VARIABLE count: integer RANGE 0 TO 7 := 0;
     BEGIN
         IF (rising_edge(vert_sync)) THEN
---            IF (pause = '0') THEN
+			IF (pause = '0') THEN
             IF (left_click = '1' AND prev_left_click = '0') THEN
                 IF collision_internal = '1' THEN
                     reset_internal <= '1'; -- Reset pipes on click after collision
@@ -231,7 +231,7 @@ BEGIN
             prev_left_click <= left_click;
             reset <= reset_internal;
             start <= start_move;
---        END IF;
         END IF;
+	  END IF;
     END PROCESS Move_Ball;
 END behavior;

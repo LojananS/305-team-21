@@ -70,7 +70,7 @@ BEGIN
 	Move_Ground: PROCESS (vert_sync, left_click, collision, reset)
 	BEGIN
 		IF rising_edge(vert_sync) THEN
---			IF (pause = '0') THEN
+			IF (pause = '0') THEN
             IF collision = '1' THEN
                 start_move <= '0';
                 collision_occurred <= '1';
@@ -98,7 +98,7 @@ BEGIN
 				END IF;
 
             prev_left_click <= left_click;
---			END IF;
+			END IF;
 		END IF;
 	END PROCESS Move_Ground;
 
