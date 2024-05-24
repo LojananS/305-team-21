@@ -3,13 +3,38 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
+ENTITY game_fsm IS
+    PORT (
+        clk, reset, left_click, collision, pb2, sw0 : IN std_logic;
+        start, pause_out, reset_internal : OUT std_logic;
+        current_state_out : OUT std_logic_vector(1 DOWNTO 0)
+    );
+END game_fsm;
+
 ARCHITECTURE behavior OF game_fsm IS
     TYPE game_state_type IS (IDLE, PLAY, PAUSE, GAME_OVER);
     SIGNAL current_state, next_state : game_state_type := IDLE;
 
     SIGNAL start_internal : std_logic := '0';
-    SIGNAL pause_internal : std_logic := '0';
+    SIGNAL fsm_pause_internal : std_logic := '0';
     SIGNAL reset_internal_signal : std_logic := '0';
+
+    FUNCTION state_to_std_logic_vector(state: game_state_type) RETURN std_logic_vector IS
+    BEGIN
+        CASE state IS
+            WHEN IDLE =>
+                RETURN "00";
+            WHEN PLAY =>
+                RETURN "01";
+            WHEN PAUSE =>
+                RETURN "10";
+            WHEN GAME_OVER =>
+                RETURN "11";
+            WHEN OTHERS =>
+                RETURN "00";
+        END CASE;
+    END FUNCTION;
+
 BEGIN
     -- State transition process
     PROCESS (clk, reset)
@@ -67,32 +92,32 @@ BEGIN
             WHEN IDLE =>
                 start_internal <= '0';
                 reset_internal_signal <= '0';
-                pause_internal <= '0';
+                fsm_pause_internal <= '0';
 
             WHEN PLAY =>
                 start_internal <= '1';
                 reset_internal_signal <= '0';
-                pause_internal <= '0';
+                fsm_pause_internal <= '0';
 
             WHEN PAUSE =>
                 start_internal <= '0';
                 reset_internal_signal <= '0';
-                pause_internal <= '1';
+                fsm_pause_internal <= '1';
 
             WHEN GAME_OVER =>
                 start_internal <= '0';
                 reset_internal_signal <= '1';
-                pause_internal <= '0';
+                fsm_pause_internal <= '0';
 
             WHEN OTHERS =>
                 start_internal <= '0';
                 reset_internal_signal <= '0';
-                pause_internal <= '0';
+                fsm_pause_internal <= '0';
         END CASE;
     END PROCESS;
 
     start <= start_internal;
-    pause <= pause_internal;
+    pause_out <= fsm_pause_internal;
     reset_internal <= reset_internal_signal;
-    current_state <= std_logic_vector(to_unsigned(current_state, 2));
+    current_state_out <= state_to_std_logic_vector(current_state);
 END behavior;
