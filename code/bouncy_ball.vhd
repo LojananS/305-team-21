@@ -10,9 +10,11 @@ ENTITY bouncy_ball IS
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : IN signed(10 DOWNTO 0);
         p1_gap_center, p2_gap_center, p3_gap_center : IN signed(9 DOWNTO 0);
-        output_on, start, collision, reset: OUT std_logic;
+        blue_box_x_pos: IN signed(10 DOWNTO 0);
+        blue_box_y_pos : IN signed(9 DOWNTO 0);
+        output_on, start, collision, reset, reset_blue_box: OUT std_logic;
         score : OUT integer range 0 to 999;
-		  hund_bcd, tens_bcd, units_bcd : OUT std_logic_vector(3 DOWNTO 0);
+        hund_bcd, tens_bcd, units_bcd : OUT std_logic_vector(3 DOWNTO 0);
         RGB : OUT std_logic_vector(11 DOWNTO 0)
     );
 END bouncy_ball;
@@ -32,10 +34,12 @@ ARCHITECTURE behavior OF bouncy_ball IS
     
     SIGNAL collision_internal : std_logic := '0';
     SIGNAL reset_internal : std_logic := '0';
-	 
+    SIGNAL reset_blue_box_internal : std_logic := '0';
+    
     SIGNAL score_internal : integer range 0 to 999 := 0;
     SIGNAL passed_p1, passed_p2, passed_p3 : std_logic := '0';
-	 SIGNAL hund_bcd_internal, tens_bcd_internal, units_bcd_internal : std_logic_vector(3 DOWNTO 0);
+    SIGNAL touched_blue_box : std_logic := '0';
+    SIGNAL hund_bcd_internal, tens_bcd_internal, units_bcd_internal : std_logic_vector(3 DOWNTO 0);
 
     COMPONENT sprite_rom
         PORT (
@@ -78,6 +82,7 @@ BEGIN
     BEGIN
         IF rising_edge(clk) THEN
             collision_internal <= '0';
+            reset_blue_box_internal <= '0';
             IF sw9 = '1' THEN -- Check if collisions are enabled
                 -- Check collision with Pipe 1
                 IF ((ball_x_pos + 2*size >= p1_x_pos AND ball_x_pos + 5 < p1_x_pos + to_signed(30, 10)) AND
@@ -99,9 +104,20 @@ BEGIN
                      (ball_y_pos + 2*size - 6 >= p3_gap_center + to_signed(45, 10)))) THEN
                     collision_internal <= '1';
                 END IF;
+                
+                -- Check collision with Blue Box
+                IF ((ball_x_pos + 2*size >= blue_box_x_pos AND ball_x_pos + 5 < blue_box_x_pos + to_signed(20, 10)) AND
+                    (ball_y_pos + 5 <= blue_box_y_pos + to_signed(20, 10) AND 
+                     ball_y_pos + 2*size - 6 >= blue_box_y_pos)) THEN
+                    touched_blue_box <= '1';
+                    reset_blue_box_internal <= '1';
+                ELSE
+                    touched_blue_box <= '0';
+                END IF;
             END IF;
         END IF;
         collision <= collision_internal;
+        reset_blue_box <= reset_blue_box_internal;
     END PROCESS;
 
     -- Score Calculation Logic
@@ -130,6 +146,11 @@ BEGIN
                 ELSIF ball_x_pos <= p3_x_pos THEN
                     passed_p3 <= '0';
                 END IF;
+
+                -- Check if the bird touched the blue box
+                IF touched_blue_box = '1' THEN
+                    score_internal <= score_internal + 2;
+                END IF;
             END IF;
 
             IF reset_internal = '1' THEN
@@ -137,31 +158,31 @@ BEGIN
             END IF;
             
             score <= score_internal;
-				hund_bcd_internal <= std_logic_vector(to_unsigned(score_internal / 100 , 4));
+            hund_bcd_internal <= std_logic_vector(to_unsigned(score_internal / 100 , 4));
             tens_bcd_internal <= std_logic_vector(to_unsigned(score_internal / 10, 4));
             units_bcd_internal <= std_logic_vector(to_unsigned(score_internal MOD 10, 4));
         END IF;
     END PROCESS;
 
-	 hund_bcd <= hund_bcd_internal;
+    hund_bcd <= hund_bcd_internal;
     tens_bcd <= tens_bcd_internal;
     units_bcd <= units_bcd_internal;
 
-	 --Moving logic
+    -- Moving logic
     Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;
         VARIABLE gravity_down : integer RANGE 0 TO 4 := 1;
         VARIABLE up : std_logic;
         VARIABLE count: integer RANGE 0 TO 7 := 0;
     BEGIN
-		IF (rising_edge(vert_sync)) THEN
---			IF (pause = '0') THEN
+        IF (rising_edge(vert_sync)) THEN
+--            IF (pause = '0') THEN
             IF (left_click = '1' AND prev_left_click = '0') THEN
                 IF collision_internal = '1' THEN
                     reset_internal <= '1'; -- Reset pipes on click after collision
                 ELSE
-						start_move <= '1';
-					 END IF;
+                    start_move <= '1';
+                END IF;
             END IF;
 
             IF reset_internal = '1' THEN
@@ -170,9 +191,9 @@ BEGIN
                 ball_x_pos <= to_signed(150, 11);
                 reset_internal <= '0'; -- Clear reset signal
             END IF;
-				
-				IF (start_move = '1') THEN
-					 count := count + 1;
+
+            IF (start_move = '1') THEN
+                count := count + 1;
                 IF (sw9 = '1') AND (collision_internal = '1') THEN
                     start_move <= '0'; -- Stop bird movement on collision only if collisions are enabled
                 ELSE
@@ -208,9 +229,9 @@ BEGIN
                 END IF;
             END IF;
             prev_left_click <= left_click;
-				reset <= reset_internal;
-				start <= start_move;
+            reset <= reset_internal;
+            start <= start_move;
 --        END IF;
-		END IF;
+        END IF;
     END PROCESS Move_Ball;
 END behavior;

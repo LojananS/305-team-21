@@ -11,7 +11,10 @@ ENTITY pipes IS
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
-        p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0)
+        p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
+        blue_box_x_pos : OUT signed(10 DOWNTO 0);
+        blue_box_y_pos : OUT signed(9 DOWNTO 0);
+        reset_blue_box : IN std_logic
     );		
 END pipes;
 
@@ -87,11 +90,11 @@ BEGIN
 
     output_on <= '1' WHEN (blue_box_on = '1' OR p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes)
+    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box)
     BEGIN
-		IF rising_edge(vert_sync) THEN
---			IF (pause = '0') THEN
-            IF reset_pipes = '1' THEN
+        IF rising_edge(vert_sync) THEN
+--            IF (pause = '0') THEN
+            IF reset_pipes = '1' OR reset_blue_box = '1' THEN
                 -- Reset pipes to their original positions
                 p1_x_pos_internal <= to_signed(213, 11);
                 p1_gap_center_internal <= to_signed(240, 10);
@@ -99,41 +102,41 @@ BEGIN
                 p2_gap_center_internal <= to_signed(360, 10);
                 p3_x_pos_internal <= to_signed(640, 11);
                 p3_gap_center_internal <= to_signed(100, 10);
-                blue_box_x_pos_internal <= to_signed(640, 11);
+                blue_box_x_pos_internal <= to_signed(1920, 11);
                 blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-					 start_move <= '0';
+                start_move <= '0';
             ELSIF start = '1' THEN
-					  IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-							p1_x_pos_internal <= to_signed(640, 11);
-							p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-					  ELSE
-							p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
-					  END IF;
+                IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p1_x_pos_internal <= to_signed(640, 11);
+                    p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                ELSE
+                    p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
+                END IF;
 
-					  IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-							p2_x_pos_internal <= to_signed(640, 11);
-							p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-					  ELSE
-							p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
-					  END IF;
+                IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p2_x_pos_internal <= to_signed(640, 11);
+                    p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                ELSE
+                    p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
+                END IF;
 
-					  IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-							p3_x_pos_internal <= to_signed(640, 11);
-							p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-					  ELSE
-							p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
-					  END IF;
+                IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p3_x_pos_internal <= to_signed(640, 11);
+                    p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                ELSE
+                    p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
+                END IF;
 
-					  -- Move blue box
-					  IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
-							blue_box_x_pos_internal <= to_signed(1920, 11);
-							blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-					  ELSE
-							blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
-					  END IF;
+                -- Move blue box
+                IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
+                    blue_box_x_pos_internal <= to_signed(1920, 11);
+                    blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                ELSE
+                    blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
+                END IF;
             END IF;
---			END IF;
-		END IF;
+--            END IF;
+        END IF;
     END PROCESS Move_pipe;
 
     p1_x_pos <= p1_x_pos_internal;
@@ -142,5 +145,7 @@ BEGIN
     p2_gap_center <= p2_gap_center_internal;
     p3_x_pos <= p3_x_pos_internal;
     p3_gap_center <= p3_gap_center_internal;
+    blue_box_x_pos <= blue_box_x_pos_internal;
+    blue_box_y_pos <= blue_box_y_pos_internal;
 
-END behavior;		
+END behavior;

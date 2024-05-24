@@ -1,5 +1,5 @@
 Flow report for flappybird21
-Fri May 24 16:10:12 2024
+Fri May 24 17:45:58 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Fri May 24 16:10:05 2024           ;
+; Flow Status                     ; Successful - Fri May 24 17:45:51 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CEBA4F23C7                                     ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,205 / 18,480 ( 7 % )                          ;
-; Total registers                 ; 713                                             ;
+; Logic utilization (in ALMs)     ; 1,209 / 18,480 ( 7 % )                          ;
+; Total registers                 ; 696                                             ;
 ; Total pins                      ; 43 / 224 ( 19 % )                               ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 271,360 / 3,153,920 ( 9 % )                     ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/24/2024 16:07:41 ;
+; Start date & time ; 05/24/2024 17:43:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; flappybird21        ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name       ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 224948461117375.171652366114424        ; --            ; --                ; --         ;
+; COMPILER_SIGNATURE_ID               ; 224948461117375.171652940915488        ; --            ; --                ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                ; --         ;
 ; MISC_FILE                           ; pll.cmp                                ; --            ; --                ; --         ;
@@ -103,11 +103,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4993 MB             ; 00:00:05                           ;
-; Fitter               ; 00:02:03     ; 1.1                     ; 7711 MB             ; 00:01:58                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4846 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4991 MB             ; 00:00:06                           ;
+; Fitter               ; 00:02:03     ; 1.1                     ; 7678 MB             ; 00:01:49                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4849 MB             ; 00:00:01                           ;
 ; Timing Analyzer      ; 00:00:06     ; 2.3                     ; 5304 MB             ; 00:00:07                           ;
-; Total                ; 00:02:28     ; --                      ; --                  ; 00:02:12                           ;
+; Total                ; 00:02:27     ; --                      ; --                  ; 00:02:03                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
