@@ -2325,17 +2325,6 @@ refer to the applicable agreement for further details.
 	(pt -144 832)
 )
 (connector
-	(text "output_bg" (rect 410 528 458 545)(font "Intel Clear" ))
-	(pt 416 544)
-	(pt 464 544)
-)
-(connector
-	(text "RGB_bg[11..0]" (rect 384 608 452 625)(font "Intel Clear" ))
-	(pt 384 624)
-	(pt 464 624)
-	(bus)
-)
-(connector
 	(text "output_pipes" (rect 162 528 223 545)(font "Intel Clear" ))
 	(pt 160 544)
 	(pt 184 544)
@@ -2530,4 +2519,15 @@ refer to the applicable agreement for further details.
 	(text "HEX2[5]" (rect 562 128 600 145)(font "Intel Clear" ))
 	(pt 616 144)
 	(pt 552 144)
+)
+(connector
+	(text "output_bg" (rect 410 528 458 545)(font "Intel Clear" ))
+	(pt 472 544)
+	(pt 416 544)
+)
+(connector
+	(text "RGB_bg[11..0]" (rect 384 608 452 625)(font "Intel Clear" ))
+	(pt 472 624)
+	(pt 384 624)
+	(bus)
 )

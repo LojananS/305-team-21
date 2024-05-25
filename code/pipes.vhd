@@ -41,9 +41,11 @@ ARCHITECTURE behavior OF pipes IS
 
     SIGNAL blue_box_size : signed(9 DOWNTO 0) := to_signed(32, 10); -- size of the blue box
 	 
-	 SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
-	 SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
-	 SIGNAL selected_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL selected_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
+
+    SIGNAL coin_active : std_logic := '0';
 
     COMPONENT galois_lfsr
         PORT
@@ -54,14 +56,14 @@ ARCHITECTURE behavior OF pipes IS
         );
     END COMPONENT;
 	 
-	 COMPONENT coin_rom
-		PORT
-		(
-        clk             :   IN STD_LOGIC;
-        coin_address  :   IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        coin_data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
-		);
-	 END COMPONENT;
+    COMPONENT coin_rom
+        PORT
+        (
+            clk : IN STD_LOGIC;
+            coin_address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            coin_data_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+        );
+    END COMPONENT;
 
 BEGIN
     lfsr_inst: galois_lfsr
@@ -70,35 +72,34 @@ BEGIN
             reset => reset,
             random_value => random_value
         );
-		coin_inst: coin_rom
+    coin_inst: coin_rom
         PORT MAP (
             clk => clk,
             coin_address => coin_address,
             coin_data_out => coin_color
         );
+    p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
+                     to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
+                     to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
+                     (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 45 OR 
+                      to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center_internal) + 45))
+             ELSE '0';
 
---    p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
---                       to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
---                       to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
---                       (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 45 OR 
---                        to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center_internal) + 45))
---                ELSE '0';
---
---    p2_on <= '1' WHEN (p2_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
---                       to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos_internal) AND 
---                       to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos_internal) + to_integer(pipe_x_size) AND
---                       (to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) - 45 OR 
---                        to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center_internal) + 45))
---                ELSE '0';
---
---    p3_on <= '1' WHEN (p3_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
---                       to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos_internal) AND 
---                       to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos_internal) + to_integer(pipe_x_size) AND
---                       (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 45 OR 
---                        to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
---                ELSE '0';
+    p2_on <= '1' WHEN (p2_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
+                       to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos_internal) AND 
+                       to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos_internal) + to_integer(pipe_x_size) AND
+                       (to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) - 45 OR 
+                        to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center_internal) + 45))
+                ELSE '0';
 
-	Pixel_Display : PROCESS (clk)
+    p3_on <= '1' WHEN (p3_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
+                       to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos_internal) AND 
+                       to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos_internal) + to_integer(pipe_x_size) AND
+                       (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 45 OR 
+                        to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
+                ELSE '0';
+
+    Pixel_Display : PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
             IF (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
@@ -115,9 +116,9 @@ BEGIN
         END IF;
     END PROCESS Pixel_Display;
 	 
-	  PROCESS (blue_box_on, coin_color, p1_on, p2_on, p3_on)
+    PROCESS (blue_box_on, coin_color, p1_on, p2_on, p3_on)
     BEGIN
-        IF blue_box_on = '1' AND coin_color /= "000100010001" THEN
+        IF blue_box_on = '1' AND coin_color /= "000000000000" THEN
             selected_color <= coin_color;
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= "100010001000";
@@ -129,60 +130,70 @@ BEGIN
     -- RGB and output enable logic
     RGB <= selected_color;
 
---    RGB <= coin_color WHEN blue_box_on = '1' AND coin_color /= "000100010001" ELSE
---			"100010001000" WHEN (p1_on = '1' OR p2_on = '1' OR p3_on = '1');
-
-    output_on <= '1' WHEN (blue_box_on = '1' OR p1_on = '1' OR p2_on = '1' OR p3_on = '1') ELSE '0';
+    output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
     Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box, pause)
     BEGIN
         IF rising_edge(vert_sync) THEN
-			IF (pause = '1') THEN
-            IF reset_pipes = '1' OR reset_blue_box = '1' THEN
-                -- Reset pipes to their original positions
-                p1_x_pos_internal <= to_signed(213, 11);
-                p1_gap_center_internal <= to_signed(240, 10);
-                p2_x_pos_internal <= to_signed(426, 11);
-                p2_gap_center_internal <= to_signed(360, 10);
-                p3_x_pos_internal <= to_signed(640, 11);
-                p3_gap_center_internal <= to_signed(100, 10);
-                blue_box_x_pos_internal <= to_signed(600, 11);
-					 blue_box_y_pos_internal <= to_signed(240, 10);
---                blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                start_move <= '0';
-            ELSIF start = '1' THEN
-                IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                    p1_x_pos_internal <= to_signed(640, 11);
-                    p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                ELSE
-                    p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
-                END IF;
-
-                IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                    p2_x_pos_internal <= to_signed(640, 11);
-                    p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                ELSE
-                    p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
-                END IF;
-
-                IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+            IF (pause = '1') THEN
+                IF reset_pipes = '1' OR reset_blue_box = '1' THEN
+                    -- Reset pipes to their original positions
+                    p1_x_pos_internal <= to_signed(213, 11);
+                    p1_gap_center_internal <= to_signed(240, 10);
+                    p2_x_pos_internal <= to_signed(426, 11);
+                    p2_gap_center_internal <= to_signed(360, 10);
                     p3_x_pos_internal <= to_signed(640, 11);
-                    p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                ELSE
-                    p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
-                END IF;
+                    p3_gap_center_internal <= to_signed(100, 10);
+                    blue_box_x_pos_internal <= to_signed(1000, 11);
+                    blue_box_y_pos_internal <= to_signed(240, 10);
+                    coin_active <= '0';
+                ELSIF start = '1' THEN
+                    IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                        p1_x_pos_internal <= to_signed(640, 11);
+                        p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        IF coin_active = '0' THEN
+                            coin_active <= '1';
+                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        END IF;
+                    ELSE
+                        p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
+                    END IF;
 
-                -- Move blue box
-                IF (blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11)) THEN
-							blue_box_x_pos_internal <= to_signed(400, 11);
-					 blue_box_y_pos_internal <= to_signed(240, 10);
---                    blue_box_x_pos_internal <= to_signed(1920, 11);
---                    blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                ELSE
-                    blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
+                    IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                        p2_x_pos_internal <= to_signed(640, 11);
+                        p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        IF coin_active = '0' THEN
+                            coin_active <= '1';
+                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        END IF;
+                    ELSE
+                        p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
+                    END IF;
+
+                    IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                        p3_x_pos_internal <= to_signed(640, 11);
+                        p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        IF coin_active = '0' THEN
+                            coin_active <= '1';
+                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        END IF;
+                    ELSE
+                        p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
+                    END IF;
+
+                    -- Move blue box (coin) independently if it is active
+                    IF coin_active = '1' THEN
+                        IF blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11) THEN
+                            coin_active <= '0'; -- Coin moves off the screen and resets
+                        ELSE
+                            blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
+                        END IF;
+                    END IF;
                 END IF;
             END IF;
-			END IF;
         END IF;
     END PROCESS Move_pipe;
 
@@ -196,6 +207,8 @@ BEGIN
     blue_box_y_pos <= blue_box_y_pos_internal;
 
 END behavior;
+
+
 
 --ENTITY pipes IS
 --    PORT
