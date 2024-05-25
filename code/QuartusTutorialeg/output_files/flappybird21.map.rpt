@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Sat May 25 22:11:27 2024
+Sun May 26 00:24:33 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -10,33 +10,16 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis DSP Block Usage Summary
- 10. State Machine - |flappybird21block|MOUSE:inst1|mouse_state
- 11. State Machine - |flappybird21block|bouncy_ball:inst25|\Main_Process:game_state
- 12. User-Specified and Inferred Latches
- 13. Logic Cells Representing Combinational Loops
- 14. Registers Removed During Synthesis
- 15. Removed Registers Triggering Further Register Optimizations
- 16. General Register Statistics
- 17. Inverted Register Statistics
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated
- 20. Source assignments for pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated
- 21. Source assignments for text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
- 22. Source assignments for ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated
- 23. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
- 24. Parameter Settings for User Entity Instance: bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM
- 25. Parameter Settings for User Entity Instance: pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1
- 26. Parameter Settings for User Entity Instance: text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component
- 27. Parameter Settings for User Entity Instance: ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync
- 28. altsyncram Parameter Settings by Entity Instance
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+  5. Source assignments for bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated
+  6. Source assignments for pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated
+  7. Source assignments for text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated
+  8. Source assignments for ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated
+  9. Parameter Settings for User Entity Instance: pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i
+ 10. Parameter Settings for User Entity Instance: bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM
+ 11. Parameter Settings for User Entity Instance: pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1
+ 12. Parameter Settings for User Entity Instance: text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component
+ 13. Parameter Settings for User Entity Instance: ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -59,27 +42,22 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 25 22:11:27 2024           ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
-; Revision Name                   ; flappybird21                                    ;
-; Top-level Entity Name           ; flappybird21block                               ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 478                                             ;
-; Total pins                      ; 42                                              ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 281,600                                         ;
-; Total DSP Blocks                ; 1                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 1                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++-----------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Sun May 26 00:24:33 2024               ;
+; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name               ; flappybird21                                    ;
+; Top-level Entity Name       ; flappybird21block                               ;
+; Family                      ; Cyclone V                                       ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
+; Total registers             ; N/A until Partition Merge                       ;
+; Total pins                  ; N/A until Partition Merge                       ;
+; Total virtual pins          ; N/A until Partition Merge                       ;
+; Total block memory bits     ; N/A until Partition Merge                       ;
+; Total PLLs                  ; N/A until Partition Merge                       ;
+; Total DLLs                  ; N/A until Partition Merge                       ;
++-----------------------------+-------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -178,563 +156,11 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
-;     Processors 8-12        ;   0.0%      ;
 +----------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                               ; Library ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-; ../game_type_pkg_body.vhd        ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/game_type_pkg_body.vhd                   ;         ;
-; ../game_type_pkg.vhd             ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/game_type_pkg.vhd                        ;         ;
-; ../Game_FSM.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd                             ;         ;
-; ../coin_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/coin_rom.vhd                             ;         ;
-; ../ground.vhd                    ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/ground.vhd                               ;         ;
-; ../floor_rom.vhd                 ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/floor_rom.vhd                            ;         ;
-; ../sprite_rom.vhd                ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/sprite_rom.vhd                           ;         ;
-; ../text_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/text_rom.vhd                             ;         ;
-; background.vhd                   ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd         ;         ;
-; ../char_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/char_rom.vhd                             ;         ;
-; ../BCD_to_7Seg.vhd               ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/BCD_to_7Seg.vhd                          ;         ;
-; ../pipes.vhd                     ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd                                ;         ;
-; pll.v                            ; yes             ; User Wizard-Generated File         ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/pll.v                  ;         ;
-; ../mouse.vhd                     ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/mouse.vhd                                ;         ;
-; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/vga_sync.vhd                             ;         ;
-; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd                          ;         ;
-; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/flappybird21block.bdf  ;         ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v         ; pll     ;
-; display_controller.vhd           ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/display_controller.vhd ;         ;
-; ../Galois.vhd                    ; yes             ; User VHDL File                     ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Galois.vhd                               ;         ;
-; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                                             ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                           ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                              ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                           ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                                           ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;         ;
-; altrom.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                                               ;         ;
-; altram.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                                               ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                                             ;         ;
-; db/altsyncram_1qg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf ;         ;
-; db/altsyncram_c2g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf ;         ;
-; db/altsyncram_d5g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf ;         ;
-; db/altsyncram_18g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf ;         ;
-; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf      ;         ;
-; db/mux_2hb.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf         ;         ;
-+----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                 ;
-+---------------------------------------------+-------------------------------+
-; Resource                                    ; Usage                         ;
-+---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 646                           ;
-;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 1072                          ;
-;     -- 7 input functions                    ; 8                             ;
-;     -- 6 input functions                    ; 204                           ;
-;     -- 5 input functions                    ; 139                           ;
-;     -- 4 input functions                    ; 85                            ;
-;     -- <=3 input functions                  ; 636                           ;
-;                                             ;                               ;
-; Dedicated logic registers                   ; 478                           ;
-;                                             ;                               ;
-; I/O pins                                    ; 42                            ;
-; Total MLAB memory bits                      ; 0                             ;
-; Total block memory bits                     ; 281600                        ;
-;                                             ;                               ;
-; Total DSP Blocks                            ; 1                             ;
-;                                             ;                               ;
-; Total PLLs                                  ; 1                             ;
-;     -- PLLs                                 ; 1                             ;
-;                                             ;                               ;
-; Maximum fan-out node                        ; VGA_SYNC:inst10|vert_sync_out ;
-; Maximum fan-out                             ; 274                           ;
-; Total fan-out                               ; 6220                          ;
-; Average fan-out                             ; 3.65                          ;
-+---------------------------------------------+-------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                  ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                       ; Entity Name       ; Library Name ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |flappybird21block                           ; 1072 (0)            ; 478 (0)                   ; 281600            ; 1          ; 42   ; 0            ; |flappybird21block                                                                                                                        ; flappybird21block ; work         ;
-;    |Game_FSM:inst3|                          ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|Game_FSM:inst3                                                                                                         ; Game_FSM          ; work         ;
-;    |MOUSE:inst1|                             ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                                            ; MOUSE             ; work         ;
-;    |VGA_SYNC:inst10|                         ; 99 (99)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                        ; VGA_SYNC          ; work         ;
-;    |background:inst5|                        ; 425 (425)           ; 205 (205)                 ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                                                                                       ; background        ; work         ;
-;    |bouncy_ball:inst25|                      ; 141 (111)           ; 73 (47)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst25                                                                                                     ; bouncy_ball       ; work         ;
-;       |sprite_rom:sprite_rom_inst|           ; 30 (30)             ; 26 (26)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst25|sprite_rom:sprite_rom_inst                                                                          ; sprite_rom        ; work         ;
-;          |altsyncram:BIRD_ROM|               ; 0 (0)               ; 0 (0)                     ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM                                                      ; altsyncram        ; work         ;
-;             |altsyncram_1qg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated                       ; altsyncram_1qg1   ; work         ;
-;    |ground:inst21|                           ; 240 (237)           ; 56 (54)                   ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21                                                                                                          ; ground            ; work         ;
-;       |floor_rom:floor_rom_inst|             ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst                                                                                 ; floor_rom         ; work         ;
-;          |altsyncram:floor_rom_sync|         ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync                                                       ; altsyncram        ; work         ;
-;             |altsyncram_18g1:auto_generated| ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated                        ; altsyncram_18g1   ; work         ;
-;                |decode_01a:rden_decode|      ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode ; decode_01a        ; work         ;
-;    |pipes:inst20|                            ; 44 (44)             ; 11 (11)                   ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20                                                                                                           ; pipes             ; work         ;
-;       |coin_rom:coin_inst|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst                                                                                        ; coin_rom          ; work         ;
-;          |altsyncram:COIN_ROM1|              ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1                                                                   ; altsyncram        ; work         ;
-;             |altsyncram_c2g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated                                    ; altsyncram_c2g1   ; work         ;
-;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                                              ; pll               ; work         ;
-;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                                            ; pll_0002          ; pll          ;
-;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                    ; altera_pll        ; work         ;
-;    |text_rom:inst23|                         ; 73 (71)             ; 11 (11)                   ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23                                                                                                        ; text_rom          ; work         ;
-;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst                                                                                 ; char_rom          ; work         ;
-;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component                                                 ; altsyncram        ; work         ;
-;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                  ; altsyncram_d5g1   ; work         ;
-+----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                      ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
-; Name                                                                                                             ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF             ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|ALTSYNCRAM      ; AUTO ; ROM  ; 3072         ; 12           ; --           ; --           ; 36864  ; bird_sprite.mif ;
-; ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|ALTSYNCRAM       ; AUTO ; ROM  ; 19200        ; 12           ; --           ; --           ; 230400 ; floor.MIF       ;
-; pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated|ALTSYNCRAM                   ; AUTO ; ROM  ; 1024         ; 12           ; --           ; --           ; 12288  ; coin.MIF        ;
-; text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 512          ; 8            ; --           ; --           ; 4096   ; tcgrom.mif      ;
-+------------------------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+--------+-----------------+
-
-
-+----------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary ;
-+-------------------------------+--------------+
-; Statistic                     ; Number Used  ;
-+-------------------------------+--------------+
-; Sum of two 18x18              ; 1            ;
-; Total number of DSP blocks    ; 1            ;
-;                               ;              ;
-; Fixed Point Signed Multiplier ; 2            ;
-+-------------------------------+--------------+
-
-
-Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |flappybird21block|MOUSE:inst1|mouse_state                                                                                                                                              ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
-; Name                          ; mouse_state.INPUT_PACKETS ; mouse_state.WAIT_CMD_ACK ; mouse_state.WAIT_OUTPUT_READY ; mouse_state.LOAD_COMMAND2 ; mouse_state.LOAD_COMMAND ; mouse_state.INHIBIT_TRANS ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
-; mouse_state.INHIBIT_TRANS     ; 0                         ; 0                        ; 0                             ; 0                         ; 0                        ; 0                         ;
-; mouse_state.LOAD_COMMAND      ; 0                         ; 0                        ; 0                             ; 0                         ; 1                        ; 1                         ;
-; mouse_state.LOAD_COMMAND2     ; 0                         ; 0                        ; 0                             ; 1                         ; 0                        ; 1                         ;
-; mouse_state.WAIT_OUTPUT_READY ; 0                         ; 0                        ; 1                             ; 0                         ; 0                        ; 1                         ;
-; mouse_state.WAIT_CMD_ACK      ; 0                         ; 1                        ; 0                             ; 0                         ; 0                        ; 1                         ;
-; mouse_state.INPUT_PACKETS     ; 1                         ; 0                        ; 0                             ; 0                         ; 0                        ; 1                         ;
-+-------------------------------+---------------------------+--------------------------+-------------------------------+---------------------------+--------------------------+---------------------------+
-
-
-Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |flappybird21block|bouncy_ball:inst25|\Main_Process:game_state                                                                                                                           ;
-+-----------------------------------+-----------------------------------+--------------------------------+--------------------------------+--------------------------------+-------------------------------+
-; Name                              ; \Main_Process:game_state.GAME_END ; \Main_Process:game_state.RESET ; \Main_Process:game_state.PAUSE ; \Main_Process:game_state.START ; \Main_Process:game_state.HOME ;
-+-----------------------------------+-----------------------------------+--------------------------------+--------------------------------+--------------------------------+-------------------------------+
-; \Main_Process:game_state.HOME     ; 0                                 ; 0                              ; 0                              ; 0                              ; 0                             ;
-; \Main_Process:game_state.START    ; 0                                 ; 0                              ; 0                              ; 1                              ; 1                             ;
-; \Main_Process:game_state.PAUSE    ; 0                                 ; 0                              ; 1                              ; 0                              ; 1                             ;
-; \Main_Process:game_state.RESET    ; 0                                 ; 1                              ; 0                              ; 0                              ; 1                             ;
-; \Main_Process:game_state.GAME_END ; 1                                 ; 0                              ; 0                              ; 0                              ; 1                             ;
-+-----------------------------------+-----------------------------------+--------------------------------+--------------------------------+--------------------------------+-------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                         ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal          ; Free of Timing Hazards ;
-+-----------------------------------------------------+------------------------------+------------------------+
-; bouncy_ball:inst25|RGB[3]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[2]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[1]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[0]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[7]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[6]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[5]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[4]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[11]                          ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[10]                          ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[9]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; bouncy_ball:inst25|RGB[8]                           ; bouncy_ball:inst25|output_on ; yes                    ;
-; Number of user-specified and inferred latches = 12  ;                              ;                        ;
-+-----------------------------------------------------+------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops               ;
-+--------------------------------------------------------+---+
-; Logic Cell Name                                        ;   ;
-+--------------------------------------------------------+---+
-; Game_FSM:inst3|state_out~3                             ;   ;
-; Game_FSM:inst3|state_out~4                             ;   ;
-; Game_FSM:inst3|state_out~5                             ;   ;
-; Game_FSM:inst3|state_out[2]                            ;   ;
-; Number of logic cells representing combinational loops ; 4 ;
-+--------------------------------------------------------+---+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                          ;
-+------------------------------------------------------------------+--------------------------------------------------------------------------+
-; Register name                                                    ; Reason for Removal                                                       ;
-+------------------------------------------------------------------+--------------------------------------------------------------------------+
-; bouncy_ball:inst25|output_state[3]                               ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|reset_blue_box_internal                       ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|base_address[0..9] ; Stuck at GND due to stuck port data_in                                   ;
-; MOUSE:inst1|CHAROUT[4..7]                                        ; Stuck at VCC due to stuck port data_in                                   ;
-; MOUSE:inst1|CHAROUT[3]                                           ; Stuck at GND due to stuck port data_in                                   ;
-; MOUSE:inst1|CHAROUT[2]                                           ; Stuck at VCC due to stuck port data_in                                   ;
-; MOUSE:inst1|CHAROUT[0,1]                                         ; Stuck at GND due to stuck port data_in                                   ;
-; MOUSE:inst1|SHIFTOUT[10]                                         ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|start_move                                    ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[0]                                 ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[1,2]                               ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[3]                                 ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[4]                                 ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[5,6]                               ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[7]                                 ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|ball_x_pos[8..10]                             ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|start_signal                                  ; Stuck at GND due to stuck port data_in                                   ;
-; pipes:inst20|coin_active                                         ; Lost fanout                                                              ;
-; pipes:inst20|p1_x_pos_internal[0,6]                              ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_gap_center_internal[6]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_y_pos_internal[7]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_x_pos_internal[5]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_x_pos_internal[2]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p3_gap_center_internal[2]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p3_x_pos_internal[9]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_x_pos_internal[1]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[8]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_gap_center_internal[8]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[5]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_gap_center_internal[7]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_y_pos_internal[6]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p3_gap_center_internal[5]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[6]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_gap_center_internal[3]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p3_gap_center_internal[6]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_gap_center_internal[5]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[9]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_gap_center_internal[4]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p3_x_pos_internal[7]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_y_pos_internal[4]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_x_pos_internal[3]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_x_pos_internal[7]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[3]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_gap_center_internal[5]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_x_pos_internal[4]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_gap_center_internal[6]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p2_x_pos_internal[7,8]                              ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|blue_box_x_pos_internal[7]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[5]                      ;
-; pipes:inst20|p1_gap_center_internal[9]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[8]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[4]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_x_pos_internal[3]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_x_pos_internal[4]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_x_pos_internal[8,9]                              ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_y_pos_internal[8]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[1]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[0]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_x_pos_internal[5]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[3]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_x_pos_internal[10]                               ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_x_pos_internal[0,2]                        ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_y_pos_internal[2]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[2]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_y_pos_internal[0]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[5]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_gap_center_internal[2]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_gap_center_internal[0,2]                         ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[9]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[0]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[1,7]                         ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[6]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[0]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_gap_center_internal[9]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[4]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[10]                               ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[3]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[4]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_y_pos_internal[9]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_gap_center_internal[8]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_gap_center_internal[1]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_x_pos_internal[9]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[6]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_gap_center_internal[1,3]                         ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_gap_center_internal[4]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_x_pos_internal[1,10]                       ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p2_gap_center_internal[7]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_gap_center_internal[0]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[10]                               ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|blue_box_y_pos_internal[1]                          ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p1_x_pos_internal[1]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_x_pos_internal[2]                                ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; pipes:inst20|p3_gap_center_internal[8]                           ; Merged with pipes:inst20|blue_box_y_pos_internal[3]                      ;
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|base_address[10]   ; Merged with bouncy_ball:inst25|sprite_rom:sprite_rom_inst|prev_sprite[0] ;
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|base_address[11]   ; Merged with bouncy_ball:inst25|sprite_rom:sprite_rom_inst|prev_sprite[1] ;
-; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[0..9]                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|ball_y_motion[5..9]                           ; Merged with bouncy_ball:inst25|ball_y_motion[4]                          ;
-; bouncy_ball:inst25|\Main_Process:gravity_up[5..7]                ; Merged with bouncy_ball:inst25|\Main_Process:gravity_up[4]               ;
-; text_rom:inst23|disp_score                                       ; Stuck at GND due to stuck port data_in                                   ;
-; pipes:inst20|blue_box_y_pos_internal[5]                          ; Stuck at VCC due to stuck port data_in                                   ;
-; pipes:inst20|blue_box_y_pos_internal[3]                          ; Stuck at GND due to stuck port data_in                                   ;
-; text_rom:inst23|units_digit[0..3]                                ; Lost fanout                                                              ;
-; text_rom:inst23|tens_digit[0..3]                                 ; Lost fanout                                                              ;
-; text_rom:inst23|hunds_digit[0..3]                                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|score[0..9]                                   ; Lost fanout                                                              ;
-; bouncy_ball:inst25|passed_p1                                     ; Lost fanout                                                              ;
-; bouncy_ball:inst25|passed_p2                                     ; Lost fanout                                                              ;
-; bouncy_ball:inst25|passed_p3                                     ; Lost fanout                                                              ;
-; bouncy_ball:inst25|touched_blue_box                              ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|blue_box_touched_flag                         ; Lost fanout                                                              ;
-; bouncy_ball:inst25|score_internal[0..9]                          ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|units_bcd_internal[0..3]                      ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|tens_bcd_internal[0..3]                       ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|hund_bcd_internal[0..3]                       ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|hund_bcd[0,1]                                 ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|tens_bcd[0..3]                                ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|units_bcd[0..3]                               ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|hund_bcd[2,3]                                 ; Stuck at GND due to stuck port data_in                                   ;
-; pipes:inst20|blue_box_visible                                    ; Stuck at VCC due to stuck port data_in                                   ;
-; text_rom:inst23|init_disp                                        ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|reset_signal                                  ; Lost fanout                                                              ;
-; text_rom:inst23|reset_text                                       ; Lost fanout                                                              ;
-; text_rom:inst23|collision_occured                                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|\Main_Process:gravity_down[2]                 ; Stuck at GND due to stuck port data_in                                   ;
-; VGA_SYNC:inst10|pixel_row[9]                                     ; Stuck at GND due to stuck port data_in                                   ;
-; bouncy_ball:inst25|\Main_Process:gravity_down[0]                 ; Stuck at VCC due to stuck port data_in                                   ;
-; bouncy_ball:inst25|\Main_Process:game_state.HOME                 ; Lost fanout                                                              ;
-; bouncy_ball:inst25|\Main_Process:game_state.START                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|\Main_Process:game_state.PAUSE                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|\Main_Process:game_state.RESET                ; Lost fanout                                                              ;
-; bouncy_ball:inst25|\Main_Process:game_state.GAME_END             ; Lost fanout                                                              ;
-; text_rom:inst23|char_address[5]                                  ; Stuck at GND due to stuck port data_in                                   ;
-; Total Number of Removed Registers = 215                          ;                                                                          ;
-+------------------------------------------------------------------+--------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                      ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; bouncy_ball:inst25|output_state[3]             ; Stuck at GND              ; bouncy_ball:inst25|start_move, bouncy_ball:inst25|ball_x_pos[0],                    ;
-;                                                ; due to stuck port data_in ; bouncy_ball:inst25|ball_x_pos[1], bouncy_ball:inst25|ball_x_pos[2],                 ;
-;                                                ;                           ; bouncy_ball:inst25|ball_x_pos[3], bouncy_ball:inst25|ball_x_pos[4],                 ;
-;                                                ;                           ; bouncy_ball:inst25|ball_x_pos[5], bouncy_ball:inst25|ball_x_pos[6],                 ;
-;                                                ;                           ; bouncy_ball:inst25|ball_x_pos[7], bouncy_ball:inst25|ball_x_pos[8],                 ;
-;                                                ;                           ; bouncy_ball:inst25|ball_x_pos[9], bouncy_ball:inst25|ball_x_pos[10],                ;
-;                                                ;                           ; bouncy_ball:inst25|start_signal, text_rom:inst23|disp_score,                        ;
-;                                                ;                           ; text_rom:inst23|units_digit[3], text_rom:inst23|units_digit[2],                     ;
-;                                                ;                           ; text_rom:inst23|units_digit[1], text_rom:inst23|tens_digit[3],                      ;
-;                                                ;                           ; text_rom:inst23|tens_digit[2], text_rom:inst23|tens_digit[1],                       ;
-;                                                ;                           ; text_rom:inst23|hunds_digit[3], text_rom:inst23|hunds_digit[2],                     ;
-;                                                ;                           ; text_rom:inst23|hunds_digit[1], bouncy_ball:inst25|score[9],                        ;
-;                                                ;                           ; bouncy_ball:inst25|score[8], bouncy_ball:inst25|score[7],                           ;
-;                                                ;                           ; bouncy_ball:inst25|score[6], bouncy_ball:inst25|score[5],                           ;
-;                                                ;                           ; bouncy_ball:inst25|passed_p2, bouncy_ball:inst25|passed_p3,                         ;
-;                                                ;                           ; bouncy_ball:inst25|touched_blue_box, bouncy_ball:inst25|blue_box_touched_flag,      ;
-;                                                ;                           ; bouncy_ball:inst25|score_internal[0], bouncy_ball:inst25|score_internal[1],         ;
-;                                                ;                           ; bouncy_ball:inst25|score_internal[2], bouncy_ball:inst25|score_internal[3],         ;
-;                                                ;                           ; bouncy_ball:inst25|score_internal[4], bouncy_ball:inst25|score_internal[5],         ;
-;                                                ;                           ; bouncy_ball:inst25|score_internal[6], bouncy_ball:inst25|score_internal[7],         ;
-;                                                ;                           ; bouncy_ball:inst25|score_internal[8], bouncy_ball:inst25|score_internal[9],         ;
-;                                                ;                           ; bouncy_ball:inst25|units_bcd_internal[0], bouncy_ball:inst25|units_bcd_internal[1], ;
-;                                                ;                           ; bouncy_ball:inst25|units_bcd_internal[2], bouncy_ball:inst25|units_bcd_internal[3], ;
-;                                                ;                           ; bouncy_ball:inst25|tens_bcd_internal[0], bouncy_ball:inst25|tens_bcd_internal[1],   ;
-;                                                ;                           ; bouncy_ball:inst25|tens_bcd_internal[2], bouncy_ball:inst25|tens_bcd_internal[3],   ;
-;                                                ;                           ; bouncy_ball:inst25|hund_bcd_internal[0], bouncy_ball:inst25|hund_bcd_internal[1],   ;
-;                                                ;                           ; bouncy_ball:inst25|hund_bcd_internal[2], bouncy_ball:inst25|hund_bcd_internal[3],   ;
-;                                                ;                           ; bouncy_ball:inst25|hund_bcd[1], bouncy_ball:inst25|hund_bcd[0],                     ;
-;                                                ;                           ; bouncy_ball:inst25|tens_bcd[3], bouncy_ball:inst25|tens_bcd[2],                     ;
-;                                                ;                           ; bouncy_ball:inst25|tens_bcd[1], bouncy_ball:inst25|tens_bcd[0],                     ;
-;                                                ;                           ; bouncy_ball:inst25|units_bcd[3], bouncy_ball:inst25|units_bcd[2],                   ;
-;                                                ;                           ; bouncy_ball:inst25|units_bcd[1], bouncy_ball:inst25|units_bcd[0],                   ;
-;                                                ;                           ; bouncy_ball:inst25|hund_bcd[2], bouncy_ball:inst25|hund_bcd[3],                     ;
-;                                                ;                           ; text_rom:inst23|init_disp, text_rom:inst23|reset_text,                              ;
-;                                                ;                           ; text_rom:inst23|collision_occured,                                                  ;
-;                                                ;                           ; bouncy_ball:inst25|\Main_Process:gravity_down[2],                                   ;
-;                                                ;                           ; bouncy_ball:inst25|\Main_Process:gravity_down[0], text_rom:inst23|char_address[5]   ;
-; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[9] ; Lost Fanouts              ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[8],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[7],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[6],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[5],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[4],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[3],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[2],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[1],                                     ;
-;                                                ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[0]                                      ;
-; bouncy_ball:inst25|reset_blue_box_internal     ; Stuck at GND              ; pipes:inst20|coin_active, pipes:inst20|blue_box_y_pos_internal[5],                  ;
-;                                                ; due to stuck port data_in ; pipes:inst20|blue_box_y_pos_internal[3], bouncy_ball:inst25|passed_p1,              ;
-;                                                ;                           ; pipes:inst20|blue_box_visible, bouncy_ball:inst25|reset_signal                      ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 478   ;
-; Number of registers using Synchronous Clear  ; 198   ;
-; Number of registers using Synchronous Load   ; 7     ;
-; Number of registers using Asynchronous Clear ; 16    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 389   ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------+
-; Inverted Register Statistics                                            ;
-+---------------------------------------------------------------+---------+
-; Inverted Register                                             ; Fan out ;
-+---------------------------------------------------------------+---------+
-; background:inst5|star_x_positions[18][6]                      ; 2       ;
-; background:inst5|star_x_positions[18][4]                      ; 2       ;
-; background:inst5|star_x_positions[19][7]                      ; 2       ;
-; background:inst5|star_x_positions[19][4]                      ; 2       ;
-; background:inst5|star_x_positions[19][5]                      ; 2       ;
-; background:inst5|star_x_positions[19][2]                      ; 2       ;
-; background:inst5|star_x_positions[17][9]                      ; 2       ;
-; background:inst5|star_x_positions[17][6]                      ; 2       ;
-; background:inst5|star_x_positions[17][3]                      ; 2       ;
-; background:inst5|star_x_positions[17][5]                      ; 2       ;
-; background:inst5|star_x_positions[17][2]                      ; 2       ;
-; background:inst5|star_x_positions[15][7]                      ; 2       ;
-; background:inst5|star_x_positions[15][8]                      ; 2       ;
-; background:inst5|star_x_positions[15][5]                      ; 2       ;
-; background:inst5|star_x_positions[15][2]                      ; 2       ;
-; background:inst5|star_x_positions[14][6]                      ; 2       ;
-; background:inst5|star_x_positions[14][8]                      ; 2       ;
-; background:inst5|star_x_positions[13][6]                      ; 2       ;
-; background:inst5|star_x_positions[13][7]                      ; 2       ;
-; background:inst5|star_x_positions[13][3]                      ; 2       ;
-; background:inst5|star_x_positions[13][4]                      ; 2       ;
-; background:inst5|star_x_positions[13][2]                      ; 2       ;
-; background:inst5|star_x_positions[10][9]                      ; 2       ;
-; background:inst5|star_x_positions[10][1]                      ; 2       ;
-; background:inst5|star_x_positions[10][2]                      ; 2       ;
-; background:inst5|star_x_positions[10][5]                      ; 2       ;
-; background:inst5|star_x_positions[11][5]                      ; 2       ;
-; background:inst5|star_x_positions[11][1]                      ; 2       ;
-; background:inst5|star_x_positions[11][4]                      ; 2       ;
-; background:inst5|star_x_positions[4][8]                       ; 2       ;
-; background:inst5|star_x_positions[4][5]                       ; 2       ;
-; background:inst5|star_x_positions[4][6]                       ; 2       ;
-; background:inst5|star_x_positions[4][7]                       ; 2       ;
-; background:inst5|star_x_positions[4][2]                       ; 2       ;
-; background:inst5|star_x_positions[4][4]                       ; 2       ;
-; background:inst5|star_x_positions[3][8]                       ; 2       ;
-; background:inst5|star_x_positions[3][7]                       ; 2       ;
-; background:inst5|star_x_positions[3][4]                       ; 2       ;
-; background:inst5|star_x_positions[1][6]                       ; 2       ;
-; background:inst5|star_x_positions[1][7]                       ; 2       ;
-; background:inst5|star_x_positions[1][3]                       ; 2       ;
-; background:inst5|star_x_positions[2][8]                       ; 2       ;
-; background:inst5|star_x_positions[2][2]                       ; 2       ;
-; background:inst5|star_x_positions[2][3]                       ; 2       ;
-; background:inst5|star_x_positions[2][5]                       ; 2       ;
-; background:inst5|star_x_positions[0][5]                       ; 2       ;
-; background:inst5|star_x_positions[0][6]                       ; 2       ;
-; background:inst5|star_x_positions[0][2]                       ; 2       ;
-; background:inst5|star_x_positions[7][6]                       ; 2       ;
-; background:inst5|star_x_positions[7][7]                       ; 2       ;
-; background:inst5|star_x_positions[7][1]                       ; 2       ;
-; background:inst5|star_x_positions[7][3]                       ; 2       ;
-; background:inst5|star_x_positions[7][4]                       ; 2       ;
-; background:inst5|star_x_positions[7][5]                       ; 2       ;
-; background:inst5|star_x_positions[9][8]                       ; 2       ;
-; background:inst5|star_x_positions[9][6]                       ; 2       ;
-; background:inst5|star_x_positions[9][7]                       ; 2       ;
-; background:inst5|star_x_positions[9][1]                       ; 2       ;
-; background:inst5|star_x_positions[6][7]                       ; 2       ;
-; background:inst5|star_x_positions[6][1]                       ; 2       ;
-; background:inst5|star_x_positions[6][2]                       ; 2       ;
-; background:inst5|star_x_positions[6][4]                       ; 2       ;
-; background:inst5|star_x_positions[12][5]                      ; 2       ;
-; background:inst5|star_x_positions[12][6]                      ; 2       ;
-; background:inst5|star_x_positions[12][3]                      ; 2       ;
-; background:inst5|star_x_positions[12][4]                      ; 2       ;
-; background:inst5|star_x_positions[16][9]                      ; 2       ;
-; background:inst5|star_x_positions[16][3]                      ; 2       ;
-; background:inst5|star_x_positions[5][9]                       ; 2       ;
-; background:inst5|star_x_positions[5][6]                       ; 2       ;
-; background:inst5|star_x_positions[5][3]                       ; 2       ;
-; background:inst5|star_x_positions[5][4]                       ; 2       ;
-; background:inst5|star_x_positions[8][8]                       ; 2       ;
-; background:inst5|star_x_positions[8][6]                       ; 2       ;
-; background:inst5|star_x_positions[8][1]                       ; 2       ;
-; background:inst5|star_x_positions[8][2]                       ; 2       ;
-; background:inst5|star_x_positions[8][3]                       ; 2       ;
-; background:inst5|star_x_positions[8][4]                       ; 2       ;
-; bouncy_ball:inst25|ball_y_pos[6]                              ; 13      ;
-; bouncy_ball:inst25|ball_y_pos[7]                              ; 8       ;
-; bouncy_ball:inst25|ball_y_pos[5]                              ; 10      ;
-; bouncy_ball:inst25|ball_y_pos[4]                              ; 6       ;
-; ground:inst21|ground_x_pos[1][8]                              ; 13      ;
-; ground:inst21|ground_x_pos[1][6]                              ; 15      ;
-; ground:inst21|ground_x_pos[2][7]                              ; 12      ;
-; ground:inst21|ground_x_pos[2][9]                              ; 10      ;
-; MOUSE:inst1|send_char                                         ; 3       ;
-; bouncy_ball:inst25|s_pause                                    ; 17      ;
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|prev_sprite[0]  ; 2       ;
-; ground:inst21|start_move                                      ; 35      ;
-; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|sprite_index[0] ; 3       ;
-; MOUSE:inst1|SHIFTOUT[3]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[5]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[6]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[7]                                       ; 1       ;
-; MOUSE:inst1|SHIFTOUT[8]                                       ; 1       ;
-; Total number of inverted registers = 96                       ;         ;
-+---------------------------------------------------------------+---------+
-
-
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 122 bits  ; 244 LEs       ; 0 LEs                ; 244 LEs                ; Yes        ; |flappybird21block|background:inst5|star_x_positions[1][1]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|ground:inst21|ground_address[14]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[6]               ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst25|ball_y_pos[2]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst25|ball_y_motion[2]      ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst21|ground_address[1]          ;
-; 4:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |flappybird21block|ground:inst21|ground_x_pos[0][10]        ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |flappybird21block|ground:inst21|ground_x_pos[1][10]        ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst21|ground_x_pos[2][1]         ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|text_rom:inst23|fc[2]                    ;
-; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|green_out[2]             ;
-; 22:1               ; 4 bits    ; 56 LEs        ; 48 LEs               ; 8 LEs                  ; Yes        ; |flappybird21block|text_rom:inst23|char_address[2]          ;
-; 3:1                ; 78 bits   ; 156 LEs       ; 78 LEs               ; 78 LEs                 ; Yes        ; |flappybird21block|background:inst5|star_x_positions[14][8] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst25|ball_y_pos[7]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst21|ground_x_pos[1][6]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|ground:inst21|ground_x_pos[2][7]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|ground:inst21|Add4                       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst25|gravity_down          ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |flappybird21block|bouncy_ball:inst25|gravity_up            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |flappybird21block|Game_FSM:inst3|Selector2                 ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |flappybird21block|background:inst5|RGB[7]                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -1264,120 +690,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                                   ;
-+-------------------------------------------+------------------------------------------------------------------------+
-; Name                                      ; Value                                                                  ;
-+-------------------------------------------+------------------------------------------------------------------------+
-; Number of entity instances                ; 4                                                                      ;
-; Entity Instance                           ; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM      ;
-;     -- OPERATION_MODE                     ; ROM                                                                    ;
-;     -- WIDTH_A                            ; 12                                                                     ;
-;     -- NUMWORDS_A                         ; 3072                                                                   ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
-;     -- WIDTH_B                            ; 1                                                                      ;
-;     -- NUMWORDS_B                         ; 1                                                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1                   ;
-;     -- OPERATION_MODE                     ; ROM                                                                    ;
-;     -- WIDTH_A                            ; 12                                                                     ;
-;     -- NUMWORDS_A                         ; 1024                                                                   ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
-;     -- WIDTH_B                            ; 1                                                                      ;
-;     -- NUMWORDS_B                         ; 1                                                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                                                    ;
-;     -- WIDTH_A                            ; 8                                                                      ;
-;     -- NUMWORDS_A                         ; 512                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
-;     -- WIDTH_B                            ; 1                                                                      ;
-;     -- NUMWORDS_B                         ; 1                                                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-; Entity Instance                           ; ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync       ;
-;     -- OPERATION_MODE                     ; ROM                                                                    ;
-;     -- WIDTH_A                            ; 12                                                                     ;
-;     -- NUMWORDS_A                         ; 19200                                                                  ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                           ;
-;     -- WIDTH_B                            ; 1                                                                      ;
-;     -- NUMWORDS_B                         ; 1                                                                      ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                 ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                           ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                   ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                              ;
-+-------------------------------------------+------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 478                         ;
-;     CLR               ; 1                           ;
-;     ENA               ; 213                         ;
-;     ENA CLR           ; 15                          ;
-;     ENA SCLR          ; 154                         ;
-;     ENA SLD           ; 7                           ;
-;     SCLR              ; 44                          ;
-;     plain             ; 44                          ;
-; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1074                        ;
-;     arith             ; 371                         ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 338                         ;
-;         2 data inputs ; 21                          ;
-;         4 data inputs ; 9                           ;
-;     extend            ; 8                           ;
-;         7 data inputs ; 8                           ;
-;     normal            ; 635                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 109                         ;
-;         3 data inputs ; 97                          ;
-;         4 data inputs ; 76                          ;
-;         5 data inputs ; 139                         ;
-;         6 data inputs ; 204                         ;
-;     shared            ; 60                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 35                          ;
-;         3 data inputs ; 7                           ;
-; arriav_mac            ; 1                           ;
-; boundary_port         ; 42                          ;
-; generic_pll           ; 1                           ;
-; stratixv_ram_block    ; 68                          ;
-;                       ;                             ;
-; Max LUT depth         ; 5.80                        ;
-; Average LUT depth     ; 3.08                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:01     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sat May 25 22:11:19 2024
+    Info: Processing started: Sun May 26 00:24:27 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -1419,8 +738,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/BCD_to_7Seg.vhd Line: 12
     Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/BCD_to_7Seg.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /users/lojan/onedrive/documents/uni/compsys305/305-team-21/code/pipes.vhd
-    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 22
-    Info (12023): Found entity 1: pipes File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 5
+    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 25
+    Info (12023): Found entity 1: pipes File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: pll File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/pll.v Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file /users/lojan/onedrive/documents/uni/compsys305/305-team-21/code/mouse.vhd
@@ -1517,21 +836,21 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
 Info (12128): Elaborating entity "display_controller" for hierarchy "display_controller:inst9"
 Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst25"
 Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(26): used explicit default value for signal "size" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 26
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(266): signal "collision_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 266
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(267): signal "reset_blue_box_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 267
-Info (10041): Inferred latch for "RGB[0]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[1]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[2]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[3]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[4]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[5]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[6]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[7]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[8]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[9]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[10]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (10041): Inferred latch for "RGB[11]" at bouncy_ball.vhd(82) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst25|sprite_rom:sprite_rom_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(260): signal "collision_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 260
+Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(261): signal "reset_blue_box_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 261
+Info (10041): Inferred latch for "RGB[0]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[1]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[2]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[3]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[4]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[5]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[6]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[7]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[8]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[9]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[10]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (10041): Inferred latch for "RGB[11]" at bouncy_ball.vhd(80) File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 80
+Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst25|sprite_rom:sprite_rom_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 56
 Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 52
 Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 52
 Info (12133): Instantiated megafunction "bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" with the following parameter: File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/sprite_rom.vhd Line: 52
@@ -1559,10 +878,11 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/mouse.vhd Line: 156
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/mouse.vhd Line: 157
 Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst20"
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(35): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 35
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(44): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 44
-Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst20|galois_lfsr:lfsr_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 72
-Info (12128): Elaborating entity "coin_rom" for hierarchy "pipes:inst20|coin_rom:coin_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 78
+Warning (10541): VHDL Signal Declaration warning at pipes.vhd(12): used implicit default value for signal "output_state" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 12
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(38): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 38
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(47): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 47
+Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst20|galois_lfsr:lfsr_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 75
+Info (12128): Elaborating entity "coin_rom" for hierarchy "pipes:inst20|coin_rom:coin_inst" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 81
 Info (12128): Elaborating entity "altsyncram" for hierarchy "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/coin_rom.vhd Line: 44
 Info (12130): Elaborated megafunction instantiation "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/coin_rom.vhd Line: 44
 Info (12133): Instantiated megafunction "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" with the following parameter: File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/coin_rom.vhd Line: 44
@@ -1584,8 +904,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_c2g1 File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_c2g1" for hierarchy "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "Game_FSM" for hierarchy "Game_FSM:inst3"
-Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(21): signal "state_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 21
-Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(22): signal "game_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(22): signal "state_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(23): signal "game_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(31): signal "prev_pb2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(40): signal "prev_pb2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 40
 Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
 Warning (10036): Verilog HDL or VHDL warning at background.vhd(72): object "prev_left_click" assigned a value but never read File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 72
 Warning (10540): VHDL Signal Declaration warning at background.vhd(77): used explicit default value for signal "star_speed" because signal was never assigned a value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/background.vhd Line: 77
@@ -1654,304 +976,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/mux_
 Info (12128): Elaborating entity "mux_2hb" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|mux_2hb:mux2" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 40
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
 Warning (12001): Port "address_a[15]" does not exist in entity definition of "altsyncram".  The port's range differs between the entity definition and its actual instantiation, "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync". File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/floor_rom.vhd Line: 46
-Warning (13012): Latch bouncy_ball:inst25|RGB[3] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[3] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[2] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[2] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[1] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[1] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[0] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[0] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[7] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[7] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[6] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[6] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[5] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[5] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[4] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[4] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[11] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[11] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[10] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[10] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[9] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[9] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Warning (13012): Latch bouncy_ball:inst25|RGB[8] has unsafe behavior File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 82
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal bouncy_ball:inst25|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[8] File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
-Info (13000): Registers with preset signals will power-up high File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/mouse.vhd Line: 146
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC
-    Warning (13410): Pin "HEX1[5]" is stuck at GND
-    Warning (13410): Pin "HEX1[4]" is stuck at GND
-    Warning (13410): Pin "HEX1[3]" is stuck at GND
-    Warning (13410): Pin "HEX1[2]" is stuck at GND
-    Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC
-    Warning (13410): Pin "HEX2[5]" is stuck at GND
-    Warning (13410): Pin "HEX2[4]" is stuck at GND
-    Warning (13410): Pin "HEX2[3]" is stuck at GND
-    Warning (13410): Pin "HEX2[2]" is stuck at GND
-    Warning (13410): Pin "HEX2[1]" is stuck at GND
-    Warning (13410): Pin "HEX2[0]" is stuck at GND
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 45 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 1 MSB VCC or GND address nodes from RAM block "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated|ALTSYNCRAM" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 31
-Warning (20013): Ignored 230 assignments for entity "DE0_CV_Default" -- entity does not exist in design
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[10] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[11] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[12] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CAS_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CKE -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CLK -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CS_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[10] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[11] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[12] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[13] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[14] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[15] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_LDQM -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[13] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[14] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[15] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[16] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[23] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[24] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[25] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[26] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[34] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[35] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[10] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[11] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[12] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[13] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[14] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[15] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[16] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[17] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[18] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[19] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[20] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[21] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[22] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[23] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[24] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[25] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[26] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[27] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[28] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[29] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[30] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[31] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[32] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[33] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[34] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[35] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK2 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT2 -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET_N -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CLK -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CMD -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DATA[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3] -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE0_CV_Default was ignored
-    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE0_CV_Default -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE0_CV_Default -section_id Top was ignored
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
-    Info: Must be connected
-Info (21057): Implemented 1250 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 36 output pins
-    Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1138 logic cells
-    Info (21064): Implemented 68 RAM segments
-    Info (21065): Implemented 1 PLLs
-    Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 308 warnings
-    Info: Peak virtual memory: 4959 megabytes
-    Info: Processing ended: Sat May 25 22:11:27 2024
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:05
+Error (12014): Net "state_in[3]", which fans out to "Game_FSM:inst3|state_in[3]", cannot be assigned more than one value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 9
+    Error (12015): Net is fed by "bouncy_ball:inst25|output_state[3]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 90
+    Error (12015): Net is fed by "pipes:inst20|output_state[3]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 12
+Error (12014): Net "state_in[2]", which fans out to "Game_FSM:inst3|state_in[2]", cannot be assigned more than one value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 9
+    Error (12015): Net is fed by "bouncy_ball:inst25|output_state[2]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 90
+    Error (12015): Net is fed by "pipes:inst20|output_state[2]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 12
+Error (12014): Net "state_in[1]", which fans out to "Game_FSM:inst3|state_in[1]", cannot be assigned more than one value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 9
+    Error (12015): Net is fed by "bouncy_ball:inst25|output_state[1]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 90
+    Error (12015): Net is fed by "pipes:inst20|output_state[1]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 12
+Error (12014): Net "state_in[0]", which fans out to "Game_FSM:inst3|state_in[0]", cannot be assigned more than one value File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/Game_FSM.vhd Line: 9
+    Error (12015): Net is fed by "bouncy_ball:inst25|output_state[0]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/bouncy_ball.vhd Line: 90
+    Error (12015): Net is fed by "pipes:inst20|output_state[0]" File: C:/Users/lojan/OneDrive/Documents/Uni/COMPSYS305/305-team-21/code/pipes.vhd Line: 12
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 12 errors, 33 warnings
+    Error: Peak virtual memory: 4876 megabytes
+    Error: Processing ended: Sun May 26 00:24:33 2024
+    Error: Elapsed time: 00:00:06
+    Error: Total CPU time (on all processors): 00:00:02
 
 
