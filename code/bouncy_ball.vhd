@@ -76,8 +76,8 @@ BEGIN
         END IF;
     END PROCESS Pixel_Display;
 
-    RGB <= bird_data when ball_on = '1' and bird_data /= "000100010001" else (others => '0');
-    output_on <= '1' when ball_on = '1' and bird_data /= "000100010001" else '0';
+    RGB <= bird_data when (ball_on = '1' and bird_data /= "000100010001");
+    output_on <= '1' when (ball_on = '1' and bird_data /= "000100010001") else '0';
     
     -- Collision Detection Logic
     PROCESS (clk)
