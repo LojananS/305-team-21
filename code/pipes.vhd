@@ -118,7 +118,7 @@ BEGIN
 	 
     PROCESS (blue_box_on, coin_color, p1_on, p2_on, p3_on)
     BEGIN
-        IF blue_box_on = '1' AND coin_color /= "000000000000" THEN
+        IF blue_box_on = '1' AND coin_color /= "000100010001" THEN
             selected_color <= coin_color;
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= "100010001000";
@@ -207,7 +207,6 @@ BEGIN
     blue_box_y_pos <= blue_box_y_pos_internal;
 
 END behavior;
-
 
 
 --ENTITY pipes IS
