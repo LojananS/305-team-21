@@ -451,9 +451,7 @@ blue[3] <= blue.DB_MAX_OUTPUT_PORT_TYPE
 
 |flappybird21block|bouncy_ball:inst25
 sw9 => collision_internal.OUTPUTSELECT
-sw9 => reset_blue_box_internal.OUTPUTSELECT
 sw9 => Move_Ball.IN1
-sw9 => touched_blue_box.ENA
 pb1 => ~NO_FANOUT~
 pb2 => prev_pb2.DATAIN
 pb2 => process_3.IN1
@@ -482,6 +480,7 @@ clk => score[6]~reg0.CLK
 clk => score[7]~reg0.CLK
 clk => score[8]~reg0.CLK
 clk => score[9]~reg0.CLK
+clk => blue_box_touched_flag.CLK
 clk => passed_p3.CLK
 clk => passed_p2.CLK
 clk => score_internal[0].CLK

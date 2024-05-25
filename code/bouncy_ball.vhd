@@ -40,6 +40,7 @@ ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL score_internal : integer range 0 to 999 := 0;
     SIGNAL passed_p1, passed_p2, passed_p3 : std_logic := '0';
     SIGNAL touched_blue_box : std_logic := '0';
+    SIGNAL blue_box_touched_flag : std_logic := '0';
     SIGNAL hund_bcd_internal, tens_bcd_internal, units_bcd_internal : std_logic_vector(3 DOWNTO 0);
 
     COMPONENT sprite_rom
@@ -105,22 +106,22 @@ BEGIN
                      (ball_y_pos + 2*size - 6 >= p3_gap_center + to_signed(45, 10)))) THEN
                     collision_internal <= '1';
                 END IF;
-					 
-				   -- Check collision with Pipe 3
+                     
+                -- Check collision with Pipe 3
                 IF (ball_y_pos >= to_signed(450, 10) - size*2 OR ball_y_pos <= to_signed(-200, 10)) THEN
                     collision_internal <= '1';
                 END IF;
                 
-                -- Check collision with Blue Box
+
+            END IF;
+				 -- Check collision with Blue Box
                 IF ((ball_x_pos + 2*size >= blue_box_x_pos AND ball_x_pos + 5 < blue_box_x_pos + to_signed(20, 10)) AND
                     (ball_y_pos + 5 <= blue_box_y_pos + to_signed(20, 10) AND 
                      ball_y_pos + 2*size - 6 >= blue_box_y_pos)) THEN
                     touched_blue_box <= '1';
-                    reset_blue_box_internal <= '1';
                 ELSE
                     touched_blue_box <= '0';
                 END IF;
-            END IF;
         END IF;
         collision <= collision_internal;
         reset_blue_box <= reset_blue_box_internal;
@@ -154,8 +155,11 @@ BEGIN
                 END IF;
 
                 -- Check if the bird touched the blue box
-                IF touched_blue_box = '1' THEN
+                IF touched_blue_box = '1' AND blue_box_touched_flag = '0' THEN
                     score_internal <= score_internal + 2;
+                    blue_box_touched_flag <= '1'; -- Set the flag to indicate the coin has been touched
+                ELSIF touched_blue_box = '0' THEN
+                    blue_box_touched_flag <= '0'; -- Reset the flag when the coin is no longer touched
                 END IF;
             END IF;
 
@@ -189,66 +193,65 @@ BEGIN
     Move_Ball: PROCESS (vert_sync, left_click, sw9, collision_internal, reset_internal)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;
         VARIABLE gravity_down : integer RANGE 0 TO 4 := 1;
-		  VARIABLE up : std_logic;
-		  VARIABLE count: integer RANGE 0 TO 7 := 0;
-	  BEGIN
-			IF (rising_edge(vert_sync)) THEN
-			 IF (left_click = '1' AND prev_left_click = '0') THEN
-				  IF collision_internal = '1' THEN
-						reset_internal <= '1'; -- Reset pipes on click after collision
-				  ELSE
-						start_move <= '1';
-				  END IF;
-			 END IF;
+          VARIABLE up : std_logic;
+          VARIABLE count: integer RANGE 0 TO 7 := 0;
+      BEGIN
+            IF (rising_edge(vert_sync)) THEN
+             IF (left_click = '1' AND prev_left_click = '0') THEN
+                  IF collision_internal = '1' THEN
+                        reset_internal <= '1'; -- Reset pipes on click after collision
+                  ELSE
+                        start_move <= '1';
+                  END IF;
+             END IF;
 
-			 IF reset_internal = '1' THEN
-				  -- Reset ball position
-				  ball_y_pos <= to_signed(240, 10);
-				  ball_x_pos <= to_signed(150, 11);
-				  reset_internal <= '0'; -- Clear reset signal
-			 END IF;
+             IF reset_internal = '1' THEN
+                  -- Reset ball position
+                  ball_y_pos <= to_signed(240, 10);
+                  ball_x_pos <= to_signed(150, 11);
+                  reset_internal <= '0'; -- Clear reset signal
+             END IF;
 
-			 IF (start_move = '1' AND s_pause = '1') THEN
-				  count := count + 1;
-				  IF (sw9 = '1') AND (collision_internal = '1') THEN
-						start_move <= '0'; -- Stop bird movement on collision only if collisions are enabled
-				  ELSE
-						IF (left_click = '1') AND (prev_left_click = '0') THEN
-							 count := 0;
-							 up := '1';
-						ELSIF (up = '1') THEN
-							 IF (count = 1) THEN
-								  gravity_up := -15;
-							 ELSIF (count = 2) THEN
-								  gravity_up := -10;
-							 ELSIF (count = 4) THEN
-								  gravity_up := -5;
-							 ELSIF (count = 5) THEN
-								  gravity_up := -3;
-							 ELSIF (count = 6) THEN
-								  gravity_up := -1;
-							 ELSIF (count >= 7) THEN
-								  up := '0';
-							 END IF;
-							 ball_y_motion <= to_signed(gravity_up, 10);
-						ELSIF (ball_y_pos >= to_signed(450, 10) - size*2) THEN
-							 ball_y_motion <= to_signed(0, 10);
-						ELSE
-							 IF (count > 0) THEN
-								  gravity_down := 3;
-							 ELSIF (count >= 3) THEN
-								  gravity_down := 4;
-							 END IF;
-							 ball_y_motion <= to_signed(gravity_down, 10);
-						END IF;
-						ball_y_pos <= ball_y_pos + ball_y_motion;
-				  END IF;
-			 END IF;
-			 prev_left_click <= left_click;
-			 reset <= reset_internal;
-			 start <= start_move;
-			 pause <= s_pause;
-		END IF;
+             IF (start_move = '1' AND s_pause = '1') THEN
+                  count := count + 1;
+                  IF (sw9 = '1') AND (collision_internal = '1') THEN
+                        start_move <= '0'; -- Stop bird movement on collision only if collisions are enabled
+                  ELSE
+                        IF (left_click = '1') AND (prev_left_click = '0') THEN
+                             count := 0;
+                             up := '1';
+                        ELSIF (up = '1') THEN
+                             IF (count = 1) THEN
+                                  gravity_up := -15;
+                             ELSIF (count = 2) THEN
+                                  gravity_up := -10;
+                             ELSIF (count = 4) THEN
+                                  gravity_up := -5;
+                             ELSIF (count = 5) THEN
+                                  gravity_up := -3;
+                             ELSIF (count = 6) THEN
+                                  gravity_up := -1;
+                             ELSIF (count >= 7) THEN
+                                  up := '0';
+                             END IF;
+                             ball_y_motion <= to_signed(gravity_up, 10);
+                        ELSIF (ball_y_pos >= to_signed(450, 10) - size*2) THEN
+                             ball_y_motion <= to_signed(0, 10);
+                        ELSE
+                             IF (count > 0) THEN
+                                  gravity_down := 3;
+                             ELSIF (count >= 3) THEN
+                                  gravity_down := 4;
+                             END IF;
+                             ball_y_motion <= to_signed(gravity_down, 10);
+                        END IF;
+                        ball_y_pos <= ball_y_pos + ball_y_motion;
+                  END IF;
+             END IF;
+             prev_left_click <= left_click;
+             reset <= reset_internal;
+             start <= start_move;
+             pause <= s_pause;
+        END IF;
   END PROCESS Move_Ball;
 END behavior;
-
