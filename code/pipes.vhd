@@ -13,8 +13,10 @@ ENTITY pipes IS
         p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
         blue_box_x_pos : OUT signed(10 DOWNTO 0);
         blue_box_y_pos : OUT signed(9 DOWNTO 0);
-        reset_blue_box : IN std_logic
-    );		
+        reset_blue_box : IN std_logic;
+        ball_x_pos, ball_y_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
+        ball_size : IN signed(9 DOWNTO 0) -- Add ball size input
+    );      
 END pipes;
 
 ARCHITECTURE behavior OF pipes IS
@@ -40,7 +42,8 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL blue_box_y_pos_internal : signed(9 DOWNTO 0);
 
     SIGNAL blue_box_size : signed(9 DOWNTO 0) := to_signed(32, 10); -- size of the blue box
-	 
+    SIGNAL blue_box_visible : std_logic := '1'; -- Visibility of the blue box
+
     SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL selected_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
@@ -55,7 +58,7 @@ ARCHITECTURE behavior OF pipes IS
             random_value : OUT std_logic_vector(9 DOWNTO 0)
         );
     END COMPONENT;
-	 
+    
     COMPONENT coin_rom
         PORT
         (
@@ -115,10 +118,10 @@ BEGIN
             END IF;
         END IF;
     END PROCESS Pixel_Display;
-	 
+    
     PROCESS (blue_box_on, coin_color, p1_on, p2_on, p3_on)
     BEGIN
-        IF blue_box_on = '1' AND coin_color /= "000100010001" THEN
+        IF blue_box_on = '1' AND coin_color /= "000100010001" AND blue_box_visible = '1' THEN
             selected_color <= coin_color;
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= "100010001000";
@@ -147,6 +150,7 @@ BEGIN
                     blue_box_x_pos_internal <= to_signed(1000, 11);
                     blue_box_y_pos_internal <= to_signed(240, 10);
                     coin_active <= '0';
+                    blue_box_visible <= '1'; -- Make the coin visible again
                 ELSIF start = '1' THEN
                     IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
                         p1_x_pos_internal <= to_signed(640, 11);
@@ -155,6 +159,7 @@ BEGIN
                             coin_active <= '1';
                             blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
                             blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                            blue_box_visible <= '1'; -- Make the coin visible again
                         END IF;
                     ELSE
                         p1_x_pos_internal <= p1_x_pos_internal - to_signed(1, 11);
@@ -167,6 +172,7 @@ BEGIN
                             coin_active <= '1';
                             blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
                             blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                            blue_box_visible <= '1'; -- Make the coin visible again
                         END IF;
                     ELSE
                         p2_x_pos_internal <= p2_x_pos_internal - to_signed(1, 11);
@@ -179,6 +185,7 @@ BEGIN
                             coin_active <= '1';
                             blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
                             blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                            blue_box_visible <= '1'; -- Make the coin visible again
                         END IF;
                     ELSE
                         p3_x_pos_internal <= p3_x_pos_internal - to_signed(1, 11);
@@ -205,6 +212,17 @@ BEGIN
     p3_gap_center <= p3_gap_center_internal;
     blue_box_x_pos <= blue_box_x_pos_internal;
     blue_box_y_pos <= blue_box_y_pos_internal;
+
+    -- Coin collision detection
+    PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF (ball_x_pos + ball_size >= blue_box_x_pos_internal AND ball_x_pos <= blue_box_x_pos_internal + blue_box_size AND
+                ball_y_pos + ball_size >= blue_box_y_pos_internal AND ball_y_pos <= blue_box_y_pos_internal + blue_box_size) THEN
+                blue_box_visible <= '0'; -- Hide the coin
+            END IF;
+        END IF;
+    END PROCESS;
 
 END behavior;
 
