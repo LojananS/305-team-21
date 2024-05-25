@@ -1,12 +1,15 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+use work.game_type_pkg.ALL;
 
 ENTITY pipes IS
     PORT
     (
-        clk, vert_sync, start, reset, collision, reset_pipes, pause: IN std_logic;
+        clk, vert_sync, reset_signal, collision, reset_pipes: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+		  input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
+		  output_state : OUT std_logic_vector(3 DOWNTO 0); -- Output state for FSM
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
@@ -72,7 +75,7 @@ BEGIN
     lfsr_inst: galois_lfsr
         PORT MAP (
             clk => clk,
-            reset => reset,
+            reset => reset_signal,
             random_value => random_value
         );
     coin_inst: coin_rom
@@ -135,11 +138,13 @@ BEGIN
 
     output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset, collision, reset_pipes, reset_blue_box, pause, blue_box_visible)
-    BEGIN
-        IF rising_edge(vert_sync) THEN
-            IF (pause = '1') THEN
-                IF reset_pipes = '1' OR reset_blue_box = '1' THEN
+    Move_pipe: PROCESS (vert_sync, reset_signal, collision, reset_pipes, reset_blue_box, blue_box_visible)
+		variable game_state : state_type;
+	BEGIN
+			IF rising_edge(vert_sync) THEN
+			game_state := to_state_type(input_state);
+			
+			IF (game_state = RESET_GAME OR game_state = HOME) THEN
                     -- Reset pipes to their original positions
                     p1_x_pos_internal <= to_signed(213, 11);
                     p1_gap_center_internal <= to_signed(240, 10);
@@ -151,7 +156,7 @@ BEGIN
                     blue_box_y_pos_internal <= to_signed(240, 10);
                     coin_active <= '0';
                     blue_box_visible <= '1'; -- Make the coin visible again
-                ELSIF start = '1' THEN
+			ELSIF game_state = START THEN
                     IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
                         p1_x_pos_internal <= to_signed(640, 11);
                         p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
@@ -200,7 +205,6 @@ BEGIN
                         END IF;
                     END IF;
                 END IF;
-            END IF;
 				IF blue_box_visible = '1' AND (ball_x_pos + ball_size >= blue_box_x_pos_internal AND ball_x_pos <= blue_box_x_pos_internal + blue_box_size) AND 
                (ball_y_pos + ball_size >= blue_box_y_pos_internal AND ball_y_pos <= blue_box_y_pos_internal + blue_box_size) THEN
                 blue_box_visible <= '0'; -- Make the coin invisible when touched
