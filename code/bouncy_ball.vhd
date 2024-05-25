@@ -30,7 +30,7 @@ ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL s_pause: std_logic := '1';
     SIGNAL prev_pb2: std_logic := '0';
 
-    SIGNAL bird_address : std_logic_vector(9 DOWNTO 0);
+    SIGNAL bird_address : std_logic_vector(11 DOWNTO 0);
     SIGNAL bird_data : std_logic_vector(11 DOWNTO 0);
     
     SIGNAL collision_internal : std_logic := '0';
@@ -46,7 +46,7 @@ ARCHITECTURE behavior OF bouncy_ball IS
     COMPONENT sprite_rom
         PORT (
             clk            : IN std_logic;
-            sprite_address : IN std_logic_vector(9 DOWNTO 0);
+            sprite_address : IN std_logic_vector(11 DOWNTO 0);
             data_out       : OUT std_logic_vector(11 DOWNTO 0)
         );
     END COMPONENT;
@@ -69,15 +69,15 @@ BEGIN
                 ball_on <= '1';
                 bird_address <= std_logic_vector(to_unsigned(
                     (to_integer(unsigned(pixel_row)) - to_integer(unsigned(ball_y_pos))) * 32 +
-                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 10));
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(ball_x_pos))), 12));
             ELSE
                 ball_on <= '0';
             END IF;
         END IF;
     END PROCESS Pixel_Display;
 
-    RGB <= bird_data when ball_on = '1' and bird_data /= "000000000000" else (others => '0');
-    output_on <= '1' when ball_on = '1' and bird_data /= "000000000000" else '0';
+    RGB <= bird_data when ball_on = '1' and bird_data /= "000100010001" else (others => '0');
+    output_on <= '1' when ball_on = '1' and bird_data /= "000100010001" else '0';
     
     -- Collision Detection Logic
     PROCESS (clk)
