@@ -3,15 +3,15 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
-ENTITY game_fsm IS
+ENTITY FSM IS
     PORT (
         clk, reset, left_click, collision, pb2, sw0 : IN std_logic;
         start, pause_out, reset_internal : OUT std_logic;
         current_state_out : OUT std_logic_vector(1 DOWNTO 0)
     );
-END game_fsm;
+END FSM;
 
-ARCHITECTURE behavior OF game_fsm IS
+ARCHITECTURE behavior OF FSM IS
     TYPE game_state_type IS (IDLE, PLAY, PAUSE, GAME_OVER);
     SIGNAL current_state, next_state : game_state_type := IDLE;
 
