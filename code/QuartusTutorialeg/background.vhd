@@ -9,7 +9,7 @@ ENTITY background IS
         pb1, clk, vert_sync, left_click, collision, reset : IN std_logic;
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
-    );        
+    );     
 END background;
 
 ARCHITECTURE behavior OF background IS

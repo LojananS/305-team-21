@@ -469,6 +469,7 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 
 
+set_global_assignment -name VHDL_FILE ../flappy_bird_game.vhd
 set_global_assignment -name VHDL_FILE ../game_type_pkg_body.vhd
 set_global_assignment -name VHDL_FILE ../game_type_pkg.vhd
 set_global_assignment -name VHDL_FILE ../Game_FSM.vhd

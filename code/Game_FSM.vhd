@@ -32,8 +32,6 @@ begin
                     game_state <= PAUSE;
                 elsif (pb3 = '1') then
                     game_state <= RESET_GAME;
-                elsif (sw9 = '1') then
-                    game_state <= GAME_END;
                 end if;
 				when PAUSE =>
 					state_out <= to_slv(PAUSE);
@@ -41,9 +39,12 @@ begin
                     game_state <= START;
                 end if;
 				when RESET_GAME =>
-					state_out <= to_slv(RESET_GAME);
 					if (left_click = '1') then
+						state_out <= to_slv(START);
 						game_state <= START;
+					else
+						state_out <= to_slv(RESET_GAME);
+						game_state <= RESET_GAME;
 					end if;
 				when GAME_END =>
 					state_out <= to_slv(GAME_END);

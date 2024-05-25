@@ -4,12 +4,11 @@ USE IEEE.NUMERIC_STD.ALL;
 USE work.game_type_pkg.ALL;
 
 ENTITY bouncy_ball IS
-    PORT
-    (
+    PORT (
         sw9, pb1, clk, vert_sync, left_click: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
-		  output_state : OUT std_logic_vector(3 DOWNTO 0); -- Output state for FSM
+        output_state : OUT std_logic_vector(3 DOWNTO 0); -- Output state for FSM
         p1_x_pos, p2_x_pos, p3_x_pos : IN signed(10 DOWNTO 0);
         p1_gap_center, p2_gap_center, p3_gap_center : IN signed(9 DOWNTO 0);
         blue_box_x_pos: IN signed(10 DOWNTO 0);
@@ -108,7 +107,7 @@ BEGIN
 
 			-- Handling PAUSE state
 			IF game_state = PAUSE THEN
-				null;
+				NULL;
 			END IF;
 
 			-- Handling START state
@@ -153,7 +152,9 @@ BEGIN
 				END IF;
 
 				IF collision_internal = '1' THEN
-					output_state <= to_slv(GAME_END);  -- Collision state
+					output_state <= to_slv(RESET_GAME);  -- Collision state which is reset game right now. Can add endgame
+					ball_y_pos <= to_signed(240, 10); -- Reset ball y position
+					ball_x_pos <= to_signed(150, 11); -- Reset ball x position
 				END IF;
 
 				-- Score Calculation Logic
@@ -205,22 +206,18 @@ BEGIN
 					IF collision_internal = '1' THEN
 						reset_internal <= '1'; -- Reset pipes on click after collision
 					ELSE
-						output_state <= to_slv(START); -- Set state to start
+						start_move <= '1'; -- Start the bird movement
 					END IF;
 				END IF;
 
 				IF reset_internal = '1' THEN
-					-- Reset ball position
-					ball_y_pos <= to_signed(240, 10);
-					ball_x_pos <= to_signed(150, 11);
 					reset_internal <= '0'; -- Clear reset signal
+					start_move <= '0'; -- Stop the bird movement on reset
 				END IF;
 
-				count := count + 1;
-				IF (sw9 = '1') AND (collision_internal = '1') THEN
-					start_move <= '0'; -- Stop bird movement on collision only if collisions are enabled
-				ELSE
-					IF (left_click = '1') AND (prev_left_click = '0') THEN
+				IF start_move = '1' THEN
+					count := count + 1;
+					IF (left_click = '1' AND prev_left_click = '0') THEN
 						count := 0;
 						up := '1';
 					ELSIF (up = '1') THEN
@@ -252,6 +249,7 @@ BEGIN
 					END IF;
 					ball_y_pos <= ball_y_pos + ball_y_motion;
 				END IF;
+
 				prev_left_click <= left_click;
 				reset_signal <= reset_internal;
 				start_signal <= start_move;
