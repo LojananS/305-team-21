@@ -1,6 +1,10 @@
 <sld_project_info>
   <project>
+<<<<<<< HEAD
     <hash md5_digest_80b="e6203bc7643312dfabee"/>
+=======
+    <hash md5_digest_80b="f04d82812b623bc90495"/>
+>>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
   </project>
   <file_info>
     <file device="5CEBA4F23C7" path="flappybird21.sof" usercode="0xFFFFFFFF"/>

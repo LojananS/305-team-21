@@ -156,6 +156,7 @@
 					"strict" : false
 				},
 				{
+<<<<<<< HEAD
 					"name" : "KEY[3]",
 					"strict" : false
 				},
@@ -173,6 +174,13 @@
 				},
 				{
 					"name" : "SW[9]",
+=======
+					"name" : "KEY3",
+					"strict" : false
+				},
+				{
+					"name" : "KEY0",
+>>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 					"strict" : false
 				}
 			]

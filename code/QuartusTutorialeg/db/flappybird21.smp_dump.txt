@@ -48,6 +48,7 @@ mouse_state.WAIT_OUTPUT_READY 0 0 1 0 0 1
 mouse_state.WAIT_CMD_ACK 0 1 0 0 0 1 
 mouse_state.INPUT_PACKETS 1 0 0 0 0 1 
 
+<<<<<<< HEAD
 State Machine - |flappybird21block|bouncy_ball:inst14|\Main_Process:game_state
 Name \Main_Process:game_state.GAME_END \Main_Process:game_state.RESET_GAME \Main_Process:game_state.PAUSE \Main_Process:game_state.START \Main_Process:game_state.HOME 
 \Main_Process:game_state.HOME 0 0 0 0 0 
@@ -55,3 +56,49 @@ Name \Main_Process:game_state.GAME_END \Main_Process:game_state.RESET_GAME \Main
 \Main_Process:game_state.PAUSE 0 0 1 0 1 
 \Main_Process:game_state.RESET_GAME 0 1 0 0 1 
 \Main_Process:game_state.GAME_END 1 0 0 0 1 
+=======
+State Machine - |flappybird21block|flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|game_state
+Name game_state.TRAINING game_state.GAME_END game_state.RESET_GAME game_state.PAUSE game_state.START game_state.HOME 
+game_state.HOME 0 0 0 0 0 0 
+game_state.START 0 0 0 0 1 1 
+game_state.PAUSE 0 0 0 1 0 1 
+game_state.RESET_GAME 0 0 1 0 0 1 
+game_state.GAME_END 0 1 0 0 0 1 
+game_state.TRAINING 1 0 0 0 0 1 
+
+State Machine - |flappybird21block|flappy_bird_game:inst4|background:BACKGROUND_Inst|\Move_Stars:game_state
+Name \Move_Stars:game_state.TRAINING \Move_Stars:game_state.GAME_END \Move_Stars:game_state.RESET_GAME \Move_Stars:game_state.PAUSE \Move_Stars:game_state.START \Move_Stars:game_state.HOME 
+\Move_Stars:game_state.HOME 0 0 0 0 0 0 
+\Move_Stars:game_state.START 0 0 0 0 1 1 
+\Move_Stars:game_state.PAUSE 0 0 0 1 0 1 
+\Move_Stars:game_state.RESET_GAME 0 0 1 0 0 1 
+\Move_Stars:game_state.GAME_END 0 1 0 0 0 1 
+\Move_Stars:game_state.TRAINING 1 0 0 0 0 1 
+
+State Machine - |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|\Move_Ground:game_state
+Name \Move_Ground:game_state.TRAINING \Move_Ground:game_state.GAME_END \Move_Ground:game_state.RESET_GAME \Move_Ground:game_state.PAUSE \Move_Ground:game_state.START \Move_Ground:game_state.HOME 
+\Move_Ground:game_state.HOME 0 0 0 0 0 0 
+\Move_Ground:game_state.START 0 0 0 0 1 1 
+\Move_Ground:game_state.PAUSE 0 0 0 1 0 1 
+\Move_Ground:game_state.RESET_GAME 0 0 1 0 0 1 
+\Move_Ground:game_state.GAME_END 0 1 0 0 0 1 
+\Move_Ground:game_state.TRAINING 1 0 0 0 0 1 
+
+State Machine - |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|\Move_pipe:game_state
+Name \Move_pipe:game_state.TRAINING \Move_pipe:game_state.GAME_END \Move_pipe:game_state.RESET_GAME \Move_pipe:game_state.PAUSE \Move_pipe:game_state.START \Move_pipe:game_state.HOME 
+\Move_pipe:game_state.HOME 0 0 0 0 0 0 
+\Move_pipe:game_state.START 0 0 0 0 1 1 
+\Move_pipe:game_state.PAUSE 0 0 0 1 0 1 
+\Move_pipe:game_state.RESET_GAME 0 0 1 0 0 1 
+\Move_pipe:game_state.GAME_END 0 1 0 0 0 1 
+\Move_pipe:game_state.TRAINING 1 0 0 0 0 1 
+
+State Machine - |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|\Main_Process:game_state
+Name \Main_Process:game_state.TRAINING \Main_Process:game_state.GAME_END \Main_Process:game_state.RESET_GAME \Main_Process:game_state.PAUSE \Main_Process:game_state.START \Main_Process:game_state.HOME 
+\Main_Process:game_state.HOME 0 0 0 0 0 0 
+\Main_Process:game_state.START 0 0 0 0 1 1 
+\Main_Process:game_state.PAUSE 0 0 0 1 0 1 
+\Main_Process:game_state.RESET_GAME 0 0 1 0 0 1 
+\Main_Process:game_state.GAME_END 0 1 0 0 0 1 
+\Main_Process:game_state.TRAINING 1 0 0 0 0 1 
+>>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
