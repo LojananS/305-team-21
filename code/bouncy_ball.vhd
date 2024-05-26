@@ -210,12 +210,12 @@ BEGIN
                     END IF;
 
                     -- Check collision with ground and ceiling
-                    IF (ball_y_pos >= to_signed(450, 10) - size*2 OR ball_y_pos <= to_signed(-200, 10)) THEN
+                    IF (ball_y_pos >= to_signed(450, 10) - size*2 OR ball_y_pos <= to_signed(0, 10)) THEN
                         collision_internal_ground <= '1';
                         
-                        IF (ball_y_pos >= to_signed(420, 10) or ball_y_pos > to_signed(-200, 10)) THEN
+                        IF (ball_y_pos >= to_signed(420, 10)) THEN
                             collision_flag_ground <= '1';
-                        end if;
+                        END IF;
                     END IF;
                 END IF;
 
@@ -329,13 +329,19 @@ BEGIN
                         gravity_down := 3;
                     ELSIF (count >= 3) THEN
                         gravity_down := 4;
-                    elsif (count >= 7) then
+                    ELSIF (count >= 7) THEN
                         gravity_down := 6;
                     END IF;
 
                     ball_y_motion <= to_signed(gravity_down, 10);
                 END IF;
-                ball_y_pos <= ball_y_pos + ball_y_motion;
+                
+                -- Ensure ball does not go above the top of the screen
+                IF ball_y_pos + ball_y_motion < to_signed(0, 10) THEN
+                    ball_y_pos <= to_signed(0, 10);
+                ELSE
+                    ball_y_pos <= ball_y_pos + ball_y_motion;
+                END IF;
             END IF;
             prev_left_click <= left_click;
         END IF;

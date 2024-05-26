@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon May 27 09:56:45 2024
+Fitter Status : Successful - Mon May 27 10:43:31 2024
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : flappybird21
 Top-level Entity Name : flappybird21block
 Family : Cyclone V
 Device : 5CEBA4F23C7
 Timing Models : Final
-Logic utilization (in ALMs) : 1,325 / 18,480 ( 7 % )
-Total registers : 674
+Logic utilization (in ALMs) : 1,455 / 18,480 ( 8 % )
+Total registers : 685
 Total pins : 44 / 224 ( 20 % )
 Total virtual pins : 0
 Total block memory bits : 283,648 / 3,153,920 ( 9 % )

@@ -1,14 +1,14 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
-use work.game_type_pkg.ALL;
+USE work.game_type_pkg.ALL;
 
 ENTITY pipes IS
     PORT
     (
         clk, vert_sync: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-		  input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
+        input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
@@ -17,10 +17,10 @@ ENTITY pipes IS
         blue_box_y_pos : OUT signed(9 DOWNTO 0);
         reset_blue_box : IN std_logic;
         ball_x_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
-		  ball_y_pos : in signed (9 downto 0);
+        ball_y_pos : IN signed (9 DOWNTO 0);
         ball_size : IN signed(9 DOWNTO 0); -- Add ball size input
-		  score : IN integer range 0 to 999
-
+        score : IN integer range 0 to 999;
+        pb1 : IN std_logic
     );      
 END pipes;
 
@@ -52,11 +52,14 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL selected_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
-	 
-	 SIGNAL move_speed : signed(10 DOWNTO 0) := to_signed(1, 11); -- Initial speed
+    
+    SIGNAL toggle_state : std_logic := '0';
+    SIGNAL pb1_prev : std_logic := '0';
 
+    SIGNAL move_speed : signed(10 DOWNTO 0) := to_signed(1, 11); -- Initial speed
 
     SIGNAL coin_active : std_logic := '0';
+    SIGNAL pipe_color : std_logic_vector(11 DOWNTO 0);
 
     COMPONENT galois_lfsr
         PORT
@@ -89,6 +92,28 @@ BEGIN
             coin_address => coin_address,
             coin_data_out => coin_color
         );
+    
+    Toggle_pipes: PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF pb1 = '1' AND pb1_prev = '0' THEN
+                toggle_state <= NOT toggle_state;
+            END IF;
+            pb1_prev <= pb1;
+        END IF;
+    END PROCESS;
+
+    PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF toggle_state = '1' THEN
+                pipe_color <= "001010100000"; -- HEX code '2A0'
+            ELSE
+                pipe_color <= "100010001000"; -- Original pipe color
+            END IF;
+        END IF;
+    END PROCESS;
+
     p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
                      to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
                      to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
@@ -127,12 +152,12 @@ BEGIN
         END IF;
     END PROCESS Coin_Display;
     
-    PROCESS (blue_box_on, blue_box_visible, coin_color, p1_on, p2_on, p3_on)
+    PROCESS (blue_box_on, blue_box_visible, coin_color, p1_on, p2_on, p3_on, pipe_color)
     BEGIN
         IF blue_box_on = '1' AND coin_color /= "000100010001" AND blue_box_visible = '1' THEN
             selected_color <= coin_color;
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
-            selected_color <= "100010001000";
+            selected_color <= pipe_color;
         ELSE
             selected_color <= "000000000000";
         END IF;
@@ -144,29 +169,29 @@ BEGIN
     output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
     Move_pipe: PROCESS (vert_sync, reset_blue_box, blue_box_visible)
-		variable game_state : state_type;
-	BEGIN
-			IF rising_edge(vert_sync) THEN
-				-- Convert input_state to state_type
-				game_state := to_state_type(input_state);
-			
-			IF (game_state = RESET_GAME OR game_state = HOME) THEN
-                    -- Reset pipes to their original positions
-                    p1_x_pos_internal <= to_signed(213, 11);
-                    p1_gap_center_internal <= to_signed(240, 10);
-                    p2_x_pos_internal <= to_signed(426, 11);
-                    p2_gap_center_internal <= to_signed(360, 10);
-                    p3_x_pos_internal <= to_signed(640, 11);
-                    p3_gap_center_internal <= to_signed(100, 10);
-                    blue_box_x_pos_internal <= to_signed(1000, 11);
-                    blue_box_y_pos_internal <= to_signed(240, 10);
-                    coin_active <= '0';
-                    blue_box_visible <= '1'; -- Make the coin visible again
-			ELSIF game_state = PAUSE THEN
-				null;
-			ELSIF game_state = START THEN
-			
-				-- Adjust speed based on score
+        VARIABLE game_state : state_type;
+    BEGIN
+        IF rising_edge(vert_sync) THEN
+            -- Convert input_state to state_type
+            game_state := to_state_type(input_state);
+        
+            IF (game_state = RESET_GAME OR game_state = HOME) THEN
+                -- Reset pipes to their original positions
+                p1_x_pos_internal <= to_signed(213, 11);
+                p1_gap_center_internal <= to_signed(240, 10);
+                p2_x_pos_internal <= to_signed(426, 11);
+                p2_gap_center_internal <= to_signed(360, 10);
+                p3_x_pos_internal <= to_signed(640, 11);
+                p3_gap_center_internal <= to_signed(100, 10);
+                blue_box_x_pos_internal <= to_signed(1000, 11);
+                blue_box_y_pos_internal <= to_signed(240, 10);
+                coin_active <= '0';
+                blue_box_visible <= '1'; -- Make the coin visible again
+            ELSIF game_state = PAUSE THEN
+                null;
+            ELSIF game_state = START THEN
+            
+                -- Adjust speed based on score
                 IF score >= 20 THEN
                     move_speed <= to_signed(3, 11); -- Speed increases significantly
                 ELSIF score >= 10 THEN
@@ -175,55 +200,57 @@ BEGIN
                     move_speed <= to_signed(1, 11); -- Default speed
                 END IF;
 
-                    IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p1_x_pos_internal <= to_signed(640, 11);
-                        p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                        IF coin_active = '0' THEN
-                            coin_active <= '1';
-                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
-                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                            blue_box_visible <= '1'; -- Make the coin visible again
-                        END IF;
-                    ELSE
-                        p1_x_pos_internal <= p1_x_pos_internal - move_speed;
+                IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p1_x_pos_internal <= to_signed(640, 11);
+                    p1_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                    IF coin_active = '0' THEN
+                        coin_active <= '1';
+                        blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                        blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        blue_box_visible <= '1'; -- Make the coin visible again
                     END IF;
+                ELSE
+                    p1_x_pos_internal <= p1_x_pos_internal - move_speed;
+                END IF;
 
-                    IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p2_x_pos_internal <= to_signed(640, 11);
-                        p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                        IF coin_active = '0' THEN
-                            coin_active <= '1';
-                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
-                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                            blue_box_visible <= '1'; -- Make the coin visible again
-                        END IF;
-                    ELSE
-                        p2_x_pos_internal <= p2_x_pos_internal - move_speed;
+                IF (p2_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p2_x_pos_internal <= to_signed(640, 11);
+                    p2_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                    IF coin_active = '0' THEN
+                        coin_active <= '1';
+                        blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                        blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        blue_box_visible <= '1'; -- Make the coin visible again
                     END IF;
+                ELSE
+                    p2_x_pos_internal <= p2_x_pos_internal - move_speed;
+                END IF;
 
-                    IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
-                        p3_x_pos_internal <= to_signed(640, 11);
-                        p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                        IF coin_active = '0' THEN
-                            coin_active <= '1';
-                            blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
-                            blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
-                            blue_box_visible <= '1'; -- Make the coin visible again
-                        END IF;
-                    ELSE
-                        p3_x_pos_internal <= p3_x_pos_internal - move_speed;
+                IF (p3_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
+                    p3_x_pos_internal <= to_signed(640, 11);
+                    p3_gap_center_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                    IF coin_active = '0' THEN
+                        coin_active <= '1';
+                        blue_box_x_pos_internal <= to_signed(640 + 50, 11); -- Coin appears 50 units after the pipe
+                        blue_box_y_pos_internal <= (signed(random_value) MOD to_signed(310, 10)) + to_signed(55, 10);
+                        blue_box_visible <= '1'; -- Make the coin visible again
                     END IF;
+                ELSE
+                    p3_x_pos_internal <= p3_x_pos_internal - move_speed;
+                END IF;
 
-                    -- Move blue box (coin) independently if it is active
-                    IF coin_active = '1' THEN
-                        IF blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11) THEN
-                            coin_active <= '0'; -- Coin moves off the screen and resets
-                        ELSE
-                            blue_box_x_pos_internal <= blue_box_x_pos_internal - move_speed;
-                        END IF;
+                -- Move blue box (coin) independently if it is active
+                IF coin_active = '1' THEN
+                    IF blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11) THEN
+                        coin_active <= '0'; -- Coin moves off the screen and resets
+                    ELSE
+                        blue_box_x_pos_internal <= blue_box_x_pos_internal - move_speed;
                     END IF;
                 END IF;
-				IF blue_box_visible = '1' AND (ball_x_pos + ball_size >= blue_box_x_pos_internal AND ball_x_pos <= blue_box_x_pos_internal + blue_box_size) AND 
+            END IF;
+
+            IF blue_box_visible = '1' AND 
+               (ball_x_pos + ball_size >= blue_box_x_pos_internal AND ball_x_pos <= blue_box_x_pos_internal + blue_box_size) AND 
                (ball_y_pos + ball_size >= blue_box_y_pos_internal AND ball_y_pos <= blue_box_y_pos_internal + blue_box_size) THEN
                 blue_box_visible <= '0'; -- Make the coin invisible when touched
             END IF;
