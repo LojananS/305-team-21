@@ -5,11 +5,9 @@ USE work.game_type_pkg.ALL;
 
 ENTITY flappy_bird_game IS
     PORT (
-        clk, reset_signal, vert_sync, collision, reset_pipes, reset_blue_box : IN STD_LOGIC;
+        clk, vert_sync : IN STD_LOGIC;
         sw9, pb1, pb2, pb3, left_click : IN STD_LOGIC;
         pixel_row, pixel_column : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-        output_on : OUT STD_LOGIC;
-        RGB : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
         hund_bcd, tens_bcd, units_bcd : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         Red, Green, Blue : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
@@ -44,7 +42,7 @@ ARCHITECTURE structural OF flappy_bird_game IS
     COMPONENT text_rom IS 
         PORT (
             pixel_row, pixel_col : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-            clk, collision, left_click : IN STD_LOGIC;
+            clk, left_click : IN STD_LOGIC;
             input_state : IN STD_LOGIC_VECTOR (3 DOWNTO 0); -- Input state from FSM
             score : IN integer range 0 to 999;
             output_on : OUT STD_LOGIC;
@@ -70,25 +68,26 @@ ARCHITECTURE structural OF flappy_bird_game IS
     END COMPONENT bouncy_ball;
     
     COMPONENT pipes IS
-        PORT (
-            clk, vert_sync, reset_signal, collision, reset_pipes: IN std_logic;
-            pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
-            input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
-            output_on : OUT std_logic;
-            RGB : OUT std_logic_vector(11 DOWNTO 0);
-            p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
-            p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
-            blue_box_x_pos : OUT signed(10 DOWNTO 0);
-            blue_box_y_pos : OUT signed(9 DOWNTO 0);
-            reset_blue_box : IN std_logic;
-            ball_x_pos, ball_y_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
-            ball_size : IN signed(9 DOWNTO 0) -- Add ball size input
-        );
+        PORT
+			(
+			clk, vert_sync : IN std_logic;
+			pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+			input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
+			output_on : OUT std_logic;
+			RGB : OUT std_logic_vector(11 DOWNTO 0);
+			p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
+			p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
+			blue_box_x_pos : OUT signed(10 DOWNTO 0);
+			blue_box_y_pos : OUT signed(9 DOWNTO 0);
+			ball_x_pos, ball_y_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
+			ball_size : IN signed(9 DOWNTO 0) -- Add ball size input
+			);
     END COMPONENT pipes;
     
     COMPONENT ground IS
         PORT (
-            clk, vert_sync, left_click, collision, reset, pause: IN std_logic;
+            clk, vert_sync, left_click: IN std_logic;
+				input_state : IN std_logic_vector(3 DOWNTO 0);
             pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
             output_on : OUT std_logic;
             RGB : OUT std_logic_vector(11 DOWNTO 0)
@@ -98,7 +97,8 @@ ARCHITECTURE structural OF flappy_bird_game IS
     COMPONENT background IS
         PORT (
             pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
-            pb1, clk, vert_sync, left_click, collision, reset : IN std_logic;
+            pb1, clk, vert_sync, left_click : IN std_logic;
+				input_state : IN std_logic_vector(3 DOWNTO 0);
             output_on                  : OUT std_logic;
             RGB                        : OUT std_logic_vector(11 DOWNTO 0)
         );
@@ -152,9 +152,6 @@ ARCHITECTURE structural OF flappy_bird_game IS
         PORT MAP (
             clk => clk,
             vert_sync => vert_sync,
-            reset_signal => reset_signal,
-            collision => collision,
-            reset_pipes => reset_pipes,
             pixel_row => pixel_row,
             pixel_column => pixel_column,
             input_state => state_out,
@@ -168,7 +165,6 @@ ARCHITECTURE structural OF flappy_bird_game IS
             p3_gap_center => p3_gap_center,
             blue_box_x_pos => blue_box_x_pos,
             blue_box_y_pos => blue_box_y_pos,
-            reset_blue_box => reset_blue_box,
             ball_x_pos => ball_x_pos,
             ball_y_pos => ball_y_pos,
             ball_size => ball_size
@@ -179,9 +175,7 @@ ARCHITECTURE structural OF flappy_bird_game IS
             clk => clk,
             vert_sync => vert_sync,
             left_click => left_click,
-            collision => collision,
-            reset => reset_signal,
-            pause => pause_signal,
+				input_state => state_out,
             pixel_row => pixel_row,
             pixel_column => pixel_column,
             output_on => ground_output_on,
@@ -196,8 +190,7 @@ ARCHITECTURE structural OF flappy_bird_game IS
             clk => clk,
             vert_sync => vert_sync,
             left_click => left_click,
-            collision => collision,
-            reset => reset_signal,
+				input_state => state_out,
             output_on => background_output_on,
             RGB => background_RGB
         );
@@ -207,15 +200,12 @@ ARCHITECTURE structural OF flappy_bird_game IS
             pixel_row => pixel_row,
             pixel_col => pixel_column,
             clk => clk,
-            collision => collision,
             left_click => left_click,
             input_state => state_out,
             score => score_internal,
             output_on => text_on,
             RGB => text_RGB
         );
-
-    output_on <= bouncy_ball_output_on OR pipes_output_on OR ground_output_on OR background_output_on OR text_on;
 
     PROCESS (pipes_output_on, bouncy_ball_output_on, background_output_on, text_on, ground_output_on, pipes_RGB, bouncy_ball_RGB, background_RGB, ground_RGB, text_RGB)
         variable red_signal, green_signal, blue_signal : STD_LOGIC_VECTOR(3 DOWNTO 0);

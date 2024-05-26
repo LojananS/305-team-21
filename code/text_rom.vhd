@@ -7,7 +7,7 @@ USE work.game_type_pkg.ALL;
 ENTITY text_rom IS 
     PORT (
         pixel_row, pixel_col : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-        clk, collision, left_click: IN STD_LOGIC;
+        clk, left_click: IN STD_LOGIC;
         input_state: IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- Input state from FSM
         score : IN integer range 0 to 999;
         output_on : OUT STD_LOGIC;
@@ -60,8 +60,10 @@ BEGIN
         );
 
     PROCESS (clk, input_state)
+		variable game_state : state_type;
     BEGIN
         IF rising_edge(clk) THEN
+		  game_state := to_state_type(input_state);
             -- Display "YEJI"
             IF (to_integer(unsigned(pixel_row)) >= 15 AND to_integer(unsigned(pixel_row)) < 24) THEN
                  IF (to_integer(unsigned(pixel_col)) >= 0 AND to_integer(unsigned(pixel_col)) < 8) THEN
@@ -84,15 +86,15 @@ BEGIN
             END IF;
 
             -- Handle state transitions based on FSM state
-            IF input_state = to_slv(RESET_GAME) THEN
+            IF game_state = RESET_GAME THEN
                 init_disp <= '1'; -- Reset initial display flag
                 disp_score <= '0';
                 collision_occured <= '0';
                 reset_text <= '0';
-            ELSIF input_state = to_slv(START) THEN
+            ELSIF game_state = START THEN
                 init_disp <= '0';
                 disp_score <= '1';
-            ELSIF input_state = to_slv(GAME_END) THEN
+            ELSIF game_state = GAME_END THEN
                 collision_occured <= '1';
             ELSIF collision_occured = '1' AND left_click = '1' THEN
                 reset_text <= '1';

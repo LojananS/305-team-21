@@ -6,7 +6,7 @@ use work.game_type_pkg.ALL;
 ENTITY pipes IS
     PORT
     (
-        clk, vert_sync, reset_signal, collision, reset_pipes: IN std_logic;
+        clk, vert_sync : IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
         output_on : OUT std_logic;
@@ -15,7 +15,6 @@ ENTITY pipes IS
         p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
         blue_box_x_pos : OUT signed(10 DOWNTO 0);
         blue_box_y_pos : OUT signed(9 DOWNTO 0);
-        reset_blue_box : IN std_logic;
         ball_x_pos, ball_y_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
         ball_size : IN signed(9 DOWNTO 0); -- Add ball size input
         red_box_x_pos : OUT signed(10 DOWNTO 0);
@@ -67,7 +66,7 @@ ARCHITECTURE behavior OF pipes IS
         PORT
         (
             clk : IN std_logic;
-            reset : IN std_logic;
+            state_in : IN std_logic_vector(3 DOWNTO 0);
             random_value : OUT std_logic_vector(9 DOWNTO 0)
         );
     END COMPONENT;
@@ -85,7 +84,7 @@ BEGIN
     lfsr_inst: galois_lfsr
         PORT MAP (
             clk => clk,
-            reset => reset_signal,
+            state_in => input_state,
             random_value => random_value
         );
     coin_inst: coin_rom
@@ -115,20 +114,22 @@ BEGIN
                         to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
                 ELSE '0';
 
-    Coin_Display : PROCESS (clk)
+    Coin_Display : PROCESS (clk, blue_box_visible, coin_active)
     BEGIN
         IF rising_edge(clk) THEN
-            IF (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
-                to_integer(unsigned(pixel_column)) < to_integer(blue_box_x_pos_internal) + to_integer(blue_box_size) AND
-                to_integer(unsigned(pixel_row)) >= to_integer(blue_box_y_pos_internal) AND 
-                to_integer(unsigned(pixel_row)) < to_integer(blue_box_y_pos_internal) + to_integer(blue_box_size)) THEN
-                blue_box_on <= '1';
-                coin_address <= std_logic_vector(to_unsigned(
-                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(blue_box_y_pos_internal))) * 32 +
-                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(blue_box_x_pos_internal))), 10));
-            ELSE
-                blue_box_on <= '0';
-            END IF;
+				IF (blue_box_visible = '1' AND coin_active = '1') THEN
+					IF (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
+						to_integer(unsigned(pixel_column)) < to_integer(blue_box_x_pos_internal) + to_integer(blue_box_size) AND
+						to_integer(unsigned(pixel_row)) >= to_integer(blue_box_y_pos_internal) AND 
+						to_integer(unsigned(pixel_row)) < to_integer(blue_box_y_pos_internal) + to_integer(blue_box_size)) THEN
+						blue_box_on <= '1';
+						coin_address <= std_logic_vector(to_unsigned(
+							(to_integer(unsigned(pixel_row)) - to_integer(unsigned(blue_box_y_pos_internal))) * 32 +
+							(to_integer(unsigned(pixel_column)) - to_integer(unsigned(blue_box_x_pos_internal))), 10));
+					ELSE
+						blue_box_on <= '0';
+					END IF;
+				END IF;
         END IF;
     END PROCESS Coin_Display;
 
@@ -148,7 +149,7 @@ BEGIN
     
     PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, coin_color, p1_on, p2_on, p3_on)
     BEGIN
-        IF blue_box_on = '1' AND coin_color /= "000100010001" AND blue_box_visible = '1' THEN
+        IF blue_box_on = '1' AND coin_color /= "000100010001" THEN
             selected_color <= coin_color;
         ELSIF red_box_on = '1' AND red_box_visible = '1' THEN
             selected_color <= "111000000000"; -- Red color for red box
@@ -163,7 +164,7 @@ BEGIN
     RGB <= selected_color;
     output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset_signal, collision, reset_pipes, reset_blue_box, reset_red_box, blue_box_visible, red_box_visible)
+    Move_pipe: PROCESS (vert_sync, blue_box_visible, red_box_visible)
         variable game_state : state_type;
     BEGIN
         IF rising_edge(vert_sync) THEN
@@ -230,11 +231,11 @@ BEGIN
                 IF coin_active = '1' THEN
                     IF blue_box_x_pos_internal + blue_box_size <= to_signed(0, 11) THEN
                         coin_active <= '0'; -- Coin moves off the screen and resets
+								blue_box_visible <= '0';
                     ELSE
                         blue_box_x_pos_internal <= blue_box_x_pos_internal - to_signed(1, 11);
                     END IF;
                 END IF;
-
                 -- Move red box independently if it is active
                 IF red_box_active = '1' THEN
                     IF red_box_x_pos_internal + red_box_size <= to_signed(0, 11) THEN

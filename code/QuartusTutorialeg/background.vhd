@@ -1,15 +1,17 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+use work.game_type_pkg.ALL;
 
 ENTITY background IS
     PORT
     (
         pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
-        pb1, clk, vert_sync, left_click, collision, reset : IN std_logic;
+        pb1, clk, vert_sync, left_click : IN std_logic;
+		  input_state : IN std_logic_vector(3 DOWNTO 0);
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
-    );     
+    );
 END background;
 
 ARCHITECTURE behavior OF background IS
@@ -70,7 +72,6 @@ ARCHITECTURE behavior OF background IS
     CONSTANT sun_radius    : INTEGER := 40; 
 
     SIGNAL prev_left_click : std_logic := '0';
-    SIGNAL start_move : std_logic := '0';
     SIGNAL toggle_state : std_logic := '0';
     SIGNAL pb1_prev : std_logic := '0';
 
@@ -78,8 +79,6 @@ ARCHITECTURE behavior OF background IS
 
     SIGNAL star_on : std_logic;
     SIGNAL moon_on : std_logic;
-    SIGNAL collision_occurred : std_logic := '0';
-    SIGNAL reset_background : std_logic := '0';
 
 BEGIN
 
@@ -93,21 +92,13 @@ BEGIN
         END IF;
     END PROCESS;
 
-    Move_Stars: PROCESS (vert_sync, left_click, collision, reset)
+    Move_Stars: PROCESS (vert_sync, left_click, input_state)
+		variable game_state : state_type;
     BEGIN
         IF rising_edge(vert_sync) THEN
-            IF collision = '1' THEN
-                start_move <= '0';
-                collision_occurred <= '1';
-            END IF;
-
-            IF collision_occurred = '1' AND left_click = '1' THEN
-                reset_background <= '1';
-                collision_occurred <= '0';
-            END IF;
-
-            IF reset_background = '1' THEN
-                -- Reset star positions to initial values
+		  game_state := to_state_type(input_state);
+            IF game_state = RESET_GAME AND left_click = '1' THEN
+					 -- Reset star positions to initial values
                 star_x_positions <= (
                     std_logic_vector(to_unsigned(100, 10)), 
                     std_logic_vector(to_unsigned(200, 10)), 
@@ -130,11 +121,9 @@ BEGIN
                     std_logic_vector(to_unsigned(80, 10)),  
                     std_logic_vector(to_unsigned(180, 10))
                 );
-                start_move <= '1';
-                reset_background <= '0';
             END IF;
 
-            IF start_move = '1' THEN
+            IF game_state = START THEN
                 FOR i IN 0 TO star_count-1 LOOP
                     star_x_positions(i) <= std_logic_vector(unsigned(star_x_positions(i)) - unsigned(star_speed));
 

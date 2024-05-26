@@ -28,10 +28,10 @@ begin
 					end if;
 				when START =>
 					state_out <= to_slv(START);
-                if (pb2 = '0' and prev_pb2 = '1') then
-                    game_state <= PAUSE;
-                elsif (pb3 = '1') then
+                if (pb3 = '0') then
                     game_state <= RESET_GAME;
+                elsif (pb2 = '0' and prev_pb2 = '1') then
+                    game_state <= PAUSE;
                 end if;
 				when PAUSE =>
 					state_out <= to_slv(PAUSE);

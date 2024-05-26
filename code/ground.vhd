@@ -1,11 +1,13 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+use work.game_type_pkg.ALL;
 
 ENTITY ground IS
     PORT
     (
-        clk, vert_sync, left_click, collision, reset, pause: IN std_logic;
+        clk, vert_sync, left_click : IN std_logic;
+		  input_state : IN std_logic_vector(3 DOWNTO 0);
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0)
@@ -67,35 +69,23 @@ BEGIN
     RGB <= ground_data WHEN (ground_on /= "000") ELSE (others => '0');
     output_on <= '1' WHEN ground_on > "000" ELSE '0';
 
-	Move_Ground: PROCESS (vert_sync, left_click, collision, reset, pause)
+	Move_Ground: PROCESS (vert_sync, left_click, input_state)
+		variable game_state : state_type;
 	BEGIN
 		IF rising_edge(vert_sync) THEN
-			IF (pause = '1') THEN
-            IF collision = '1' THEN
-                start_move <= '0';
-                collision_occurred <= '1';
-            END IF;
-
-            IF collision_occurred = '1' AND left_click = '1' THEN
-                reset_ground <= '1';
-                collision_occurred <= '0';
-            END IF;
-				
-				IF reset_ground = '1' THEN
-					 -- Reset ground positions to initial values
-					 ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
-					 start_move <= '1';
-					 reset_ground <= '0';
-				END IF;
-
-				IF start_move = '1' THEN
-					FOR i IN 0 TO 2 LOOP
-						ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
-						IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
-							ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
-						END IF;
-					END LOOP;
-				END IF;
+			game_state := to_state_type(input_state);
+			IF game_state = RESET_GAME THEN
+				 -- Reset ground positions to initial values
+				ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
+			END IF;
+			
+			IF game_state = START THEN
+				FOR i IN 0 TO 2 LOOP
+					ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
+					IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
+						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
+					END IF;
+				END LOOP;
 
             prev_left_click <= left_click;
 			END IF;
