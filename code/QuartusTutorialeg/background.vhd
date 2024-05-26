@@ -6,18 +6,12 @@ use work.game_type_pkg.ALL;
 ENTITY background IS
     PORT
     (
-<<<<<<< HEAD
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         pb1, clk, vert_sync: IN std_logic;
 		  input_state: IN std_logic_vector(3 downto 0);
-=======
-        pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
-        pb1, clk, vert_sync, left_click : IN std_logic;
-		  input_state : IN std_logic_vector(3 DOWNTO 0);
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
-    );
+    );        
 END background;
 
 ARCHITECTURE behavior OF background IS
@@ -78,6 +72,7 @@ ARCHITECTURE behavior OF background IS
     CONSTANT sun_radius    : INTEGER := 40; 
 
     SIGNAL prev_left_click : std_logic := '0';
+    SIGNAL start_move : std_logic := '0';
     SIGNAL toggle_state : std_logic := '0';
     SIGNAL pb1_prev : std_logic := '0';
 
@@ -85,6 +80,8 @@ ARCHITECTURE behavior OF background IS
 
     SIGNAL star_on : std_logic;
     SIGNAL moon_on : std_logic;
+    SIGNAL collision_occurred : std_logic := '0';
+    SIGNAL reset_background : std_logic := '0';
 
 BEGIN
 
@@ -98,7 +95,6 @@ BEGIN
         END IF;
     END PROCESS;
 
-<<<<<<< HEAD
     Move_Stars: PROCESS (vert_sync)
 	 variable game_state : state_type;
     BEGIN
@@ -107,15 +103,6 @@ BEGIN
 
             IF game_state = HOME THEN
                 -- Reset star positions to initial values
-=======
-    Move_Stars: PROCESS (vert_sync, left_click, input_state)
-		variable game_state : state_type;
-    BEGIN
-        IF rising_edge(vert_sync) THEN
-		  game_state := to_state_type(input_state);
-            IF game_state = RESET_GAME AND left_click = '1' THEN
-					 -- Reset star positions to initial values
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
                 star_x_positions <= (
                     std_logic_vector(to_unsigned(100, 10)), 
                     std_logic_vector(to_unsigned(200, 10)), 
@@ -138,15 +125,9 @@ BEGIN
                     std_logic_vector(to_unsigned(80, 10)),  
                     std_logic_vector(to_unsigned(180, 10))
                 );
-<<<<<<< HEAD
 				ELSIF game_state = PAUSE THEN
 					null;
             ELSIF game_state = START THEN
-=======
-            END IF;
-
-            IF game_state = START THEN
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
                 FOR i IN 0 TO star_count-1 LOOP
                     star_x_positions(i) <= std_logic_vector(unsigned(star_x_positions(i)) - unsigned(star_speed));
 

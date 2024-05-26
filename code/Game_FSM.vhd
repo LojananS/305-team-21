@@ -20,14 +20,9 @@ begin
 	s_start <= not pb3;
 	s_reset <= not pb4;
 -- Process to select state
-<<<<<<< HEAD
     output_state_decode : process (s_start, s_reset, s_pause)
     begin
 		if rising_edge(clk) then
-=======
-    output_state_decode : process (state_in, sw9, pb1, pb2, pb3, left_click)
-    begin
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 			case game_state is
 				when HOME =>
 					if (s_start = '1') then
@@ -38,7 +33,6 @@ begin
 						state_out <= to_slv(HOME);
 					end if;
 				when START =>
-<<<<<<< HEAD
                 if (s_reset = '1') then
                     game_state <= HOME;
 						  state_out <= to_slv(HOME);
@@ -60,32 +54,6 @@ begin
 							game_state <= PAUSE;
 							state_out <= to_slv(PAUSE);
                 end if;
-=======
-					game_state <= START;
-					state_out <= to_slv(START);
-                if (pb3 = '0') then
-                    game_state <= RESET_GAME;
-						  state_out <= to_slv(RESET_GAME);
---                elsif (pb2 = '0' and prev_pb2 = '1') then
---                    game_state <= PAUSE;
---						  state_out <= to_slv(PAUSE);
-					else
-						game_state <= START;
-						state_out <= to_slv(START);
-                end if;
-				when PAUSE =>
---                if (pb2 = '0' and prev_pb2 = '0') then
---                    game_state <= START;
---                end if;
-				when RESET_GAME =>
-					if (left_click = '1') then
-						state_out <= to_slv(HOME);
-						game_state <= HOME;
-					else
-						state_out <= to_slv(RESET_GAME);
-						game_state <= RESET_GAME;
-					end if;
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 				when GAME_END =>
 					if (s_reset = '1') then
 						game_state <= HOME;
@@ -97,11 +65,7 @@ begin
 				when others =>
 					state_out <= to_slv(HOME);
 			end case;
-<<<<<<< HEAD
 		end if;
-=======
-			game_state <= to_state_type(state_in);
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
     end process;
 	 
 	 Pb_Check : process (clk)

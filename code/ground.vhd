@@ -6,12 +6,7 @@ use work.game_type_pkg.ALL;
 ENTITY ground IS
     PORT
     (
-<<<<<<< HEAD
         clk, vert_sync: IN std_logic;
-=======
-        clk, vert_sync, left_click : IN std_logic;
-		  input_state : IN std_logic_vector(3 DOWNTO 0);
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
 		  input_state: IN std_logic_vector(3 downto 0);
         output_on : OUT std_logic;
@@ -69,7 +64,6 @@ BEGIN
     RGB <= ground_data WHEN (ground_on /= "000") ELSE (others => '0');
     output_on <= '1' WHEN ground_on > "000" ELSE '0';
 
-<<<<<<< HEAD
 	Move_Ground: PROCESS (vert_sync)
 	variable game_state : state_type;
 	BEGIN
@@ -85,28 +79,6 @@ BEGIN
 						END IF;
 					END LOOP;
 			end if;
-=======
-	Move_Ground: PROCESS (vert_sync, left_click, input_state)
-		variable game_state : state_type;
-	BEGIN
-		IF rising_edge(vert_sync) THEN
-			game_state := to_state_type(input_state);
-			IF game_state = RESET_GAME THEN
-				 -- Reset ground positions to initial values
-				ground_x_pos <= (to_signed(0, 11), to_signed(320, 11), to_signed(639, 11));
-			END IF;
-			
-			IF game_state = START THEN
-				FOR i IN 0 TO 2 LOOP
-					ground_x_pos(i) <= ground_x_pos(i) - to_signed(1, 11);
-					IF ground_x_pos(i) < -to_signed(ground_x_size, 11) THEN
-						ground_x_pos(i) <= ground_x_pos((i + 2) MOD 3) + to_signed(ground_x_size - 2, 11);
-					END IF;
-				END LOOP;
-
-            prev_left_click <= left_click;
-			END IF;
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 		END IF;
 	END PROCESS Move_Ground;
 

@@ -21,97 +21,66 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-<<<<<<< HEAD
 	(rect 16 16 240 192)
-=======
-	(rect 16 16 224 192)
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 	(text "text_rom" (rect 5 0 41 12)(font "Arial" ))
 	(text "inst" (rect 8 160 20 172)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
-		(text "pixel_row[9..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "pixel_row[9..0]" (rect 21 27 77 39)(font "Arial" ))
+		(text "character_address[5..0]" (rect 0 0 95 12)(font "Arial" ))
+		(text "character_address[5..0]" (rect 21 27 116 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 0 48)
 		(input)
-		(text "pixel_col[9..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "pixel_col[9..0]" (rect 21 43 74 55)(font "Arial" ))
+		(text "pixel_row[9..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "pixel_row[9..0]" (rect 21 43 77 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "clk" (rect 0 0 10 12)(font "Arial" ))
-		(text "clk" (rect 21 59 31 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
+		(text "pixel_col[9..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "pixel_col[9..0]" (rect 21 59 74 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "collision" (rect 0 0 28 12)(font "Arial" ))
-		(text "collision" (rect 21 75 49 87)(font "Arial" ))
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 75 31 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 1))
 	)
 	(port
 		(pt 0 96)
 		(input)
-<<<<<<< HEAD
 		(text "life[1..0]" (rect 0 0 29 12)(font "Arial" ))
 		(text "life[1..0]" (rect 21 91 50 103)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 3))
-=======
-		(text "left_click" (rect 0 0 34 12)(font "Arial" ))
-		(text "left_click" (rect 21 91 55 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 1))
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 	)
 	(port
 		(pt 0 112)
 		(input)
-<<<<<<< HEAD
 		(text "score[9..0]" (rect 0 0 42 12)(font "Arial" ))
 		(text "score[9..0]" (rect 21 107 63 119)(font "Arial" ))
-=======
-		(text "input_state[3..0]" (rect 0 0 62 12)(font "Arial" ))
-		(text "input_state[3..0]" (rect 21 107 83 119)(font "Arial" ))
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 		(line (pt 0 112)(pt 16 112)(line_width 3))
 	)
 	(port
 		(pt 0 128)
 		(input)
-<<<<<<< HEAD
 		(text "input_state[3..0]" (rect 0 0 62 12)(font "Arial" ))
 		(text "input_state[3..0]" (rect 21 123 83 135)(font "Arial" ))
-=======
-		(text "score[9..0]" (rect 0 0 42 12)(font "Arial" ))
-		(text "score[9..0]" (rect 21 123 63 135)(font "Arial" ))
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
-		(pt 208 32)
+		(pt 224 32)
 		(output)
-		(text "output_on" (rect 0 0 38 12)(font "Arial" ))
-		(text "output_on" (rect 149 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 1))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "RGB[11..0]" (rect 0 0 43 12)(font "Arial" ))
-		(text "RGB[11..0]" (rect 144 43 187 55)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48)(line_width 3))
+		(text "output" (rect 0 0 23 12)(font "Arial" ))
+		(text "output" (rect 180 27 203 39)(font "Arial" ))
+		(line (pt 224 32)(pt 208 32)(line_width 1))
 	)
 	(drawing
-<<<<<<< HEAD
 		(rectangle (rect 16 16 208 160)(line_width 1))
-=======
-		(rectangle (rect 16 16 192 160)(line_width 1))
->>>>>>> 575764bd812c766414a2f0f66cce07d4ea17232f
 	)
 )

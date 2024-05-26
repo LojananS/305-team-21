@@ -11,7 +11,6 @@ PACKAGE BODY game_type_pkg IS
             WHEN "0010" => RETURN PAUSE;
             WHEN "0011" => RETURN RESET_GAME;
             WHEN "0100" => RETURN GAME_END;
-				WHEN "0101" => RETURN TRAINING;
             WHEN OTHERS => RETURN HOME;
         END CASE;
     END FUNCTION;
@@ -24,7 +23,6 @@ PACKAGE BODY game_type_pkg IS
             WHEN PAUSE     => RETURN "0010";
             WHEN RESET_GAME=> RETURN "0011";
             WHEN GAME_END  => RETURN "0100";
-				WHEN TRAINING  => RETURN "0101";
             WHEN OTHERS    => RETURN "0000";
         END CASE;
     END FUNCTION;
