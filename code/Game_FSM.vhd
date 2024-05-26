@@ -40,8 +40,8 @@ begin
                 end if;
 				when RESET_GAME =>
 					if (left_click = '1') then
-						state_out <= to_slv(START);
-						game_state <= START;
+						state_out <= to_slv(HOME);
+						game_state <= HOME;
 					else
 						state_out <= to_slv(RESET_GAME);
 						game_state <= RESET_GAME;
