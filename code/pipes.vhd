@@ -6,10 +6,9 @@ use work.game_type_pkg.ALL;
 ENTITY pipes IS
     PORT
     (
-        clk, vert_sync, reset_signal, collision, reset_pipes: IN std_logic;
+        clk, vert_sync: IN std_logic;
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
 		  input_state : IN std_logic_vector(3 DOWNTO 0); -- Input state for FSM
-		  output_state : OUT std_logic_vector(3 DOWNTO 0); -- Output state for FSM
         output_on : OUT std_logic;
         RGB : OUT std_logic_vector(11 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
@@ -17,7 +16,8 @@ ENTITY pipes IS
         blue_box_x_pos : OUT signed(10 DOWNTO 0);
         blue_box_y_pos : OUT signed(9 DOWNTO 0);
         reset_blue_box : IN std_logic;
-        ball_x_pos, ball_y_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
+        ball_x_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
+		  ball_y_pos : in signed (9 downto 0);
         ball_size : IN signed(9 DOWNTO 0) -- Add ball size input
     );      
 END pipes;
@@ -75,7 +75,7 @@ BEGIN
     lfsr_inst: galois_lfsr
         PORT MAP (
             clk => clk,
-            reset => reset_signal,
+            reset => '0',
             random_value => random_value
         );
     coin_inst: coin_rom
@@ -138,11 +138,12 @@ BEGIN
 
     output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset_signal, collision, reset_pipes, reset_blue_box, blue_box_visible)
+    Move_pipe: PROCESS (vert_sync, reset_blue_box, blue_box_visible)
 		variable game_state : state_type;
 	BEGIN
 			IF rising_edge(vert_sync) THEN
-			game_state := to_state_type(input_state);
+				-- Convert input_state to state_type
+				game_state := to_state_type(input_state);
 			
 			IF (game_state = RESET_GAME OR game_state = HOME) THEN
                     -- Reset pipes to their original positions
@@ -156,6 +157,8 @@ BEGIN
                     blue_box_y_pos_internal <= to_signed(240, 10);
                     coin_active <= '0';
                     blue_box_visible <= '1'; -- Make the coin visible again
+			ELSIF game_state = PAUSE THEN
+				null;
 			ELSIF game_state = START THEN
                     IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
                         p1_x_pos_internal <= to_signed(640, 11);

@@ -21,7 +21,7 @@ PACKAGE BODY game_type_pkg IS
             WHEN HOME      => RETURN "0000";
             WHEN START     => RETURN "0001";
             WHEN PAUSE     => RETURN "0010";
-            WHEN RESET_GAME     => RETURN "0011";
+            WHEN RESET_GAME=> RETURN "0011";
             WHEN GAME_END  => RETURN "0100";
             WHEN OTHERS    => RETURN "0000";
         END CASE;

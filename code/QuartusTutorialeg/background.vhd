@@ -1,12 +1,14 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+use work.game_type_pkg.ALL;
 
 ENTITY background IS
     PORT
     (
-        pixel_row, pixel_column    : IN std_logic_vector(9 DOWNTO 0);
-        pb1, clk, vert_sync, left_click, collision, reset : IN std_logic;
+        pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
+        pb1, clk, vert_sync: IN std_logic;
+		  input_state: IN std_logic_vector(3 downto 0);
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
     );        
@@ -93,20 +95,13 @@ BEGIN
         END IF;
     END PROCESS;
 
-    Move_Stars: PROCESS (vert_sync, left_click, collision, reset)
+    Move_Stars: PROCESS (vert_sync)
+	 variable game_state : state_type;
     BEGIN
         IF rising_edge(vert_sync) THEN
-            IF collision = '1' THEN
-                start_move <= '0';
-                collision_occurred <= '1';
-            END IF;
+				game_state := to_state_type(input_state);
 
-            IF collision_occurred = '1' AND left_click = '1' THEN
-                reset_background <= '1';
-                collision_occurred <= '0';
-            END IF;
-
-            IF reset_background = '1' THEN
+            IF game_state = HOME THEN
                 -- Reset star positions to initial values
                 star_x_positions <= (
                     std_logic_vector(to_unsigned(100, 10)), 
@@ -130,11 +125,9 @@ BEGIN
                     std_logic_vector(to_unsigned(80, 10)),  
                     std_logic_vector(to_unsigned(180, 10))
                 );
-                start_move <= '1';
-                reset_background <= '0';
-            END IF;
-
-            IF start_move = '1' THEN
+				ELSIF game_state = PAUSE THEN
+					null;
+            ELSIF game_state = START THEN
                 FOR i IN 0 TO star_count-1 LOOP
                     star_x_positions(i) <= std_logic_vector(unsigned(star_x_positions(i)) - unsigned(star_speed));
 
@@ -143,8 +136,6 @@ BEGIN
                     END IF;
                 END LOOP;
             END IF;
-
-            prev_left_click <= left_click;
         END IF;
     END PROCESS Move_Stars;
 

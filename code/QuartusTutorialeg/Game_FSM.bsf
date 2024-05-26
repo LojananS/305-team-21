@@ -4,9 +4,9 @@ editor if you plan to continue editing the block that represents it in
 the Block Editor! File corruption is VERY likely to occur.
 */
 /*
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2023  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -16,13 +16,14 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 192)
+	(rect 16 16 192 160)
 	(text "Game_FSM" (rect 5 0 55 12)(font "Arial" ))
-	(text "inst" (rect 8 160 20 172)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -33,53 +34,39 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "sw9" (rect 0 0 15 12)(font "Arial" ))
-		(text "sw9" (rect 21 43 36 55)(font "Arial" ))
+		(text "pb2" (rect 0 0 14 12)(font "Arial" ))
+		(text "pb2" (rect 21 43 35 55)(font "Arial" ))
 		(line (pt 0 48)(pt 16 48)(line_width 1))
 	)
 	(port
 		(pt 0 64)
 		(input)
-		(text "pb1" (rect 0 0 12 12)(font "Arial" ))
-		(text "pb1" (rect 21 59 33 71)(font "Arial" ))
+		(text "pb3" (rect 0 0 14 12)(font "Arial" ))
+		(text "pb3" (rect 21 59 35 71)(font "Arial" ))
 		(line (pt 0 64)(pt 16 64)(line_width 1))
 	)
 	(port
 		(pt 0 80)
 		(input)
-		(text "pb2" (rect 0 0 14 12)(font "Arial" ))
-		(text "pb2" (rect 21 75 35 87)(font "Arial" ))
+		(text "pb4" (rect 0 0 15 12)(font "Arial" ))
+		(text "pb4" (rect 21 75 36 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 1))
 	)
 	(port
 		(pt 0 96)
 		(input)
-		(text "pb3" (rect 0 0 14 12)(font "Arial" ))
-		(text "pb3" (rect 21 91 35 103)(font "Arial" ))
+		(text "dead" (rect 0 0 18 12)(font "Arial" ))
+		(text "dead" (rect 21 91 39 103)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 1))
 	)
 	(port
-		(pt 0 112)
-		(input)
-		(text "left_click" (rect 0 0 34 12)(font "Arial" ))
-		(text "left_click" (rect 21 107 55 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 1))
-	)
-	(port
-		(pt 0 128)
-		(input)
-		(text "state_in[3..0]" (rect 0 0 50 12)(font "Arial" ))
-		(text "state_in[3..0]" (rect 21 123 71 135)(font "Arial" ))
-		(line (pt 0 128)(pt 16 128)(line_width 3))
-	)
-	(port
-		(pt 208 32)
+		(pt 176 32)
 		(output)
 		(text "state_out[3..0]" (rect 0 0 56 12)(font "Arial" ))
-		(text "state_out[3..0]" (rect 131 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
+		(text "state_out[3..0]" (rect 99 27 155 39)(font "Arial" ))
+		(line (pt 176 32)(pt 160 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 192 160)(line_width 1))
+		(rectangle (rect 16 16 160 128)(line_width 1))
 	)
 )
