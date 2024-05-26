@@ -17,27 +17,35 @@ architecture structural of Game_FSM is
 
 begin
 -- Process to select state
-    output_state_decode : process (sw9, pb1, pb2, pb3, left_click)
+    output_state_decode : process (state_in, sw9, pb1, pb2, pb3, left_click)
     begin
-			game_state <= to_state_type(state_in);
 			case game_state is
 				when HOME =>
 					state_out <= to_slv(HOME);
 					if (left_click = '1') then
 						game_state <= START;
+						state_out <= to_slv(START);
+					else
+						game_state <= HOME;
+						state_out <= to_slv(HOME);
 					end if;
 				when START =>
+					game_state <= START;
 					state_out <= to_slv(START);
                 if (pb3 = '0') then
                     game_state <= RESET_GAME;
-                elsif (pb2 = '0' and prev_pb2 = '1') then
-                    game_state <= PAUSE;
+						  state_out <= to_slv(RESET_GAME);
+--                elsif (pb2 = '0' and prev_pb2 = '1') then
+--                    game_state <= PAUSE;
+--						  state_out <= to_slv(PAUSE);
+					else
+						game_state <= START;
+						state_out <= to_slv(START);
                 end if;
 				when PAUSE =>
-					state_out <= to_slv(PAUSE);
-                if (pb2 = '0' and prev_pb2 = '0') then
-                    game_state <= START;
-                end if;
+--                if (pb2 = '0' and prev_pb2 = '0') then
+--                    game_state <= START;
+--                end if;
 				when RESET_GAME =>
 					if (left_click = '1') then
 						state_out <= to_slv(HOME);
@@ -54,6 +62,7 @@ begin
 				when others =>
 					state_out <= to_slv(HOME);
 			end case;
+			game_state <= to_state_type(state_in);
     end process;
 	 
 	 Pb_Check : process (clk)

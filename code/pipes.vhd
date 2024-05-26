@@ -55,12 +55,14 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL red_box_size : signed(9 DOWNTO 0) := to_signed(32, 10); -- size of the red box
     SIGNAL red_box_visible : std_logic := '1'; -- Visibility of the red box
 
-    SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
-    SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
+    SIGNAL coin_color, heart_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL coin_address, heart_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
     SIGNAL selected_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
     SIGNAL coin_active : std_logic := '0';
     SIGNAL red_box_active : std_logic := '0';
+	 
+	 SIGNAL power_state : integer range 0 to 3;
 
     COMPONENT galois_lfsr
         PORT
@@ -75,6 +77,7 @@ ARCHITECTURE behavior OF pipes IS
         PORT
         (
             clk : IN STD_LOGIC;
+				powerup_selected : IN integer range 0 to 3;
             coin_address : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
             coin_data_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
         );
@@ -90,6 +93,7 @@ BEGIN
     coin_inst: coin_rom
         PORT MAP (
             clk => clk,
+				powerup_selected => power_state,
             coin_address => coin_address,
             coin_data_out => coin_color
         );
@@ -114,45 +118,47 @@ BEGIN
                         to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
                 ELSE '0';
 
-    Coin_Display : PROCESS (clk, blue_box_visible, coin_active)
+    Powerup_Display : PROCESS (clk, blue_box_visible, coin_active)
     BEGIN
         IF rising_edge(clk) THEN
-				IF (blue_box_visible = '1' AND coin_active = '1') THEN
-					IF (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
-						to_integer(unsigned(pixel_column)) < to_integer(blue_box_x_pos_internal) + to_integer(blue_box_size) AND
-						to_integer(unsigned(pixel_row)) >= to_integer(blue_box_y_pos_internal) AND 
-						to_integer(unsigned(pixel_row)) < to_integer(blue_box_y_pos_internal) + to_integer(blue_box_size)) THEN
-						blue_box_on <= '1';
-						coin_address <= std_logic_vector(to_unsigned(
-							(to_integer(unsigned(pixel_row)) - to_integer(unsigned(blue_box_y_pos_internal))) * 32 +
-							(to_integer(unsigned(pixel_column)) - to_integer(unsigned(blue_box_x_pos_internal))), 10));
-					ELSE
-						blue_box_on <= '0';
-					END IF;
-				END IF;
-        END IF;
-    END PROCESS Coin_Display;
-
-    Red_Box_Display : PROCESS (clk)
-    BEGIN
-        IF rising_edge(clk) THEN
+            -- Handle Blue Box Display
+            IF (blue_box_visible = '1' AND coin_active = '1') THEN
+                IF (to_integer(unsigned(pixel_column)) >= to_integer(blue_box_x_pos_internal) AND 
+                    to_integer(unsigned(pixel_column)) < to_integer(blue_box_x_pos_internal) + to_integer(blue_box_size) AND
+                    to_integer(unsigned(pixel_row)) >= to_integer(blue_box_y_pos_internal) AND 
+                    to_integer(unsigned(pixel_row)) < to_integer(blue_box_y_pos_internal) + to_integer(blue_box_size)) THEN
+                    blue_box_on <= '1';
+                    coin_address <= std_logic_vector(to_unsigned(
+                        (to_integer(unsigned(pixel_row)) - to_integer(unsigned(blue_box_y_pos_internal))) * 32 +
+                        (to_integer(unsigned(pixel_column)) - to_integer(unsigned(blue_box_x_pos_internal))), 10));
+                    power_state <= 2;
+                ELSE
+                    blue_box_on <= '0';
+                END IF;
+            END IF;
+            
+            -- Handle Red Box Display
             IF (to_integer(unsigned(pixel_column)) >= to_integer(red_box_x_pos_internal) AND 
                 to_integer(unsigned(pixel_column)) < to_integer(red_box_x_pos_internal) + to_integer(red_box_size) AND
                 to_integer(unsigned(pixel_row)) >= to_integer(red_box_y_pos_internal) AND 
                 to_integer(unsigned(pixel_row)) < to_integer(red_box_y_pos_internal) + to_integer(red_box_size)) THEN
                 red_box_on <= '1';
+                heart_address <= std_logic_vector(to_unsigned(
+                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(red_box_y_pos_internal))) * 32 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(red_box_x_pos_internal))), 10));
+                power_state <= 1;
             ELSE
                 red_box_on <= '0';
             END IF;
         END IF;
-    END PROCESS Red_Box_Display;
+    END PROCESS Powerup_Display;
     
-    PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, coin_color, p1_on, p2_on, p3_on)
+    PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, coin_color, heart_color, p1_on, p2_on, p3_on)
     BEGIN
         IF blue_box_on = '1' AND coin_color /= "000100010001" THEN
             selected_color <= coin_color;
         ELSIF red_box_on = '1' AND red_box_visible = '1' THEN
-            selected_color <= "111000000000"; -- Red color for red box
+            selected_color <= heart_color; -- Heart color
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= "100010001000";
         ELSE
@@ -186,7 +192,8 @@ BEGIN
                 red_box_active <= '0';
                 blue_box_visible <= '1'; -- Make the blue box visible again
                 red_box_visible <= '1'; -- Make the red box visible again
-            ELSIF game_state = START THEN
+				END IF;
+            IF game_state = START THEN
                 -- Move pipes
                 IF (p1_x_pos_internal + pipe_x_size <= to_signed(0, 11)) THEN
                     p1_x_pos_internal <= to_signed(640, 11);

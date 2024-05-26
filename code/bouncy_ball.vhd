@@ -81,8 +81,6 @@ BEGIN
     RGB <= bird_data when (ball_on = '1' and bird_data /= "000100010001");
     output_on <= '1' when (ball_on = '1' and bird_data /= "000100010001") else '0';
 
-  
-
     Main_Process: PROCESS (vert_sync)
         VARIABLE gravity_up : integer RANGE -100 TO 0 := 0;
         VARIABLE gravity_down : integer RANGE 0 TO 4 := 1;
@@ -115,18 +113,18 @@ BEGIN
             END IF;
 
             -- Handling home state
-            IF game_state = home THEN
+            IF game_state = HOME THEN
                 -- Allow capturing sw9 state only in home state
                 sw9_captured <= sw9;
-					 output_state <= to_slv(START);
-					 
             END IF;
 				
-
+				IF game_state = RESET_GAME THEN
+					ball_y_pos <= to_signed(240, 10); -- Reset ball y position
+               ball_x_pos <= to_signed(150, 11); -- Reset ball x position
+				END IF;
+				
             -- Handling START state
             IF game_state = START THEN
-                output_state <= to_slv(START);  -- Start state
-
                 IF sw9_captured = '1' THEN -- Check if collisions are enabled
                     -- Check collision with Pipe 1
                     IF ((ball_x_pos + 2*size >= p1_x_pos AND ball_x_pos + 5 < p1_x_pos + to_signed(30, 10)) AND
@@ -162,12 +160,6 @@ BEGIN
                     touched_blue_box <= '1';
                 ELSE
                     touched_blue_box <= '0';
-                END IF;
-
-                IF collision_internal = '1' THEN
-                    output_state <= to_slv(RESET_GAME);  -- Collision state which is reset game right now. Can add endgame
-                    ball_y_pos <= to_signed(240, 10); -- Reset ball y position
-                    ball_x_pos <= to_signed(150, 11); -- Reset ball x position
                 END IF;
 
                 -- Score Calculation Logic
@@ -214,21 +206,7 @@ BEGIN
                 tens_bcd <= tens_bcd_internal;
                 units_bcd <= units_bcd_internal;
 
-                -- Moving logic
-                IF (left_click = '1' AND prev_left_click = '0') THEN
-                    IF collision_internal = '1' THEN
-                        reset_internal <= '1'; -- Reset pipes on click after collision
-                    ELSE
-                        start_move <= '1'; -- Start the bird movement
-                    END IF;
-                END IF;
-
-                IF reset_internal = '1' THEN
-                    reset_internal <= '0'; -- Clear reset signal
-                    start_move <= '0'; -- Stop the bird movement on reset
-                END IF;
-
-                IF start_move = '1' THEN
+                
                     count := count + 1;
                     IF (left_click = '1' AND prev_left_click = '0') THEN
                         count := 0;
@@ -261,7 +239,6 @@ BEGIN
                         ball_y_motion <= to_signed(gravity_down, 10);
                     END IF;
                     ball_y_pos <= ball_y_pos + ball_y_motion;
-                END IF;
 
                 prev_left_click <= left_click;
                 reset_signal <= reset_internal;
