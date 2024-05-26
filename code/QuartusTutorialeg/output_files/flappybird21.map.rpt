@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Sun May 26 13:11:13 2024
+Sun May 26 13:25:21 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -84,13 +84,13 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun May 26 13:11:13 2024           ;
+; Analysis & Synthesis Status     ; Successful - Sun May 26 13:25:21 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
 ; Family                          ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 400                                             ;
+; Total registers                 ; 424                                             ;
 ; Total pins                      ; 42                                              ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 283,648                                         ;
@@ -280,16 +280,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1023                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 1076                                                               ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 1773                                                               ;
-;     -- 7 input functions                    ; 8                                                                  ;
-;     -- 6 input functions                    ; 235                                                                ;
-;     -- 5 input functions                    ; 225                                                                ;
-;     -- 4 input functions                    ; 222                                                                ;
-;     -- <=3 input functions                  ; 1083                                                               ;
+; Combinational ALUT usage for logic          ; 1840                                                               ;
+;     -- 7 input functions                    ; 11                                                                 ;
+;     -- 6 input functions                    ; 261                                                                ;
+;     -- 5 input functions                    ; 232                                                                ;
+;     -- 4 input functions                    ; 221                                                                ;
+;     -- <=3 input functions                  ; 1115                                                               ;
 ;                                             ;                                                                    ;
-; Dedicated logic registers                   ; 400                                                                ;
+; Dedicated logic registers                   ; 424                                                                ;
 ;                                             ;                                                                    ;
 ; I/O pins                                    ; 42                                                                 ;
 ; Total MLAB memory bits                      ; 0                                                                  ;
@@ -301,9 +301,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                  ;
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 264                                                                ;
-; Total fan-out                               ; 8202                                                               ;
-; Average fan-out                             ; 3.52                                                               ;
+; Maximum fan-out                             ; 265                                                                ;
+; Total fan-out                               ; 8573                                                               ;
+; Average fan-out                             ; 3.54                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -312,15 +312,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                   ; Entity Name         ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |flappybird21block                              ; 1773 (1)            ; 400 (0)                   ; 283648            ; 1          ; 42   ; 0            ; |flappybird21block                                                                                                                                                    ; flappybird21block   ; work         ;
+; |flappybird21block                              ; 1840 (1)            ; 424 (0)                   ; 283648            ; 1          ; 42   ; 0            ; |flappybird21block                                                                                                                                                    ; flappybird21block   ; work         ;
 ;    |BCD_to_SevenSeg:inst12|                     ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst12                                                                                                                             ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:inst7|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                                                                              ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:inst8|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                                                                              ; BCD_to_SevenSeg     ; work         ;
 ;    |MOUSE:inst1|                                ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                                                                        ; MOUSE               ; work         ;
-;    |VGA_SYNC:inst10|                            ; 95 (95)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                                                    ; VGA_SYNC            ; work         ;
-;    |flappy_bird_game:inst4|                     ; 1609 (0)            ; 278 (0)                   ; 283648            ; 1          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4                                                                                                                             ; flappy_bird_game    ; work         ;
-;       |Game_FSM:FSM|                            ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|Game_FSM:FSM                                                                                                                ; Game_FSM            ; work         ;
-;       |background:BACKGROUND_Inst|              ; 76 (76)             ; 2 (2)                     ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|background:BACKGROUND_Inst                                                                                                  ; background          ; work         ;
+;    |VGA_SYNC:inst10|                            ; 97 (97)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                                                    ; VGA_SYNC            ; work         ;
+;    |flappy_bird_game:inst4|                     ; 1674 (0)            ; 302 (0)                   ; 283648            ; 1          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4                                                                                                                             ; flappy_bird_game    ; work         ;
+;       |Game_FSM:FSM|                            ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|Game_FSM:FSM                                                                                                                ; Game_FSM            ; work         ;
+;       |background:BACKGROUND_Inst|              ; 73 (73)             ; 2 (2)                     ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|background:BACKGROUND_Inst                                                                                                  ; background          ; work         ;
 ;       |bouncy_ball:BALL_Inst|                   ; 611 (338)           ; 121 (95)                  ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst                                                                                                       ; bouncy_ball         ; work         ;
 ;          |lpm_divide:Div0|                      ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|lpm_divide:Div0                                                                                       ; lpm_divide          ; work         ;
 ;             |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                         ; lpm_divide_hbm      ; work         ;
@@ -342,7 +342,7 @@ refer to the applicable agreement for further details.
 ;             |altsyncram:floor_rom_sync|         ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync                                                       ; altsyncram          ; work         ;
 ;                |altsyncram_18g1:auto_generated| ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated                        ; altsyncram_18g1     ; work         ;
 ;                   |decode_01a:rden_decode|      ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode ; decode_01a          ; work         ;
-;       |pipes:PIPES_Inst|                        ; 500 (425)           ; 107 (97)                  ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst                                                                                                            ; pipes               ; work         ;
+;       |pipes:PIPES_Inst|                        ; 567 (492)           ; 131 (121)                 ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst                                                                                                            ; pipes               ; work         ;
 ;          |coin_rom:coin_inst|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst                                                                                         ; coin_rom            ; work         ;
 ;             |altsyncram:COIN_ROM1|              ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst|altsyncram:COIN_ROM1                                                                    ; altsyncram          ; work         ;
 ;                |altsyncram_c2g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated                                     ; altsyncram_c2g1     ; work         ;
@@ -588,13 +588,12 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; ground:inst21|start_move                                                                   ; Stuck at VCC due to stuck port clock                                                               ;
 ; ground:inst21|ground_address[1..14]                                                        ; Stuck at GND due to stuck port clock                                                               ;
 ; pipes:inst20|coin_address[0]                                                               ; Stuck at GND due to stuck port clock                                                               ;
-; pipes:inst20|blue_box_y_pos_internal[0..6]                                                 ; Stuck at GND due to stuck port clock                                                               ;
 ; pipes:inst20|coin_active                                                                   ; Stuck at GND due to stuck port clock                                                               ;
 ; pipes:inst20|p1_x_pos_internal[0..10]                                                      ; Lost fanout                                                                                        ;
 ; pipes:inst20|p2_x_pos_internal[0..10]                                                      ; Lost fanout                                                                                        ;
 ; pipes:inst20|p3_x_pos_internal[0..10]                                                      ; Lost fanout                                                                                        ;
 ; pipes:inst20|coin_address[1]                                                               ; Stuck at GND due to stuck port clock                                                               ;
-; pipes:inst20|blue_box_y_pos_internal[7..9]                                                 ; Stuck at GND due to stuck port clock                                                               ;
+; pipes:inst20|blue_box_y_pos_internal[0..9]                                                 ; Stuck at GND due to stuck port clock                                                               ;
 ; pipes:inst20|blue_box_x_pos_internal[0..2]                                                 ; Stuck at GND due to stuck port clock                                                               ;
 ; pipes:inst20|blue_box_x_pos_internal[3]                                                    ; Stuck at VCC due to stuck port clock                                                               ;
 ; pipes:inst20|blue_box_x_pos_internal[4]                                                    ; Stuck at GND due to stuck port clock                                                               ;
@@ -957,6 +956,17 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ;                                                                    ;                           ; ground:inst21|ground_address[9], ground:inst21|ground_address[10],                ;
 ;                                                                    ;                           ; ground:inst21|ground_address[11], ground:inst21|ground_address[12],               ;
 ;                                                                    ;                           ; ground:inst21|ground_address[13], ground:inst21|ground_address[14]                ;
+; pipes:inst20|coin_active                                           ; Stuck at GND              ; pipes:inst20|blue_box_y_pos_internal[0], pipes:inst20|blue_box_y_pos_internal[1], ;
+;                                                                    ; due to stuck port clock   ; pipes:inst20|blue_box_y_pos_internal[2], pipes:inst20|blue_box_y_pos_internal[3], ;
+;                                                                    ;                           ; pipes:inst20|blue_box_y_pos_internal[4], pipes:inst20|blue_box_y_pos_internal[5], ;
+;                                                                    ;                           ; pipes:inst20|blue_box_y_pos_internal[6], pipes:inst20|blue_box_y_pos_internal[7], ;
+;                                                                    ;                           ; pipes:inst20|blue_box_y_pos_internal[8], pipes:inst20|blue_box_y_pos_internal[9], ;
+;                                                                    ;                           ; pipes:inst20|blue_box_x_pos_internal[8], pipes:inst20|blue_box_x_pos_internal[9], ;
+;                                                                    ;                           ; pipes:inst20|blue_box_x_pos_internal[10], pipes:inst20|coin_address[2],           ;
+;                                                                    ;                           ; pipes:inst20|coin_address[3], pipes:inst20|coin_address[4],                       ;
+;                                                                    ;                           ; pipes:inst20|coin_address[5], pipes:inst20|coin_address[6],                       ;
+;                                                                    ;                           ; pipes:inst20|coin_address[7], pipes:inst20|coin_address[8],                       ;
+;                                                                    ;                           ; pipes:inst20|coin_address[9]                                                      ;
 ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|output_state[3]       ; Stuck at GND              ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_x_pos[0],                       ;
 ;                                                                    ; due to stuck port data_in ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_x_pos[1],                       ;
 ;                                                                    ;                           ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_x_pos[2],                       ;
@@ -976,11 +986,6 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ;                                                                    ;                           ; bouncy_ball:inst25|bird_address[6], bouncy_ball:inst25|bird_address[7],           ;
 ;                                                                    ;                           ; bouncy_ball:inst25|bird_address[8], bouncy_ball:inst25|bird_address[9],           ;
 ;                                                                    ;                           ; bouncy_ball:inst25|bird_address[10], bouncy_ball:inst25|bird_address[11]          ;
-; pipes:inst20|blue_box_y_pos_internal[6]                            ; Stuck at GND              ; pipes:inst20|coin_address[1], pipes:inst20|coin_address[2],                       ;
-;                                                                    ; due to stuck port clock   ; pipes:inst20|coin_address[3], pipes:inst20|coin_address[4],                       ;
-;                                                                    ;                           ; pipes:inst20|coin_address[5], pipes:inst20|coin_address[6],                       ;
-;                                                                    ;                           ; pipes:inst20|coin_address[7], pipes:inst20|coin_address[8],                       ;
-;                                                                    ;                           ; pipes:inst20|coin_address[9]                                                      ;
 ; text_rom:inst23|reset_text                                         ; Stuck at GND              ; text_rom:inst23|disp_score, text_rom:inst23|init_disp, text_rom:inst23|fr[0],     ;
 ;                                                                    ; due to stuck port clock   ; text_rom:inst23|fr[1], text_rom:inst23|fr[2], text_rom:inst23|char_address[4],    ;
 ;                                                                    ;                           ; text_rom:inst23|char_address[5]                                                   ;
@@ -992,8 +997,6 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ;                                                                    ;                           ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[0]                                    ;
 ; text_rom:inst23|units_digit[1]                                     ; Stuck at GND              ; text_rom:inst23|char_address[0], text_rom:inst23|char_address[1],                 ;
 ;                                                                    ; due to stuck port clock   ; text_rom:inst23|char_address[3]                                                   ;
-; pipes:inst20|coin_active                                           ; Stuck at GND              ; pipes:inst20|blue_box_y_pos_internal[7], pipes:inst20|blue_box_y_pos_internal[8], ;
-;                                                                    ; due to stuck port clock   ; pipes:inst20|blue_box_y_pos_internal[9]                                           ;
 ; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|prev_sprite[0]       ; Stuck at VCC              ; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|sprite_index[1],                    ;
 ;                                                                    ; due to stuck port clock   ; bouncy_ball:inst25|sprite_rom:sprite_rom_inst|base_address[11]                    ;
 ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[9]                     ; Stuck at GND              ; pipes:inst20|galois_lfsr:lfsr_inst|lfsr_reg[8],                                   ;
@@ -1016,12 +1019,12 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 400   ;
-; Number of registers using Synchronous Clear  ; 72    ;
-; Number of registers using Synchronous Load   ; 30    ;
+; Total registers                              ; 424   ;
+; Number of registers using Synchronous Clear  ; 80    ;
+; Number of registers using Synchronous Load   ; 41    ;
 ; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 302   ;
+; Number of registers using Clock Enable       ; 323   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1031,10 +1034,11 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +-----------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                       ; Fan out ;
 +-----------------------------------------------------------------------------------------+---------+
-; flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_visible                                ; 4       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_visible                                 ; 3       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_visible                                ; 3       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|p3_x_pos_internal[7]                            ; 7       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|p3_x_pos_internal[9]                            ; 8       ;
-; flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[0]                            ; 6       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[0]                            ; 5       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[6]                            ; 6       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[7]                            ; 7       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[4]                            ; 6       ;
@@ -1048,6 +1052,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[6]                              ; 12      ;
 ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[5]                              ; 11      ;
 ; flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[4]                              ; 7       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_x_pos_internal[9]                       ; 8       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_x_pos_internal[8]                       ; 9       ;
+; flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_x_pos_internal[5]                       ; 10      ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[3]                      ; 6       ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[9]                      ; 12      ;
 ; flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[8]                      ; 11      ;
@@ -1075,7 +1082,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; MOUSE:inst1|SHIFTOUT[6]                                                                 ; 1       ;
 ; MOUSE:inst1|SHIFTOUT[7]                                                                 ; 1       ;
 ; MOUSE:inst1|SHIFTOUT[8]                                                                 ; 1       ;
-; Total number of inverted registers = 44                                                 ;         ;
+; Total number of inverted registers = 48                                                 ;         ;
 +-----------------------------------------------------------------------------------------+---------+
 
 
@@ -1084,40 +1091,44 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_gap_center_internal[8]  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_gap_center_internal[9]  ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_gap_center_internal[3]  ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|ground_address[13]       ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_gap_center_internal[1]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_gap_center_internal[2]  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_gap_center_internal[4]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_y_pos_internal[4]  ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_y_pos_internal[3]  ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|ground_address[7]        ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|fc[1]                ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[9]         ;
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[4]                                         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_motion[2]      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[0]         ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|v_count[7]                                         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_motion[1]      ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|ground_address[4]        ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|score_internal[3]     ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[9]       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_x_pos_internal[0]       ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|score_internal[8]     ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[10]      ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_x_pos_internal[2]       ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_x_pos_internal[8]       ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_y_pos_internal[6] ;
-; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_y_pos_internal[2] ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[4] ;
-; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[0]                                        ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_x_pos_internal[10] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_y_pos_internal[4] ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_y_pos_internal[1] ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[1] ;
+; 9:1                ; 12 bits   ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; Yes        ; |flappybird21block|VGA_SYNC:inst10|green_out[3]                                       ;
 ; 20:1               ; 2 bits    ; 26 LEs        ; 24 LEs               ; 2 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|char_address[5]      ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 48 LEs               ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|char_address[0]      ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_gap_center_internal[5]  ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_gap_center_internal[3]  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_gap_center_internal[6]  ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[6]         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[2]       ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 48 LEs               ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|char_address[2]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_gap_center_internal[7]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_gap_center_internal[8]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_gap_center_internal[2]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|ball_y_pos[5]         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p1_x_pos_internal[7]       ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p2_x_pos_internal[1]       ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_x_pos_internal[7]       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|p3_x_pos_internal[9]       ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|red_box_x_pos_internal[5]  ;
 ; 8:1                ; 6 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; Yes        ; |flappybird21block|flappy_bird_game:inst4|pipes:PIPES_Inst|blue_box_x_pos_internal[5] ;
 ; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|ground:GROUND_Inst|Add4                     ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|gravity_down          ;
 ; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|bouncy_ball:BALL_Inst|gravity_up            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[5]                              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst7|SevenSeg_out[3]                              ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst8|SevenSeg_out[0]                              ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |flappybird21block|BCD_to_SevenSeg:inst12|SevenSeg_out[5]                             ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|Game_FSM:FSM|Selector6                      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|Game_FSM:FSM|Selector3                      ;
 ; 23:1               ; 2 bits    ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |flappybird21block|flappy_bird_game:inst4|background:BACKGROUND_Inst|RGB[7]           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------+
 
@@ -2196,15 +2207,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------+
-; Port Connectivity Checks: "flappy_bird_game:inst4|pipes:PIPES_Inst" ;
-+-----------------+-------+----------+--------------------------------+
-; Port            ; Type  ; Severity ; Details                        ;
-+-----------------+-------+----------+--------------------------------+
-; ball_size[9..5] ; Input ; Info     ; Stuck at GND                   ;
-; ball_size[3..0] ; Input ; Info     ; Stuck at GND                   ;
-; ball_size[4]    ; Input ; Info     ; Stuck at VCC                   ;
-+-----------------+-------+----------+--------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "flappy_bird_game:inst4|pipes:PIPES_Inst"                                                                                                                ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                      ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; ball_size[9..5] ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; ball_size[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; ball_size[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                 ;
+; red_box_x_pos   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; red_box_y_pos   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; reset_red_box   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -2233,34 +2247,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 400                         ;
+; arriav_ff             ; 424                         ;
 ;     CLR               ; 1                           ;
-;     ENA               ; 230                         ;
+;     ENA               ; 233                         ;
 ;     ENA CLR           ; 15                          ;
-;     ENA SCLR          ; 28                          ;
-;     ENA SLD           ; 29                          ;
+;     ENA SCLR          ; 36                          ;
+;     ENA SLD           ; 39                          ;
 ;     SCLR              ; 44                          ;
-;     SLD               ; 1                           ;
-;     plain             ; 52                          ;
+;     SLD               ; 2                           ;
+;     plain             ; 54                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1773                        ;
-;     arith             ; 708                         ;
+; arriav_lcell_comb     ; 1840                        ;
+;     arith             ; 719                         ;
 ;         0 data inputs ; 67                          ;
-;         1 data inputs ; 389                         ;
+;         1 data inputs ; 400                         ;
 ;         2 data inputs ; 65                          ;
 ;         3 data inputs ; 114                         ;
 ;         4 data inputs ; 68                          ;
 ;         5 data inputs ; 5                           ;
-;     extend            ; 8                           ;
-;         7 data inputs ; 8                           ;
-;     normal            ; 963                         ;
+;     extend            ; 11                          ;
+;         7 data inputs ; 11                          ;
+;     normal            ; 1016                        ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 25                          ;
-;         2 data inputs ; 202                         ;
-;         3 data inputs ; 126                         ;
-;         4 data inputs ; 154                         ;
-;         5 data inputs ; 220                         ;
-;         6 data inputs ; 235                         ;
+;         1 data inputs ; 26                          ;
+;         2 data inputs ; 215                         ;
+;         3 data inputs ; 133                         ;
+;         4 data inputs ; 153                         ;
+;         5 data inputs ; 227                         ;
+;         6 data inputs ; 261                         ;
 ;     shared            ; 94                          ;
 ;         0 data inputs ; 13                          ;
 ;         1 data inputs ; 59                          ;
@@ -2272,7 +2286,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 68                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.20                       ;
-; Average LUT depth     ; 6.15                        ;
+; Average LUT depth     ; 6.14                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2291,7 +2305,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Sun May 26 13:10:56 2024
+    Info: Processing started: Sun May 26 13:25:12 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -2336,7 +2350,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file /users/
     Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/htho884/Documents/GitHub/305-team-21/code/BCD_to_7Seg.vhd Line: 12
     Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/htho884/Documents/GitHub/305-team-21/code/BCD_to_7Seg.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/github/305-team-21/code/pipes.vhd
-    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 24
+    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 27
     Info (12023): Found entity 1: pipes File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
     Info (12023): Found entity 1: pll File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/pll.v Line: 8
@@ -2490,10 +2504,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_1qg1 File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_1qg1" for hierarchy "flappy_bird_game:inst4|bouncy_ball:BALL_Inst|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "pipes" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/flappy_bird_game.vhd Line: 151
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(37): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 37
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(46): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 46
-Info (12128): Elaborating entity "galois_lfsr" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst|galois_lfsr:lfsr_inst" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 74
-Info (12128): Elaborating entity "coin_rom" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 80
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(40): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 40
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(49): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 49
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(56): used explicit default value for signal "red_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 56
+Info (12128): Elaborating entity "galois_lfsr" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst|galois_lfsr:lfsr_inst" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 85
+Info (12128): Elaborating entity "coin_rom" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 91
 Info (12128): Elaborating entity "altsyncram" for hierarchy "flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/coin_rom.vhd Line: 44
 Info (12130): Elaborated megafunction instantiation "flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/coin_rom.vhd Line: 44
 Info (12133): Instantiated megafunction "flappy_bird_game:inst4|pipes:PIPES_Inst|coin_rom:coin_inst|altsyncram:COIN_ROM1" with the following parameter: File: C:/Users/htho884/Documents/GitHub/305-team-21/code/coin_rom.vhd Line: 44
@@ -2589,8 +2604,9 @@ Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHARO
 Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/GitHub/305-team-21/code/mouse.vhd Line: 157
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
 Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst20"
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(37): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 37
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(46): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 46
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(40): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 40
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(49): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 49
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(56): used explicit default value for signal "red_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 56
 Info (12128): Elaborating entity "ground" for hierarchy "ground:inst21"
 Warning (10540): VHDL Signal Declaration warning at ground.vhd(25): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/ground.vhd Line: 25
 Warning (10540): VHDL Signal Declaration warning at ground.vhd(26): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: C:/Users/htho884/Documents/GitHub/305-team-21/code/ground.vhd Line: 26
@@ -2708,7 +2724,7 @@ Info (278001): Inferred 7 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|bouncy_ball:BALL_Inst|Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/bouncy_ball.vhd Line: 211
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|bouncy_ball:BALL_Inst|Div1" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/bouncy_ball.vhd Line: 210
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|bouncy_ball:BALL_Inst|Div0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/bouncy_ball.vhd Line: 209
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|pipes:PIPES_Inst|Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 160
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|pipes:PIPES_Inst|Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 192
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|Div0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/text_rom.vhd Line: 154
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/text_rom.vhd Line: 156
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "flappy_bird_game:inst4|text_rom:TEXT_ROM_Inst|Div1" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/text_rom.vhd Line: 155
@@ -2748,8 +2764,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_nlh File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kve.tdf
     Info (12023): Found entity 1: alt_u_div_kve File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "flappy_bird_game:inst4|pipes:PIPES_Inst|lpm_divide:Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 160
-Info (12133): Instantiated megafunction "flappy_bird_game:inst4|pipes:PIPES_Inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 160
+Info (12130): Elaborated megafunction instantiation "flappy_bird_game:inst4|pipes:PIPES_Inst|lpm_divide:Mod0" File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 192
+Info (12133): Instantiated megafunction "flappy_bird_game:inst4|pipes:PIPES_Inst|lpm_divide:Mod0" with the following parameter: File: C:/Users/htho884/Documents/GitHub/305-team-21/code/pipes.vhd Line: 192
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
@@ -2761,7 +2777,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/abs_
     Info (12023): Found entity 1: abs_divider_scg File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0p9.tdf
     Info (12023): Found entity 1: lpm_abs_0p9 File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf Line: 22
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch flappy_bird_game:inst4|bouncy_ball:BALL_Inst|RGB[3] has unsafe behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/code/bouncy_ball.vhd Line: 81
     Warning (13013): Ports D and ENA on the latch are fed by the same signal flappy_bird_game:inst4|bouncy_ball:BALL_Inst|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated|q_a[3] File: C:/Users/htho884/Documents/GitHub/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 31
 Warning (13012): Latch flappy_bird_game:inst4|bouncy_ball:BALL_Inst|RGB[2] has unsafe behavior File: C:/Users/htho884/Documents/GitHub/305-team-21/code/bouncy_ball.vhd Line: 81
@@ -3025,18 +3041,18 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 2021 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2098 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 36 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1909 logic cells
+    Info (21061): Implemented 1986 logic cells
     Info (21064): Implemented 68 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 401 warnings
-    Info: Peak virtual memory: 4996 megabytes
-    Info: Processing ended: Sun May 26 13:11:13 2024
-    Info: Elapsed time: 00:00:17
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 403 warnings
+    Info: Peak virtual memory: 5009 megabytes
+    Info: Processing ended: Sun May 26 13:25:21 2024
+    Info: Elapsed time: 00:00:09
     Info: Total CPU time (on all processors): 00:00:05
 
 
