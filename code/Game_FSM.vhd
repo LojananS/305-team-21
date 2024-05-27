@@ -22,7 +22,6 @@ begin
 -- Process to select state
     output_state_decode : process (s_start, s_reset, s_pause)
     begin
-		if rising_edge(clk) then
 			case game_state is
 				when HOME =>
 					if (s_start = '1') then
@@ -65,12 +64,12 @@ begin
 				when others =>
 					state_out <= to_slv(HOME);
 			end case;
-		end if;
     end process;
 	 
 	 Pb_Check : process (clk)
 	 begin
 		if (rising_edge(clk)) then
+			--if (pb2 = '0' and prev_pb2 = '1' and game_state = START) then
 			if (pb2 = '0' and prev_pb2 = '1') then
 				s_pause <= not s_pause;
 			end if;
