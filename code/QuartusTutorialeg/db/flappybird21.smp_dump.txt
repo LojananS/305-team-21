@@ -7,22 +7,6 @@ Name \Move_Ground:game_state.GAME_END \Move_Ground:game_state.RESET_GAME \Move_G
 \Move_Ground:game_state.RESET_GAME 0 1 0 0 1 
 \Move_Ground:game_state.GAME_END 1 0 0 0 1 
 
-State Machine - |flappybird21block|text_rom:inst23|game_state
-Name game_state.GAME_END game_state.RESET_GAME game_state.PAUSE game_state.START game_state.HOME 
-game_state.HOME 0 0 0 0 0 
-game_state.START 0 0 0 1 1 
-game_state.PAUSE 0 0 1 0 1 
-game_state.RESET_GAME 0 1 0 0 1 
-game_state.GAME_END 1 0 0 0 1 
-
-State Machine - |flappybird21block|Game_FSM:inst3|game_state
-Name game_state.GAME_END game_state.RESET_GAME game_state.PAUSE game_state.START game_state.HOME 
-game_state.HOME 0 0 0 0 0 
-game_state.START 0 0 0 1 1 
-game_state.PAUSE 0 0 1 0 1 
-game_state.RESET_GAME 0 1 0 0 1 
-game_state.GAME_END 1 0 0 0 1 
-
 State Machine - |flappybird21block|pipes:inst20|\Move_pipe:game_state
 Name \Move_pipe:game_state.GAME_END \Move_pipe:game_state.RESET_GAME \Move_pipe:game_state.PAUSE \Move_pipe:game_state.START \Move_pipe:game_state.HOME 
 \Move_pipe:game_state.HOME 0 0 0 0 0 
@@ -55,3 +39,19 @@ Name \Pixel_Display:game_state.GAME_END \Pixel_Display:game_state.RESET_GAME \Pi
 \Pixel_Display:game_state.PAUSE 0 0 1 0 1 
 \Pixel_Display:game_state.RESET_GAME 0 1 0 0 1 
 \Pixel_Display:game_state.GAME_END 1 0 0 0 1 
+
+State Machine - |flappybird21block|Game_FSM:inst3|game_state
+Name game_state.GAME_END game_state.RESET_GAME game_state.PAUSE game_state.START game_state.HOME 
+game_state.HOME 0 0 0 0 0 
+game_state.START 0 0 0 1 1 
+game_state.PAUSE 0 0 1 0 1 
+game_state.RESET_GAME 0 1 0 0 1 
+game_state.GAME_END 1 0 0 0 1 
+
+State Machine - |flappybird21block|text_rom:inst23|game_state
+Name game_state.GAME_END game_state.RESET_GAME game_state.PAUSE game_state.START game_state.HOME 
+game_state.HOME 0 0 0 0 0 
+game_state.START 0 0 0 1 1 
+game_state.PAUSE 0 0 1 0 1 
+game_state.RESET_GAME 0 1 0 0 1 
+game_state.GAME_END 1 0 0 0 1 

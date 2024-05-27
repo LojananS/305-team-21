@@ -85,7 +85,7 @@ BEGIN
 			WHEN "7" => RETURN "110111"; -- '7'
 			WHEN "8" => RETURN "111000"; -- '8'
 			WHEN "9" => RETURN "111001"; -- '9'
-			WHEN ":" => return "111010"; -- ':'
+			WHEN ":" => return "100010"; -- ':'
 		  WHEN OTHERS => RETURN "100000"; -- default to ' '
     END CASE;
 END FUNCTION;
