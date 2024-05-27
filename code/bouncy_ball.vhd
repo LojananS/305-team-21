@@ -187,25 +187,25 @@ BEGIN
 
             -- Handling START state
             IF game_state = START THEN
-                IF sw9 = '1' THEN -- Check if collisions are enabled
+                IF sw9_captured = '1' THEN -- Check if collisions are enabled
                     -- Check collision with Pipe 1
                     IF ((ball_x_pos + 2*size >= p1_x_pos AND ball_x_pos < p1_x_pos + to_signed(30, 10)) AND
-                        ((ball_y_pos + 8 <= p1_gap_center - to_signed(45, 10)) OR 
-                        (ball_y_pos + 2*size - 8 >= p1_gap_center + to_signed(45, 10)))) THEN
+                        ((ball_y_pos + 8 <= p1_gap_center - to_signed(50,10)) OR 
+                        (ball_y_pos + 2*size - 8 >= p1_gap_center + to_signed(50,10)))) THEN
                         collision_internal_pipe1 <= '1';
                     END IF;
 
                     -- Check collision with Pipe 2
                     IF ((ball_x_pos + 2*size >= p2_x_pos AND ball_x_pos + 5 < p2_x_pos + to_signed(30, 10)) AND
-                        ((ball_y_pos + 8 <= p2_gap_center - to_signed(45, 10)) OR 
-                        (ball_y_pos + 2*size - 8 >= p2_gap_center + to_signed(45, 10)))) THEN
+                        ((ball_y_pos + 8 <= p2_gap_center - to_signed(50,10)) OR 
+                        (ball_y_pos + 2*size - 8 >= p2_gap_center + to_signed(50,10)))) THEN
                         collision_internal_pipe2 <= '1';
                     END IF;
 
                     -- Check collision with Pipe 3
                     IF ((ball_x_pos + 2*size >= p3_x_pos AND ball_x_pos + 5 < p3_x_pos + to_signed(30, 10)) AND
-                        ((ball_y_pos + 8 <= p3_gap_center - to_signed(45, 10)) OR 
-                        (ball_y_pos + 2*size - 8 >= p3_gap_center + to_signed(45, 10)))) THEN
+                        ((ball_y_pos + 8 <= p3_gap_center - to_signed(50,10)) OR 
+                        (ball_y_pos + 2*size - 8 >= p3_gap_center + to_signed(50,10)))) THEN
                         collision_internal_pipe3 <= '1';
                     END IF;
 
@@ -336,12 +336,8 @@ BEGIN
                     ball_y_motion <= to_signed(gravity_down, 10);
                 END IF;
                 
-                -- Ensure ball does not go above the top of the screen
-                IF ball_y_pos + ball_y_motion < to_signed(0, 10) THEN
-                    ball_y_pos <= to_signed(0, 10);
-                ELSE
-                    ball_y_pos <= ball_y_pos + ball_y_motion;
-                END IF;
+				    ball_y_pos <= ball_y_pos + ball_y_motion;
+
             END IF;
             prev_left_click <= left_click;
         END IF;

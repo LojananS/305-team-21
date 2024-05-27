@@ -117,22 +117,22 @@ BEGIN
     p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
                      to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
                      to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
-                     (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 45 OR 
-                      to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center_internal) + 45))
+                     (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 50 OR 
+                      to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center_internal) + 50))
              ELSE '0';
 
     p2_on <= '1' WHEN (p2_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
                        to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos_internal) AND 
                        to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos_internal) + to_integer(pipe_x_size) AND
-                       (to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) - 45 OR 
-                        to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center_internal) + 45))
+                       (to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) - 50 OR 
+                        to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center_internal) + 50))
                 ELSE '0';
 
     p3_on <= '1' WHEN (p3_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
                        to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos_internal) AND 
                        to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos_internal) + to_integer(pipe_x_size) AND
-                       (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 45 OR 
-                        to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 45))
+                       (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 50 OR 
+                        to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 50))
                 ELSE '0';
 
     Coin_Display : PROCESS (clk)

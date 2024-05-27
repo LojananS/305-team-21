@@ -11,6 +11,7 @@ ENTITY background IS
         input_state: IN std_logic_vector(3 DOWNTO 0);
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
+--		  score : IN integer range 0 to 999 
     );        
 END background;
 
