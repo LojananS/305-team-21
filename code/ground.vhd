@@ -20,7 +20,7 @@ ARCHITECTURE behavior OF ground IS
         PORT
         (
             clk            : IN std_logic;
-            floor_address  : IN std_logic_vector(15 DOWNTO 0);
+            floor_address  : IN std_logic_vector(13 DOWNTO 0);
             data_out       : OUT std_logic_vector(11 DOWNTO 0)
         );
     END COMPONENT;
@@ -33,7 +33,7 @@ ARCHITECTURE behavior OF ground IS
     CONSTANT ground_x_size : integer range 0 to 320 := 320;
     SIGNAL ground_on : std_logic_vector(2 DOWNTO 0);
 
-    SIGNAL ground_address : std_logic_vector(15 DOWNTO 0);
+    SIGNAL ground_address : std_logic_vector(13 DOWNTO 0);
     SIGNAL ground_data : std_logic_vector(11 DOWNTO 0);
     SIGNAL toggle_state : std_logic := '0';
     SIGNAL pb1_prev : std_logic := '0';
@@ -69,7 +69,7 @@ BEGIN
                     ground_on(i) <= '1';
                     ground_address <= std_logic_vector(to_unsigned(
                         ((to_integer(unsigned(pixel_row)) - to_integer(unsigned(ground_y_pos))) * 320) +
-                        (to_integer(unsigned(pixel_column)) - to_integer(ground_x_pos(i))), 16));
+                        (to_integer(unsigned(pixel_column)) - to_integer(ground_x_pos(i))), 14));
                 END IF;
             END LOOP;
         END IF;

@@ -49,7 +49,10 @@ ARCHITECTURE behavior OF bouncy_ball IS
     SIGNAL heart1_on, heart2_on, heart3_on : std_logic;
     SIGNAL heart_x_pos : signed(10 DOWNTO 0) := to_signed(600, 11);
     SIGNAL heart_y_pos : signed(9 DOWNTO 0) := to_signed(10, 10);
-    SIGNAL heart_size : signed(3 DOWNTO 0) := to_signed(10, 4);
+    SIGNAL heart_size : signed(4 DOWNTO 0) := to_signed(16, 5);
+	 
+	 SIGNAL lives_address : std_logic_vector(8 DOWNTO 0);
+	 SIGNAL heart1_data, heart2_data, heart3_data : std_logic_vector(11 DOWNTO 0);
     
     SIGNAL s_dead: std_logic := '0';
     SIGNAL s_life: integer range 0 to 3 := 3;
@@ -63,6 +66,20 @@ ARCHITECTURE behavior OF bouncy_ball IS
             data_out       : OUT std_logic_vector(11 DOWNTO 0)
         );
     END COMPONENT;
+	 
+	 COMPONENT heart_rom IS
+    PORT
+    (
+        clk             :   IN STD_LOGIC;
+		  heart1_on       :   IN STD_LOGIC;
+        heart2_on       :   IN STD_LOGIC;
+        heart3_on       :   IN STD_LOGIC;
+        heart_address  :   IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+        heart1_data_out :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+        heart2_data_out :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+        heart3_data_out :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+    );
+	END COMPONENT heart_rom;
 
 BEGIN
     sprite_rom_inst : sprite_rom
@@ -71,6 +88,18 @@ BEGIN
             sprite_address => bird_address,
             data_out => bird_data
         );
+		  
+	heart_rom_inst : heart_rom
+		PORT MAP (
+			clk => clk,
+			heart1_on => heart1_on,
+			heart2_on => heart2_on,
+			heart3_on => heart3_on,
+			heart_address => lives_address,
+			heart1_data_out => heart1_data,
+			heart2_data_out => heart2_data,
+			heart3_data_out => heart3_data
+		);
 
     Pixel_Display : PROCESS (clk)
         VARIABLE game_state : state_type;
@@ -97,10 +126,13 @@ BEGIN
             IF sw9_captured = '1' THEN
                 IF s_life >= 1 THEN
                     IF (unsigned(pixel_column) >= unsigned(heart_x_pos - 40) AND 
-                        unsigned(pixel_column) < unsigned(heart_x_pos - 40) + 10 AND
+                        unsigned(pixel_column) < unsigned(heart_x_pos - 40) + 16 AND
                         unsigned(pixel_row) >= unsigned(heart_y_pos) AND 
-                        unsigned(pixel_row) < unsigned(heart_y_pos) + 10) THEN
+                        unsigned(pixel_row) < unsigned(heart_y_pos) + 16) THEN
                         heart3_on <= '1';
+								lives_address <= std_logic_vector(to_unsigned(
+									(to_integer(unsigned(pixel_row)) - to_integer(unsigned(heart_y_pos))) * 16 +
+									(to_integer(unsigned(pixel_column)) - to_integer(unsigned(heart_x_pos - 40))), 9));
                     ELSE
                         heart3_on <= '0';
                     END IF;
@@ -110,10 +142,13 @@ BEGIN
 
                 IF s_life >= 2 THEN
                     IF (unsigned(pixel_column) >= unsigned(heart_x_pos - 20) AND 
-                        unsigned(pixel_column) < unsigned(heart_x_pos - 20) + 10 AND
+                        unsigned(pixel_column) < unsigned(heart_x_pos - 20) + 16 AND
                         unsigned(pixel_row) >= unsigned(heart_y_pos) AND 
-                        unsigned(pixel_row) < unsigned(heart_y_pos) + 10) THEN
+                        unsigned(pixel_row) < unsigned(heart_y_pos) + 16) THEN
                         heart2_on <= '1';
+								lives_address <= std_logic_vector(to_unsigned(
+									(to_integer(unsigned(pixel_row)) - to_integer(unsigned(heart_y_pos))) * 16 +
+									(to_integer(unsigned(pixel_column)) - to_integer(unsigned(heart_x_pos - 20))), 9));
                     ELSE
                         heart2_on <= '0';
                     END IF;
@@ -123,10 +158,13 @@ BEGIN
 
                 IF s_life >= 3 THEN
                     IF (unsigned(pixel_column) >= unsigned(heart_x_pos) AND 
-                        unsigned(pixel_column) < unsigned(heart_x_pos) + 10 AND
+                        unsigned(pixel_column) < unsigned(heart_x_pos) + 16 AND
                         unsigned(pixel_row) >= unsigned(heart_y_pos) AND 
-                        unsigned(pixel_row) < unsigned(heart_y_pos) + 10) THEN
+                        unsigned(pixel_row) < unsigned(heart_y_pos) + 16) THEN
                         heart1_on <= '1';
+								lives_address <= std_logic_vector(to_unsigned(
+									(to_integer(unsigned(pixel_row)) - to_integer(unsigned(heart_y_pos))) * 16 +
+									(to_integer(unsigned(pixel_column)) - to_integer(unsigned(heart_x_pos))), 9));
                     ELSE
                         heart1_on <= '0';
                     END IF;
@@ -146,14 +184,14 @@ BEGIN
     ball_size <= size;
 
     RGB <=  bird_data when (ball_on = '1' and bird_data /= "000100010001") else
-           "111000000000" when (heart1_on = '1') else
-           "111000000000" when (heart2_on = '1') else
-           "111000000000" when (heart3_on = '1') else
+           heart1_data when (heart1_on = '1' and heart1_data /= "000100010001") else
+           heart2_data when (heart2_on = '1' and heart2_data /= "000100010001") else
+           heart3_data when (heart3_on = '1' and heart3_data /= "000100010001") else
            (others => '0');
     output_on <= '1' when (ball_on = '1' and bird_data /= "000100010001") else 
-                 '1' when (heart1_on = '1') else
-                 '1' when (heart2_on = '1') else
-                 '1' when (heart3_on = '1') else
+                 '1' when (heart1_on = '1' and heart1_data /= "000100010001") else
+                 '1' when (heart2_on = '1' and heart2_data /= "000100010001") else
+                 '1' when (heart3_on = '1' and heart3_data /= "000100010001") else
                  '0';
 
     Main_Process: PROCESS (vert_sync)

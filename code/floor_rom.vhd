@@ -9,7 +9,7 @@ ENTITY floor_rom IS
     PORT
     (
         clk             :   IN STD_LOGIC;
-        floor_address  :   IN STD_LOGIC_VECTOR(15 DOWNTO 0); -- Address is 16 bits
+        floor_address  :   IN STD_LOGIC_VECTOR(13 DOWNTO 0); -- Address is 14 bits
         data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Set to 12 bits color depth
     );
 END floor_rom;
@@ -35,7 +35,7 @@ ARCHITECTURE FloorSYN OF floor_rom IS
     );
     PORT (
         clock0      : IN STD_LOGIC ;
-        address_a   : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        address_a   : IN STD_LOGIC_VECTOR (13 DOWNTO 0);
         q_a         : OUT STD_LOGIC_VECTOR (11 DOWNTO 0) -- Updated to 12 bits
     );
     END COMPONENT;
@@ -52,11 +52,11 @@ BEGIN
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
         lpm_type => "altsyncram",
-        numwords_a => 19200, -- Depth of address is 19200
+        numwords_a => 9600, -- Depth of address is 9600
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
         outdata_reg_a => "UNREGISTERED",
-        widthad_a => 15, -- Since depth of address is 19200, we need 2^15
+        widthad_a => 14, -- Since depth of address is 9600, we need 2^14
         width_a => 12, -- 12-bit color
         width_byteena_a => 1
     )

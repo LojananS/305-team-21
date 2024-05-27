@@ -62,6 +62,7 @@ begin
 						state_out <= to_slv(GAME_END);
 					end if;
 				when others =>
+					game_state <= HOME;
 					state_out <= to_slv(HOME);
 			end case;
     end process;
@@ -69,8 +70,7 @@ begin
 	 Pb_Check : process (clk)
 	 begin
 		if (rising_edge(clk)) then
-			--if (pb2 = '0' and prev_pb2 = '1' and game_state = START) then
-			if (pb2 = '0' and prev_pb2 = '1') then
+			if (pb2 = '0' and prev_pb2 = '1' and game_state = START) then
 				s_pause <= not s_pause;
 			end if;
 			prev_pb2 <= pb2;
