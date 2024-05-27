@@ -8,10 +8,9 @@ ENTITY background IS
     (
         pixel_row, pixel_column : IN std_logic_vector(9 DOWNTO 0);
         pb1, clk, vert_sync: IN std_logic;
-        input_state: IN std_logic_vector(3 DOWNTO 0);
+		  input_state: IN std_logic_vector(3 downto 0);
         output_on                  : OUT std_logic;
         RGB                        : OUT std_logic_vector(11 DOWNTO 0)
---		  score : IN integer range 0 to 999 
     );        
 END background;
 
@@ -21,7 +20,7 @@ ARCHITECTURE behavior OF background IS
 
     CONSTANT star_count : INTEGER := 20;
     TYPE star_array IS ARRAY (0 TO star_count-1) OF std_logic_vector(9 DOWNTO 0);
-    SIGNAL star_y_positions : star_array := (
+    CONSTANT star_y_positions : star_array := (
         std_logic_vector(to_unsigned(50, 10)),  
         std_logic_vector(to_unsigned(150, 10)), 
         std_logic_vector(to_unsigned(250, 10)), 
@@ -44,7 +43,7 @@ ARCHITECTURE behavior OF background IS
         std_logic_vector(to_unsigned(325, 10))
     );
 
-    SIGNAL star_x_positions : star_array := (
+    constant star_x_positions : star_array := (
         std_logic_vector(to_unsigned(100, 10)), 
         std_logic_vector(to_unsigned(200, 10)), 
         std_logic_vector(to_unsigned(300, 10)), 
@@ -84,24 +83,7 @@ ARCHITECTURE behavior OF background IS
     SIGNAL collision_occurred : std_logic := '0';
     SIGNAL reset_background : std_logic := '0';
 
-    SIGNAL random_value : std_logic_vector(9 DOWNTO 0);
-
-    COMPONENT galois_lfsr
-        PORT
-        (
-            clk : IN std_logic;
-            reset : IN std_logic;
-            random_value : OUT std_logic_vector(9 DOWNTO 0)
-        );
-    END COMPONENT;
-
 BEGIN
-    lfsr_inst: galois_lfsr
-        PORT MAP (
-            clk => clk,
-            reset => reset_background,
-            random_value => random_value
-        );
 
     Toggle_Background: PROCESS (clk)
     BEGIN
@@ -113,31 +95,6 @@ BEGIN
         END IF;
     END PROCESS;
 
-    Move_Stars: PROCESS (vert_sync)
-        VARIABLE game_state : state_type;
-    BEGIN
-        IF rising_edge(vert_sync) THEN
-            game_state := to_state_type(input_state);
-
-            IF game_state = HOME THEN
-                -- Reset star positions to initial values
-                FOR i IN 0 TO star_count-1 LOOP
-                    star_x_positions(i) <= std_logic_vector(unsigned(random_value) MOD to_unsigned(screen_width, 10));
-                    star_y_positions(i) <= std_logic_vector(unsigned(random_value) MOD to_unsigned(screen_height, 10));
-                END LOOP;
-            ELSIF game_state = PAUSE THEN
-                null;
-            ELSIF game_state = START THEN
-                FOR i IN 0 TO star_count-1 LOOP
-                    star_x_positions(i) <= std_logic_vector(unsigned(star_x_positions(i)) - unsigned(star_speed));
-
-                    IF unsigned(star_x_positions(i)) < unsigned(to_unsigned(0, star_x_positions(i)'length)) THEN
-                        star_x_positions(i) <= std_logic_vector(to_unsigned(screen_width, star_x_positions(i)'length));
-                    END IF;
-                END LOOP;
-            END IF;
-        END IF;
-    END PROCESS Move_Stars;
 
     PROCESS (pixel_row, pixel_column)
         VARIABLE is_star : BOOLEAN := FALSE;

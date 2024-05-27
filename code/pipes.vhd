@@ -13,9 +13,9 @@ ENTITY pipes IS
         RGB : OUT std_logic_vector(11 DOWNTO 0);
         p1_x_pos, p2_x_pos, p3_x_pos : OUT signed(10 DOWNTO 0);
         p1_gap_center, p2_gap_center, p3_gap_center : OUT signed(9 DOWNTO 0);
-        blue_box_x_pos : OUT signed(10 DOWNTO 0);
-        blue_box_y_pos : OUT signed(9 DOWNTO 0);
-        reset_blue_box : IN std_logic;
+        blue_box_x_pos, red_box_x_pos : OUT signed(10 DOWNTO 0);
+        blue_box_y_pos, red_box_y_pos : OUT signed(9 DOWNTO 0);
+        reset_blue_box, reset_red_box : IN std_logic;
         ball_x_pos : IN signed(10 DOWNTO 0); -- Add ball position inputs
         ball_y_pos : IN signed (9 DOWNTO 0);
         ball_size : IN signed(9 DOWNTO 0); -- Add ball size input
@@ -25,6 +25,8 @@ ENTITY pipes IS
 END pipes;
 
 ARCHITECTURE behavior OF pipes IS
+    CONSTANT GROUND_HEIGHT : integer := 30;
+
     SIGNAL p1_on : std_logic;
     SIGNAL p1_x_pos_internal : signed(10 DOWNTO 0) := to_signed(213, 11); 
     SIGNAL p1_gap_center_internal : signed(9 DOWNTO 0) := to_signed(240, 10);
@@ -46,8 +48,15 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL blue_box_x_pos_internal : signed(10 DOWNTO 0) := to_signed(1000, 11);
     SIGNAL blue_box_y_pos_internal : signed(9 DOWNTO 0);
 
+    SIGNAL red_box_on : std_logic := '0';
+    SIGNAL red_box_x_pos_internal : signed(10 DOWNTO 0) := to_signed(800, 11);
+    SIGNAL red_box_y_pos_internal : signed(9 DOWNTO 0);
+
     SIGNAL blue_box_size : signed(9 DOWNTO 0) := to_signed(32, 10); -- size of the blue box
     SIGNAL blue_box_visible : std_logic := '1'; -- Visibility of the blue box
+
+    SIGNAL red_box_size : signed(9 DOWNTO 0) := to_signed(32, 10); -- size of the red box
+    SIGNAL red_box_visible : std_logic := '1'; -- Visibility of the red box
 
     SIGNAL coin_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL coin_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
@@ -59,6 +68,8 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL move_speed : signed(10 DOWNTO 0) := to_signed(1, 11); -- Initial speed
 
     SIGNAL coin_active : std_logic := '0';
+    SIGNAL red_box_active : std_logic := '0';
+
     SIGNAL pipe_color : std_logic_vector(11 DOWNTO 0);
 
     COMPONENT galois_lfsr
@@ -151,11 +162,27 @@ BEGIN
             END IF;
         END IF;
     END PROCESS Coin_Display;
+
+    Red_Box_Display : PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF (to_integer(unsigned(pixel_column)) >= to_integer(red_box_x_pos_internal) AND 
+                to_integer(unsigned(pixel_column)) < to_integer(red_box_x_pos_internal) + to_integer(red_box_size) AND
+                to_integer(unsigned(pixel_row)) >= to_integer(red_box_y_pos_internal) AND 
+                to_integer(unsigned(pixel_row)) < to_integer(red_box_y_pos_internal) + to_integer(red_box_size)) THEN
+                red_box_on <= '1';
+            ELSE
+                red_box_on <= '0';
+            END IF;
+        END IF;
+    END PROCESS Red_Box_Display;
     
-    PROCESS (blue_box_on, blue_box_visible, coin_color, p1_on, p2_on, p3_on, pipe_color)
+    PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, coin_color, p1_on, p2_on, p3_on, pipe_color)
     BEGIN
         IF blue_box_on = '1' AND coin_color /= "000100010001" AND blue_box_visible = '1' THEN
             selected_color <= coin_color;
+        ELSIF red_box_on = '1' AND red_box_visible = '1' THEN
+            selected_color <= "111000000000"; -- Red color for red box
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= pipe_color;
         ELSE
@@ -168,7 +195,7 @@ BEGIN
 
     output_on <= '1' WHEN selected_color /= "000000000000" ELSE '0';
 
-    Move_pipe: PROCESS (vert_sync, reset_blue_box, blue_box_visible)
+    Move_pipe: PROCESS (vert_sync, reset_blue_box, reset_red_box, blue_box_visible, red_box_visible)
         VARIABLE game_state : state_type;
     BEGIN
         IF rising_edge(vert_sync) THEN
@@ -185,8 +212,12 @@ BEGIN
                 p3_gap_center_internal <= to_signed(100, 10);
                 blue_box_x_pos_internal <= to_signed(1000, 11);
                 blue_box_y_pos_internal <= to_signed(240, 10);
+                red_box_x_pos_internal <= to_signed(800, 11);
+                red_box_y_pos_internal <= to_signed(240, 10);
                 coin_active <= '0';
-                blue_box_visible <= '1'; -- Make the coin visible again
+                red_box_active <= '0';
+                blue_box_visible <= '1'; -- Make the blue box visible again
+                red_box_visible <= '1'; -- Make the red box visible again
             ELSIF game_state = PAUSE THEN
                 null;
             ELSIF game_state = START THEN
@@ -247,12 +278,33 @@ BEGIN
                         blue_box_x_pos_internal <= blue_box_x_pos_internal - move_speed;
                     END IF;
                 END IF;
+
+                -- Move red box independently if it is active
+                IF red_box_active = '1' THEN
+                    IF red_box_x_pos_internal + red_box_size <= to_signed(0, 11) THEN
+                        red_box_active <= '0'; -- Red box moves off the screen and resets
+                    ELSE
+                        red_box_x_pos_internal <= red_box_x_pos_internal - move_speed;
+                    END IF;
+                ELSE
+                    -- Activate red box at a random position above ground and after pipes
+                    red_box_active <= '1';
+                    red_box_x_pos_internal <= to_signed(640 + 100, 11); -- Red box appears 100 units after the pipe
+                    red_box_y_pos_internal <= (signed(random_value) MOD to_signed(310 - GROUND_HEIGHT - 50, 10)) + to_signed(55, 10);
+                    red_box_visible <= '1'; -- Make the red box visible again
+                END IF;
             END IF;
 
             IF blue_box_visible = '1' AND 
                (ball_x_pos + ball_size >= blue_box_x_pos_internal AND ball_x_pos <= blue_box_x_pos_internal + blue_box_size) AND 
                (ball_y_pos + ball_size >= blue_box_y_pos_internal AND ball_y_pos <= blue_box_y_pos_internal + blue_box_size) THEN
                 blue_box_visible <= '0'; -- Make the coin invisible when touched
+            END IF;
+
+            IF red_box_visible = '1' AND 
+               (ball_x_pos + ball_size >= red_box_x_pos_internal AND ball_x_pos <= red_box_x_pos_internal + red_box_size) AND 
+               (ball_y_pos + ball_size >= red_box_y_pos_internal AND ball_y_pos <= red_box_y_pos_internal + red_box_size) THEN
+                red_box_visible <= '0'; -- Make the red box invisible when touched
             END IF;
         END IF;
     END PROCESS Move_pipe;
@@ -265,5 +317,7 @@ BEGIN
     p3_gap_center <= p3_gap_center_internal;
     blue_box_x_pos <= blue_box_x_pos_internal;
     blue_box_y_pos <= blue_box_y_pos_internal;
+    red_box_x_pos <= red_box_x_pos_internal;
+    red_box_y_pos <= red_box_y_pos_internal;
 
 END behavior;
