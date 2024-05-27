@@ -71,6 +71,9 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL red_box_active : std_logic := '0';
 
     SIGNAL pipe_color : std_logic_vector(11 DOWNTO 0);
+	 
+	 SIGNAL heart32_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL heart32_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
 
     COMPONENT galois_lfsr
         PORT
@@ -80,6 +83,15 @@ ARCHITECTURE behavior OF pipes IS
             random_value : OUT std_logic_vector(9 DOWNTO 0)
         );
     END COMPONENT;
+	
+	COMPONENT heart32_rom IS
+    PORT
+    (
+        clk             :   IN STD_LOGIC;
+        heart32_address  :   IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        heart32_color        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
+    );
+END COMPONENT heart32_rom;
     
     COMPONENT coin_rom
         PORT
@@ -89,7 +101,8 @@ ARCHITECTURE behavior OF pipes IS
             coin_data_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
         );
     END COMPONENT;
-
+	 
+	
 BEGIN
     lfsr_inst: galois_lfsr
         PORT MAP (
@@ -97,6 +110,13 @@ BEGIN
             reset => '0',
             random_value => random_value
         );
+		
+		HEART32_inst : heart32_rom
+		PORT MAP(
+			clk => clk,
+			heart32_address => heart32_address,
+        heart32_color => heart32_color
+		);
     coin_inst: coin_rom
         PORT MAP (
             clk => clk,
@@ -125,7 +145,7 @@ BEGIN
         END IF;
     END PROCESS;
 
-    p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
+	p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
                      to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
                      to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
                      (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 50 OR 
@@ -145,7 +165,7 @@ BEGIN
                        (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 50 OR 
                         to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 50))
                 ELSE '0';
-
+	 
     Coin_Display : PROCESS (clk)
     BEGIN
         IF rising_edge(clk) THEN
@@ -171,18 +191,21 @@ BEGIN
                 to_integer(unsigned(pixel_row)) >= to_integer(red_box_y_pos_internal) AND 
                 to_integer(unsigned(pixel_row)) < to_integer(red_box_y_pos_internal) + to_integer(red_box_size)) THEN
                 red_box_on <= '1';
+					 heart32_address <= std_logic_vector(to_unsigned(
+                    (to_integer(unsigned(pixel_row)) - to_integer(unsigned(red_box_y_pos_internal))) * 32 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(red_box_x_pos_internal))), 10));
             ELSE
                 red_box_on <= '0';
             END IF;
         END IF;
     END PROCESS Red_Box_Display;
     
-    PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, coin_color, p1_on, p2_on, p3_on, pipe_color)
+    PROCESS (blue_box_on, blue_box_visible, red_box_on, red_box_visible, heart32_color, coin_color, p1_on, p2_on, p3_on, pipe_color)
     BEGIN
         IF blue_box_on = '1' AND coin_color /= "000100010001" AND blue_box_visible = '1' THEN
             selected_color <= coin_color;
-        ELSIF red_box_on = '1' AND red_box_visible = '1' THEN
-            selected_color <= "111000000000"; -- Red color for red box
+        ELSIF red_box_on = '1' AND heart32_color /= "000100010001" AND red_box_visible = '1' THEN
+            selected_color <= heart32_color; -- Red color for red box
         ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
             selected_color <= pipe_color;
         ELSE

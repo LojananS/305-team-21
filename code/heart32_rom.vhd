@@ -5,16 +5,16 @@ USE IEEE.NUMERIC_STD.all;
 LIBRARY altera_mf;
 USE altera_mf.all;
 
-ENTITY pipe_rom IS
+ENTITY heart32_rom IS
     PORT
     (
         clk             :   IN STD_LOGIC;
-        address_out  :   IN STD_LOGIC_VECTOR(14 DOWNTO 0);
-        data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
+        heart32_address  :   IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+        heart32_color        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
     );
-END pipe_rom;
+END heart32_rom;
 
-ARCHITECTURE PIPE_SYN OF pipe_rom IS
+ARCHITECTURE HEART32_SYN OF heart32_rom IS
 
     COMPONENT altsyncram
     GENERIC (
@@ -35,33 +35,33 @@ ARCHITECTURE PIPE_SYN OF pipe_rom IS
     );
     PORT (
         clock0      : IN STD_LOGIC ;
-        address_a   : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+        address_a   : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
         q_a         : OUT STD_LOGIC_VECTOR (11 DOWNTO 0) -- Updated to 12 bits
     );
     END COMPONENT;
 
 BEGIN
-    PIPE_ROM : altsyncram
+    COIN_ROM1 : altsyncram
     GENERIC MAP (
         address_aclr_a => "NONE",
         clock_enable_input_a => "BYPASS",
         clock_enable_output_a => "BYPASS",
-        init_file => "pipes.mif", -- Pipes MIF file with 12 bit color depth
+        init_file => "heart32.MIF", -- Heart32 MIF file with 12 bit color depth
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
         lpm_type => "altsyncram",
-        numwords_a => 30000, -- Depth of address
+        numwords_a => 1024, -- Depth of address
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
         outdata_reg_a => "UNREGISTERED",
-        widthad_a => 15, -- Since depth of address is 57600, we need 2^16
+        widthad_a => 10, -- Since depth of address is 1024, we need 2^10
         width_a => 12, -- 12-bit color
         width_byteena_a => 1
     )
     PORT MAP (
         clock0 => clk,
-        address_a => address_out,
-        q_a => data_out -- Set to output
+        address_a => heart32_address,
+        q_a => heart32_color
     );
 
-END PIPE_SYN;
+END HEART32_SYN;

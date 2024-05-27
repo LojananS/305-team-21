@@ -20,7 +20,7 @@ begin
 	s_start <= not pb3;
 	s_reset <= not pb4;
 -- Process to select state
-    output_state_decode : process (s_start, s_reset, s_pause)
+    output_state_decode : process (game_state, dead, s_start, s_reset, s_pause)
     begin
 			case game_state is
 				when HOME =>
@@ -32,6 +32,8 @@ begin
 						state_out <= to_slv(HOME);
 					end if;
 				when START =>
+						game_state <= START;
+						  state_out <= to_slv(START);
                 if (s_reset = '1') then
                     game_state <= HOME;
 						  state_out <= to_slv(HOME);
@@ -70,7 +72,7 @@ begin
 	 Pb_Check : process (clk)
 	 begin
 		if (rising_edge(clk)) then
-			if (pb2 = '0' and prev_pb2 = '1' and game_state = START) then
+			if (pb2 = '0' and prev_pb2 = '1' and (game_state = START OR game_state = PAUSE)) then
 				s_pause <= not s_pause;
 			end if;
 			prev_pb2 <= pb2;
