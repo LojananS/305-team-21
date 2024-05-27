@@ -1,5 +1,5 @@
 Analysis & Synthesis report for flappybird21
-Mon May 27 16:15:46 2024
+Mon May 27 18:07:43 2024
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -74,7 +74,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 27 16:15:46 2024           ;
+; Analysis & Synthesis Status     ; Successful - Mon May 27 18:07:43 2024           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; flappybird21                                    ;
 ; Top-level Entity Name           ; flappybird21block                               ;
@@ -200,7 +200,8 @@ refer to the applicable agreement for further details.
 ;     Processor 5            ;   0.0%      ;
 ;     Processor 6            ;   0.0%      ;
 ;     Processor 7            ;   0.0%      ;
-;     Processors 8-16        ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -209,26 +210,26 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                             ; Library ;
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------+---------+
-; ../game_type_pkg_body.vhd        ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/game_type_pkg_body.vhd                       ;         ;
-; ../game_type_pkg.vhd             ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/game_type_pkg.vhd                            ;         ;
-; ../Game_FSM.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/Game_FSM.vhd                                 ;         ;
-; ../coin_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd                                 ;         ;
-; ../ground.vhd                    ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/ground.vhd                                   ;         ;
-; ../floor_rom.vhd                 ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd                                ;         ;
-; ../sprite_rom.vhd                ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd                               ;         ;
-; ../text_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd                                 ;         ;
-; background.vhd                   ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd             ;         ;
-; ../char_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd                                 ;         ;
-; ../BCD_to_7Seg.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/BCD_to_7Seg.vhd                              ;         ;
-; ../pipes.vhd                     ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/pipes.vhd                                    ;         ;
-; pll.v                            ; yes             ; User Wizard-Generated File         ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll.v                      ;         ;
-; ../mouse.vhd                     ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/mouse.vhd                                    ;         ;
-; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/vga_sync.vhd                                 ;         ;
-; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd                              ;         ;
-; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/flappybird21block.bdf      ;         ;
-; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v             ; pll     ;
-; display_controller.vhd           ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/display_controller.vhd     ;         ;
-; ../Galois.vhd                    ; yes             ; User VHDL File                     ; C:/Users/htho884/Documents/305-team-21/code/Galois.vhd                                   ;         ;
+; ../game_type_pkg_body.vhd        ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/game_type_pkg_body.vhd                       ;         ;
+; ../game_type_pkg.vhd             ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/game_type_pkg.vhd                            ;         ;
+; ../Game_FSM.vhd                  ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/Game_FSM.vhd                                 ;         ;
+; ../coin_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd                                 ;         ;
+; ../ground.vhd                    ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd                                   ;         ;
+; ../floor_rom.vhd                 ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd                                ;         ;
+; ../sprite_rom.vhd                ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd                               ;         ;
+; ../text_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd                                 ;         ;
+; background.vhd                   ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd             ;         ;
+; ../char_rom.vhd                  ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd                                 ;         ;
+; ../BCD_to_7Seg.vhd               ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/BCD_to_7Seg.vhd                              ;         ;
+; ../pipes.vhd                     ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd                                    ;         ;
+; pll.v                            ; yes             ; User Wizard-Generated File         ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll.v                      ;         ;
+; ../mouse.vhd                     ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd                                    ;         ;
+; ../vga_sync.vhd                  ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/vga_sync.vhd                                 ;         ;
+; ../bouncy_ball.vhd               ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd                              ;         ;
+; flappybird21block.bdf            ; yes             ; User Block Diagram/Schematic File  ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/flappybird21block.bdf      ;         ;
+; pll/pll_0002.v                   ; yes             ; User Verilog HDL File              ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v             ; pll     ;
+; display_controller.vhd           ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd     ;         ;
+; ../Galois.vhd                    ; yes             ; User VHDL File                     ; C:/Users/qhua835/Downloads/305-team-21/code/Galois.vhd                                   ;         ;
 ; altera_pll.v                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v                           ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                         ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                  ;         ;
@@ -239,27 +240,27 @@ refer to the applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                             ;         ;
 ; altram.inc                       ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                             ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                           ;         ;
-; db/altsyncram_1qg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf     ;         ;
-; db/altsyncram_c2g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf     ;         ;
-; db/altsyncram_d5g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf     ;         ;
-; db/altsyncram_18g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf     ;         ;
-; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf          ;         ;
-; db/mux_2hb.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf             ;         ;
+; db/altsyncram_1qg1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf     ;         ;
+; db/altsyncram_c2g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf     ;         ;
+; db/altsyncram_d5g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf     ;         ;
+; db/altsyncram_18g1.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf     ;         ;
+; db/decode_01a.tdf                ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf          ;         ;
+; db/mux_2hb.tdf                   ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf             ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_divide.tdf                         ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/abs_divider.inc                        ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc                    ;         ;
-; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf      ;         ;
-; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf ;         ;
-; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf       ;         ;
-; db/lpm_divide_ebm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf      ;         ;
-; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf ;         ;
-; db/alt_u_div_eve.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf       ;         ;
-; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf      ;         ;
-; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf ;         ;
-; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf       ;         ;
-; db/lpm_divide_mio.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf      ;         ;
-; db/abs_divider_scg.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf     ;         ;
-; db/lpm_abs_0p9.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf         ;         ;
+; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf      ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf ;         ;
+; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf       ;         ;
+; db/lpm_divide_ebm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf      ;         ;
+; db/sign_div_unsign_klh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf ;         ;
+; db/alt_u_div_eve.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf       ;         ;
+; db/lpm_divide_hbm.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf      ;         ;
+; db/sign_div_unsign_nlh.tdf       ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf ;         ;
+; db/alt_u_div_kve.tdf             ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf       ;         ;
+; db/lpm_divide_mio.tdf            ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf      ;         ;
+; db/abs_divider_scg.tdf           ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf     ;         ;
+; db/lpm_abs_0p9.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf         ;         ;
 +----------------------------------+-----------------+------------------------------------+------------------------------------------------------------------------------------------+---------+
 
 
@@ -268,14 +269,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 1255                                                               ;
+; Estimate of Logic utilization (ALMs needed) ; 1395                                                               ;
 ;                                             ;                                                                    ;
-; Combinational ALUT usage for logic          ; 2213                                                               ;
-;     -- 7 input functions                    ; 12                                                                 ;
-;     -- 6 input functions                    ; 255                                                                ;
-;     -- 5 input functions                    ; 287                                                                ;
-;     -- 4 input functions                    ; 288                                                                ;
-;     -- <=3 input functions                  ; 1371                                                               ;
+; Combinational ALUT usage for logic          ; 2427                                                               ;
+;     -- 7 input functions                    ; 11                                                                 ;
+;     -- 6 input functions                    ; 322                                                                ;
+;     -- 5 input functions                    ; 307                                                                ;
+;     -- 4 input functions                    ; 327                                                                ;
+;     -- <=3 input functions                  ; 1460                                                               ;
 ;                                             ;                                                                    ;
 ; Dedicated logic registers                   ; 472                                                                ;
 ;                                             ;                                                                    ;
@@ -290,8 +291,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                                    ;
 ; Maximum fan-out node                        ; pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
 ; Maximum fan-out                             ; 275                                                                ;
-; Total fan-out                               ; 9904                                                               ;
-; Average fan-out                             ; 3.48                                                               ;
+; Total fan-out                               ; 10769                                                              ;
+; Average fan-out                             ; 3.52                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------+
 
 
@@ -300,15 +301,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                       ; Entity Name         ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |flappybird21block                           ; 2213 (1)            ; 472 (0)                   ; 283648            ; 1          ; 44   ; 0            ; |flappybird21block                                                                                                                        ; flappybird21block   ; work         ;
+; |flappybird21block                           ; 2427 (1)            ; 472 (0)                   ; 283648            ; 1          ; 44   ; 0            ; |flappybird21block                                                                                                                        ; flappybird21block   ; work         ;
 ;    |BCD_to_SevenSeg:inst12|                  ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst12                                                                                                 ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:inst7|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst7                                                                                                  ; BCD_to_SevenSeg     ; work         ;
 ;    |BCD_to_SevenSeg:inst8|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|BCD_to_SevenSeg:inst8                                                                                                  ; BCD_to_SevenSeg     ; work         ;
 ;    |Game_FSM:inst3|                          ; 7 (7)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|Game_FSM:inst3                                                                                                         ; Game_FSM            ; work         ;
 ;    |MOUSE:inst1|                             ; 47 (47)             ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|MOUSE:inst1                                                                                                            ; MOUSE               ; work         ;
-;    |VGA_SYNC:inst10|                         ; 114 (114)           ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                        ; VGA_SYNC            ; work         ;
-;    |background:inst5|                        ; 76 (76)             ; 2 (2)                     ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                                                                                       ; background          ; work         ;
-;    |bouncy_ball:inst14|                      ; 615 (342)           ; 128 (102)                 ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14                                                                                                     ; bouncy_ball         ; work         ;
+;    |VGA_SYNC:inst10|                         ; 115 (115)           ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|VGA_SYNC:inst10                                                                                                        ; VGA_SYNC            ; work         ;
+;    |background:inst5|                        ; 78 (78)             ; 2 (2)                     ; 0                 ; 1          ; 0    ; 0            ; |flappybird21block|background:inst5                                                                                                       ; background          ; work         ;
+;    |bouncy_ball:inst14|                      ; 617 (344)           ; 128 (102)                 ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14                                                                                                     ; bouncy_ball         ; work         ;
 ;       |lpm_divide:Div0|                      ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|lpm_divide:Div0                                                                                     ; lpm_divide          ; work         ;
 ;          |lpm_divide_hbm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|lpm_divide:Div0|lpm_divide_hbm:auto_generated                                                       ; lpm_divide_hbm      ; work         ;
 ;             |sign_div_unsign_nlh:divider|    ; 60 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|lpm_divide:Div0|lpm_divide_hbm:auto_generated|sign_div_unsign_nlh:divider                           ; sign_div_unsign_nlh ; work         ;
@@ -324,12 +325,12 @@ refer to the applicable agreement for further details.
 ;       |sprite_rom:sprite_rom_inst|           ; 30 (30)             ; 26 (26)                   ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|sprite_rom:sprite_rom_inst                                                                          ; sprite_rom          ; work         ;
 ;          |altsyncram:BIRD_ROM|               ; 0 (0)               ; 0 (0)                     ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM                                                      ; altsyncram          ; work         ;
 ;             |altsyncram_1qg1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 36864             ; 0          ; 0    ; 0            ; |flappybird21block|bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated                       ; altsyncram_1qg1     ; work         ;
-;    |ground:inst21|                           ; 211 (208)           ; 53 (51)                   ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21                                                                                                          ; ground              ; work         ;
+;    |ground:inst21|                           ; 210 (207)           ; 53 (51)                   ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21                                                                                                          ; ground              ; work         ;
 ;       |floor_rom:floor_rom_inst|             ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst                                                                                 ; floor_rom           ; work         ;
 ;          |altsyncram:floor_rom_sync|         ; 3 (0)               ; 2 (0)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync                                                       ; altsyncram          ; work         ;
 ;             |altsyncram_18g1:auto_generated| ; 3 (0)               ; 2 (2)                     ; 230400            ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated                        ; altsyncram_18g1     ; work         ;
 ;                |decode_01a:rden_decode|      ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode ; decode_01a          ; work         ;
-;    |pipes:inst20|                            ; 732 (562)           ; 134 (124)                 ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20                                                                                                           ; pipes               ; work         ;
+;    |pipes:inst20|                            ; 730 (560)           ; 134 (124)                 ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20                                                                                                           ; pipes               ; work         ;
 ;       |coin_rom:coin_inst|                   ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst                                                                                        ; coin_rom            ; work         ;
 ;          |altsyncram:COIN_ROM1|              ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1                                                                   ; altsyncram          ; work         ;
 ;             |altsyncram_c2g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |flappybird21block|pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated                                    ; altsyncram_c2g1     ; work         ;
@@ -347,7 +348,7 @@ refer to the applicable agreement for further details.
 ;    |pll:inst6|                               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6                                                                                                              ; pll                 ; work         ;
 ;       |pll_0002:pll_inst|                    ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst                                                                                            ; pll_0002            ; pll          ;
 ;          |altera_pll:altera_pll_i|           ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |flappybird21block|pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i                                                                    ; altera_pll          ; work         ;
-;    |text_rom:inst23|                         ; 389 (144)           ; 24 (24)                   ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23                                                                                                        ; text_rom            ; work         ;
+;    |text_rom:inst23|                         ; 601 (356)           ; 24 (24)                   ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23                                                                                                        ; text_rom            ; work         ;
 ;       |char_rom:char_rom_inst|               ; 2 (2)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst                                                                                 ; char_rom            ; work         ;
 ;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component                                                 ; altsyncram          ; work         ;
 ;             |altsyncram_d5g1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |flappybird21block|text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated                  ; altsyncram_d5g1     ; work         ;
@@ -678,7 +679,7 @@ Encoding Type:  One-Hot
 ; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |flappybird21block|pipes:inst20|blue_box_x_pos_internal[4] ;
 ; 11:1               ; 9 bits    ; 63 LEs        ; 54 LEs               ; 9 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|blue_out[3]             ;
 ; 11:1               ; 3 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; Yes        ; |flappybird21block|VGA_SYNC:inst10|red_out[1]              ;
-; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |flappybird21block|text_rom:inst23|fc[1]                   ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 6 LEs                ; 42 LEs                 ; Yes        ; |flappybird21block|text_rom:inst23|fc[1]                   ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst14|ball_y_pos[5]        ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |flappybird21block|bouncy_ball:inst14|s_life[0]            ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |flappybird21block|pipes:inst20|p1_gap_center_internal[5]  ;
@@ -1488,23 +1489,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 43                          ;
 ;     plain             ; 79                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 2213                        ;
+; arriav_lcell_comb     ; 2427                        ;
 ;     arith             ; 789                         ;
 ;         0 data inputs ; 72                          ;
 ;         1 data inputs ; 406                         ;
 ;         2 data inputs ; 82                          ;
 ;         3 data inputs ; 130                         ;
 ;         4 data inputs ; 99                          ;
-;     extend            ; 12                          ;
-;         7 data inputs ; 12                          ;
-;     normal            ; 1242                        ;
+;     extend            ; 11                          ;
+;         7 data inputs ; 11                          ;
+;     normal            ; 1457                        ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 26                          ;
-;         2 data inputs ; 285                         ;
-;         3 data inputs ; 199                         ;
-;         4 data inputs ; 189                         ;
-;         5 data inputs ; 287                         ;
-;         6 data inputs ; 255                         ;
+;         2 data inputs ; 339                         ;
+;         3 data inputs ; 234                         ;
+;         4 data inputs ; 228                         ;
+;         5 data inputs ; 307                         ;
+;         6 data inputs ; 322                         ;
 ;     shared            ; 170                         ;
 ;         0 data inputs ; 10                          ;
 ;         1 data inputs ; 98                          ;
@@ -1516,7 +1517,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 68                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.20                       ;
-; Average LUT depth     ; 6.52                        ;
+; Average LUT depth     ; 6.91                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1525,7 +1526,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -1535,83 +1536,83 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
-    Info: Processing started: Mon May 27 16:15:35 2024
+    Info: Processing started: Mon May 27 18:07:33 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off flappybird21 -c flappybird21
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
-Info (12021): Found 1 design units, including 0 entities, in source file /users/htho884/documents/305-team-21/code/game_type_pkg_body.vhd
-    Info (12022): Found design unit 1: game_type_pkg-body File: C:/Users/htho884/Documents/305-team-21/code/game_type_pkg_body.vhd Line: 5
-Info (12021): Found 1 design units, including 0 entities, in source file /users/htho884/documents/305-team-21/code/game_type_pkg.vhd
-    Info (12022): Found design unit 1: game_type_pkg File: C:/Users/htho884/Documents/305-team-21/code/game_type_pkg.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/game_fsm.vhd
-    Info (12022): Found design unit 1: Game_FSM-structural File: C:/Users/htho884/Documents/305-team-21/code/Game_FSM.vhd Line: 13
-    Info (12023): Found entity 1: Game_FSM File: C:/Users/htho884/Documents/305-team-21/code/Game_FSM.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/coin_rom.vhd
-    Info (12022): Found design unit 1: coin_rom-COIN_SYN File: C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd Line: 17
-    Info (12023): Found entity 1: coin_rom File: C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/heart_rom.vhd
-    Info (12022): Found design unit 1: heart_rom-HEART_SYN File: C:/Users/htho884/Documents/305-team-21/code/heart_rom.vhd Line: 17
-    Info (12023): Found entity 1: heart_rom File: C:/Users/htho884/Documents/305-team-21/code/heart_rom.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/ground.vhd
-    Info (12022): Found design unit 1: ground-behavior File: C:/Users/htho884/Documents/305-team-21/code/ground.vhd Line: 18
-    Info (12023): Found entity 1: ground File: C:/Users/htho884/Documents/305-team-21/code/ground.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/floor_rom.vhd
-    Info (12022): Found design unit 1: floor_rom-FloorSYN File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 17
-    Info (12023): Found entity 1: floor_rom File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/sprite_rom.vhd
-    Info (12022): Found design unit 1: sprite_rom-SYN File: C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd Line: 17
-    Info (12023): Found entity 1: sprite_rom File: C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/text_rom.vhd
-    Info (12022): Found design unit 1: text_rom-beh File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 18
-    Info (12023): Found entity 1: text_rom File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 6
+Info (12021): Found 1 design units, including 0 entities, in source file /users/qhua835/downloads/305-team-21/code/game_type_pkg_body.vhd
+    Info (12022): Found design unit 1: game_type_pkg-body File: C:/Users/qhua835/Downloads/305-team-21/code/game_type_pkg_body.vhd Line: 5
+Info (12021): Found 1 design units, including 0 entities, in source file /users/qhua835/downloads/305-team-21/code/game_type_pkg.vhd
+    Info (12022): Found design unit 1: game_type_pkg File: C:/Users/qhua835/Downloads/305-team-21/code/game_type_pkg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/game_fsm.vhd
+    Info (12022): Found design unit 1: Game_FSM-structural File: C:/Users/qhua835/Downloads/305-team-21/code/Game_FSM.vhd Line: 13
+    Info (12023): Found entity 1: Game_FSM File: C:/Users/qhua835/Downloads/305-team-21/code/Game_FSM.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/coin_rom.vhd
+    Info (12022): Found design unit 1: coin_rom-COIN_SYN File: C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd Line: 17
+    Info (12023): Found entity 1: coin_rom File: C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/heart_rom.vhd
+    Info (12022): Found design unit 1: heart_rom-HEART_SYN File: C:/Users/qhua835/Downloads/305-team-21/code/heart_rom.vhd Line: 17
+    Info (12023): Found entity 1: heart_rom File: C:/Users/qhua835/Downloads/305-team-21/code/heart_rom.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/ground.vhd
+    Info (12022): Found design unit 1: ground-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd Line: 18
+    Info (12023): Found entity 1: ground File: C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/floor_rom.vhd
+    Info (12022): Found design unit 1: floor_rom-FloorSYN File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 17
+    Info (12023): Found entity 1: floor_rom File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/sprite_rom.vhd
+    Info (12022): Found design unit 1: sprite_rom-SYN File: C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd Line: 17
+    Info (12023): Found entity 1: sprite_rom File: C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/text_rom.vhd
+    Info (12022): Found design unit 1: text_rom-beh File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 18
+    Info (12023): Found entity 1: text_rom File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file background.vhd
-    Info (12022): Found design unit 1: background-behavior File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 17
-    Info (12023): Found entity 1: background File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/char_rom.vhd
-    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd Line: 20
-    Info (12023): Found entity 1: char_rom File: C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/ball.vhd
-    Info (12022): Found design unit 1: ball-behavior File: C:/Users/htho884/Documents/305-team-21/code/ball.vhd Line: 15
-    Info (12023): Found entity 1: ball File: C:/Users/htho884/Documents/305-team-21/code/ball.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/bcd_to_7seg.vhd
-    Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/htho884/Documents/305-team-21/code/BCD_to_7Seg.vhd Line: 12
-    Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/htho884/Documents/305-team-21/code/BCD_to_7Seg.vhd Line: 7
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/pipes.vhd
-    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 27
-    Info (12023): Found entity 1: pipes File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 6
+    Info (12022): Found design unit 1: background-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 17
+    Info (12023): Found entity 1: background File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/char_rom.vhd
+    Info (12022): Found design unit 1: char_rom-SYN File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 20
+    Info (12023): Found entity 1: char_rom File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/ball.vhd
+    Info (12022): Found design unit 1: ball-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/ball.vhd Line: 15
+    Info (12023): Found entity 1: ball File: C:/Users/qhua835/Downloads/305-team-21/code/ball.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/bcd_to_7seg.vhd
+    Info (12022): Found design unit 1: BCD_to_SevenSeg-arc1 File: C:/Users/qhua835/Downloads/305-team-21/code/BCD_to_7Seg.vhd Line: 12
+    Info (12023): Found entity 1: BCD_to_SevenSeg File: C:/Users/qhua835/Downloads/305-team-21/code/BCD_to_7Seg.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/pipes.vhd
+    Info (12022): Found design unit 1: pipes-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 27
+    Info (12023): Found entity 1: pipes File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
-    Info (12023): Found entity 1: pll File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll.v Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/mouse.vhd
-    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 18
-    Info (12023): Found entity 1: MOUSE File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/vga_sync.vhd
-    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/htho884/Documents/305-team-21/code/vga_sync.vhd Line: 16
-    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/htho884/Documents/305-team-21/code/vga_sync.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/bouncy_ball.vhd
-    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 26
-    Info (12023): Found entity 1: bouncy_ball File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 6
+    Info (12023): Found entity 1: pll File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll.v Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/mouse.vhd
+    Info (12022): Found design unit 1: MOUSE-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 18
+    Info (12023): Found entity 1: MOUSE File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/vga_sync.vhd
+    Info (12022): Found design unit 1: VGA_SYNC-a File: C:/Users/qhua835/Downloads/305-team-21/code/vga_sync.vhd Line: 16
+    Info (12023): Found entity 1: VGA_SYNC File: C:/Users/qhua835/Downloads/305-team-21/code/vga_sync.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/bouncy_ball.vhd
+    Info (12022): Found design unit 1: bouncy_ball-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 26
+    Info (12023): Found entity 1: bouncy_ball File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file flappybird21block.bdf
     Info (12023): Found entity 1: flappybird21block
 Info (12021): Found 2 design units, including 1 entities, in source file pll.vhd
-    Info (12022): Found design unit 1: pll-rtl File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll.vhd Line: 19
-    Info (12023): Found entity 1: pll File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll.vhd Line: 11
+    Info (12022): Found design unit 1: pll-rtl File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll.vhd Line: 19
+    Info (12023): Found entity 1: pll File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll/pll_0002.v
-    Info (12023): Found entity 1: pll_0002 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 2
+    Info (12023): Found entity 1: pll_0002 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 2
 Info (12021): Found 2 design units, including 1 entities, in source file display_controller.vhd
-    Info (12022): Found design unit 1: display_controller-beh File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 12
-    Info (12023): Found entity 1: display_controller File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file /users/htho884/documents/305-team-21/code/galois.vhd
-    Info (12022): Found design unit 1: galois_lfsr-behavior File: C:/Users/htho884/Documents/305-team-21/code/Galois.vhd Line: 14
-    Info (12023): Found entity 1: galois_lfsr File: C:/Users/htho884/Documents/305-team-21/code/Galois.vhd Line: 5
+    Info (12022): Found design unit 1: display_controller-beh File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 12
+    Info (12023): Found entity 1: display_controller File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/display_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file /users/qhua835/downloads/305-team-21/code/galois.vhd
+    Info (12022): Found design unit 1: galois_lfsr-behavior File: C:/Users/qhua835/Downloads/305-team-21/code/Galois.vhd Line: 14
+    Info (12023): Found entity 1: galois_lfsr File: C:/Users/qhua835/Downloads/305-team-21/code/Galois.vhd Line: 5
 Info (12127): Elaborating entity "flappybird21block" for the top level hierarchy
 Warning (275011): Block or symbol "MOUSE" of instance "inst1" overlaps another block or symbol
 Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "VGA_SYNC:inst10"
 Info (12128): Elaborating entity "pll" for hierarchy "pll:inst6"
-Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll.v Line: 20
-Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12128): Elaborating entity "pll_0002" for hierarchy "pll:inst6|pll_0002:pll_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll.v Line: 20
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
-Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
-Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12130): Elaborated megafunction instantiation "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
+Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/pll/pll_0002.v Line: 85
     Info (12134): Parameter "fractional_vco_multiplier" = "false"
     Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
     Info (12134): Parameter "operation_mode" = "direct"
@@ -1674,16 +1675,16 @@ Info (12133): Instantiated megafunction "pll:inst6|pll_0002:pll_inst|altera_pll:
     Info (12134): Parameter "pll_subtype" = "General"
 Info (12128): Elaborating entity "display_controller" for hierarchy "display_controller:inst9"
 Info (12128): Elaborating entity "bouncy_ball" for hierarchy "bouncy_ball:inst14"
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(28): used explicit default value for signal "size" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 28
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(41): used explicit default value for signal "reset_blue_box_internal" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 41
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(50): used explicit default value for signal "heart_x_pos" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 50
-Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(51): used explicit default value for signal "heart_y_pos" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 51
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(344): signal "s_life" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 344
-Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(345): signal "reset_blue_box_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 345
-Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst14|sprite_rom:sprite_rom_inst" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 68
-Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd Line: 52
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd Line: 52
-Info (12133): Instantiated megafunction "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/sprite_rom.vhd Line: 52
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(28): used explicit default value for signal "size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 28
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(41): used explicit default value for signal "reset_blue_box_internal" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 41
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(50): used explicit default value for signal "heart_x_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 50
+Warning (10540): VHDL Signal Declaration warning at bouncy_ball.vhd(51): used explicit default value for signal "heart_y_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(344): signal "s_life" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 344
+Warning (10492): VHDL Process Statement warning at bouncy_ball.vhd(345): signal "reset_blue_box_internal" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 345
+Info (12128): Elaborating entity "sprite_rom" for hierarchy "bouncy_ball:inst14|sprite_rom:sprite_rom_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 68
+Info (12128): Elaborating entity "altsyncram" for hierarchy "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd Line: 52
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" File: C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd Line: 52
+Info (12133): Instantiated megafunction "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/sprite_rom.vhd Line: 52
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1699,25 +1700,25 @@ Info (12133): Instantiated megafunction "bouncy_ball:inst14|sprite_rom:sprite_ro
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_1qg1.tdf
-    Info (12023): Found entity 1: altsyncram_1qg1 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_1qg1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_1qg1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_1qg1" for hierarchy "bouncy_ball:inst14|sprite_rom:sprite_rom_inst|altsyncram:BIRD_ROM|altsyncram_1qg1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "MOUSE" for hierarchy "MOUSE:inst1"
-Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 25
-Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 151
-Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 155
-Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 156
-Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 157
+Warning (10036): Verilog HDL or VHDL warning at mouse.vhd(25): object "CHARIN" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at mouse.vhd(151): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at mouse.vhd(155): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 155
+Warning (10492): VHDL Process Statement warning at mouse.vhd(156): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 156
+Warning (10492): VHDL Process Statement warning at mouse.vhd(157): signal "CHAROUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 157
 Info (12128): Elaborating entity "pipes" for hierarchy "pipes:inst20"
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(42): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 42
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(55): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 55
-Warning (10540): VHDL Signal Declaration warning at pipes.vhd(58): used explicit default value for signal "red_box_size" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 58
-Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst20|galois_lfsr:lfsr_inst" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 94
-Warning (10492): VHDL Process Statement warning at Galois.vhd(23): signal "lfsr_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/Galois.vhd Line: 23
-Warning (10492): VHDL Process Statement warning at Galois.vhd(24): signal "dynamic_seed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/Galois.vhd Line: 24
-Info (12128): Elaborating entity "coin_rom" for hierarchy "pipes:inst20|coin_rom:coin_inst" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 100
-Info (12128): Elaborating entity "altsyncram" for hierarchy "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd Line: 44
-Info (12130): Elaborated megafunction instantiation "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd Line: 44
-Info (12133): Instantiated megafunction "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/coin_rom.vhd Line: 44
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(42): used explicit default value for signal "pipe_x_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 42
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(55): used explicit default value for signal "blue_box_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 55
+Warning (10540): VHDL Signal Declaration warning at pipes.vhd(58): used explicit default value for signal "red_box_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 58
+Info (12128): Elaborating entity "galois_lfsr" for hierarchy "pipes:inst20|galois_lfsr:lfsr_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Galois.vhd(23): signal "lfsr_reg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/Galois.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at Galois.vhd(24): signal "dynamic_seed" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/Galois.vhd Line: 24
+Info (12128): Elaborating entity "coin_rom" for hierarchy "pipes:inst20|coin_rom:coin_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 100
+Info (12128): Elaborating entity "altsyncram" for hierarchy "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd Line: 44
+Info (12130): Elaborated megafunction instantiation "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" File: C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd Line: 44
+Info (12133): Instantiated megafunction "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/coin_rom.vhd Line: 44
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1733,24 +1734,24 @@ Info (12133): Instantiated megafunction "pipes:inst20|coin_rom:coin_inst|altsync
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_c2g1.tdf
-    Info (12023): Found entity 1: altsyncram_c2g1 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_c2g1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_c2g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_c2g1" for hierarchy "pipes:inst20|coin_rom:coin_inst|altsyncram:COIN_ROM1|altsyncram_c2g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "Game_FSM" for hierarchy "Game_FSM:inst3"
-Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(25): signal "clk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/Game_FSM.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at Game_FSM.vhd(25): signal "clk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/Game_FSM.vhd Line: 25
 Info (12128): Elaborating entity "background" for hierarchy "background:inst5"
-Warning (10541): VHDL Signal Declaration warning at background.vhd(81): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 81
-Warning (10541): VHDL Signal Declaration warning at background.vhd(82): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 82
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(100): object "is_star" assigned a value but never read File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 100
-Warning (10036): Verilog HDL or VHDL warning at background.vhd(101): object "is_moon_sun" assigned a value but never read File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 101
-Warning (10492): VHDL Process Statement warning at background.vhd(119): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 119
-Warning (10492): VHDL Process Statement warning at background.vhd(122): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 122
-Warning (10492): VHDL Process Statement warning at background.vhd(126): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 126
-Warning (10492): VHDL Process Statement warning at background.vhd(133): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/background.vhd Line: 133
+Warning (10541): VHDL Signal Declaration warning at background.vhd(81): used implicit default value for signal "star_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 81
+Warning (10541): VHDL Signal Declaration warning at background.vhd(82): used implicit default value for signal "moon_on" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 82
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(100): object "is_star" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 100
+Warning (10036): Verilog HDL or VHDL warning at background.vhd(101): object "is_moon_sun" assigned a value but never read File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 101
+Warning (10492): VHDL Process Statement warning at background.vhd(119): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 119
+Warning (10492): VHDL Process Statement warning at background.vhd(122): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 122
+Warning (10492): VHDL Process Statement warning at background.vhd(126): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 126
+Warning (10492): VHDL Process Statement warning at background.vhd(133): signal "toggle_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/background.vhd Line: 133
 Info (12128): Elaborating entity "text_rom" for hierarchy "text_rom:inst23"
-Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst23|char_rom:char_rom_inst" File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 51
-Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd Line: 51
-Info (12130): Elaborated megafunction instantiation "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd Line: 51
-Info (12133): Instantiated megafunction "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/char_rom.vhd Line: 51
+Info (12128): Elaborating entity "char_rom" for hierarchy "text_rom:inst23|char_rom:char_rom_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 96
+Info (12128): Elaborating entity "altsyncram" for hierarchy "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
+Info (12130): Elaborated megafunction instantiation "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
+Info (12133): Instantiated megafunction "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/char_rom.vhd Line: 51
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1766,15 +1767,15 @@ Info (12133): Instantiated megafunction "text_rom:inst23|char_rom:char_rom_inst|
     Info (12134): Parameter "width_a" = "8"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d5g1.tdf
-    Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_d5g1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_d5g1.tdf Line: 27
 Info (12128): Elaborating entity "altsyncram_d5g1" for hierarchy "text_rom:inst23|char_rom:char_rom_inst|altsyncram:altsyncram_component|altsyncram_d5g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "ground" for hierarchy "ground:inst21"
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(28): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/ground.vhd Line: 28
-Warning (10540): VHDL Signal Declaration warning at ground.vhd(29): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: C:/Users/htho884/Documents/305-team-21/code/ground.vhd Line: 29
-Info (12128): Elaborating entity "floor_rom" for hierarchy "ground:inst21|floor_rom:floor_rom_inst" File: C:/Users/htho884/Documents/305-team-21/code/ground.vhd Line: 43
-Info (12128): Elaborating entity "altsyncram" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 46
-Info (12130): Elaborated megafunction instantiation "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 46
-Info (12133): Instantiated megafunction "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 46
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(28): used explicit default value for signal "ground_y_pos" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd Line: 28
+Warning (10540): VHDL Signal Declaration warning at ground.vhd(29): used explicit default value for signal "ground_y_size" because signal was never assigned a value File: C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd Line: 29
+Info (12128): Elaborating entity "floor_rom" for hierarchy "ground:inst21|floor_rom:floor_rom_inst" File: C:/Users/qhua835/Downloads/305-team-21/code/ground.vhd Line: 43
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 46
+Info (12130): Elaborated megafunction instantiation "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 46
+Info (12133): Instantiated megafunction "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 46
     Info (12134): Parameter "address_aclr_a" = "NONE"
     Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
     Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
@@ -1790,82 +1791,82 @@ Info (12133): Instantiated megafunction "ground:inst21|floor_rom:floor_rom_inst|
     Info (12134): Parameter "width_a" = "12"
     Info (12134): Parameter "width_byteena_a" = "1"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_18g1.tdf
-    Info (12023): Found entity 1: altsyncram_18g1 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 31
+    Info (12023): Found entity 1: altsyncram_18g1 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 31
 Info (12128): Elaborating entity "altsyncram_18g1" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated" File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_01a.tdf
-    Info (12023): Found entity 1: decode_01a File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf Line: 22
-Info (12128): Elaborating entity "decode_01a" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode" File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 39
+    Info (12023): Found entity 1: decode_01a File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/decode_01a.tdf Line: 22
+Info (12128): Elaborating entity "decode_01a" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|decode_01a:rden_decode" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_2hb.tdf
-    Info (12023): Found entity 1: mux_2hb File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf Line: 22
-Info (12128): Elaborating entity "mux_2hb" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|mux_2hb:mux2" File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 40
+    Info (12023): Found entity 1: mux_2hb File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/mux_2hb.tdf Line: 22
+Info (12128): Elaborating entity "mux_2hb" for hierarchy "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync|altsyncram_18g1:auto_generated|mux_2hb:mux2" File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/altsyncram_18g1.tdf Line: 40
 Info (12128): Elaborating entity "BCD_to_SevenSeg" for hierarchy "BCD_to_SevenSeg:inst7"
-Warning (12001): Port "address_a[15]" does not exist in entity definition of "altsyncram".  The port's range differs between the entity definition and its actual instantiation, "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync". File: C:/Users/htho884/Documents/305-team-21/code/floor_rom.vhd Line: 46
+Warning (12001): Port "address_a[15]" does not exist in entity definition of "altsyncram".  The port's range differs between the entity definition and its actual instantiation, "ground:inst21|floor_rom:floor_rom_inst|altsyncram:floor_rom_sync". File: C:/Users/qhua835/Downloads/305-team-21/code/floor_rom.vhd Line: 46
 Info (278001): Inferred 8 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Mod0" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 298
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Div1" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 297
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Div0" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 296
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst20|Mod0" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 236
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst20|Mod1" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 293
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Mod0" File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 164
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Div1" File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 163
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Div0" File: C:/Users/htho884/Documents/305-team-21/code/text_rom.vhd Line: 162
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Mod0" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 298
-Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Mod0" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 298
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Mod0" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 298
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Div1" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 297
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "bouncy_ball:inst14|Div0" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 296
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst20|Mod0" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 236
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "pipes:inst20|Mod1" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 293
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Mod0" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 492
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Div1" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 491
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "text_rom:inst23|Div0" File: C:/Users/qhua835/Downloads/305-team-21/code/text_rom.vhd Line: 490
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Mod0" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 298
+Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Mod0" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 298
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
-    Info (12023): Found entity 1: lpm_divide_u4m File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_u4m File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_u4m.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_1nh File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_1nh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
-    Info (12023): Found entity 1: alt_u_div_82f File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Div1" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 297
-Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Div1" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 297
+    Info (12023): Found entity 1: alt_u_div_82f File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_82f.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Div1" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 297
+Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Div1" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 297
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ebm.tdf
-    Info (12023): Found entity 1: lpm_divide_ebm File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_ebm File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_ebm.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_klh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_klh File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_klh File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_klh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_eve.tdf
-    Info (12023): Found entity 1: alt_u_div_eve File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Div0" File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 296
-Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Div0" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/bouncy_ball.vhd Line: 296
+    Info (12023): Found entity 1: alt_u_div_eve File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_eve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "bouncy_ball:inst14|lpm_divide:Div0" File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 296
+Info (12133): Instantiated megafunction "bouncy_ball:inst14|lpm_divide:Div0" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/bouncy_ball.vhd Line: 296
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hbm.tdf
-    Info (12023): Found entity 1: lpm_divide_hbm File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_hbm File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_hbm.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_nlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_nlh File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_nlh File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/sign_div_unsign_nlh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kve.tdf
-    Info (12023): Found entity 1: alt_u_div_kve File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "pipes:inst20|lpm_divide:Mod0" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 236
-Info (12133): Instantiated megafunction "pipes:inst20|lpm_divide:Mod0" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 236
+    Info (12023): Found entity 1: alt_u_div_kve File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/alt_u_div_kve.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "pipes:inst20|lpm_divide:Mod0" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 236
+Info (12133): Instantiated megafunction "pipes:inst20|lpm_divide:Mod0" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 236
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mio.tdf
-    Info (12023): Found entity 1: lpm_divide_mio File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_mio File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_divide_mio.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_scg.tdf
-    Info (12023): Found entity 1: abs_divider_scg File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf Line: 26
+    Info (12023): Found entity 1: abs_divider_scg File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/abs_divider_scg.tdf Line: 26
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_0p9.tdf
-    Info (12023): Found entity 1: lpm_abs_0p9 File: C:/Users/htho884/Documents/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "pipes:inst20|lpm_divide:Mod1" File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 293
-Info (12133): Instantiated megafunction "pipes:inst20|lpm_divide:Mod1" with the following parameter: File: C:/Users/htho884/Documents/305-team-21/code/pipes.vhd Line: 293
+    Info (12023): Found entity 1: lpm_abs_0p9 File: C:/Users/qhua835/Downloads/305-team-21/code/QuartusTutorialeg/db/lpm_abs_0p9.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "pipes:inst20|lpm_divide:Mod1" File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 293
+Info (12133): Instantiated megafunction "pipes:inst20|lpm_divide:Mod1" with the following parameter: File: C:/Users/qhua835/Downloads/305-team-21/code/pipes.vhd Line: 293
     Info (12134): Parameter "LPM_WIDTHN" = "10"
     Info (12134): Parameter "LPM_WIDTHD" = "10"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (13000): Registers with preset signals will power-up high File: C:/Users/htho884/Documents/305-team-21/code/mouse.vhd Line: 146
+Info (13000): Registers with preset signals will power-up high File: C:/Users/qhua835/Downloads/305-team-21/code/mouse.vhd Line: 146
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 46 registers lost all their fanouts during netlist optimizations.
@@ -2104,18 +2105,18 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 3 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance pll:inst6|pll_0002:pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Info (21057): Implemented 2467 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2681 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 36 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 2353 logic cells
+    Info (21061): Implemented 2567 logic cells
     Info (21064): Implemented 68 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 1 DSP elements
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 262 warnings
-    Info: Peak virtual memory: 4987 megabytes
-    Info: Processing ended: Mon May 27 16:15:46 2024
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 4993 megabytes
+    Info: Processing ended: Mon May 27 18:07:43 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:04
 
 
