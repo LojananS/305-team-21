@@ -9,7 +9,7 @@ ENTITY pipe_rom IS
     PORT
     (
         clk             :   IN STD_LOGIC;
-        address_out  :   IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+        address_out  :   IN STD_LOGIC_VECTOR(15 DOWNTO 0);
         data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
     );
 END pipe_rom;
@@ -35,7 +35,7 @@ ARCHITECTURE PIPE_SYN OF pipe_rom IS
     );
     PORT (
         clock0      : IN STD_LOGIC ;
-        address_a   : IN STD_LOGIC_VECTOR(14 DOWNTO 0);
+        address_a   : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
         q_a         : OUT STD_LOGIC_VECTOR (11 DOWNTO 0) -- Updated to 12 bits
     );
     END COMPONENT;
@@ -46,15 +46,15 @@ BEGIN
         address_aclr_a => "NONE",
         clock_enable_input_a => "BYPASS",
         clock_enable_output_a => "BYPASS",
-        init_file => "pipes.mif", -- Pipes MIF file with 12 bit color depth
+        init_file => "pipe.MIF", -- Pipe MIF file with 12 bit color depth
         intended_device_family => "Cyclone V",
         lpm_hint => "ENABLE_RUNTIME_MOD=NO",
         lpm_type => "altsyncram",
-        numwords_a => 30000, -- Depth of address
+        numwords_a => 54000, -- Depth of address
         operation_mode => "ROM",
         outdata_aclr_a => "NONE",
         outdata_reg_a => "UNREGISTERED",
-        widthad_a => 15, -- Since depth of address is 57600, we need 2^16
+        widthad_a => 16, -- Since depth of address is 54000, we need 2^16
         width_a => 12, -- 12-bit color
         width_byteena_a => 1
     )

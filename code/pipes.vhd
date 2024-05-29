@@ -39,7 +39,7 @@ ARCHITECTURE behavior OF pipes IS
     SIGNAL p3_x_pos_internal : signed(10 DOWNTO 0) := to_signed(640, 11);
     SIGNAL p3_gap_center_internal : signed(9 DOWNTO 0) := to_signed(100, 10);
 
-    SIGNAL pipe_x_size : signed(9 DOWNTO 0) := to_signed(30, 10);
+    SIGNAL pipe_x_size : signed(9 DOWNTO 0) := to_signed(60, 10);
     SIGNAL start_move : std_logic := '0';
 
     SIGNAL random_value : std_logic_vector(9 DOWNTO 0);
@@ -74,6 +74,9 @@ ARCHITECTURE behavior OF pipes IS
 	 
 	 SIGNAL heart32_color : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL heart32_address : STD_LOGIC_VECTOR(9 DOWNTO 0);
+	 
+	 SIGNAL pipe_data : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL pipe_address : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
     COMPONENT galois_lfsr
         PORT
@@ -83,6 +86,15 @@ ARCHITECTURE behavior OF pipes IS
             random_value : OUT std_logic_vector(9 DOWNTO 0)
         );
     END COMPONENT;
+	 
+	 COMPONENT pipe_rom IS
+		PORT
+		(
+        clk             :   IN STD_LOGIC;
+        address_out  :   IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        data_out        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+		);
+		END COMPONENT pipe_rom;
 	
 	COMPONENT heart32_rom IS
     PORT
@@ -91,7 +103,7 @@ ARCHITECTURE behavior OF pipes IS
         heart32_address  :   IN STD_LOGIC_VECTOR(9 DOWNTO 0);
         heart32_color        :   OUT STD_LOGIC_VECTOR(11 DOWNTO 0) -- Updated to 12 bits
     );
-END COMPONENT heart32_rom;
+	END COMPONENT heart32_rom;
     
     COMPONENT coin_rom
         PORT
@@ -110,6 +122,13 @@ BEGIN
             reset => '0',
             random_value => random_value
         );
+		  
+		PIPE_INST : pipe_rom
+		PORT MAP(
+			clk => clk,
+			address_out => pipe_address,
+			data_out => pipe_data
+			);
 		
 		HEART32_inst : heart32_rom
 		PORT MAP(
@@ -144,27 +163,47 @@ BEGIN
             END IF;
         END IF;
     END PROCESS;
-
-	p1_on <= '1' WHEN (p1_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
-                     to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
+					 
+	Pipe_Display : PROCESS (clk)
+    BEGIN
+        IF rising_edge(clk) THEN
+            IF (to_integer(unsigned(pixel_column)) >= to_integer(p1_x_pos_internal) AND 
                      to_integer(unsigned(pixel_column)) < to_integer(p1_x_pos_internal) + to_integer(pipe_x_size) AND
-                     (to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) - 50 OR 
-                      to_integer(unsigned(pixel_row)) > to_integer(p1_gap_center_internal) + 50))
-             ELSE '0';
-
-    p2_on <= '1' WHEN (p2_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
-                       to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos_internal) AND 
-                       to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos_internal) + to_integer(pipe_x_size) AND
-                       (to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) - 50 OR 
-                        to_integer(unsigned(pixel_row)) > to_integer(p2_gap_center_internal) + 50))
-                ELSE '0';
-
-    p3_on <= '1' WHEN (p3_x_pos_internal + pipe_x_size > to_signed(0, 11) AND
-                       to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos_internal) AND 
-                       to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos_internal) + to_integer(pipe_x_size) AND
-                       (to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) - 50 OR 
-                        to_integer(unsigned(pixel_row)) > to_integer(p3_gap_center_internal) + 50))
-                ELSE '0';
+							to_integer(unsigned(pixel_row)) >= to_integer(p1_gap_center_internal) - 450 AND 
+							to_integer(unsigned(pixel_row)) < to_integer(p1_gap_center_internal) + 450) THEN
+                p1_on <= '1';
+                pipe_address <= std_logic_vector(to_unsigned(
+                    (to_integer(unsigned(pixel_row)) - (to_integer(unsigned(p1_gap_center_internal)) - 450)) * 60 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(p1_x_pos_internal))), 16));
+            ELSE
+                p1_on <= '0';
+            END IF;
+				
+				IF (to_integer(unsigned(pixel_column)) >= to_integer(p2_x_pos_internal) AND 
+                     to_integer(unsigned(pixel_column)) < to_integer(p2_x_pos_internal) + to_integer(pipe_x_size) AND
+							to_integer(unsigned(pixel_row)) >= to_integer(p2_gap_center_internal) - 450 AND 
+							to_integer(unsigned(pixel_row)) < to_integer(p2_gap_center_internal) + 450) THEN
+                p2_on <= '1';
+                pipe_address <= std_logic_vector(to_unsigned(
+                    (to_integer(unsigned(pixel_row)) - (to_integer(unsigned(p2_gap_center_internal)) - 450)) * 60 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(p2_x_pos_internal))), 16));
+            ELSE
+                p2_on <= '0';
+            END IF;
+				
+				IF (to_integer(unsigned(pixel_column)) >= to_integer(p3_x_pos_internal) AND 
+                     to_integer(unsigned(pixel_column)) < to_integer(p3_x_pos_internal) + to_integer(pipe_x_size) AND
+							to_integer(unsigned(pixel_row)) >= to_integer(p3_gap_center_internal) - 450 AND 
+							to_integer(unsigned(pixel_row)) < to_integer(p3_gap_center_internal) + 450) THEN
+                p3_on <= '1';
+                pipe_address <= std_logic_vector(to_unsigned(
+                    (to_integer(unsigned(pixel_row)) - (to_integer(unsigned(p3_gap_center_internal)) - 450)) * 60 +
+                    (to_integer(unsigned(pixel_column)) - to_integer(unsigned(p3_x_pos_internal))), 16));
+            ELSE
+                p3_on <= '0';
+            END IF;
+        END IF;
+    END PROCESS Pipe_Display;
 	 
     Coin_Display : PROCESS (clk)
     BEGIN
@@ -206,8 +245,8 @@ BEGIN
             selected_color <= coin_color;
         ELSIF red_box_on = '1' AND heart32_color /= "000100010001" AND red_box_visible = '1' THEN
             selected_color <= heart32_color; -- Red color for red box
-        ELSIF p1_on = '1' OR p2_on = '1' OR p3_on = '1' THEN
-            selected_color <= pipe_color;
+        ELSIF (p1_on = '1' OR p2_on = '1' OR p3_on = '1') AND (pipe_data /= "000100010001") THEN
+            selected_color <= pipe_data;
         ELSE
             selected_color <= "000000000000";
         END IF;
