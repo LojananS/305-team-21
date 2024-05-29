@@ -16,9 +16,9 @@ BEGIN
 	process(pipe_on, ball_on, background_on, text_on, ground_on, RGB_pipe, RGB_ball, RGB_background, RGB_ground)
 begin
 	if text_on = '1' then
-		red <= "1111";
-		green <= "1111";
-		blue <= "1111";
+		red <= "1110";
+		green <= "1001";
+		blue <= "0011";
 	elsif ball_on = '1' then
 		red <= RGB_ball(11 downto 8);
 		green <= RGB_ball(7 downto 4);
