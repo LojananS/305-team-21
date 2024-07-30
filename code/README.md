@@ -20,4 +20,4 @@ Our project is to create a Flappy Bird type game which can be played using a PS/
 ![](https://techcrunch.com/wp-content/uploads/2014/02/flappy.gif?w=1390&crop=1)
 
 ## Game Demo:
-[![]](https://youtu.be/O5P2L2uhhE8)
+[![Demo on YouTube](https://youtu.be/O5P2L2uhhE8/0.jpg)](https://youtu.be/O5P2L2uhhE8)
